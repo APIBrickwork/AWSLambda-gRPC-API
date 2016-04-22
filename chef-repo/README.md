@@ -31,7 +31,7 @@ If using the ChefDK simply execute the following command:
 
 ## Initializing
 
-Use the script (knife_awsCredentials.sh) for the inital setup. 
+Use the script [Knife AWS Credentials Initialization Script](/chef-repo/initScripts/knife_awsCredentials.sh) for the inital setup. 
 It will automatically:
  * Create the folder .chef within the chef-repo directory
  * Create the Knife configuration file (knife.rb) and set the necessary values
