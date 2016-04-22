@@ -1,9 +1,7 @@
 Overview
 ========
 
-Every Chef installation needs a Chef Repository. This is the place where cookbooks, roles, config files and other artifacts for managing systems with Chef will live. We strongly recommend storing this repository in a version control system such as Git and treat it like source code.
-
-While we prefer Git, and make this repository available via GitHub, you are welcome to download a tar or zip archive and use your favorite version control system to manage the code.
+This is the dedicated repository storing every cookbook used in the Lab Course 'Cloud Architectures and Management' in SS2016 at the University of Stuttgart.
 
 Repository Directories
 ======================
@@ -22,7 +20,7 @@ The config file, `.chef/knife.rb` is a repository specific configuration file fo
 
 https://docs.chef.io/knife.html
 
-Next Steps
-==========
+Amazon WebServices with Chef
+============================
 
-Read the README file in each of the subdirectories for more information about what goes in those directories.
+
