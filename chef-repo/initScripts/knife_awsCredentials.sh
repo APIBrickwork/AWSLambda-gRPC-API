@@ -16,8 +16,8 @@ touch $credentialFilename
 
 # Write default credentials to file
 echo '[default]' > $credentialFilename
-echo 'aws_access_key_id = Admin-key-pair-frankfurt' >> $credentialFilename
-echo 'aws_secret_access_key = ./Admin-key-pair-frankfurt.pem' >> $credentialFilename
+echo 'aws_access_key_id = AKIAIJRM4MK36G27VPCQ' >> $credentialFilename
+echo 'aws_secret_access_key = Your Secret Access Key' >> $credentialFilename
 
 echo '--> Editing the knife.rb (Chef knife configuration file) to point to the previously created credentials file'
 cd ~
@@ -25,5 +25,9 @@ mkdir $ChefConfigDir
 cd $ChefConfigDir
 touch $knifeConfigFilename
 echo "knife[:aws_credential_file] = \"$HOME/$credentialsDir/$credentialFilename\"" > $knifeConfigFilename
+echo "knife[:ssh_key_name] = \"Admin-chefIO-knife\"" >> $knifeConfigFilename
+echo "knife[:region] = \"eu-central-1\"" >> $knifeConfigFilename
 
-echo 'INFO: You have to copy the Key >Admin-key-pair-frankfurt.pem< into the .aws directory'
+echo '###### User-TODO ######'
+echo 'INFO: You have to copy the Key >Admin-chefIO-knife< into the .aws directory'
+echo 'INFO: You have to edit your Secret Access Key in the credentials file.'
