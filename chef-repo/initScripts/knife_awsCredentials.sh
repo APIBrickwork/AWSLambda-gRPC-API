@@ -15,14 +15,15 @@ cd $credentialsDir
 touch $credentialFilename
 
 # Write default credentials to file
-echo '[default]' >> $credentialFilename
+echo '[default]' > $credentialFilename
 echo 'aws_access_key_id = Admin-key-pair-frankfurt' >> $credentialFilename
 echo 'aws_secret_access_key = ./Admin-key-pair-frankfurt.pem' >> $credentialFilename
 
 echo '--> Editing the knife.rb (Chef knife configuration file) to point to the previously created credentials file'
+cd ~
 mkdir $ChefConfigDir
 cd $ChefConfigDir
 touch $knifeConfigFilename
-echo "knife[:aws_credential_file] = \"$HOME/$credentialsDir/$credentialFilename\"" >> $knifeConfigFilename
+echo "knife[:aws_credential_file] = \"$HOME/$credentialsDir/$credentialFilename\"" > $knifeConfigFilename
 
 echo 'INFO: You have to copy the Key >Admin-key-pair-frankfurt.pem< into the .aws directory'
