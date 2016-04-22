@@ -29,4 +29,15 @@ If using the ChefDK simply execute the following command:
 
 `chef gem install knife-ec2`
 
+## Initializing
+
+Use the script (knife_awsCredentials.sh) for the inital setup. 
+It will automatically:
+ * Create the folder .chef within the chef-repo directory
+ * Create the Knife configuration file (knife.rb) and set the necessary values
+ * Create the folder .aws in your home directory
+ * Create the AWS credentials file and set the necessary values
+
+After this executing READ THE MANUAL TODOs IN YOUR TERMINAL.
+
 
