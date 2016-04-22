@@ -40,6 +40,11 @@ It will automatically:
 
 After this executing READ THE MANUAL TODOs IN YOUR TERMINAL.
 
+What you have to do manually:
+
+ * Edit the HOME/.aws/credentials file and fill in the "aws_secret_access_key" (see GoogleDrive)
+ * Copy the private key "Admin-chefIO-knife.pem" into the folder HOME/.aws/credentials
+
 ### Important Commands
 
 #### Creating a new EC2 instance
