@@ -21,7 +21,7 @@ https://docs.chef.io/knife.html
 
 This section describes specific setups to use Chef with the Amazon WebServices (AWS)
 
-# AWS EC2 Plugin
+## AWS EC2 Plugin
 
 The official Chef plugin to create, bootstrap and manage Amazon EC2 instances (see https://github.com/chef/knife-ec2 for further information).
 
