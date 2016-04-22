@@ -29,7 +29,7 @@ If using the ChefDK simply execute the following command:
 
 `chef gem install knife-ec2`
 
-## Initializing
+### Initializing
 
 Use the script [Knife AWS Credentials Initialization Script](/chef-repo/initScripts/knife_awsCredentials.sh) for the inital setup. 
 It will automatically:
@@ -40,4 +40,21 @@ It will automatically:
 
 After this executing READ THE MANUAL TODOs IN YOUR TERMINAL.
 
+### Important Commands
 
+#### Creating a new EC2 instance
+
+`knife ec2 server create -I <image-name>`
+
+Exemplary images:
+
+ * ami-e2df388d: Amazon Linux AMI
+ * ami-87564feb: Ubuntu Server 14.04 LTS
+
+#### Listing all EC2 instances
+
+`knife ec2 server list`
+
+#### Terminating (and destroying) an existing EC2 instance
+
+`knife ec2 server delete --purge <instance-id>`
