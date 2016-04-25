@@ -1,9 +1,9 @@
 package services;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
+import java.util.logging.Logger;
 
+import db.WebShopDB;
 import io.grpc.stub.StreamObserver;
 import services.WebShopGrpc.WebShop;
 import services.Webshop.Availability;
@@ -15,75 +15,120 @@ import services.Webshop.Payment;
 import services.Webshop.Product;
 import services.Webshop.ProductId;
 
-public class WebShopImpl implements WebShop {
+/**
+ * WebShop service implementation for gRPC.
+ * @author Tobias Freundorfer
+ *
+ */
+public class WebShopImpl implements WebShop
+{
+	/**
+	 * The logging instance.
+	 */
+	private static final Logger logger = Logger.getLogger(WebShopImpl.class.getName());
 
-	private List<Product> products = new ArrayList<Product>();
-	
-	public WebShopImpl(){
-		this.buildDemoDB();
+	/**
+	 * The demo database.
+	 */
+	private WebShopDB db = null;
+
+	/**
+	 * Creates a new instance of the WebShop Service Implementation.
+	 */
+	public WebShopImpl()
+	{
+		this.db = WebShopDB.getInstance();
 	}
-	
-	public void listProducts(ListProductsParams request, StreamObserver<Product> responseObserver) {
+
+	/**
+	 * Lists all products within the given limit (max replied products).
+	 */
+	public void listProducts(ListProductsParams request, StreamObserver<Product> responseObserver)
+	{
+		logger.info("### Received request for listProducts with limit " + request.getLimit() + ".");
 		// Return the amount of products requested
-		for(int i=0;i<request.getLimit();i++){
-			responseObserver.onNext(this.products.get(i));
+		int limit = -1;
+		if (request.getLimit() > this.db.getProducts().size())
+		{
+			limit = this.db.getProducts().size();
+		} else
+		{
+			limit = request.getLimit();
+		}
+
+		for (int i = 0; i < limit; i++)
+		{
+			logger.info("### Responding with product id = " + this.db.getProducts().get(i).getId() + " | name = "
+					+ this.db.getProducts().get(i).getName());
+			responseObserver.onNext(this.db.getProducts().get(i));
 		}
 		responseObserver.onCompleted();
+		logger.info("### Sent response.");
 	}
 
-	public void checkAvailability(ProductId request, StreamObserver<Availability> responseObserver) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void storeOrderDetails(Order request, StreamObserver<OrderId> responseObserver) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void getOrderDetails(OrderId request, StreamObserver<Order> responseObserver) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void cancelOrder(OrderId request, StreamObserver<Order> responseObserver) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void calcTransactionCosts(OrderId request, StreamObserver<Costs> responseObserver) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void conductPayment(Payment request, StreamObserver<Order> responseObserver) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void calcShipmentCosts(OrderId request, StreamObserver<Costs> responseObserver) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void shipProducts(OrderId request, StreamObserver<Order> responseObserver) {
-		// TODO Auto-generated method stub
-
-	}
-	
 	/**
-	 * Creates an initally filled demo 'database'. This is for the proof of concept only.
+	 * Checks if the given product (identified by its productId) is available.
 	 */
-	private void buildDemoDB()
+	public void checkAvailability(ProductId request, StreamObserver<Availability> responseObserver)
 	{
-		Product gum = Product.newBuilder().setId(UUID.randomUUID().toString()).setName("Chewing Gum")
-				.setCategory("Food").setProducer("Wrigleys").setWeight(0.01F).setPrice(0.5F).build();
-		Product tomato = Product.newBuilder().setId(UUID.randomUUID().toString()).setName("Tomato")
-				.setCategory("Food").setProducer("Spain").setWeight(0.05F).setPrice(0.9F).build();
-		
-		
-		this.products.add(gum);
-		this.products.add(tomato);
+		logger.info("### Received request for availability for product " + request.getId());
+		boolean productAvailable = false;
+		for (int i = 0; i < this.db.getProducts().size(); i++)
+		{
+			if (this.db.getProducts().get(i).getId().equals(request.getId()))
+			{
+				productAvailable = true;
+				break;
+			}
+		}
+		responseObserver.onNext(Availability.newBuilder().setAvailable(productAvailable).build());
+		responseObserver.onCompleted();
+		logger.info("### Sent response with availability " + productAvailable);
 	}
 
+	public void storeOrderDetails(Order request, StreamObserver<OrderId> responseObserver)
+	{
+		// TODO Auto-generated method stub
+		String id = UUID.randomUUID().toString();
+		Order newOrder = Order.newBuilder().setId(id).addAllProducts(request.getProductsList())
+				.setStatus(request.getStatus()).build();
+		this.db.getOrders().add(newOrder);
+
+	}
+
+	public void getOrderDetails(OrderId request, StreamObserver<Order> responseObserver)
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	public void cancelOrder(OrderId request, StreamObserver<Order> responseObserver)
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	public void calcTransactionCosts(OrderId request, StreamObserver<Costs> responseObserver)
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	public void conductPayment(Payment request, StreamObserver<Order> responseObserver)
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	public void calcShipmentCosts(OrderId request, StreamObserver<Costs> responseObserver)
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	public void shipProducts(OrderId request, StreamObserver<Order> responseObserver)
+	{
+		// TODO Auto-generated method stub
+
+	}
 }
