@@ -7,6 +7,7 @@ import java.util.UUID;
 import services.Webshop;
 import services.Webshop.Customer;
 import services.Webshop.Order;
+import services.Webshop.Order.Status;
 import services.Webshop.Product;
 import services.Webshop.ProductId;
 
@@ -81,9 +82,9 @@ public class WebShopDB {
 		ProductId tomatoId = ProductId.newBuilder().setId(tomato.getId()).build();
 		
 		Order o1 = Order.newBuilder().setId(UUID.randomUUID().toString()).setCustomer(c1).addProducts(gumId)
-				.setStatusValue(0).build(); // new order
+				.setStatus(Status.NEW).build();
 		Order o2 = Order.newBuilder().setId(UUID.randomUUID().toString()).setCustomer(c2).addProducts(gumId).addProducts(tomatoId)
-				.setStatusValue(1).build(); // payed order
+				.setStatus(Status.PAYED).build();
 		
 		this.orders.add(o1);
 		this.orders.add(o2);
