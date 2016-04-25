@@ -1,5 +1,7 @@
 package services;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
 
@@ -18,6 +20,7 @@ import services.Webshop.ProductId;
 
 /**
  * WebShop service implementation for gRPC.
+ * 
  * @author Tobias Freundorfer
  *
  */
@@ -47,7 +50,7 @@ public class WebShopImpl implements WebShop
 	public void listProducts(ListProductsParams request, StreamObserver<Product> responseObserver)
 	{
 		logger.info("### Received request for listProducts with limit " + request.getLimit() + ".");
-		
+
 		// The amount of products requested
 		int limit = -1;
 		if (request.getLimit() > this.db.getProducts().size())
@@ -65,7 +68,7 @@ public class WebShopImpl implements WebShop
 			responseObserver.onNext(this.db.getProducts().get(i));
 		}
 		responseObserver.onCompleted();
-		
+
 		logger.info("### Sent response.");
 	}
 
@@ -76,7 +79,7 @@ public class WebShopImpl implements WebShop
 	{
 		// TODO: untested
 		logger.info("### Received request for availability for product = " + request.getId());
-		
+
 		boolean productAvailable = false;
 		for (int i = 0; i < this.db.getProducts().size(); i++)
 		{
@@ -88,7 +91,7 @@ public class WebShopImpl implements WebShop
 		}
 		responseObserver.onNext(Availability.newBuilder().setAvailable(productAvailable).build());
 		responseObserver.onCompleted();
-		
+
 		logger.info("### Sent response with availability " + productAvailable);
 	}
 
@@ -104,11 +107,11 @@ public class WebShopImpl implements WebShop
 		Order newOrder = Order.newBuilder().setId(id).addAllProducts(request.getProductsList())
 				.setStatus(request.getStatus()).build();
 		this.db.getOrders().add(newOrder);
-		
+
 		OrderId oi = OrderId.newBuilder().setId(id).build();
 		responseObserver.onNext(oi);
 		responseObserver.onCompleted();
-		
+
 		logger.info("### Sent response for id = " + id + " | orders database size = " + this.db.getOrders().size());
 	}
 
@@ -120,23 +123,26 @@ public class WebShopImpl implements WebShop
 		// TODO: untested
 		logger.info("### Received request for getOrderDetails with orderId = " + request.getId());
 		Order requestedOrder = null;
-		
-		for(int i=0;i<this.db.getOrders().size();i++){
-			if(this.db.getOrders().get(i).getId().equals(request.getId())){
+
+		for (int i = 0; i < this.db.getOrders().size(); i++)
+		{
+			if (this.db.getOrders().get(i).getId().equals(request.getId()))
+			{
 				requestedOrder = this.db.getOrders().get(i);
 				break;
 			}
 		}
-		if(requestedOrder == null){
+		if (requestedOrder == null)
+		{
 			logger.warning("### Corresponding order for orderId = " + request.getId() + " could not be found.");
 			// TODO: Evaluate how to return nothing appropriate!
 			responseObserver.onNext(null);
-		}
-		else{
+		} else
+		{
 			responseObserver.onNext(requestedOrder);
 		}
 		responseObserver.onCompleted();
-		
+
 		logger.info("### Sent response.");
 	}
 
@@ -149,48 +155,159 @@ public class WebShopImpl implements WebShop
 		logger.info("### Received request for cancelOrder with orderId = " + request.getId());
 
 		Order requestedOrder = null;
-		for(int i=0;i<this.db.getOrders().size();i++){
-			if(this.db.getOrders().get(i).getId().equals(request.getId())){
+		for (int i = 0; i < this.db.getOrders().size(); i++)
+		{
+			if (this.db.getOrders().get(i).getId().equals(request.getId()))
+			{
 				String statusBefore = this.db.getOrders().get(i).getStatus().toString();
 				this.db.getOrders().get(i).toBuilder().setStatus(Status.CANCELED);
-				logger.info("### Set status from " + statusBefore + " to " + this.db.getOrders().get(i).getStatus().toString());
+				logger.info("### Set status from " + statusBefore + " to "
+						+ this.db.getOrders().get(i).getStatus().toString());
 				responseObserver.onNext(requestedOrder);
 				break;
 			}
 		}
-		
-		if(requestedOrder == null){
+
+		if (requestedOrder == null)
+		{
 			logger.warning("### Corresponding order for orderId = " + request.getId() + " could not be found.");
 			// TODO: Evaluate how to return nothing appropriate!
 			responseObserver.onNext(null);
 		}
 		responseObserver.onCompleted();
-		
-		logger.info("### Sent response.");
 
+		logger.info("### Sent response.");
 	}
 
+	/**
+	 * Calcualtes the transaction costs.
+	 */
 	public void calcTransactionCosts(OrderId request, StreamObserver<Costs> responseObserver)
 	{
-		// TODO Auto-generated method stub
+		// TODO untested
+		logger.info("### Received request for calcTransactionCosts with orderId = " + request.getId());
 
+		List<ProductId> productIds = new ArrayList<ProductId>();
+		float costs = 0.0F;
+
+		// Get products associated to the specific order
+		for (int i = 0; i < this.db.getOrders().size(); i++)
+		{
+			if (this.db.getOrders().get(i).getId().equals(request.getId()))
+			{
+				productIds = this.db.getOrders().get(i).getProductsList();
+				break;
+			}
+		}
+
+		for (int i = 0; i < this.db.getProducts().size(); i++)
+		{
+			for (int j = 0; j < productIds.size(); j++)
+			{
+				if (this.db.getProducts().get(i).getId().equals(productIds.get(j).getId()))
+				{
+					logger.info("### Added productId = " + this.db.getProducts().get(i).getId() + " | price = "
+							+ this.db.getProducts().get(i).getPrice());
+					costs += this.db.getProducts().get(i).getPrice();
+				}
+			}
+		}
+
+		responseObserver.onNext(Costs.newBuilder().setCosts(costs).build());
+		responseObserver.onCompleted();
+
+		logger.info("### Sent response with cost = " + costs);
 	}
 
+	/**
+	 * Conducts the payment for the given order.
+	 */
 	public void conductPayment(Payment request, StreamObserver<Order> responseObserver)
 	{
-		// TODO Auto-generated method stub
+		// TODO untested
+		logger.info("### Received request for conductPayment with orderId = " + request.getId());
 
+		List<ProductId> productIds = new ArrayList<ProductId>();
+		Order requestedOrder = null;
+		int requestedOrderIndex = -1;
+		float costs = 0.0F;
+
+		// Get products associated to the specific order
+		for (int i = 0; i < this.db.getOrders().size(); i++)
+		{
+			if (this.db.getOrders().get(i).getId().equals(request.getId()))
+			{
+				requestedOrder = this.db.getOrders().get(i);
+				requestedOrderIndex = i;
+				productIds = requestedOrder.getProductsList();
+				break;
+			}
+		}
+
+		for (int i = 0; i < this.db.getProducts().size(); i++)
+		{
+			for (int j = 0; j < productIds.size(); j++)
+			{
+				if (this.db.getProducts().get(i).getId().equals(productIds.get(j).getId()))
+				{
+					logger.info("### Added productId = " + this.db.getProducts().get(i).getId() + " | price = "
+							+ this.db.getProducts().get(i).getPrice());
+					costs += this.db.getProducts().get(i).getPrice();
+				}
+			}
+		}
+		// TODO: Catch if not found
+		if (costs == request.getAmount())
+		{
+			Order newOrder = Order.newBuilder(requestedOrder).setStatus(Status.PAYED).build();
+			this.db.getOrders().remove(requestedOrderIndex);
+			this.db.getOrders().add(newOrder);
+			responseObserver.onNext(newOrder);
+		} else
+		{
+			logger.warning("### Tried to pay costs = " + costs + " with payment = " + request.getAmount());
+		}
+		responseObserver.onCompleted();
+
+		logger.info("### Sent response.");
 	}
 
 	public void calcShipmentCosts(OrderId request, StreamObserver<Costs> responseObserver)
 	{
-		// TODO Auto-generated method stub
+		// TODO ?!??! How to calculate?
 
 	}
 
+	/**
+	 * Ships the products and updates the orders status.
+	 */
 	public void shipProducts(OrderId request, StreamObserver<Order> responseObserver)
 	{
-		// TODO Auto-generated method stub
+		// TODO untested
+		logger.info("### Received request for shipProducts with orderId = " + request.getId());
 
+		Order requestedOrder = null;
+		for (int i = 0; i < this.db.getOrders().size(); i++)
+		{
+			if (this.db.getOrders().get(i).getId().equals(request.getId()))
+			{
+				String statusBefore = this.db.getOrders().get(i).getStatus().toString();
+				this.db.getOrders().get(i).toBuilder().setStatus(Status.SHIPPED);
+				logger.info("### Set status from " + statusBefore + " to "
+						+ this.db.getOrders().get(i).getStatus().toString());
+				responseObserver.onNext(requestedOrder);
+				break;
+			}
+		}
+
+		if (requestedOrder == null)
+		{
+			logger.warning("### Corresponding order for orderId = " + request.getId() + " could not be found.");
+			// TODO: Evaluate how to return nothing appropriate!
+			responseObserver.onNext(null);
+		}
+		responseObserver.onCompleted();
+
+		logger.info("### Sent response.");
 	}
 }
