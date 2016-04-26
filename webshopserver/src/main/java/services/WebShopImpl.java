@@ -286,9 +286,10 @@ public class WebShopImpl implements WebShop
 			if (this.db.getOrders().get(i).getId().equals(request.getId()))
 			{
 				String statusBefore = this.db.getOrders().get(i).getStatus().toString();
-				this.db.getOrders().get(i).toBuilder().setStatus(Status.SHIPPED);
+				requestedOrder = this.db.getOrders().get(i).toBuilder().setStatus(Status.SHIPPED).build();
+				this.db.getOrders().set(i, requestedOrder);
 				logger.info("### Set status from " + statusBefore + " to "
-						+ this.db.getOrders().get(i).getStatus().toString());
+						+ requestedOrder.getStatus().toString());
 				responseObserver.onNext(requestedOrder);
 				break;
 			}
