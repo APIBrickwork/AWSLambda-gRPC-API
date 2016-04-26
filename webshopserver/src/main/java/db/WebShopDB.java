@@ -96,9 +96,7 @@ public class WebShopDB {
 		}
 		return result;
 	}
-	
-	// TODO: Get order by id
-	
+		
 	public List<Product> getProducts() {
 		return products;
 	}

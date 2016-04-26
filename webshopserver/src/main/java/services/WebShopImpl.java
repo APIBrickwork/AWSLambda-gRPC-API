@@ -2,7 +2,6 @@ package services;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 import java.util.logging.Logger;
 
 import db.WebShopDB;
@@ -279,7 +278,6 @@ public class WebShopImpl implements WebShop
 	 */
 	public void shipProducts(OrderId request, StreamObserver<Order> responseObserver)
 	{
-		// TODO untested
 		logger.info("### Received request for shipProducts with orderId = " + request.getId());
 
 		Order requestedOrder = null;
