@@ -1,4 +1,4 @@
-package webshopclient;
+package services;
 import static io.grpc.stub.ClientCalls.asyncUnaryCall;
 import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;

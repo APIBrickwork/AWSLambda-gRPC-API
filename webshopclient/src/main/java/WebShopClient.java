@@ -1,4 +1,4 @@
-package webshopclient;
+
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,16 +10,17 @@ import java.util.logging.Logger;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
-import webshopclient.Webshop.Availability;
-import webshopclient.Webshop.Costs;
-import webshopclient.Webshop.Customer;
-import webshopclient.Webshop.ListProductsParams;
-import webshopclient.Webshop.Order;
-import webshopclient.Webshop.Order.Status;
-import webshopclient.Webshop.OrderId;
-import webshopclient.Webshop.Payment;
-import webshopclient.Webshop.Product;
-import webshopclient.Webshop.ProductId;
+import services.WebShopGrpc;
+import services.Webshop.Availability;
+import services.Webshop.Costs;
+import services.Webshop.Customer;
+import services.Webshop.ListProductsParams;
+import services.Webshop.Order;
+import services.Webshop.OrderId;
+import services.Webshop.Payment;
+import services.Webshop.Product;
+import services.Webshop.ProductId;
+import services.Webshop.Order.Status;
 
 /**
  * The WebShopClient that is able to request information from the WebShopServer.
@@ -249,6 +250,64 @@ public class WebShopClient
 	}
 
 	/**
+	 * Sends the calcShipmentCosts request for the given orderId. Shipment costs
+	 * are the total weight of all products within an order.
+	 * 
+	 * @param id
+	 *            The orderId of the order to calculate.
+	 */
+	public void sendCalcShipmentCostsRequest(OrderId id)
+	{
+		logger.info("### Sending request for calcShipmentCosts with orderId =" + id.getId() + ".");
+		Costs weight = null;
+		try
+		{
+			weight = this.blockingStub.calcShipmentCosts(id);
+		} catch (StatusRuntimeException e)
+		{
+			logger.warning("### RPC failed: {0}" + e.getStatus());
+			return;
+		}
+		logger.info("### Received response.");
+		if (weight.getCosts() == 0.0)
+		{
+			logger.warning("### Returned costs were 0. Is the orderId valid?");
+		} else
+		{
+			System.out.println("Weight: \n " + weight.getCosts() + " KG");
+		}
+	}
+
+	/**
+	 * Sends the shipProducts request for the given orderId.
+	 * 
+	 * @param id
+	 *            The orderId of the order that should be shipped.
+	 */
+	public void sendShipProductsRequest(OrderId id)
+	{
+		logger.info("### Sending request for sendShipProducts with orderId =" + id.getId() + ".");
+		Order order = null;
+		try
+		{
+			order = this.blockingStub.shipProducts(id);
+		} catch (StatusRuntimeException e)
+		{
+			logger.warning("### RPC failed: {0}" + e.getStatus());
+			return;
+		}
+		logger.info("### Received response.");
+		if (!order.getId().isEmpty())
+		{
+			System.out.println("Order:\n " + order.toString());
+		} else
+		{
+			logger.warning("### Server returned empty Order.");
+			System.out.println("Order could not be found.");
+		}
+	}
+
+	/**
 	 * Initiates the shutdown sequence.
 	 * 
 	 * @throws InterruptedException
@@ -425,7 +484,6 @@ public class WebShopClient
 					float amount = 0.0F;
 					try
 					{
-
 						amount = Float.parseFloat(arr[2]);
 					} catch (NumberFormatException ex)
 					{
@@ -434,6 +492,26 @@ public class WebShopClient
 					Payment payment = Payment.newBuilder().setId(OrderId.newBuilder().setId(arr[1])).setAmount(amount)
 							.build();
 					client.sendConductPaymentRequest(payment);
+				}
+			} else if (command.startsWith("calcShipmentCosts"))
+			{
+				String[] arr = command.split(" ");
+				if (arr.length != 2)
+				{
+					logger.warning("### Wrong syntax.");
+				} else
+				{
+					client.sendCalcShipmentCostsRequest(OrderId.newBuilder().setId(arr[1]).build());
+				}
+			}
+			else if(command.startsWith("shipProducts")){
+				String[] arr = command.split(" ");
+				if (arr.length != 2)
+				{
+					logger.warning("### Wrong syntax.");
+				} else
+				{
+					client.sendShipProductsRequest(OrderId.newBuilder().setId(arr[1]).build());
 				}
 			}
 		}
@@ -451,8 +529,12 @@ public class WebShopClient
 		System.out.println("storeOrder \n\t Interactively creates a new Order and stores it.");
 		System.out.println("getOrder <OrderId> \n\t Returns an order for the given orderId.");
 		System.out.println("cancelOrder <OrderId> \n\t Cancels an Order for the given orderId.");
-		System.out.println("calcTransactionCosts <OrderId> \n\t Calculates the transaction costs for the given orderId.");
-		System.out.println("conductPayment <OrderId> <Amount> \n\t Conducts the paymont for the given orderId and amount.");
+		System.out
+				.println("calcTransactionCosts <OrderId> \n\t Calculates the transaction costs for the given orderId.");
+		System.out.println(
+				"conductPayment <OrderId> <Amount> \n\t Conducts the paymont for the given orderId and amount.");
+		System.out.println("calcShipmentCosts <OrderId> \n\t Calculates the shipment costs for the given orderId.");
+		System.out.println("shipProducts <OrderId> \n\t Ships all products for the given orderId.");
 		System.out.println("shutdown \n\t Terminates this client and closes all connections.");
 	}
 

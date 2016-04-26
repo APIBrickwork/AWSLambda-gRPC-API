@@ -48,7 +48,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>WebshopServer</mainClass>
+							<mainClass>WebShopClient</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
@@ -58,7 +58,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>WebshopServer</mainClass>
+							<mainClass>WebShopClient</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
