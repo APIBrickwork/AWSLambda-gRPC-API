@@ -8,6 +8,7 @@ import services.Webshop;
 import services.Webshop.Customer;
 import services.Webshop.Order;
 import services.Webshop.Order.Status;
+import services.Webshop.OrderId;
 import services.Webshop.Product;
 import services.Webshop.ProductId;
 
@@ -63,7 +64,41 @@ public class WebShopDB {
 		this.products.add(gum);
 		this.products.add(tomato);
 	}
-
+	
+	/**
+	 * Returns all products associated with the given orderId.
+	 * @param id The orderId of the order.
+	 * @return A list containing all products of the given order.
+	 */
+	public List<Product> getProductsOfOrder(OrderId id){
+		// Get the ids of all products associated with the given orderId
+		List<ProductId> productIds = new ArrayList<ProductId>();
+		List<Product> result = new ArrayList<Product>();
+		
+		for (int i = 0; i < this.orders.size(); i++)
+		{
+			if (this.orders.get(i).getId().equals(id.getId()))
+			{
+				productIds = this.orders.get(i).getProductsList();
+				break;
+			}
+		}
+		// Get the products by id
+		for (int i = 0; i < this.products.size(); i++)
+		{
+			for (int j = 0; j < productIds.size(); j++)
+			{
+				if (this.products.get(i).getId().equals(productIds.get(j).getId()))
+				{
+					result.add(this.products.get(i));
+				}
+			}
+		}
+		return result;
+	}
+	
+	// TODO: Get order by id
+	
 	public List<Product> getProducts() {
 		return products;
 	}

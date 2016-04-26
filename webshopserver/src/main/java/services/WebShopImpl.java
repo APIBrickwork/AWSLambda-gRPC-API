@@ -107,7 +107,8 @@ public class WebShopImpl implements WebShop
 		responseObserver.onNext(oi);
 		responseObserver.onCompleted();
 
-		logger.info("### Sent response for id = " + request.getId() + " | orders database size = " + this.db.getOrders().size());
+		logger.info("### Sent response for id = " + request.getId() + " | orders database size = "
+				+ this.db.getOrders().size());
 	}
 
 	/**
@@ -157,7 +158,7 @@ public class WebShopImpl implements WebShop
 				logger.info("### Set status from " + statusBefore + " to "
 						+ this.db.getOrders().get(i).getStatus().toString());
 				this.db.getOrders().set(i, newOrder);
-				
+
 				responseObserver.onNext(newOrder);
 				break;
 			}
@@ -180,30 +181,13 @@ public class WebShopImpl implements WebShop
 	{
 		logger.info("### Received request for calcTransactionCosts with orderId = " + request.getId());
 
-		List<ProductId> productIds = new ArrayList<ProductId>();
 		float costs = 0.0F;
-
-		// Get products associated to the specific order
-		for (int i = 0; i < this.db.getOrders().size(); i++)
+		List<Product> prod = this.db.getProductsOfOrder(request);
+		for (Product p : prod)
 		{
-			if (this.db.getOrders().get(i).getId().equals(request.getId()))
-			{
-				productIds = this.db.getOrders().get(i).getProductsList();
-				break;
-			}
-		}
+			logger.info("### Added productId = " + p.getId() + " | price = " + p.getPrice());
+			costs += p.getPrice();
 
-		for (int i = 0; i < this.db.getProducts().size(); i++)
-		{
-			for (int j = 0; j < productIds.size(); j++)
-			{
-				if (this.db.getProducts().get(i).getId().equals(productIds.get(j).getId()))
-				{
-					logger.info("### Added productId = " + this.db.getProducts().get(i).getId() + " | price = "
-							+ this.db.getProducts().get(i).getPrice());
-					costs += this.db.getProducts().get(i).getPrice();
-				}
-			}
 		}
 
 		responseObserver.onNext(Costs.newBuilder().setCosts(costs).build());
@@ -217,14 +201,13 @@ public class WebShopImpl implements WebShop
 	 */
 	public void conductPayment(Payment request, StreamObserver<Order> responseObserver)
 	{
-		// TODO untested
 		logger.info("### Received request for conductPayment with orderId = " + request.getId());
 
 		List<ProductId> productIds = new ArrayList<ProductId>();
 		Order requestedOrder = null;
 		int requestedOrderIndex = -1;
 		float costs = 0.0F;
-		
+
 		logger.info("### Searching in database containing " + this.db.getOrders().size() + " orders.");
 		// Get products associated to the specific order
 		for (int i = 0; i < this.db.getOrders().size(); i++)
@@ -239,7 +222,7 @@ public class WebShopImpl implements WebShop
 			}
 		}
 		logger.info("### Order contains " + productIds.size() + " products.");
-		
+
 		for (int i = 0; i < this.db.getProducts().size(); i++)
 		{
 			for (int j = 0; j < productIds.size(); j++)
@@ -252,7 +235,7 @@ public class WebShopImpl implements WebShop
 				}
 			}
 		}
-		
+
 		if (costs == request.getAmount())
 		{
 			Order newOrder = Order.newBuilder(requestedOrder).setStatus(Status.PAYED).build();
@@ -269,10 +252,26 @@ public class WebShopImpl implements WebShop
 		logger.info("### Sent response.");
 	}
 
+	/**
+	 * Calculates the shipment costs, which is the sum of all product weights.
+	 */
 	public void calcShipmentCosts(OrderId request, StreamObserver<Costs> responseObserver)
 	{
-		// TODO ?!??! How to calculate?
+		logger.info("### Received request for calcShipmentCosts with orderId = " + request.getId());
+		
+		float weight = 0.0F;
+		List<Product> prod = this.db.getProductsOfOrder(request);
+		for (Product p : prod)
+		{
+			logger.info("### Added productId = " + p.getId() + " | weight = " + p.getWeight());
+			weight += p.getWeight();
 
+		}
+
+		responseObserver.onNext(Costs.newBuilder().setCosts(weight).build());
+		responseObserver.onCompleted();
+
+		logger.info("### Sent response with weight = " + weight);
 	}
 
 	/**
