@@ -30,11 +30,6 @@ public class WebShopDB {
 	private List<Product> products = new ArrayList<Product>();
 
 	/**
-	 * List containing all customers.
-	 */
-	private List<Customer> customers = new ArrayList<Customer>();
-
-	/**
 	 * This containing all orders.
 	 */
 	private List<Order> orders = new ArrayList<Order>();
@@ -74,9 +69,6 @@ public class WebShopDB {
 		Customer c2 = Customer.newBuilder().setId(UUID.randomUUID().toString()).setFirstname("Cecile")
 				.setLastname("Customer").setPaymentDetails("MasterCard").setShippingAddress("Somewhere else 3").build();
 
-		this.customers.add(c1);
-		this.customers.add(c2);
-
 		// demo orders
 		ProductId gumId = ProductId.newBuilder().setId(gum.getId()).build();
 		ProductId tomatoId = ProductId.newBuilder().setId(tomato.getId()).build();
@@ -96,14 +88,6 @@ public class WebShopDB {
 
 	public void setProducts(List<Product> products) {
 		this.products = products;
-	}
-
-	public List<Customer> getCustomers() {
-		return customers;
-	}
-
-	public void setCustomers(List<Customer> customers) {
-		this.customers = customers;
 	}
 
 	public List<Order> getOrders() {
