@@ -77,7 +77,6 @@ public class WebShopImpl implements WebShop
 	 */
 	public void checkAvailability(ProductId request, StreamObserver<Availability> responseObserver)
 	{
-		// TODO: untested
 		logger.info("### Received request for availability for product = " + request.getId());
 
 		boolean productAvailable = false;
@@ -100,19 +99,15 @@ public class WebShopImpl implements WebShop
 	 */
 	public void storeOrderDetails(Order request, StreamObserver<OrderId> responseObserver)
 	{
-		// TODO: untested
 		logger.info("### Received request for storeOrderDetails.");
 
-		String id = UUID.randomUUID().toString();
-		Order newOrder = Order.newBuilder().setId(id).addAllProducts(request.getProductsList())
-				.setStatus(request.getStatus()).build();
-		this.db.getOrders().add(newOrder);
+		this.db.getOrders().add(request);
 
-		OrderId oi = OrderId.newBuilder().setId(id).build();
+		OrderId oi = OrderId.newBuilder().setId(request.getId()).build();
 		responseObserver.onNext(oi);
 		responseObserver.onCompleted();
 
-		logger.info("### Sent response for id = " + id + " | orders database size = " + this.db.getOrders().size());
+		logger.info("### Sent response for id = " + request.getId() + " | orders database size = " + this.db.getOrders().size());
 	}
 
 	/**
@@ -120,7 +115,6 @@ public class WebShopImpl implements WebShop
 	 */
 	public void getOrderDetails(OrderId request, StreamObserver<Order> responseObserver)
 	{
-		// TODO: untested
 		logger.info("### Received request for getOrderDetails with orderId = " + request.getId());
 		Order requestedOrder = null;
 
@@ -135,7 +129,6 @@ public class WebShopImpl implements WebShop
 		if (requestedOrder == null)
 		{
 			logger.warning("### Corresponding order for orderId = " + request.getId() + " could not be found.");
-			// TODO: Evaluate how to return nothing appropriate!
 			responseObserver.onNext(null);
 		} else
 		{
@@ -151,7 +144,6 @@ public class WebShopImpl implements WebShop
 	 */
 	public void cancelOrder(OrderId request, StreamObserver<Order> responseObserver)
 	{
-		// TODO untested
 		logger.info("### Received request for cancelOrder with orderId = " + request.getId());
 
 		Order requestedOrder = null;
@@ -159,11 +151,14 @@ public class WebShopImpl implements WebShop
 		{
 			if (this.db.getOrders().get(i).getId().equals(request.getId()))
 			{
-				String statusBefore = this.db.getOrders().get(i).getStatus().toString();
-				this.db.getOrders().get(i).toBuilder().setStatus(Status.CANCELED);
+				requestedOrder = this.db.getOrders().get(i);
+				String statusBefore = requestedOrder.getStatus().toString();
+				Order newOrder = requestedOrder.toBuilder().setStatus(Status.CANCELED).build();
 				logger.info("### Set status from " + statusBefore + " to "
 						+ this.db.getOrders().get(i).getStatus().toString());
-				responseObserver.onNext(requestedOrder);
+				this.db.getOrders().set(i, newOrder);
+				
+				responseObserver.onNext(newOrder);
 				break;
 			}
 		}
@@ -171,7 +166,6 @@ public class WebShopImpl implements WebShop
 		if (requestedOrder == null)
 		{
 			logger.warning("### Corresponding order for orderId = " + request.getId() + " could not be found.");
-			// TODO: Evaluate how to return nothing appropriate!
 			responseObserver.onNext(null);
 		}
 		responseObserver.onCompleted();
@@ -184,7 +178,6 @@ public class WebShopImpl implements WebShop
 	 */
 	public void calcTransactionCosts(OrderId request, StreamObserver<Costs> responseObserver)
 	{
-		// TODO untested
 		logger.info("### Received request for calcTransactionCosts with orderId = " + request.getId());
 
 		List<ProductId> productIds = new ArrayList<ProductId>();
@@ -231,19 +224,22 @@ public class WebShopImpl implements WebShop
 		Order requestedOrder = null;
 		int requestedOrderIndex = -1;
 		float costs = 0.0F;
-
+		
+		logger.info("### Searching in database containing " + this.db.getOrders().size() + " orders.");
 		// Get products associated to the specific order
 		for (int i = 0; i < this.db.getOrders().size(); i++)
 		{
-			if (this.db.getOrders().get(i).getId().equals(request.getId()))
+			if (this.db.getOrders().get(i).getId().equals(request.getId().getId()))
 			{
+				logger.info("### Found requested order.");
 				requestedOrder = this.db.getOrders().get(i);
 				requestedOrderIndex = i;
 				productIds = requestedOrder.getProductsList();
 				break;
 			}
 		}
-
+		logger.info("### Order contains " + productIds.size() + " products.");
+		
 		for (int i = 0; i < this.db.getProducts().size(); i++)
 		{
 			for (int j = 0; j < productIds.size(); j++)
@@ -256,7 +252,7 @@ public class WebShopImpl implements WebShop
 				}
 			}
 		}
-		// TODO: Catch if not found
+		
 		if (costs == request.getAmount())
 		{
 			Order newOrder = Order.newBuilder(requestedOrder).setStatus(Status.PAYED).build();
@@ -266,6 +262,7 @@ public class WebShopImpl implements WebShop
 		} else
 		{
 			logger.warning("### Tried to pay costs = " + costs + " with payment = " + request.getAmount());
+			responseObserver.onNext(null);
 		}
 		responseObserver.onCompleted();
 
@@ -303,7 +300,6 @@ public class WebShopImpl implements WebShop
 		if (requestedOrder == null)
 		{
 			logger.warning("### Corresponding order for orderId = " + request.getId() + " could not be found.");
-			// TODO: Evaluate how to return nothing appropriate!
 			responseObserver.onNext(null);
 		}
 		responseObserver.onCompleted();

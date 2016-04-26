@@ -62,24 +62,6 @@ public class WebShopDB {
 
 		this.products.add(gum);
 		this.products.add(tomato);
-
-		// demo customers
-		Customer c1 = Customer.newBuilder().setId(UUID.randomUUID().toString()).setFirstname("Carl")
-				.setLastname("Customer").setPaymentDetails("VISA").setShippingAddress("Middle of nowhere 2").build();
-		Customer c2 = Customer.newBuilder().setId(UUID.randomUUID().toString()).setFirstname("Cecile")
-				.setLastname("Customer").setPaymentDetails("MasterCard").setShippingAddress("Somewhere else 3").build();
-
-		// demo orders
-		ProductId gumId = ProductId.newBuilder().setId(gum.getId()).build();
-		ProductId tomatoId = ProductId.newBuilder().setId(tomato.getId()).build();
-		
-		Order o1 = Order.newBuilder().setId(UUID.randomUUID().toString()).setCustomer(c1).addProducts(gumId)
-				.setStatus(Status.NEW).build();
-		Order o2 = Order.newBuilder().setId(UUID.randomUUID().toString()).setCustomer(c2).addProducts(gumId).addProducts(tomatoId)
-				.setStatus(Status.PAYED).build();
-		
-		this.orders.add(o1);
-		this.orders.add(o2);
 	}
 
 	public List<Product> getProducts() {
