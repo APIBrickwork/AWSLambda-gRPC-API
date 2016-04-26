@@ -1,5 +1,8 @@
 
 
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -55,6 +58,12 @@ public class WebShopClient
 	{
 		this.channel = ManagedChannelBuilder.forAddress(host, port).usePlaintext(true).build();
 		this.blockingStub = WebShopGrpc.newBlockingStub(this.channel);
+		
+		// Check if connection was successful
+		if(!this.pingHost(host, port, 1000)){
+			logger.warning("Could not establish a connection to host " + host + ":" + port);
+			System.exit(0);
+		}
 	}
 
 	/**
@@ -75,8 +84,7 @@ public class WebShopClient
 			logger.warning("### RPC failed: {0}" + e.getStatus());
 			return;
 		}
-		// TODO: Catch ClosedChannelException (when server is not
-		// running/responding)
+
 		logger.info("### Received response");
 		System.out.println("### Products ###");
 		while (it.hasNext())
@@ -545,5 +553,21 @@ public class WebShopClient
 	{
 		System.out.println("Usage: \n <appname> command argument");
 		System.out.println("-h \t The host address to connect to. \n -p \t The port to connect to.");
+	}
+	
+	/**
+	 * Pings the given host and returns whether it has responded.
+	 * @param host The host to ping to.
+	 * @param port The port to ping to.
+	 * @param timeout The timeout in ms.
+	 * @return
+	 */
+	private boolean pingHost(String host, int port, int timeout) {
+	    try (Socket socket = new Socket()) {
+	        socket.connect(new InetSocketAddress(host, port), timeout);
+	        return true;
+	    } catch (IOException e) {
+	        return false;
+	    }
 	}
 }
