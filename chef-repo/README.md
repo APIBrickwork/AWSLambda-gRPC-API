@@ -51,6 +51,8 @@ What you have to do manually:
 
 `knife ec2 server create -I <image-name> `
 
+`knife ec2 server -VV create --image ami-87564feb --flavor t2.small --security-group-ids sg-badf38d2 --ssh-user ubuntu --ssh-port 22 --identity-file "$HOME/.aws/Admin-chefIO-knife.pem"`
+
 Exemplary images:
 
  * ami-e2df388d: Amazon Linux AMI
