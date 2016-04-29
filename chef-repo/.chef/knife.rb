@@ -1,6 +1,5 @@
-# This is the knife configuration file used by Tobias Freundorfer
-# Do NOT push this file into the git-repository (would make credentials accessible to others)
-# author: Tobias Freundorfer
-
-# Set AWS user credentials for knife
+knife[:aws_credential_file] = "/home/tobi/.aws/credentials"
+knife[:ssh_key_name] = "Admin-chefIO-knife"
+knife[:region] = "eu-central-1"
+knife[:local_mode] = true
 

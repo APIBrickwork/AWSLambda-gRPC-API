@@ -27,7 +27,8 @@ touch $knifeConfigFilename
 echo "knife[:aws_credential_file] = \"$HOME/$credentialsDir/$credentialFilename\"" > $knifeConfigFilename
 echo "knife[:ssh_key_name] = \"Admin-chefIO-knife\"" >> $knifeConfigFilename
 echo "knife[:region] = \"eu-central-1\"" >> $knifeConfigFilename
+echo "knife[:local_mode] = true" >> $knifeConfigFilename
 
 echo '###### User-TODO ######'
-echo 'INFO: You have to copy the Key >Admin-chefIO-knife< into the .aws directory'
-echo 'INFO: You have to edit your Secret Access Key in the credentials file.'
+echo 'INFO: You have to copy the Key >Admin-chefIO-knife.pem< into the $HOME/.ssh directory'
+echo 'INFO: You have to edit your Secret Access Key in the credentials file at $HOME/.aws.'
