@@ -43,13 +43,13 @@ After this executing READ THE MANUAL TODOs IN YOUR TERMINAL.
 What you have to do manually:
 
  * Edit the HOME/.aws/credentials file and fill in the "aws_secret_access_key" (see GoogleDrive)
- * Copy the private key "Admin-chefIO-knife.pem" into the folder HOME/.aws/credentials
+ * Copy the private key "Admin-chefIO-knife.pem" into the folder $HOME/.ssh/
 
 ### Important Commands
 
 #### Creating a new EC2 instance
 
-`knife ec2 server create -I <image-name>`
+`knife ec2 server create -I <image-name> `
 
 Exemplary images:
 
