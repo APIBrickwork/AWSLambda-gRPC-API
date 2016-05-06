@@ -41,7 +41,9 @@ Replace 'user' with your local OS username!
 
 `sudp chown -R user.user /etc/chef`
 
-Use the script [Knife AWS Credentials Initialization Script](/chef-repo/initScripts/chefProvisioningSetup.sh) for the semi-automatic configuration.
+## Configuration
+
+Use the script [chefProvisioningSetup.sh Script](/chef-repo/initScripts/chefProvisioningSetup.sh) for the semi-automatic configuration.
 
 # Amazon WebServices with Chef (DOES NOT WORK WITH LOCAL-MODE) DEPRECATED
 
