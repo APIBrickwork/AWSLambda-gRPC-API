@@ -17,7 +17,33 @@ The config file, `.chef/knife.rb` is a repository specific configuration file fo
 
 https://docs.chef.io/knife.html
 
-# Amazon WebServices with Chef
+# AWS with Chef Provisioning
+
+This section describes the setup and usage of Chef Provisioning with AWS
+
+## Prerequisites
+
+Install all necessary packages for ruby gem installation
+
+`sudo apt-get install ruby-dev zlib1g-dev`
+
+## Setup
+
+Install the gem's for chef-provisioning (and aws)
+
+`sudo gem install chef-provisioning chef-provisioning-aws`
+
+If not already done, create chef folder and fix permissions 
+
+`sudo mkdir -p /etc/chef`
+
+Replace 'user' with your local OS username!
+
+`sudp chown -R user.user /etc/chef`
+
+Use the script [Knife AWS Credentials Initialization Script](/chef-repo/initScripts/chefProvisioningSetup.sh) for the semi-automatic configuration.
+
+# Amazon WebServices with Chef (DOES NOT WORK WITH LOCAL-MODE) DEPRECATED
 
 This section describes specific setups to use Chef with the Amazon WebServices (AWS)
 
