@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.labcourse.ss16</groupId>
 	<artifactId>webshopserver</artifactId>
-	<version>1.0</version>
+	<version>1.1</version>
 	<name>WebShopServer</name>
 	<description>This is the WebShop-Server for the LabCourse 2016.</description>
 	<dependencies>
