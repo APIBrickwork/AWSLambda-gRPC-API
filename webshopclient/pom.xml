@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.labcourse.ss16</groupId>
   <artifactId>webshopclient</artifactId>
-  <version>1.0</version>
+  <version>1.1</version>
   <name>WebShopClient</name>
   <description>The client for the webshop</description>
   <dependencies>
