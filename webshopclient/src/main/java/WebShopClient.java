@@ -1,5 +1,4 @@
 
-
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -58,9 +57,10 @@ public class WebShopClient
 	{
 		this.channel = ManagedChannelBuilder.forAddress(host, port).usePlaintext(true).build();
 		this.blockingStub = WebShopGrpc.newBlockingStub(this.channel);
-		
+
 		// Check if connection was successful
-		if(!this.pingHost(host, port, 1000)){
+		if (!this.pingHost(host, port, 1000))
+		{
 			logger.warning("Could not establish a connection to host " + host + ":" + port);
 			System.exit(0);
 		}
@@ -69,15 +69,14 @@ public class WebShopClient
 	/**
 	 * Sends the listProduct request to the WebShopServer.
 	 */
-	public void sendListProductsRequest()
+	public void sendListProductsRequest(ListProductsParams params)
 	{
 		logger.info("### Sending request for listProducts.");
-		ListProductsParams req = ListProductsParams.newBuilder().setLimit(10).build();
 		Iterator<Product> it;
 
 		try
 		{
-			it = this.blockingStub.listProducts(req);
+			it = this.blockingStub.listProducts(params);
 
 		} catch (StatusRuntimeException e)
 		{
@@ -384,9 +383,26 @@ public class WebShopClient
 			System.out.println("\n Enter command: \n");
 			String command = scanner.nextLine();
 
-			if (command.equals("listProducts"))
+			if (command.startsWith("listProducts"))
 			{
-				client.sendListProductsRequest();
+				String[] arr = command.split(" ");
+				if (arr.length != 2)
+				{
+					logger.warning("### Wrong syntax.");
+				} else
+				{
+					int limit = -1;
+					try
+					{
+						limit = Integer.parseInt(arr[1]);
+
+					} catch (NumberFormatException e)
+					{
+						logger.warning("### Parsing was not possible. Please enter a number.");
+						break;
+					}
+					client.sendListProductsRequest(ListProductsParams.newBuilder().setLimit(limit).build());
+				}
 			} else if (command.equals("shutdown"))
 			{
 				try
@@ -511,8 +527,8 @@ public class WebShopClient
 				{
 					client.sendCalcShipmentCostsRequest(OrderId.newBuilder().setId(arr[1]).build());
 				}
-			}
-			else if(command.startsWith("shipProducts")){
+			} else if (command.startsWith("shipProducts"))
+			{
 				String[] arr = command.split(" ");
 				if (arr.length != 2)
 				{
@@ -532,7 +548,7 @@ public class WebShopClient
 	private static void showUserCommandPrompt()
 	{
 		System.out.println("Available Commands: \n");
-		System.out.println("listProducts \n\t Lists all the products registered in the servers database.");
+		System.out.println("listProducts <Limit> \n\t Lists the products registered in the servers database up to the specified limit.");
 		System.out.println("checkAvailability <ProductId> \n\t Checks the availability for the given productId");
 		System.out.println("storeOrder \n\t Interactively creates a new Order and stores it.");
 		System.out.println("getOrder <OrderId> \n\t Returns an order for the given orderId.");
@@ -554,20 +570,27 @@ public class WebShopClient
 		System.out.println("Usage: \n <appname> command argument");
 		System.out.println("-h \t The host address to connect to. \n -p \t The port to connect to.");
 	}
-	
+
 	/**
 	 * Pings the given host and returns whether it has responded.
-	 * @param host The host to ping to.
-	 * @param port The port to ping to.
-	 * @param timeout The timeout in ms.
+	 * 
+	 * @param host
+	 *            The host to ping to.
+	 * @param port
+	 *            The port to ping to.
+	 * @param timeout
+	 *            The timeout in ms.
 	 * @return
 	 */
-	private boolean pingHost(String host, int port, int timeout) {
-	    try (Socket socket = new Socket()) {
-	        socket.connect(new InetSocketAddress(host, port), timeout);
-	        return true;
-	    } catch (IOException e) {
-	        return false;
-	    }
+	private boolean pingHost(String host, int port, int timeout)
+	{
+		try (Socket socket = new Socket())
+		{
+			socket.connect(new InetSocketAddress(host, port), timeout);
+			return true;
+		} catch (IOException e)
+		{
+			return false;
+		}
 	}
 }
