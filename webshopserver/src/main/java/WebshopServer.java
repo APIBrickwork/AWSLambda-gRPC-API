@@ -21,7 +21,7 @@ public class WebshopServer
 	/**
 	 * The port on which the server should run.
 	 */
-	private int port = 50505;
+	private int port = -1;
 
 	/**
 	 * The gRPC server.
@@ -31,10 +31,13 @@ public class WebshopServer
 	/**
 	 * Starts the server.
 	 * 
+	 * @param port
+	 *            The port to listen to.
 	 * @throws IOException
 	 */
-	private void start() throws IOException
+	private void start(int port) throws IOException
 	{
+		this.port = port;
 		this.server = ServerBuilder.forPort(this.port).addService(WebShopGrpc.bindService(new WebShopImpl())).build()
 				.start();
 		logger.info("### Server started listening on port " + this.port);
@@ -80,8 +83,46 @@ public class WebshopServer
 	 */
 	public static void main(String[] args) throws IOException, InterruptedException
 	{
+		int port = -1;
+		for (int i = 0; i < args.length; i++)
+		{
+			if (args[i].equals("-p"))
+			{
+				// Check if there's a following command
+				if ((i + 1) < args.length)
+				{
+					try
+					{
+						port = Integer.parseInt(args[i + 1]);
+						i++;
+					} catch (NumberFormatException e)
+					{
+						WebshopServer.showArgsPrompt();
+						System.exit(0);
+					}
+				}
+			} else
+			{
+				WebshopServer.showArgsPrompt();
+				System.exit(0);
+			}
+		}
+		if (port == -1)
+		{
+			WebshopServer.showArgsPrompt();
+			System.exit(0);
+		}
 		final WebshopServer server = new WebshopServer();
-		server.start();
+		server.start(port);
 		server.blockUntilShutdown();
+	}
+
+	/**
+	 * Shows the args prompt for startup arguments.
+	 */
+	private static void showArgsPrompt()
+	{
+		System.out.println("Usage: \n <appname> command argument");
+		System.out.println("-p \t The port to listen to.");
 	}
 }
