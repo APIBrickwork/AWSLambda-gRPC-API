@@ -10,11 +10,12 @@ message VMInstanceId{
 
 message VMInfo{
 	VMInstanceId id = 1;
-	uint32 size = 2;
-	string region = 3;
-	string imageId = 4;
-	string instanceType = 5;
-	repeated string securityGroupIds = 6;
+	string name = 2;
+	string tag = 3;
+	string region = 4;
+	string imageId = 5;
+	string instanceType = 6;
+	repeated string securityGroupIds = 7;
 }
 
 // ########
@@ -26,11 +27,12 @@ message Request{
 	string id = 1;
 
 	message CreateVMRequest {
-		uint32 size = 1;
-		string region = 2;
-		string imageId = 3;
-		string instanceType = 4;
-		repeated string securityGroupIds = 5;
+		string name = 1;
+		string tag = 2;
+		string region = 3;
+		string imageId = 4;
+		string instanceType = 5;
+		repeated string securityGroupIds = 6;
 	}
 
 	message DestroyVMRequest{

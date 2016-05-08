@@ -1,10 +1,14 @@
 import java.io.IOException;
 import java.util.logging.Logger;
 
+import com.squareup.okhttp.Request;
+
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import services.EC2OpsGrpc;
 import services.EC2OpsImpl;
+import services.Chefmate.Request.CreateVMRequest;
+import util.ChefAttributesWriter;
 
 public class ChefMateServer
 {
@@ -111,7 +115,7 @@ public class ChefMateServer
 			server.blockUntilShutdown();
 		} catch (IOException | InterruptedException ex)
 		{
-			logger.warning("### Error when starting server on port " + port + ". \n " + ex.getMessage());
+			logger.warning("### Error when starting server on port " + port + ".\n " + ex.getMessage());
 			System.exit(1);
 		}
 	}
