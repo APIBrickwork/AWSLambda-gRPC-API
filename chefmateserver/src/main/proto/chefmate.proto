@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+// ###############
+// Virtual Machine
+// ###############
+
+message VMInstanceId{
+	string id = 1;
+}
+
+message VMInfo{
+	VMInstanceId id = 1;
+	uint32 size = 2;
+	string region = 3;
+	string imageId = 4;
+	string instanceType = 5;
+	repeated string securityGroupIds = 6;
+}
+
+// ########
+// Requests
+// ########
+
+message Request{
+	// Id of the request
+	string id = 1;
+
+	message CreateVMRequest {
+		uint32 size = 1;
+		string region = 2;
+		string imageId = 3;
+		string instanceType = 4;
+		repeated string securityGroupIds = 5;
+	}
+
+	message DestroyVMRequest{
+		VMInstanceId id = 1;
+	}
+}
+
+// #########
+// Responses
+// #########
+
+message Response{
+	// Id of the response 
+	string id = 1;
+
+	message CreateVMResponse{
+		VMInfo info = 1;
+	}
+
+	message DestroyVMResponse{
+		bool success = 1;
+	}
+}
+
+// #######################
+// EC2 operations services
+// #######################
+
+service EC2Ops {
+	rpc createVM(Request.CreateVMRequest) returns (Response.CreateVMResponse);
+	rpc destroyVM(Request.DestroyVMRequest) returns (Response.DestroyVMResponse);
+}
