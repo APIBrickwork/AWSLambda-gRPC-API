@@ -83,6 +83,7 @@ public class ChefMateServer
 	{
 		// TODO: Delete me after testing
 		EnvironmentInitializer env = new EnvironmentInitializer();
+//		env.writeDefaultConfigFile();
 		env.init();
 		
 		
