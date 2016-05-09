@@ -1,14 +1,12 @@
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
-
-import com.squareup.okhttp.Request;
-
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import services.EC2OpsGrpc;
 import services.EC2OpsImpl;
-import services.Chefmate.Request.CreateVMRequest;
-import util.ChefAttributesWriter;
+import util.EnvironmentInitializer;
 
 public class ChefMateServer
 {
@@ -24,6 +22,11 @@ public class ChefMateServer
 	 * The gRPC server.
 	 */
 	private Server server;
+	
+	/**
+	 * The directory of the server environment.
+	 */
+	private String serverEnvDir = "";
 
 	/**
 	 * Starts the server.
@@ -78,46 +81,51 @@ public class ChefMateServer
 
 	public static void main(String[] args)
 	{
-		int port = -1;
-		for (int i = 0; i < args.length; i++)
-		{
-			if (args[i].equals("-p"))
-			{
-				// Check if there's a following command
-				if ((i + 1) < args.length)
-				{
-					try
-					{
-						port = Integer.parseInt(args[i + 1]);
-						i++;
-					} catch (NumberFormatException e)
-					{
-						ChefMateServer.showArgsPrompt();
-						return;
-					}
-				}
-			} else
-			{
-				ChefMateServer.showArgsPrompt();
-				return;
-			}
-		}
-		if (port == -1)
-		{
-			ChefMateServer.showArgsPrompt();
-			return;
-		}
-		final ChefMateServer server = new ChefMateServer();
-		try
-		{
-
-			server.start(port);
-			server.blockUntilShutdown();
-		} catch (IOException | InterruptedException ex)
-		{
-			logger.warning("### Error when starting server on port " + port + ".\n " + ex.getMessage());
-			System.exit(1);
-		}
+		// TODO: Delete me after testing
+		EnvironmentInitializer env = new EnvironmentInitializer();
+		env.init();
+		
+		
+//		int port = -1;
+//		for (int i = 0; i < args.length; i++)
+//		{
+//			if (args[i].equals("-p"))
+//			{
+//				// Check if there's a following command
+//				if ((i + 1) < args.length)
+//				{
+//					try
+//					{
+//						port = Integer.parseInt(args[i + 1]);
+//						i++;
+//					} catch (NumberFormatException e)
+//					{
+//						ChefMateServer.showArgsPrompt();
+//						return;
+//					}
+//				}
+//			} else
+//			{
+//				ChefMateServer.showArgsPrompt();
+//				return;
+//			}
+//		}
+//		if (port == -1)
+//		{
+//			ChefMateServer.showArgsPrompt();
+//			return;
+//		}
+//		final ChefMateServer server = new ChefMateServer();
+//		try
+//		{
+//
+//			server.start(port);
+//			server.blockUntilShutdown();
+//		} catch (IOException | InterruptedException ex)
+//		{
+//			logger.warning("### Error when starting server on port " + port + ".\n " + ex.getMessage());
+//			System.exit(1);
+//		}
 	}
 
 	/**

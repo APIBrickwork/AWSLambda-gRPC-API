@@ -1,11 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.labcourse.ss16</groupId>
-  <artifactId>chefmateserver</artifactId>
-  <version>1.0</version>
-  <name>ChefMateServer</name>
-  <description>A Server that abstracts Chef.io deployment using gRPC.</description>
-  <dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.labcourse.ss16</groupId>
+	<artifactId>chefmateserver</artifactId>
+	<version>1.0</version>
+	<name>ChefMateServer</name>
+	<description>A Server that abstracts Chef.io deployment using gRPC.</description>
+	<dependencies>
 		<dependency>
 			<groupId>io.grpc</groupId>
 			<artifactId>grpc-all</artifactId>

@@ -1831,6 +1831,32 @@ public final class Chefmate {
      */
     com.google.protobuf.ByteString
         getIdBytes();
+
+    /**
+     * <code>optional .Request.CreateVMRequest createVMRequest = 2;</code>
+     */
+    boolean hasCreateVMRequest();
+    /**
+     * <code>optional .Request.CreateVMRequest createVMRequest = 2;</code>
+     */
+    Chefmate.Request.CreateVMRequest getCreateVMRequest();
+    /**
+     * <code>optional .Request.CreateVMRequest createVMRequest = 2;</code>
+     */
+    Chefmate.Request.CreateVMRequestOrBuilder getCreateVMRequestOrBuilder();
+
+    /**
+     * <code>optional .Request.DestroyVMRequest destroyVMRequest = 3;</code>
+     */
+    boolean hasDestroyVMRequest();
+    /**
+     * <code>optional .Request.DestroyVMRequest destroyVMRequest = 3;</code>
+     */
+    Chefmate.Request.DestroyVMRequest getDestroyVMRequest();
+    /**
+     * <code>optional .Request.DestroyVMRequest destroyVMRequest = 3;</code>
+     */
+    Chefmate.Request.DestroyVMRequestOrBuilder getDestroyVMRequestOrBuilder();
   }
   /**
    * Protobuf type {@code Request}
@@ -1875,6 +1901,32 @@ public final class Chefmate {
               java.lang.String s = input.readStringRequireUtf8();
 
               id_ = s;
+              break;
+            }
+            case 18: {
+              Chefmate.Request.CreateVMRequest.Builder subBuilder = null;
+              if (createVMRequest_ != null) {
+                subBuilder = createVMRequest_.toBuilder();
+              }
+              createVMRequest_ = input.readMessage(Chefmate.Request.CreateVMRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(createVMRequest_);
+                createVMRequest_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              Chefmate.Request.DestroyVMRequest.Builder subBuilder = null;
+              if (destroyVMRequest_ != null) {
+                subBuilder = destroyVMRequest_.toBuilder();
+              }
+              destroyVMRequest_ = input.readMessage(Chefmate.Request.DestroyVMRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(destroyVMRequest_);
+                destroyVMRequest_ = subBuilder.buildPartial();
+              }
+
               break;
             }
           }
@@ -3613,6 +3665,48 @@ public final class Chefmate {
       }
     }
 
+    public static final int CREATEVMREQUEST_FIELD_NUMBER = 2;
+    private Chefmate.Request.CreateVMRequest createVMRequest_;
+    /**
+     * <code>optional .Request.CreateVMRequest createVMRequest = 2;</code>
+     */
+    public boolean hasCreateVMRequest() {
+      return createVMRequest_ != null;
+    }
+    /**
+     * <code>optional .Request.CreateVMRequest createVMRequest = 2;</code>
+     */
+    public Chefmate.Request.CreateVMRequest getCreateVMRequest() {
+      return createVMRequest_ == null ? Chefmate.Request.CreateVMRequest.getDefaultInstance() : createVMRequest_;
+    }
+    /**
+     * <code>optional .Request.CreateVMRequest createVMRequest = 2;</code>
+     */
+    public Chefmate.Request.CreateVMRequestOrBuilder getCreateVMRequestOrBuilder() {
+      return getCreateVMRequest();
+    }
+
+    public static final int DESTROYVMREQUEST_FIELD_NUMBER = 3;
+    private Chefmate.Request.DestroyVMRequest destroyVMRequest_;
+    /**
+     * <code>optional .Request.DestroyVMRequest destroyVMRequest = 3;</code>
+     */
+    public boolean hasDestroyVMRequest() {
+      return destroyVMRequest_ != null;
+    }
+    /**
+     * <code>optional .Request.DestroyVMRequest destroyVMRequest = 3;</code>
+     */
+    public Chefmate.Request.DestroyVMRequest getDestroyVMRequest() {
+      return destroyVMRequest_ == null ? Chefmate.Request.DestroyVMRequest.getDefaultInstance() : destroyVMRequest_;
+    }
+    /**
+     * <code>optional .Request.DestroyVMRequest destroyVMRequest = 3;</code>
+     */
+    public Chefmate.Request.DestroyVMRequestOrBuilder getDestroyVMRequestOrBuilder() {
+      return getDestroyVMRequest();
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -3628,6 +3722,12 @@ public final class Chefmate {
       if (!getIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessage.writeString(output, 1, id_);
       }
+      if (createVMRequest_ != null) {
+        output.writeMessage(2, getCreateVMRequest());
+      }
+      if (destroyVMRequest_ != null) {
+        output.writeMessage(3, getDestroyVMRequest());
+      }
     }
 
     public int getSerializedSize() {
@@ -3637,6 +3737,14 @@ public final class Chefmate {
       size = 0;
       if (!getIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessage.computeStringSize(1, id_);
+      }
+      if (createVMRequest_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getCreateVMRequest());
+      }
+      if (destroyVMRequest_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getDestroyVMRequest());
       }
       memoizedSize = size;
       return size;
@@ -3751,6 +3859,18 @@ public final class Chefmate {
         super.clear();
         id_ = "";
 
+        if (createVMRequestBuilder_ == null) {
+          createVMRequest_ = null;
+        } else {
+          createVMRequest_ = null;
+          createVMRequestBuilder_ = null;
+        }
+        if (destroyVMRequestBuilder_ == null) {
+          destroyVMRequest_ = null;
+        } else {
+          destroyVMRequest_ = null;
+          destroyVMRequestBuilder_ = null;
+        }
         return this;
       }
 
@@ -3774,6 +3894,16 @@ public final class Chefmate {
       public Chefmate.Request buildPartial() {
         Chefmate.Request result = new Chefmate.Request(this);
         result.id_ = id_;
+        if (createVMRequestBuilder_ == null) {
+          result.createVMRequest_ = createVMRequest_;
+        } else {
+          result.createVMRequest_ = createVMRequestBuilder_.build();
+        }
+        if (destroyVMRequestBuilder_ == null) {
+          result.destroyVMRequest_ = destroyVMRequest_;
+        } else {
+          result.destroyVMRequest_ = destroyVMRequestBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -3792,6 +3922,12 @@ public final class Chefmate {
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
           onChanged();
+        }
+        if (other.hasCreateVMRequest()) {
+          mergeCreateVMRequest(other.getCreateVMRequest());
+        }
+        if (other.hasDestroyVMRequest()) {
+          mergeDestroyVMRequest(other.getDestroyVMRequest());
         }
         onChanged();
         return this;
@@ -3907,6 +4043,240 @@ public final class Chefmate {
         onChanged();
         return this;
       }
+
+      private Chefmate.Request.CreateVMRequest createVMRequest_ = null;
+      private com.google.protobuf.SingleFieldBuilder<
+          Chefmate.Request.CreateVMRequest, Chefmate.Request.CreateVMRequest.Builder, Chefmate.Request.CreateVMRequestOrBuilder> createVMRequestBuilder_;
+      /**
+       * <code>optional .Request.CreateVMRequest createVMRequest = 2;</code>
+       */
+      public boolean hasCreateVMRequest() {
+        return createVMRequestBuilder_ != null || createVMRequest_ != null;
+      }
+      /**
+       * <code>optional .Request.CreateVMRequest createVMRequest = 2;</code>
+       */
+      public Chefmate.Request.CreateVMRequest getCreateVMRequest() {
+        if (createVMRequestBuilder_ == null) {
+          return createVMRequest_ == null ? Chefmate.Request.CreateVMRequest.getDefaultInstance() : createVMRequest_;
+        } else {
+          return createVMRequestBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .Request.CreateVMRequest createVMRequest = 2;</code>
+       */
+      public Builder setCreateVMRequest(Chefmate.Request.CreateVMRequest value) {
+        if (createVMRequestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          createVMRequest_ = value;
+          onChanged();
+        } else {
+          createVMRequestBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .Request.CreateVMRequest createVMRequest = 2;</code>
+       */
+      public Builder setCreateVMRequest(
+          Chefmate.Request.CreateVMRequest.Builder builderForValue) {
+        if (createVMRequestBuilder_ == null) {
+          createVMRequest_ = builderForValue.build();
+          onChanged();
+        } else {
+          createVMRequestBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .Request.CreateVMRequest createVMRequest = 2;</code>
+       */
+      public Builder mergeCreateVMRequest(Chefmate.Request.CreateVMRequest value) {
+        if (createVMRequestBuilder_ == null) {
+          if (createVMRequest_ != null) {
+            createVMRequest_ =
+              Chefmate.Request.CreateVMRequest.newBuilder(createVMRequest_).mergeFrom(value).buildPartial();
+          } else {
+            createVMRequest_ = value;
+          }
+          onChanged();
+        } else {
+          createVMRequestBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .Request.CreateVMRequest createVMRequest = 2;</code>
+       */
+      public Builder clearCreateVMRequest() {
+        if (createVMRequestBuilder_ == null) {
+          createVMRequest_ = null;
+          onChanged();
+        } else {
+          createVMRequest_ = null;
+          createVMRequestBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .Request.CreateVMRequest createVMRequest = 2;</code>
+       */
+      public Chefmate.Request.CreateVMRequest.Builder getCreateVMRequestBuilder() {
+        
+        onChanged();
+        return getCreateVMRequestFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .Request.CreateVMRequest createVMRequest = 2;</code>
+       */
+      public Chefmate.Request.CreateVMRequestOrBuilder getCreateVMRequestOrBuilder() {
+        if (createVMRequestBuilder_ != null) {
+          return createVMRequestBuilder_.getMessageOrBuilder();
+        } else {
+          return createVMRequest_ == null ?
+              Chefmate.Request.CreateVMRequest.getDefaultInstance() : createVMRequest_;
+        }
+      }
+      /**
+       * <code>optional .Request.CreateVMRequest createVMRequest = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          Chefmate.Request.CreateVMRequest, Chefmate.Request.CreateVMRequest.Builder, Chefmate.Request.CreateVMRequestOrBuilder> 
+          getCreateVMRequestFieldBuilder() {
+        if (createVMRequestBuilder_ == null) {
+          createVMRequestBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              Chefmate.Request.CreateVMRequest, Chefmate.Request.CreateVMRequest.Builder, Chefmate.Request.CreateVMRequestOrBuilder>(
+                  getCreateVMRequest(),
+                  getParentForChildren(),
+                  isClean());
+          createVMRequest_ = null;
+        }
+        return createVMRequestBuilder_;
+      }
+
+      private Chefmate.Request.DestroyVMRequest destroyVMRequest_ = null;
+      private com.google.protobuf.SingleFieldBuilder<
+          Chefmate.Request.DestroyVMRequest, Chefmate.Request.DestroyVMRequest.Builder, Chefmate.Request.DestroyVMRequestOrBuilder> destroyVMRequestBuilder_;
+      /**
+       * <code>optional .Request.DestroyVMRequest destroyVMRequest = 3;</code>
+       */
+      public boolean hasDestroyVMRequest() {
+        return destroyVMRequestBuilder_ != null || destroyVMRequest_ != null;
+      }
+      /**
+       * <code>optional .Request.DestroyVMRequest destroyVMRequest = 3;</code>
+       */
+      public Chefmate.Request.DestroyVMRequest getDestroyVMRequest() {
+        if (destroyVMRequestBuilder_ == null) {
+          return destroyVMRequest_ == null ? Chefmate.Request.DestroyVMRequest.getDefaultInstance() : destroyVMRequest_;
+        } else {
+          return destroyVMRequestBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .Request.DestroyVMRequest destroyVMRequest = 3;</code>
+       */
+      public Builder setDestroyVMRequest(Chefmate.Request.DestroyVMRequest value) {
+        if (destroyVMRequestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          destroyVMRequest_ = value;
+          onChanged();
+        } else {
+          destroyVMRequestBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .Request.DestroyVMRequest destroyVMRequest = 3;</code>
+       */
+      public Builder setDestroyVMRequest(
+          Chefmate.Request.DestroyVMRequest.Builder builderForValue) {
+        if (destroyVMRequestBuilder_ == null) {
+          destroyVMRequest_ = builderForValue.build();
+          onChanged();
+        } else {
+          destroyVMRequestBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .Request.DestroyVMRequest destroyVMRequest = 3;</code>
+       */
+      public Builder mergeDestroyVMRequest(Chefmate.Request.DestroyVMRequest value) {
+        if (destroyVMRequestBuilder_ == null) {
+          if (destroyVMRequest_ != null) {
+            destroyVMRequest_ =
+              Chefmate.Request.DestroyVMRequest.newBuilder(destroyVMRequest_).mergeFrom(value).buildPartial();
+          } else {
+            destroyVMRequest_ = value;
+          }
+          onChanged();
+        } else {
+          destroyVMRequestBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .Request.DestroyVMRequest destroyVMRequest = 3;</code>
+       */
+      public Builder clearDestroyVMRequest() {
+        if (destroyVMRequestBuilder_ == null) {
+          destroyVMRequest_ = null;
+          onChanged();
+        } else {
+          destroyVMRequest_ = null;
+          destroyVMRequestBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .Request.DestroyVMRequest destroyVMRequest = 3;</code>
+       */
+      public Chefmate.Request.DestroyVMRequest.Builder getDestroyVMRequestBuilder() {
+        
+        onChanged();
+        return getDestroyVMRequestFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .Request.DestroyVMRequest destroyVMRequest = 3;</code>
+       */
+      public Chefmate.Request.DestroyVMRequestOrBuilder getDestroyVMRequestOrBuilder() {
+        if (destroyVMRequestBuilder_ != null) {
+          return destroyVMRequestBuilder_.getMessageOrBuilder();
+        } else {
+          return destroyVMRequest_ == null ?
+              Chefmate.Request.DestroyVMRequest.getDefaultInstance() : destroyVMRequest_;
+        }
+      }
+      /**
+       * <code>optional .Request.DestroyVMRequest destroyVMRequest = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          Chefmate.Request.DestroyVMRequest, Chefmate.Request.DestroyVMRequest.Builder, Chefmate.Request.DestroyVMRequestOrBuilder> 
+          getDestroyVMRequestFieldBuilder() {
+        if (destroyVMRequestBuilder_ == null) {
+          destroyVMRequestBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              Chefmate.Request.DestroyVMRequest, Chefmate.Request.DestroyVMRequest.Builder, Chefmate.Request.DestroyVMRequestOrBuilder>(
+                  getDestroyVMRequest(),
+                  getParentForChildren(),
+                  isClean());
+          destroyVMRequest_ = null;
+        }
+        return destroyVMRequestBuilder_;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
@@ -3986,6 +4356,32 @@ public final class Chefmate {
      */
     com.google.protobuf.ByteString
         getIdBytes();
+
+    /**
+     * <code>optional .Response.CreateVMResponse createVMResponse = 2;</code>
+     */
+    boolean hasCreateVMResponse();
+    /**
+     * <code>optional .Response.CreateVMResponse createVMResponse = 2;</code>
+     */
+    Chefmate.Response.CreateVMResponse getCreateVMResponse();
+    /**
+     * <code>optional .Response.CreateVMResponse createVMResponse = 2;</code>
+     */
+    Chefmate.Response.CreateVMResponseOrBuilder getCreateVMResponseOrBuilder();
+
+    /**
+     * <code>optional .Response.DestroyVMResponse destroyVMResponse = 3;</code>
+     */
+    boolean hasDestroyVMResponse();
+    /**
+     * <code>optional .Response.DestroyVMResponse destroyVMResponse = 3;</code>
+     */
+    Chefmate.Response.DestroyVMResponse getDestroyVMResponse();
+    /**
+     * <code>optional .Response.DestroyVMResponse destroyVMResponse = 3;</code>
+     */
+    Chefmate.Response.DestroyVMResponseOrBuilder getDestroyVMResponseOrBuilder();
   }
   /**
    * Protobuf type {@code Response}
@@ -4030,6 +4426,32 @@ public final class Chefmate {
               java.lang.String s = input.readStringRequireUtf8();
 
               id_ = s;
+              break;
+            }
+            case 18: {
+              Chefmate.Response.CreateVMResponse.Builder subBuilder = null;
+              if (createVMResponse_ != null) {
+                subBuilder = createVMResponse_.toBuilder();
+              }
+              createVMResponse_ = input.readMessage(Chefmate.Response.CreateVMResponse.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(createVMResponse_);
+                createVMResponse_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              Chefmate.Response.DestroyVMResponse.Builder subBuilder = null;
+              if (destroyVMResponse_ != null) {
+                subBuilder = destroyVMResponse_.toBuilder();
+              }
+              destroyVMResponse_ = input.readMessage(Chefmate.Response.DestroyVMResponse.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(destroyVMResponse_);
+                destroyVMResponse_ = subBuilder.buildPartial();
+              }
+
               break;
             }
           }
@@ -4974,6 +5396,48 @@ public final class Chefmate {
       }
     }
 
+    public static final int CREATEVMRESPONSE_FIELD_NUMBER = 2;
+    private Chefmate.Response.CreateVMResponse createVMResponse_;
+    /**
+     * <code>optional .Response.CreateVMResponse createVMResponse = 2;</code>
+     */
+    public boolean hasCreateVMResponse() {
+      return createVMResponse_ != null;
+    }
+    /**
+     * <code>optional .Response.CreateVMResponse createVMResponse = 2;</code>
+     */
+    public Chefmate.Response.CreateVMResponse getCreateVMResponse() {
+      return createVMResponse_ == null ? Chefmate.Response.CreateVMResponse.getDefaultInstance() : createVMResponse_;
+    }
+    /**
+     * <code>optional .Response.CreateVMResponse createVMResponse = 2;</code>
+     */
+    public Chefmate.Response.CreateVMResponseOrBuilder getCreateVMResponseOrBuilder() {
+      return getCreateVMResponse();
+    }
+
+    public static final int DESTROYVMRESPONSE_FIELD_NUMBER = 3;
+    private Chefmate.Response.DestroyVMResponse destroyVMResponse_;
+    /**
+     * <code>optional .Response.DestroyVMResponse destroyVMResponse = 3;</code>
+     */
+    public boolean hasDestroyVMResponse() {
+      return destroyVMResponse_ != null;
+    }
+    /**
+     * <code>optional .Response.DestroyVMResponse destroyVMResponse = 3;</code>
+     */
+    public Chefmate.Response.DestroyVMResponse getDestroyVMResponse() {
+      return destroyVMResponse_ == null ? Chefmate.Response.DestroyVMResponse.getDefaultInstance() : destroyVMResponse_;
+    }
+    /**
+     * <code>optional .Response.DestroyVMResponse destroyVMResponse = 3;</code>
+     */
+    public Chefmate.Response.DestroyVMResponseOrBuilder getDestroyVMResponseOrBuilder() {
+      return getDestroyVMResponse();
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -4989,6 +5453,12 @@ public final class Chefmate {
       if (!getIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessage.writeString(output, 1, id_);
       }
+      if (createVMResponse_ != null) {
+        output.writeMessage(2, getCreateVMResponse());
+      }
+      if (destroyVMResponse_ != null) {
+        output.writeMessage(3, getDestroyVMResponse());
+      }
     }
 
     public int getSerializedSize() {
@@ -4998,6 +5468,14 @@ public final class Chefmate {
       size = 0;
       if (!getIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessage.computeStringSize(1, id_);
+      }
+      if (createVMResponse_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getCreateVMResponse());
+      }
+      if (destroyVMResponse_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getDestroyVMResponse());
       }
       memoizedSize = size;
       return size;
@@ -5112,6 +5590,18 @@ public final class Chefmate {
         super.clear();
         id_ = "";
 
+        if (createVMResponseBuilder_ == null) {
+          createVMResponse_ = null;
+        } else {
+          createVMResponse_ = null;
+          createVMResponseBuilder_ = null;
+        }
+        if (destroyVMResponseBuilder_ == null) {
+          destroyVMResponse_ = null;
+        } else {
+          destroyVMResponse_ = null;
+          destroyVMResponseBuilder_ = null;
+        }
         return this;
       }
 
@@ -5135,6 +5625,16 @@ public final class Chefmate {
       public Chefmate.Response buildPartial() {
         Chefmate.Response result = new Chefmate.Response(this);
         result.id_ = id_;
+        if (createVMResponseBuilder_ == null) {
+          result.createVMResponse_ = createVMResponse_;
+        } else {
+          result.createVMResponse_ = createVMResponseBuilder_.build();
+        }
+        if (destroyVMResponseBuilder_ == null) {
+          result.destroyVMResponse_ = destroyVMResponse_;
+        } else {
+          result.destroyVMResponse_ = destroyVMResponseBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -5153,6 +5653,12 @@ public final class Chefmate {
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
           onChanged();
+        }
+        if (other.hasCreateVMResponse()) {
+          mergeCreateVMResponse(other.getCreateVMResponse());
+        }
+        if (other.hasDestroyVMResponse()) {
+          mergeDestroyVMResponse(other.getDestroyVMResponse());
         }
         onChanged();
         return this;
@@ -5268,6 +5774,240 @@ public final class Chefmate {
         onChanged();
         return this;
       }
+
+      private Chefmate.Response.CreateVMResponse createVMResponse_ = null;
+      private com.google.protobuf.SingleFieldBuilder<
+          Chefmate.Response.CreateVMResponse, Chefmate.Response.CreateVMResponse.Builder, Chefmate.Response.CreateVMResponseOrBuilder> createVMResponseBuilder_;
+      /**
+       * <code>optional .Response.CreateVMResponse createVMResponse = 2;</code>
+       */
+      public boolean hasCreateVMResponse() {
+        return createVMResponseBuilder_ != null || createVMResponse_ != null;
+      }
+      /**
+       * <code>optional .Response.CreateVMResponse createVMResponse = 2;</code>
+       */
+      public Chefmate.Response.CreateVMResponse getCreateVMResponse() {
+        if (createVMResponseBuilder_ == null) {
+          return createVMResponse_ == null ? Chefmate.Response.CreateVMResponse.getDefaultInstance() : createVMResponse_;
+        } else {
+          return createVMResponseBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .Response.CreateVMResponse createVMResponse = 2;</code>
+       */
+      public Builder setCreateVMResponse(Chefmate.Response.CreateVMResponse value) {
+        if (createVMResponseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          createVMResponse_ = value;
+          onChanged();
+        } else {
+          createVMResponseBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .Response.CreateVMResponse createVMResponse = 2;</code>
+       */
+      public Builder setCreateVMResponse(
+          Chefmate.Response.CreateVMResponse.Builder builderForValue) {
+        if (createVMResponseBuilder_ == null) {
+          createVMResponse_ = builderForValue.build();
+          onChanged();
+        } else {
+          createVMResponseBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .Response.CreateVMResponse createVMResponse = 2;</code>
+       */
+      public Builder mergeCreateVMResponse(Chefmate.Response.CreateVMResponse value) {
+        if (createVMResponseBuilder_ == null) {
+          if (createVMResponse_ != null) {
+            createVMResponse_ =
+              Chefmate.Response.CreateVMResponse.newBuilder(createVMResponse_).mergeFrom(value).buildPartial();
+          } else {
+            createVMResponse_ = value;
+          }
+          onChanged();
+        } else {
+          createVMResponseBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .Response.CreateVMResponse createVMResponse = 2;</code>
+       */
+      public Builder clearCreateVMResponse() {
+        if (createVMResponseBuilder_ == null) {
+          createVMResponse_ = null;
+          onChanged();
+        } else {
+          createVMResponse_ = null;
+          createVMResponseBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .Response.CreateVMResponse createVMResponse = 2;</code>
+       */
+      public Chefmate.Response.CreateVMResponse.Builder getCreateVMResponseBuilder() {
+        
+        onChanged();
+        return getCreateVMResponseFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .Response.CreateVMResponse createVMResponse = 2;</code>
+       */
+      public Chefmate.Response.CreateVMResponseOrBuilder getCreateVMResponseOrBuilder() {
+        if (createVMResponseBuilder_ != null) {
+          return createVMResponseBuilder_.getMessageOrBuilder();
+        } else {
+          return createVMResponse_ == null ?
+              Chefmate.Response.CreateVMResponse.getDefaultInstance() : createVMResponse_;
+        }
+      }
+      /**
+       * <code>optional .Response.CreateVMResponse createVMResponse = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          Chefmate.Response.CreateVMResponse, Chefmate.Response.CreateVMResponse.Builder, Chefmate.Response.CreateVMResponseOrBuilder> 
+          getCreateVMResponseFieldBuilder() {
+        if (createVMResponseBuilder_ == null) {
+          createVMResponseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              Chefmate.Response.CreateVMResponse, Chefmate.Response.CreateVMResponse.Builder, Chefmate.Response.CreateVMResponseOrBuilder>(
+                  getCreateVMResponse(),
+                  getParentForChildren(),
+                  isClean());
+          createVMResponse_ = null;
+        }
+        return createVMResponseBuilder_;
+      }
+
+      private Chefmate.Response.DestroyVMResponse destroyVMResponse_ = null;
+      private com.google.protobuf.SingleFieldBuilder<
+          Chefmate.Response.DestroyVMResponse, Chefmate.Response.DestroyVMResponse.Builder, Chefmate.Response.DestroyVMResponseOrBuilder> destroyVMResponseBuilder_;
+      /**
+       * <code>optional .Response.DestroyVMResponse destroyVMResponse = 3;</code>
+       */
+      public boolean hasDestroyVMResponse() {
+        return destroyVMResponseBuilder_ != null || destroyVMResponse_ != null;
+      }
+      /**
+       * <code>optional .Response.DestroyVMResponse destroyVMResponse = 3;</code>
+       */
+      public Chefmate.Response.DestroyVMResponse getDestroyVMResponse() {
+        if (destroyVMResponseBuilder_ == null) {
+          return destroyVMResponse_ == null ? Chefmate.Response.DestroyVMResponse.getDefaultInstance() : destroyVMResponse_;
+        } else {
+          return destroyVMResponseBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .Response.DestroyVMResponse destroyVMResponse = 3;</code>
+       */
+      public Builder setDestroyVMResponse(Chefmate.Response.DestroyVMResponse value) {
+        if (destroyVMResponseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          destroyVMResponse_ = value;
+          onChanged();
+        } else {
+          destroyVMResponseBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .Response.DestroyVMResponse destroyVMResponse = 3;</code>
+       */
+      public Builder setDestroyVMResponse(
+          Chefmate.Response.DestroyVMResponse.Builder builderForValue) {
+        if (destroyVMResponseBuilder_ == null) {
+          destroyVMResponse_ = builderForValue.build();
+          onChanged();
+        } else {
+          destroyVMResponseBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .Response.DestroyVMResponse destroyVMResponse = 3;</code>
+       */
+      public Builder mergeDestroyVMResponse(Chefmate.Response.DestroyVMResponse value) {
+        if (destroyVMResponseBuilder_ == null) {
+          if (destroyVMResponse_ != null) {
+            destroyVMResponse_ =
+              Chefmate.Response.DestroyVMResponse.newBuilder(destroyVMResponse_).mergeFrom(value).buildPartial();
+          } else {
+            destroyVMResponse_ = value;
+          }
+          onChanged();
+        } else {
+          destroyVMResponseBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .Response.DestroyVMResponse destroyVMResponse = 3;</code>
+       */
+      public Builder clearDestroyVMResponse() {
+        if (destroyVMResponseBuilder_ == null) {
+          destroyVMResponse_ = null;
+          onChanged();
+        } else {
+          destroyVMResponse_ = null;
+          destroyVMResponseBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .Response.DestroyVMResponse destroyVMResponse = 3;</code>
+       */
+      public Chefmate.Response.DestroyVMResponse.Builder getDestroyVMResponseBuilder() {
+        
+        onChanged();
+        return getDestroyVMResponseFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .Response.DestroyVMResponse destroyVMResponse = 3;</code>
+       */
+      public Chefmate.Response.DestroyVMResponseOrBuilder getDestroyVMResponseOrBuilder() {
+        if (destroyVMResponseBuilder_ != null) {
+          return destroyVMResponseBuilder_.getMessageOrBuilder();
+        } else {
+          return destroyVMResponse_ == null ?
+              Chefmate.Response.DestroyVMResponse.getDefaultInstance() : destroyVMResponse_;
+        }
+      }
+      /**
+       * <code>optional .Response.DestroyVMResponse destroyVMResponse = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          Chefmate.Response.DestroyVMResponse, Chefmate.Response.DestroyVMResponse.Builder, Chefmate.Response.DestroyVMResponseOrBuilder> 
+          getDestroyVMResponseFieldBuilder() {
+        if (destroyVMResponseBuilder_ == null) {
+          destroyVMResponseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              Chefmate.Response.DestroyVMResponse, Chefmate.Response.DestroyVMResponse.Builder, Chefmate.Response.DestroyVMResponseOrBuilder>(
+                  getDestroyVMResponse(),
+                  getParentForChildren(),
+                  isClean());
+          destroyVMResponse_ = null;
+        }
+        return destroyVMResponseBuilder_;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
@@ -5379,19 +6119,24 @@ public final class Chefmate {
       " \001(\t\"\217\001\n\006VMInfo\022\031\n\002id\030\001 \001(\0132\r.VMInstance" +
       "Id\022\014\n\004name\030\002 \001(\t\022\013\n\003tag\030\003 \001(\t\022\016\n\006region\030" +
       "\004 \001(\t\022\017\n\007imageId\030\005 \001(\t\022\024\n\014instanceType\030\006" +
-      " \001(\t\022\030\n\020securityGroupIds\030\007 \003(\t\"\303\001\n\007Reque" +
-      "st\022\n\n\002id\030\001 \001(\t\032}\n\017CreateVMRequest\022\014\n\004nam" +
-      "e\030\001 \001(\t\022\013\n\003tag\030\002 \001(\t\022\016\n\006region\030\003 \001(\t\022\017\n\007" +
-      "imageId\030\004 \001(\t\022\024\n\014instanceType\030\005 \001(\t\022\030\n\020s" +
-      "ecurityGroupIds\030\006 \003(\t\032-\n\020DestroyVMReques" +
-      "t\022\031\n\002id\030\001 \001(\0132\r.VMInstanceId\"g\n\010Response",
-      "\022\n\n\002id\030\001 \001(\t\032)\n\020CreateVMResponse\022\025\n\004info" +
-      "\030\001 \001(\0132\007.VMInfo\032$\n\021DestroyVMResponse\022\017\n\007" +
-      "success\030\001 \001(\0102\217\001\n\006EC2Ops\022@\n\010createVM\022\030.R" +
-      "equest.CreateVMRequest\032\032.Response.Create" +
-      "VMResponse\022C\n\tdestroyVM\022\031.Request.Destro" +
-      "yVMRequest\032\033.Response.DestroyVMResponseb" +
-      "\006proto3"
+      " \001(\t\022\030\n\020securityGroupIds\030\007 \003(\t\"\253\002\n\007Reque" +
+      "st\022\n\n\002id\030\001 \001(\t\0221\n\017createVMRequest\030\002 \001(\0132" +
+      "\030.Request.CreateVMRequest\0223\n\020destroyVMRe" +
+      "quest\030\003 \001(\0132\031.Request.DestroyVMRequest\032}" +
+      "\n\017CreateVMRequest\022\014\n\004name\030\001 \001(\t\022\013\n\003tag\030\002" +
+      " \001(\t\022\016\n\006region\030\003 \001(\t\022\017\n\007imageId\030\004 \001(\t\022\024\n",
+      "\014instanceType\030\005 \001(\t\022\030\n\020securityGroupIds\030" +
+      "\006 \003(\t\032-\n\020DestroyVMRequest\022\031\n\002id\030\001 \001(\0132\r." +
+      "VMInstanceId\"\325\001\n\010Response\022\n\n\002id\030\001 \001(\t\0224\n" +
+      "\020createVMResponse\030\002 \001(\0132\032.Response.Creat" +
+      "eVMResponse\0226\n\021destroyVMResponse\030\003 \001(\0132\033" +
+      ".Response.DestroyVMResponse\032)\n\020CreateVMR" +
+      "esponse\022\025\n\004info\030\001 \001(\0132\007.VMInfo\032$\n\021Destro" +
+      "yVMResponse\022\017\n\007success\030\001 \001(\0102\217\001\n\006EC2Ops\022" +
+      "@\n\010createVM\022\030.Request.CreateVMRequest\032\032." +
+      "Response.CreateVMResponse\022C\n\tdestroyVM\022\031",
+      ".Request.DestroyVMRequest\032\033.Response.Des" +
+      "troyVMResponseb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -5422,7 +6167,7 @@ public final class Chefmate {
     internal_static_Request_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_Request_descriptor,
-        new java.lang.String[] { "Id", });
+        new java.lang.String[] { "Id", "CreateVMRequest", "DestroyVMRequest", });
     internal_static_Request_CreateVMRequest_descriptor =
       internal_static_Request_descriptor.getNestedTypes().get(0);
     internal_static_Request_CreateVMRequest_fieldAccessorTable = new
@@ -5440,7 +6185,7 @@ public final class Chefmate {
     internal_static_Response_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_Response_descriptor,
-        new java.lang.String[] { "Id", });
+        new java.lang.String[] { "Id", "CreateVMResponse", "DestroyVMResponse", });
     internal_static_Response_CreateVMResponse_descriptor =
       internal_static_Response_descriptor.getNestedTypes().get(0);
     internal_static_Response_CreateVMResponse_fieldAccessorTable = new
