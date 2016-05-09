@@ -22,7 +22,7 @@ public class ChefMateServer
 	 * The gRPC server.
 	 */
 	private Server server;
-	
+
 	/**
 	 * The directory of the server environment.
 	 */
@@ -81,53 +81,66 @@ public class ChefMateServer
 
 	public static void main(String[] args)
 	{
-		// TODO: Argument to set if Server should install its environment
-		// TODO: Delete me after testing
-		EnvironmentInitializer env = new EnvironmentInitializer();
-		env.writeDefaultConfigFile();
-//		env.init();
-		
-		
-//		int port = -1;
-//		for (int i = 0; i < args.length; i++)
-//		{
-//			if (args[i].equals("-p"))
-//			{
-//				// Check if there's a following command
-//				if ((i + 1) < args.length)
-//				{
-//					try
-//					{
-//						port = Integer.parseInt(args[i + 1]);
-//						i++;
-//					} catch (NumberFormatException e)
-//					{
-//						ChefMateServer.showArgsPrompt();
-//						return;
-//					}
-//				}
-//			} else
-//			{
-//				ChefMateServer.showArgsPrompt();
-//				return;
-//			}
-//		}
-//		if (port == -1)
-//		{
-//			ChefMateServer.showArgsPrompt();
-//			return;
-//		}
-//		final ChefMateServer server = new ChefMateServer();
-//		try
-//		{
-//
-//			server.start(port);
-//			server.blockUntilShutdown();
-//		} catch (IOException | InterruptedException ex)
-//		{
-//			logger.warning("### Error when starting server on port " + port + ".\n " + ex.getMessage());
-//			System.exit(1);
-//		}
+		// TODO: Test it!!
+		for (int i = 0; i < args.length; i++)
+		{
+			if (args[i].equals("--help"))
+			{
+				showArgsPrompt();
+			}
+			else if(args[i].equals("-dc")){
+				EnvironmentInitializer env = new EnvironmentInitializer();
+				env.writeDefaultConfigFile();	
+				return;
+			}
+			else if(args[i].equals("-i")){
+				EnvironmentInitializer env = new EnvironmentInitializer();
+				 env.init();
+				 return;
+			}
+		}
+
+		// int port = -1;
+		// for (int i = 0; i < args.length; i++)
+		// {
+		// if (args[i].equals("-p"))
+		// {
+		// // Check if there's a following command
+		// if ((i + 1) < args.length)
+		// {
+		// try
+		// {
+		// port = Integer.parseInt(args[i + 1]);
+		// i++;
+		// } catch (NumberFormatException e)
+		// {
+		// ChefMateServer.showArgsPrompt();
+		// return;
+		// }
+		// }
+		// } else
+		// {
+		// ChefMateServer.showArgsPrompt();
+		// return;
+		// }
+		// }
+		// if (port == -1)
+		// {
+		// ChefMateServer.showArgsPrompt();
+		// return;
+		// }
+		// final ChefMateServer server = new ChefMateServer();
+		// try
+		// {
+		//
+		// server.start(port);
+		// server.blockUntilShutdown();
+		// } catch (IOException | InterruptedException ex)
+		// {
+		// logger.warning("### Error when starting server on port " + port +
+		// ".\n " + ex.getMessage());
+		// System.exit(1);
+		// }
 	}
 
 	/**

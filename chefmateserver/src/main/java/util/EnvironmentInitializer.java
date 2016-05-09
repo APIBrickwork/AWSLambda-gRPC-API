@@ -64,12 +64,18 @@ public class EnvironmentInitializer
 	 */
 	private String awsSecretAccessKey = "";
 
+	/**
+	 * Creates a new instance.
+	 */
 	public EnvironmentInitializer()
 	{
 		this.homeDir = System.getProperty("user.home");
 		this.serverEnvDir = this.homeDir + "/chefmateserver/";
 	}
 
+	/**
+	 * Writes the default configuration properties to the config file.
+	 */
 	public void writeDefaultConfigFile()
 	{
 		this.createEnvDir();
@@ -90,11 +96,13 @@ public class EnvironmentInitializer
 			stream.close();
 		} catch (IOException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * Initializes the server environment.
+	 */
 	public void init()
 	{
 		logger.info("### Running ChefMate Environment Initializer.");
@@ -104,6 +112,9 @@ public class EnvironmentInitializer
 		this.executeChefProvisioningSetup();
 	}
 
+	/**
+	 * Reads the properties from the config file.
+	 */
 	private void readConfig()
 	{
 		Properties properties = new Properties();
@@ -122,11 +133,13 @@ public class EnvironmentInitializer
 			stream.close();
 		} catch (IOException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * Creates the server environment directory.
+	 */
 	private void createEnvDir()
 	{
 		logger.info("### Creating environment in directory " + this.serverEnvDir + ".");
@@ -139,25 +152,21 @@ public class EnvironmentInitializer
 		ProcessBuilder pb = new ProcessBuilder(commands);
 		pb.directory(new File(homeDir));
 
-		try
-		{
-			Process p = pb.start();
-			int code = p.waitFor();
-			if (code == 0)
-			{
-				logger.info("### Success.");
-			} else
-			{
-				logger.warning("### Error creating environment in directory " + this.serverEnvDir + ".");
-			}
+		int code = ShellExecuter.execute(this.homeDir, commands);
 
-		} catch (InterruptedException | IOException e)
+		if (code == 0)
 		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.info("### Success.");
+		} else
+		{
+			logger.warning("### Error creating environment in directory " + this.serverEnvDir + ".");
 		}
+
 	}
 
+	/**
+	 * Fetches the Chef.io git repository.
+	 */
 	private void fetchGitRepo()
 	{
 		List<String> commands = new ArrayList<>();
@@ -171,27 +180,20 @@ public class EnvironmentInitializer
 		logger.info("### Fetching git repository from " + this.chefRepoURL);
 		logger.info("### Fetching using: " + commands);
 
-		ProcessBuilder pb = new ProcessBuilder(commands);
-		pb.directory(new File(this.serverEnvDir));
-		try
-		{
-			Process p = pb.start();
-			int code = p.waitFor();
-			if (code == 0)
-			{
-				logger.info("### Success.");
-			} else
-			{
-				logger.warning("### Error.");
-			}
+		int code = ShellExecuter.execute(this.serverEnvDir, commands);
 
-		} catch (InterruptedException | IOException e)
+		if (code == 0)
 		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.info("### Success.");
+		} else
+		{
+			logger.warning("### Error.");
 		}
 	}
 
+	/**
+	 * Exectues the initialization script for Chef Provisioning for AWS.
+	 */
 	private void executeChefProvisioningSetup()
 	{
 		if (this.awsSecretAccessKey.isEmpty())
@@ -209,24 +211,14 @@ public class EnvironmentInitializer
 			logger.info("### Exectuing AWS Chef Provisioning init script at: " + this.chefProvisioningInitScriptPath);
 			logger.info("### Executing using commands: " + commands);
 
-			ProcessBuilder pb = new ProcessBuilder(commands);
-			pb.directory(new File(this.serverEnvDir));
-			try
-			{
-				Process p = pb.start();
-				int code = p.waitFor();
-				if (code == 0)
-				{
-					logger.info("### Success.");
-				} else
-				{
-					logger.warning("### Error.");
-				}
+			int code = ShellExecuter.execute(this.serverEnvDir, commands);
 
-			} catch (InterruptedException | IOException e)
+			if (code == 0)
 			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.info("### Success.");
+			} else
+			{
+				logger.warning("### Error.");
 			}
 		}
 	}
