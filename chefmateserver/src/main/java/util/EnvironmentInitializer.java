@@ -24,7 +24,7 @@ public class EnvironmentInitializer
 	/**
 	 * The name of the configuration file.
 	 */
-	private static final String CONFIG_FILENAME = "envInitializer.conf";
+	private static final String CONFIG_FILENAME = "chefmate.conf";
 
 	/**
 	 * The home directory of the user executing this.

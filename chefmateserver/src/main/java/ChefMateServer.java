@@ -84,8 +84,8 @@ public class ChefMateServer
 		// TODO: Argument to set if Server should install its environment
 		// TODO: Delete me after testing
 		EnvironmentInitializer env = new EnvironmentInitializer();
-//		env.writeDefaultConfigFile();
-		env.init();
+		env.writeDefaultConfigFile();
+//		env.init();
 		
 		
 //		int port = -1;
