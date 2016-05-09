@@ -6,6 +6,7 @@ import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import services.EC2OpsGrpc;
 import services.EC2OpsImpl;
+import services.Chefmate.Request.CreateVMRequest;
 import util.EnvironmentInitializer;
 
 public class ChefMateServer
@@ -22,11 +23,6 @@ public class ChefMateServer
 	 * The gRPC server.
 	 */
 	private Server server;
-
-	/**
-	 * The directory of the server environment.
-	 */
-	private String serverEnvDir = "";
 
 	/**
 	 * Starts the server.
@@ -81,24 +77,29 @@ public class ChefMateServer
 
 	public static void main(String[] args)
 	{
+	
+		// TODO: Delete demo code after testing
+//		CreateVMRequest req = CreateVMRequest.newBuilder().setName("vm1").setTag("chefmate").build();
+//		new EC2OpsImpl().createVM(req, null);
+	
 		// TODO: Test it!!
-		for (int i = 0; i < args.length; i++)
-		{
-			if (args[i].equals("--help"))
-			{
-				showArgsPrompt();
-			}
-			else if(args[i].equals("-dc")){
-				EnvironmentInitializer env = new EnvironmentInitializer();
-				env.writeDefaultConfigFile();	
-				return;
-			}
-			else if(args[i].equals("-i")){
-				EnvironmentInitializer env = new EnvironmentInitializer();
-				 env.init();
-				 return;
-			}
-		}
+//		for (int i = 0; i < args.length; i++)
+//		{
+//			if (args[i].equals("--help"))
+//			{
+//				showArgsPrompt();
+//			}
+//			else if(args[i].equals("-dc")){
+//				EnvironmentInitializer env = new EnvironmentInitializer();
+//				env.writeDefaultConfigFile();	
+//				return;
+//			}
+//			else if(args[i].equals("-i")){
+//				EnvironmentInitializer env = new EnvironmentInitializer();
+//				 env.init();
+//				 return;
+//			}
+//		}
 
 		// int port = -1;
 		// for (int i = 0; i < args.length; i++)

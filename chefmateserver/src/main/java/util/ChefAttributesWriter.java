@@ -23,6 +23,13 @@ public class ChefAttributesWriter
 	private static final String CHEFMATE_MACHINE_SECURITYGROUPIDS = "['chefmate']['machine']['defaultsecuritygroupdids'] = ";
 
 	/**
+	 * Prevents from instance creation.
+	 */
+	private ChefAttributesWriter()
+	{
+	};
+
+	/**
 	 * Writes the Chef.io attributes (default and custom) file to the given
 	 * repository.
 	 * 
@@ -44,11 +51,66 @@ public class ChefAttributesWriter
 			writer = new BufferedWriter(new FileWriter(filename));
 			writeDefault(writer);
 			writer.newLine();
-			writeCustom(writer, requestedVM);
+
+			String name = requestedVM.getName();
+			String tag = requestedVM.getTag();
+			String region = requestedVM.getRegion();
+			String imageid = requestedVM.getImageId();
+			String instancetype = requestedVM.getInstanceType();
+
+			List<String> securityGroupIds = new ArrayList<>();
+			for (int i = 0; i < requestedVM.getSecurityGroupIdsCount(); i++)
+			{
+				securityGroupIds.add(requestedVM.getSecurityGroupIds(i));
+			}
+
+			// Write custom attributes to file below
+			writer.write("# Custom values set by user (higher priority than default)");
+			writer.newLine();
+
+			if (!name.isEmpty())
+			{
+				writer.write(NORMAL_PRIORITY + CHEFMATE_MACHINE_NAME + "'" + name + "'");
+				writer.newLine();
+			}
+			if (!tag.isEmpty())
+			{
+				writer.write(NORMAL_PRIORITY + CHEFMATE_MACHINE_TAG + "'" + tag + "'");
+				writer.newLine();
+			}
+			if (!region.isEmpty())
+			{
+				writer.write(NORMAL_PRIORITY + CHEFMATE_MACHINE_REGION + "'" + region + "'");
+				writer.newLine();
+			}
+			if (!imageid.isEmpty())
+			{
+				writer.write(NORMAL_PRIORITY + CHEFMATE_MACHINE_IMAGEID + "'" + imageid + "'");
+				writer.newLine();
+			}
+			if (!instancetype.isEmpty())
+			{
+				writer.write(NORMAL_PRIORITY + CHEFMATE_MACHINE_INSTANCETYPE + "'" + instancetype + "'");
+				writer.newLine();
+			}
+			if (securityGroupIds.size() > 0)
+			{
+				writer.write(NORMAL_PRIORITY + CHEFMATE_MACHINE_SECURITYGROUPIDS + "'");
+				for (int i = 0; i < securityGroupIds.size(); i++)
+				{
+					writer.write(securityGroupIds.get(i));
+					// Only seperate with comma if i is leq size-2
+					if (i <= securityGroupIds.size() - 2)
+					{
+						writer.write(",");
+					}
+				}
+				writer.write("'");
+				writer.newLine();
+			}
 
 		} catch (IOException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally
 		{
@@ -57,11 +119,9 @@ public class ChefAttributesWriter
 				writer.close();
 			} catch (IOException e)
 			{
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-
 	}
 
 	/**
@@ -94,75 +154,5 @@ public class ChefAttributesWriter
 		writer.newLine();
 		writer.write(DEFAULT_PRIORITY + CHEFMATE_MACHINE_SECURITYGROUPIDS + "'sg-79ae5d11'");
 		writer.newLine();
-	}
-
-	/**
-	 * Writes the given custom attributes to the file.
-	 * 
-	 * @param writer
-	 *            The BufferedWriter that should be used.
-	 * @param requestedVM
-	 *            The values that should be added.
-	 * @throws IOException
-	 */
-	private static void writeCustom(BufferedWriter writer, CreateVMRequest requestedVM) throws IOException
-	{
-		// TODO: Implement
-		String name = requestedVM.getName();
-		String tag = requestedVM.getTag();
-		String region = requestedVM.getRegion();
-		String imageid = requestedVM.getImageId();
-		String instancetype = requestedVM.getInstanceType();
-
-		List<String> securityGroupIds = new ArrayList<>();
-		for (int i = 0; i < requestedVM.getSecurityGroupIdsCount(); i++)
-		{
-			securityGroupIds.add(requestedVM.getSecurityGroupIds(i));
-		}
-
-		// Write custom attributes to file below
-		writer.write("# Custom values set by user (higher priority than default)");
-		writer.newLine();
-
-		if (!name.isEmpty())
-		{
-			writer.write(NORMAL_PRIORITY + CHEFMATE_MACHINE_NAME + "'" + name + "'");
-			writer.newLine();
-		}
-		if (!tag.isEmpty())
-		{
-			writer.write(NORMAL_PRIORITY + CHEFMATE_MACHINE_TAG + "'" + tag + "'");
-			writer.newLine();
-		}
-		if (!region.isEmpty())
-		{
-			writer.write(NORMAL_PRIORITY + CHEFMATE_MACHINE_REGION + "'" + region + "'");
-			writer.newLine();
-		}
-		if (!imageid.isEmpty())
-		{
-			writer.write(NORMAL_PRIORITY + CHEFMATE_MACHINE_IMAGEID + "'" + imageid + "'");
-			writer.newLine();
-		}
-		if (!instancetype.isEmpty())
-		{
-			writer.write(NORMAL_PRIORITY + CHEFMATE_MACHINE_INSTANCETYPE + "'" + instancetype + "'");
-			writer.newLine();
-		}
-		if (securityGroupIds.size() > 0)
-		{
-			writer.write(NORMAL_PRIORITY + CHEFMATE_MACHINE_SECURITYGROUPIDS + "'");
-			for (int i = 0; i < securityGroupIds.size(); i++)
-			{
-				writer.write(securityGroupIds.get(i));
-				// Only seperate with comma if i is leq size-2
-				if (i <= securityGroupIds.size() - 2)
-				{
-					writer.write(",");
-				}
-			}
-			writer.write("'");
-			writer.newLine();
-		}
 	}
 }
