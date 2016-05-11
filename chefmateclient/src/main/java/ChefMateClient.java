@@ -8,9 +8,12 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
-import Chefmate.Request;
-import Chefmate.Response;
-import Chefmate.VMInfo;
+import services.*;
+import services.Chefmate.CreateVMRequest;
+import services.Chefmate.CreateVMResponse;
+import services.Chefmate.DestroyVMRequest;
+import services.Chefmate.DestroyVMResponse;
+import services.Chefmate.VMInstanceId;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
@@ -58,11 +61,11 @@ public class ChefMateClient
 	 * Sends the createVM request to the ChefMateServer.
 	 */
 	
-	public void sendCreateVMRequest(Request.CreateVMRequest createVMRequest)
+	public void sendCreateVMRequest(CreateVMRequest createVMRequest)
 	{
 		logger.info("### Sending request for Creating VM.");
 		
-		Response.CreateVMResponse createVMResponse = null;
+		CreateVMResponse createVMResponse = null;
 		try
 		{
 			createVMResponse = this.blockingStub.createVM(createVMRequest);
@@ -79,11 +82,11 @@ public class ChefMateClient
 	 * Sends the destroyVM request to the ChefMateServer.
 	 */
 	
-	public void sendDestroyVMRequest(Request.DestroyVMRequest destroyVMRequest)
+	public void sendDestroyVMRequest(DestroyVMRequest destroyVMRequest)
 	{
 		logger.info("### Sending request for Destroying VM.");
 		
-		Response.DestroyVMResponse destroyVMResponse = null;
+		DestroyVMResponse destroyVMResponse = null;
 		try
 		{
 			destroyVMResponse = this.blockingStub.destroyVM(destroyVMRequest);
@@ -181,8 +184,8 @@ public class ChefMateClient
 				System.out.println("\n Enter Security GroupIds: ");
 				String securityGroupIds = scanner.nextLine();
 
-				Request.CreateVMRequest createVMRequest = Request.CreateVMRequest.newBuilder().setName(name)
-						.setTag(tag).setRegion(region).setImageId(imageId).setInstanceType(instanceType).setSecurityGroupIds(securityGroupIds).build();
+				Chefmate.CreateVMRequest createVMRequest = Chefmate.CreateVMRequest.newBuilder().setName(name)
+						.setTag(tag).setRegion(region).setImageId(imageId).setInstanceType(instanceType).addSecurityGroupIds(securityGroupIds).build();
 
 				client.sendCreateVMRequest(createVMRequest);
 
@@ -205,7 +208,8 @@ public class ChefMateClient
 					logger.warning("### Wrong syntax.");
 				} else
 				{
-					Request.DestroyVMRequest destroyVMRequest = Request.DestroyVMRequest.newBuilder().setId(arr[1]).build();
+					
+					DestroyVMRequest destroyVMRequest = DestroyVMRequest.newBuilder().setId(VMInstanceId.newBuilder().setId(arr[1])).build();
 					client.sendDestroyVMRequest(destroyVMRequest);
 				}
 			}					

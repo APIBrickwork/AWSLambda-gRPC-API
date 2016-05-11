@@ -1,3 +1,4 @@
+package services;
 import static io.grpc.stub.ClientCalls.asyncUnaryCall;
 import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
@@ -20,23 +21,23 @@ public class EC2OpsGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi
-  public static final io.grpc.MethodDescriptor<Chefmate.Request.CreateVMRequest,
-      Chefmate.Response.CreateVMResponse> METHOD_CREATE_VM =
+  public static final io.grpc.MethodDescriptor<Chefmate.CreateVMRequest,
+      Chefmate.CreateVMResponse> METHOD_CREATE_VM =
       io.grpc.MethodDescriptor.create(
           io.grpc.MethodDescriptor.MethodType.UNARY,
           generateFullMethodName(
               "EC2Ops", "createVM"),
-          io.grpc.protobuf.ProtoUtils.marshaller(Chefmate.Request.CreateVMRequest.getDefaultInstance()),
-          io.grpc.protobuf.ProtoUtils.marshaller(Chefmate.Response.CreateVMResponse.getDefaultInstance()));
+          io.grpc.protobuf.ProtoUtils.marshaller(Chefmate.CreateVMRequest.getDefaultInstance()),
+          io.grpc.protobuf.ProtoUtils.marshaller(Chefmate.CreateVMResponse.getDefaultInstance()));
   @io.grpc.ExperimentalApi
-  public static final io.grpc.MethodDescriptor<Chefmate.Request.DestroyVMRequest,
-      Chefmate.Response.DestroyVMResponse> METHOD_DESTROY_VM =
+  public static final io.grpc.MethodDescriptor<Chefmate.DestroyVMRequest,
+      Chefmate.DestroyVMResponse> METHOD_DESTROY_VM =
       io.grpc.MethodDescriptor.create(
           io.grpc.MethodDescriptor.MethodType.UNARY,
           generateFullMethodName(
               "EC2Ops", "destroyVM"),
-          io.grpc.protobuf.ProtoUtils.marshaller(Chefmate.Request.DestroyVMRequest.getDefaultInstance()),
-          io.grpc.protobuf.ProtoUtils.marshaller(Chefmate.Response.DestroyVMResponse.getDefaultInstance()));
+          io.grpc.protobuf.ProtoUtils.marshaller(Chefmate.DestroyVMRequest.getDefaultInstance()),
+          io.grpc.protobuf.ProtoUtils.marshaller(Chefmate.DestroyVMResponse.getDefaultInstance()));
 
   public static EC2OpsStub newStub(io.grpc.Channel channel) {
     return new EC2OpsStub(channel);
@@ -54,27 +55,27 @@ public class EC2OpsGrpc {
 
   public static interface EC2Ops {
 
-    public void createVM(Chefmate.Request.CreateVMRequest request,
-        io.grpc.stub.StreamObserver<Chefmate.Response.CreateVMResponse> responseObserver);
+    public void createVM(Chefmate.CreateVMRequest request,
+        io.grpc.stub.StreamObserver<Chefmate.CreateVMResponse> responseObserver);
 
-    public void destroyVM(Chefmate.Request.DestroyVMRequest request,
-        io.grpc.stub.StreamObserver<Chefmate.Response.DestroyVMResponse> responseObserver);
+    public void destroyVM(Chefmate.DestroyVMRequest request,
+        io.grpc.stub.StreamObserver<Chefmate.DestroyVMResponse> responseObserver);
   }
 
   public static interface EC2OpsBlockingClient {
 
-    public Chefmate.Response.CreateVMResponse createVM(Chefmate.Request.CreateVMRequest request);
+    public Chefmate.CreateVMResponse createVM(Chefmate.CreateVMRequest request);
 
-    public Chefmate.Response.DestroyVMResponse destroyVM(Chefmate.Request.DestroyVMRequest request);
+    public Chefmate.DestroyVMResponse destroyVM(Chefmate.DestroyVMRequest request);
   }
 
   public static interface EC2OpsFutureClient {
 
-    public com.google.common.util.concurrent.ListenableFuture<Chefmate.Response.CreateVMResponse> createVM(
-        Chefmate.Request.CreateVMRequest request);
+    public com.google.common.util.concurrent.ListenableFuture<Chefmate.CreateVMResponse> createVM(
+        Chefmate.CreateVMRequest request);
 
-    public com.google.common.util.concurrent.ListenableFuture<Chefmate.Response.DestroyVMResponse> destroyVM(
-        Chefmate.Request.DestroyVMRequest request);
+    public com.google.common.util.concurrent.ListenableFuture<Chefmate.DestroyVMResponse> destroyVM(
+        Chefmate.DestroyVMRequest request);
   }
 
   public static class EC2OpsStub extends io.grpc.stub.AbstractStub<EC2OpsStub>
@@ -95,15 +96,15 @@ public class EC2OpsGrpc {
     }
 
     @java.lang.Override
-    public void createVM(Chefmate.Request.CreateVMRequest request,
-        io.grpc.stub.StreamObserver<Chefmate.Response.CreateVMResponse> responseObserver) {
+    public void createVM(Chefmate.CreateVMRequest request,
+        io.grpc.stub.StreamObserver<Chefmate.CreateVMResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_CREATE_VM, getCallOptions()), request, responseObserver);
     }
 
     @java.lang.Override
-    public void destroyVM(Chefmate.Request.DestroyVMRequest request,
-        io.grpc.stub.StreamObserver<Chefmate.Response.DestroyVMResponse> responseObserver) {
+    public void destroyVM(Chefmate.DestroyVMRequest request,
+        io.grpc.stub.StreamObserver<Chefmate.DestroyVMResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_DESTROY_VM, getCallOptions()), request, responseObserver);
     }
@@ -127,13 +128,13 @@ public class EC2OpsGrpc {
     }
 
     @java.lang.Override
-    public Chefmate.Response.CreateVMResponse createVM(Chefmate.Request.CreateVMRequest request) {
+    public Chefmate.CreateVMResponse createVM(Chefmate.CreateVMRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_CREATE_VM, getCallOptions(), request);
     }
 
     @java.lang.Override
-    public Chefmate.Response.DestroyVMResponse destroyVM(Chefmate.Request.DestroyVMRequest request) {
+    public Chefmate.DestroyVMResponse destroyVM(Chefmate.DestroyVMRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_DESTROY_VM, getCallOptions(), request);
     }
@@ -157,15 +158,15 @@ public class EC2OpsGrpc {
     }
 
     @java.lang.Override
-    public com.google.common.util.concurrent.ListenableFuture<Chefmate.Response.CreateVMResponse> createVM(
-        Chefmate.Request.CreateVMRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<Chefmate.CreateVMResponse> createVM(
+        Chefmate.CreateVMRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_CREATE_VM, getCallOptions()), request);
     }
 
     @java.lang.Override
-    public com.google.common.util.concurrent.ListenableFuture<Chefmate.Response.DestroyVMResponse> destroyVM(
-        Chefmate.Request.DestroyVMRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<Chefmate.DestroyVMResponse> destroyVM(
+        Chefmate.DestroyVMRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_DESTROY_VM, getCallOptions()), request);
     }
@@ -191,12 +192,12 @@ public class EC2OpsGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_CREATE_VM:
-          serviceImpl.createVM((Chefmate.Request.CreateVMRequest) request,
-              (io.grpc.stub.StreamObserver<Chefmate.Response.CreateVMResponse>) responseObserver);
+          serviceImpl.createVM((Chefmate.CreateVMRequest) request,
+              (io.grpc.stub.StreamObserver<Chefmate.CreateVMResponse>) responseObserver);
           break;
         case METHODID_DESTROY_VM:
-          serviceImpl.destroyVM((Chefmate.Request.DestroyVMRequest) request,
-              (io.grpc.stub.StreamObserver<Chefmate.Response.DestroyVMResponse>) responseObserver);
+          serviceImpl.destroyVM((Chefmate.DestroyVMRequest) request,
+              (io.grpc.stub.StreamObserver<Chefmate.DestroyVMResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -220,15 +221,15 @@ public class EC2OpsGrpc {
           METHOD_CREATE_VM,
           asyncUnaryCall(
             new MethodHandlers<
-              Chefmate.Request.CreateVMRequest,
-              Chefmate.Response.CreateVMResponse>(
+              Chefmate.CreateVMRequest,
+              Chefmate.CreateVMResponse>(
                 serviceImpl, METHODID_CREATE_VM)))
         .addMethod(
           METHOD_DESTROY_VM,
           asyncUnaryCall(
             new MethodHandlers<
-              Chefmate.Request.DestroyVMRequest,
-              Chefmate.Response.DestroyVMResponse>(
+              Chefmate.DestroyVMRequest,
+              Chefmate.DestroyVMResponse>(
                 serviceImpl, METHODID_DESTROY_VM)))
         .build();
   }
