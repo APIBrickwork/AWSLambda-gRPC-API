@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import services.Chefmate;
-import services.Chefmate.Request.CreateVMRequest;
+import services.Chefmate.CreateVMRequest;
 
 public class ChefAttributesWriter
 {
@@ -42,9 +42,6 @@ public class ChefAttributesWriter
 	public static void writeAttributesFile(String filename, CreateVMRequest requestedVM)
 	{
 		BufferedWriter writer = null;
-
-		// TODO: Delete me
-		System.out.println("Writing to " + filename);
 
 		try
 		{

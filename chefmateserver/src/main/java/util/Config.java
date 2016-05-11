@@ -166,16 +166,7 @@ public class Config
 		ProcessBuilder pb = new ProcessBuilder(commands);
 		pb.directory(new File(getHomeDir()));
 
-		int code = ShellExecuter.execute(this.getHomeDir(), commands);
-
-		if (code == 0)
-		{
-			logger.info("### Success.");
-		} else
-		{
-			logger.warning("### Error creating environment in directory " + this.serverEnvDir + ".");
-		}
-
+		ShellExecuter.execute(this.getHomeDir(), commands);
 	}
 
 	public String getHomeDir()

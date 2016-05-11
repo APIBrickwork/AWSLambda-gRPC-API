@@ -50,15 +50,7 @@ public class EnvironmentInitializer
 		logger.info("### Fetching git repository from " + this.config.getChefRepoURL());
 		logger.info("### Fetching using: " + commands);
 
-		int code = ShellExecuter.execute(this.config.getServerEnvDir(), commands);
-
-		if (code == 0)
-		{
-			logger.info("### Success.");
-		} else
-		{
-			logger.warning("### Error.");
-		}
+		ShellExecuter.execute(this.config.getServerEnvDir(), commands);
 	}
 
 	/**
@@ -79,15 +71,7 @@ public class EnvironmentInitializer
 			logger.info("### Exectuing AWS Chef Provisioning init script at: " + this.config.getChefProvisioningInitScriptPath());
 			logger.info("### Executing using commands: " + commands);
 
-			int code = ShellExecuter.execute(this.config.getServerEnvDir(), commands);
-
-			if (code == 0)
-			{
-				logger.info("### Success.");
-			} else
-			{
-				logger.warning("### Error.");
-			}
+			ShellExecuter.execute(this.config.getServerEnvDir(), commands);
 		}
 	}
 }

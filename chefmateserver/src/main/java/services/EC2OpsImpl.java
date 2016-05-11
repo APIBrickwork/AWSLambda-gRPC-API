@@ -5,10 +5,12 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import io.grpc.stub.StreamObserver;
-import services.Chefmate.Request.CreateVMRequest;
-import services.Chefmate.Request.DestroyVMRequest;
-import services.Chefmate.Response.CreateVMResponse;
-import services.Chefmate.Response.DestroyVMResponse;
+import services.Chefmate.CreateVMRequest;
+import services.Chefmate.CreateVMResponse;
+import services.Chefmate.DestroyVMRequest;
+import services.Chefmate.DestroyVMResponse;
+import services.Chefmate.EmptyRequest;
+import services.Chefmate.VMInstanceId;
 import util.ChefAttributesWriter;
 import util.Config;
 import util.ShellExecuter;
@@ -30,7 +32,6 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 		ChefAttributesWriter.writeAttributesFile(filename, request);
 
 		// Call cookbook for provisioning
-		// chef-client -z -o 'recipe[cb-chefmate::aws_provision]'
 		String execDir = config.getChefRepoPath();
 		List<String> commands = new ArrayList<>();
 		commands.add("chef-client");
@@ -39,18 +40,38 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 		commands.add("recipe[cb-chefmate::aws_provision]");
 		
 		logger.info("### Starting provisioning task from directory " + execDir + " using commands: " + commands);
-		ShellExecuter.execute(config.getChefRepoPath(), commands);
+		String outputLog = ShellExecuter.execute(config.getChefRepoPath(), commands);
 		
-		// TODO: How do I get the ID??? Maybe via machine-batch or so??
-		// TODO: Form response!!
+		// Extract instance id from output
+		String seekedString = "instance_ids";
+		String[] splitInstanceIds = outputLog.split(seekedString);
+		String[] splitLine = splitInstanceIds[1].split(System.lineSeparator());
 		
+		// Is only capable when a SINGLE instance was created (it may be possible create multiple instances with one script). THIS IS NOT INTENDED HERE!
+		String instanceId = splitLine[0].trim().toLowerCase().replace(":", "").replace("[", "").replace("]", "").replace("(", "").replace(")", "").replace("\"", "");
+		logger.info("### Created instance with id: " + instanceId);
+		if(!instanceId.startsWith("i-")){
+			logger.warning("### Mismatch with instance_id pattern. Should start with i-.... but was " + instanceId);
+		}
 		
+		CreateVMResponse resp = CreateVMResponse.newBuilder().setInstanceId(VMInstanceId.newBuilder().setId(instanceId).build()).setOutputLog(outputLog).build();
+		
+		responseObserver.onNext(resp);
+		responseObserver.onCompleted();
+		logger.info("### Sent response.");
 	}
 
 	@Override
 	public void destroyVM(DestroyVMRequest request, StreamObserver<DestroyVMResponse> responseObserver)
 	{
 		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void destroyAllVMs(EmptyRequest request, StreamObserver<DestroyVMResponse> responseObserver)
+	{
+		// TODO Auto-generated method stub
+		
 	}
 
 }

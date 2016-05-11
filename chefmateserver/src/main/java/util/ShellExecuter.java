@@ -1,10 +1,10 @@
 package util;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.lang.ProcessBuilder.Redirect;
+import java.io.InputStreamReader;
 import java.util.List;
-import java.util.Scanner;
 import java.util.logging.Logger;
 
 import services.EC2OpsImpl;
@@ -33,28 +33,42 @@ public class ShellExecuter
 	 *            The directory in which the process should be executed.
 	 * @param commands
 	 *            The commands that should be executed.
-	 * @return Return-code of the executed command.
+	 * @return The error and standard output of the process executed.
 	 */
-	public static int execute(String processDirectory, List<String> commands)
+	public static String execute(String processDirectory, List<String> commands)
 	{
 
 		ProcessBuilder pb = new ProcessBuilder(commands);
 		pb.directory(new File(processDirectory));
+		pb.redirectErrorStream(true);
+		String output = "";
 		try
 		{
 			Process p = pb.start();
 			int code = p.waitFor();
-			// TODO: Handle it
-			Scanner s = new Scanner(p.getInputStream()).useDelimiter("\\Z");
-			logger.info(s.next());
-			s.close();
+			if (code == 0)
+			{
+				logger.info("### Process terminated successfully with command: " + commands);
+				BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+				StringBuilder builder = new StringBuilder();
+				String line = null;
+				while ((line = reader.readLine()) != null)
+				{
+					builder.append(line);
+					builder.append(System.getProperty("line.separator"));
+				}
+				output = builder.toString();
+			} else
+			{
+				logger.warning("### Process terminated unsuccessfully.");
+			}
 
-			return code;
+			return output;
 
 		} catch (InterruptedException | IOException e)
 		{
 			e.printStackTrace();
-			return 2;
+			return "";
 		}
 	}
 

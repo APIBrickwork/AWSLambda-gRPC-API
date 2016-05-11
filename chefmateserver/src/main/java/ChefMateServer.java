@@ -1,12 +1,11 @@
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Logger;
+
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import services.Chefmate.CreateVMRequest;
 import services.EC2OpsGrpc;
 import services.EC2OpsImpl;
-import services.Chefmate.Request.CreateVMRequest;
 import util.Config;
 import util.EnvironmentInitializer;
 
@@ -81,6 +80,7 @@ public class ChefMateServer
 
 		// Ensure that config is read initially
 		Config.getInstance(false, true);
+		
 		int port = -1;
 		// TODO: Delete demo code after testing
 		CreateVMRequest req = CreateVMRequest.newBuilder().setName("vm1").setTag("chefmate").build();
