@@ -8,7 +8,8 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
-import services.*;
+import services.Chefmate;
+import services.EC2OpsGrpc;
 import services.Chefmate.CreateVMRequest;
 import services.Chefmate.CreateVMResponse;
 import services.Chefmate.DestroyVMRequest;
