@@ -7,6 +7,7 @@ import io.grpc.ServerBuilder;
 import services.EC2OpsGrpc;
 import services.EC2OpsImpl;
 import services.Chefmate.Request.CreateVMRequest;
+import util.Config;
 import util.EnvironmentInitializer;
 
 public class ChefMateServer
@@ -77,71 +78,69 @@ public class ChefMateServer
 
 	public static void main(String[] args)
 	{
-	
-		// TODO: Delete demo code after testing
-//		CreateVMRequest req = CreateVMRequest.newBuilder().setName("vm1").setTag("chefmate").build();
-//		new EC2OpsImpl().createVM(req, null);
-	
-		// TODO: Test it!!
-//		for (int i = 0; i < args.length; i++)
-//		{
-//			if (args[i].equals("--help"))
-//			{
-//				showArgsPrompt();
-//			}
-//			else if(args[i].equals("-dc")){
-//				EnvironmentInitializer env = new EnvironmentInitializer();
-//				env.writeDefaultConfigFile();	
-//				return;
-//			}
-//			else if(args[i].equals("-i")){
-//				EnvironmentInitializer env = new EnvironmentInitializer();
-//				 env.init();
-//				 return;
-//			}
-//		}
 
-		// int port = -1;
-		// for (int i = 0; i < args.length; i++)
-		// {
-		// if (args[i].equals("-p"))
-		// {
-		// // Check if there's a following command
-		// if ((i + 1) < args.length)
-		// {
-		// try
-		// {
-		// port = Integer.parseInt(args[i + 1]);
-		// i++;
-		// } catch (NumberFormatException e)
-		// {
-		// ChefMateServer.showArgsPrompt();
-		// return;
-		// }
-		// }
-		// } else
-		// {
-		// ChefMateServer.showArgsPrompt();
-		// return;
-		// }
-		// }
-		// if (port == -1)
-		// {
-		// ChefMateServer.showArgsPrompt();
-		// return;
-		// }
-		// final ChefMateServer server = new ChefMateServer();
-		// try
-		// {
-		//
-		// server.start(port);
-		// server.blockUntilShutdown();
-		// } catch (IOException | InterruptedException ex)
-		// {
-		// logger.warning("### Error when starting server on port " + port +
-		// ".\n " + ex.getMessage());
-		// System.exit(1);
-		// }
+		// Ensure that config is read initially
+		Config.getInstance(false, true);
+		int port = -1;
+		// TODO: Delete demo code after testing
+		CreateVMRequest req = CreateVMRequest.newBuilder().setName("vm1").setTag("chefmate").build();
+		new EC2OpsImpl().createVM(req, null);
+
+		for (int i = 0; i < args.length; i++)
+		{
+			if (args[i].equals("--help"))
+			{
+				showArgsPrompt();
+			}
+			if (args[i].equals("-dc"))
+			{
+				new EnvironmentInitializer(true);
+				return;
+			}
+			if (args[i].equals("-i"))
+			{
+				EnvironmentInitializer env = new EnvironmentInitializer(false);
+				env.init();
+				return;
+			}
+			if (args[i].equals("-p"))
+			{
+				// Check if there's a following command
+				if ((i + 1) < args.length)
+				{
+					try
+					{
+						port = Integer.parseInt(args[i + 1]);
+						i++;
+					} catch (NumberFormatException e)
+					{
+						ChefMateServer.showArgsPrompt();
+						return;
+					}
+				}
+			} else
+			{
+				ChefMateServer.showArgsPrompt();
+				return;
+			}
+		}
+
+		if (port == -1)
+		{
+			ChefMateServer.showArgsPrompt();
+			return;
+		}
+		final ChefMateServer server = new ChefMateServer();
+		try
+		{
+
+			server.start(port);
+			server.blockUntilShutdown();
+		} catch (IOException | InterruptedException ex)
+		{
+			logger.warning("### Error when starting server on port " + port + ".\n " + ex.getMessage());
+			System.exit(1);
+		}
 	}
 
 	/**
@@ -151,5 +150,8 @@ public class ChefMateServer
 	{
 		System.out.println("Usage: \n <appname> command argument");
 		System.out.println("-p \t The port to listen to.");
+		System.out.println(
+				"-dc \t Writes the default config file and creates the server environment folder. CALL THIS BEFORE INIT.");
+		System.out.println("-i \t Initializes the server environment.");
 	}
 }
