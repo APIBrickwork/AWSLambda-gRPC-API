@@ -74,9 +74,8 @@ public class Config
 	 * @param reload Whether the config file should be reloaded or not.
 	 */
 	private Config(boolean writeDefault, boolean reload){
-		// TODO: Implement
 		this.homeDir = System.getProperty("user.home") + "/";
-		this.serverEnvDir = this.homeDir + "/chefmateserver/";
+		this.serverEnvDir = this.homeDir + "chefmateserver/";
 		if(writeDefault){
 			this.writeDefaultConfigFile();
 		}
@@ -199,6 +198,22 @@ public class Config
 		return chefRepoName;
 	}
 
+	public String getChefRepoPath(){
+		return this.serverEnvDir + this.chefRepoName;
+	}
+	
+	public String getChefCookbooksPath(){
+		return this.getChefRepoPath() + "/cookbooks";
+	}
+	
+	public String getChefAttributesPath(String cookbookname){
+		return this.getChefCookbooksPath() + "/" + cookbookname +"/attributes";
+	}
+	
+	public String getChefAttributesDefaultFilename(String cookbookname){
+		return this.getChefAttributesPath(cookbookname) + "/default.rb";
+	}
+	
 	public String getChefProvisioningInitScriptPath()
 	{
 		return chefProvisioningInitScriptPath;
