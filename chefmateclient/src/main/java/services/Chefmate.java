@@ -3480,22 +3480,355 @@ public final class Chefmate {
 
   }
 
+  public interface EmptyRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:EmptyRequest)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code EmptyRequest}
+   *
+   * <pre>
+   * An empty request message. Can be used when no parameters are needed for the request.
+   * </pre>
+   */
+  public  static final class EmptyRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:EmptyRequest)
+      EmptyRequestOrBuilder {
+    // Use EmptyRequest.newBuilder() to construct.
+    private EmptyRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private EmptyRequest() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private EmptyRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Chefmate.internal_static_EmptyRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Chefmate.internal_static_EmptyRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Chefmate.EmptyRequest.class, Chefmate.EmptyRequest.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    public static Chefmate.EmptyRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Chefmate.EmptyRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Chefmate.EmptyRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Chefmate.EmptyRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Chefmate.EmptyRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static Chefmate.EmptyRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static Chefmate.EmptyRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static Chefmate.EmptyRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static Chefmate.EmptyRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static Chefmate.EmptyRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Chefmate.EmptyRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code EmptyRequest}
+     *
+     * <pre>
+     * An empty request message. Can be used when no parameters are needed for the request.
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:EmptyRequest)
+        Chefmate.EmptyRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Chefmate.internal_static_EmptyRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Chefmate.internal_static_EmptyRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Chefmate.EmptyRequest.class, Chefmate.EmptyRequest.Builder.class);
+      }
+
+      // Construct using Chefmate.EmptyRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Chefmate.internal_static_EmptyRequest_descriptor;
+      }
+
+      public Chefmate.EmptyRequest getDefaultInstanceForType() {
+        return Chefmate.EmptyRequest.getDefaultInstance();
+      }
+
+      public Chefmate.EmptyRequest build() {
+        Chefmate.EmptyRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public Chefmate.EmptyRequest buildPartial() {
+        Chefmate.EmptyRequest result = new Chefmate.EmptyRequest(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Chefmate.EmptyRequest) {
+          return mergeFrom((Chefmate.EmptyRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Chefmate.EmptyRequest other) {
+        if (other == Chefmate.EmptyRequest.getDefaultInstance()) return this;
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Chefmate.EmptyRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Chefmate.EmptyRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:EmptyRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:EmptyRequest)
+    private static final Chefmate.EmptyRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Chefmate.EmptyRequest();
+    }
+
+    public static Chefmate.EmptyRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<EmptyRequest>
+        PARSER = new com.google.protobuf.AbstractParser<EmptyRequest>() {
+      public EmptyRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new EmptyRequest(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<EmptyRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<EmptyRequest> getParserForType() {
+      return PARSER;
+    }
+
+    public Chefmate.EmptyRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface CreateVMResponseOrBuilder extends
       // @@protoc_insertion_point(interface_extends:CreateVMResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .VMInfo info = 1;</code>
+     * <code>optional .VMInstanceId instanceId = 1;</code>
      */
-    boolean hasInfo();
+    boolean hasInstanceId();
     /**
-     * <code>optional .VMInfo info = 1;</code>
+     * <code>optional .VMInstanceId instanceId = 1;</code>
      */
-    Chefmate.VMInfo getInfo();
+    Chefmate.VMInstanceId getInstanceId();
     /**
-     * <code>optional .VMInfo info = 1;</code>
+     * <code>optional .VMInstanceId instanceId = 1;</code>
      */
-    Chefmate.VMInfoOrBuilder getInfoOrBuilder();
+    Chefmate.VMInstanceIdOrBuilder getInstanceIdOrBuilder();
+
+    /**
+     * <code>optional string outputLog = 2;</code>
+     */
+    java.lang.String getOutputLog();
+    /**
+     * <code>optional string outputLog = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getOutputLogBytes();
   }
   /**
    * Protobuf type {@code CreateVMResponse}
@@ -3515,6 +3848,7 @@ public final class Chefmate {
       super(builder);
     }
     private CreateVMResponse() {
+      outputLog_ = "";
     }
 
     @java.lang.Override
@@ -3542,16 +3876,22 @@ public final class Chefmate {
               break;
             }
             case 10: {
-              Chefmate.VMInfo.Builder subBuilder = null;
-              if (info_ != null) {
-                subBuilder = info_.toBuilder();
+              Chefmate.VMInstanceId.Builder subBuilder = null;
+              if (instanceId_ != null) {
+                subBuilder = instanceId_.toBuilder();
               }
-              info_ = input.readMessage(Chefmate.VMInfo.parser(), extensionRegistry);
+              instanceId_ = input.readMessage(Chefmate.VMInstanceId.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(info_);
-                info_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(instanceId_);
+                instanceId_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              outputLog_ = s;
               break;
             }
           }
@@ -3578,25 +3918,59 @@ public final class Chefmate {
               Chefmate.CreateVMResponse.class, Chefmate.CreateVMResponse.Builder.class);
     }
 
-    public static final int INFO_FIELD_NUMBER = 1;
-    private Chefmate.VMInfo info_;
+    public static final int INSTANCEID_FIELD_NUMBER = 1;
+    private Chefmate.VMInstanceId instanceId_;
     /**
-     * <code>optional .VMInfo info = 1;</code>
+     * <code>optional .VMInstanceId instanceId = 1;</code>
      */
-    public boolean hasInfo() {
-      return info_ != null;
+    public boolean hasInstanceId() {
+      return instanceId_ != null;
     }
     /**
-     * <code>optional .VMInfo info = 1;</code>
+     * <code>optional .VMInstanceId instanceId = 1;</code>
      */
-    public Chefmate.VMInfo getInfo() {
-      return info_ == null ? Chefmate.VMInfo.getDefaultInstance() : info_;
+    public Chefmate.VMInstanceId getInstanceId() {
+      return instanceId_ == null ? Chefmate.VMInstanceId.getDefaultInstance() : instanceId_;
     }
     /**
-     * <code>optional .VMInfo info = 1;</code>
+     * <code>optional .VMInstanceId instanceId = 1;</code>
      */
-    public Chefmate.VMInfoOrBuilder getInfoOrBuilder() {
-      return getInfo();
+    public Chefmate.VMInstanceIdOrBuilder getInstanceIdOrBuilder() {
+      return getInstanceId();
+    }
+
+    public static final int OUTPUTLOG_FIELD_NUMBER = 2;
+    private volatile java.lang.Object outputLog_;
+    /**
+     * <code>optional string outputLog = 2;</code>
+     */
+    public java.lang.String getOutputLog() {
+      java.lang.Object ref = outputLog_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        outputLog_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string outputLog = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getOutputLogBytes() {
+      java.lang.Object ref = outputLog_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        outputLog_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3611,8 +3985,11 @@ public final class Chefmate {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (info_ != null) {
-        output.writeMessage(1, getInfo());
+      if (instanceId_ != null) {
+        output.writeMessage(1, getInstanceId());
+      }
+      if (!getOutputLogBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 2, outputLog_);
       }
     }
 
@@ -3621,9 +3998,12 @@ public final class Chefmate {
       if (size != -1) return size;
 
       size = 0;
-      if (info_ != null) {
+      if (instanceId_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getInfo());
+          .computeMessageSize(1, getInstanceId());
+      }
+      if (!getOutputLogBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, outputLog_);
       }
       memoizedSize = size;
       return size;
@@ -3742,12 +4122,14 @@ public final class Chefmate {
       }
       public Builder clear() {
         super.clear();
-        if (infoBuilder_ == null) {
-          info_ = null;
+        if (instanceIdBuilder_ == null) {
+          instanceId_ = null;
         } else {
-          info_ = null;
-          infoBuilder_ = null;
+          instanceId_ = null;
+          instanceIdBuilder_ = null;
         }
+        outputLog_ = "";
+
         return this;
       }
 
@@ -3770,11 +4152,12 @@ public final class Chefmate {
 
       public Chefmate.CreateVMResponse buildPartial() {
         Chefmate.CreateVMResponse result = new Chefmate.CreateVMResponse(this);
-        if (infoBuilder_ == null) {
-          result.info_ = info_;
+        if (instanceIdBuilder_ == null) {
+          result.instanceId_ = instanceId_;
         } else {
-          result.info_ = infoBuilder_.build();
+          result.instanceId_ = instanceIdBuilder_.build();
         }
+        result.outputLog_ = outputLog_;
         onBuilt();
         return result;
       }
@@ -3790,8 +4173,12 @@ public final class Chefmate {
 
       public Builder mergeFrom(Chefmate.CreateVMResponse other) {
         if (other == Chefmate.CreateVMResponse.getDefaultInstance()) return this;
-        if (other.hasInfo()) {
-          mergeInfo(other.getInfo());
+        if (other.hasInstanceId()) {
+          mergeInstanceId(other.getInstanceId());
+        }
+        if (!other.getOutputLog().isEmpty()) {
+          outputLog_ = other.outputLog_;
+          onChanged();
         }
         onChanged();
         return this;
@@ -3819,121 +4206,190 @@ public final class Chefmate {
         return this;
       }
 
-      private Chefmate.VMInfo info_ = null;
+      private Chefmate.VMInstanceId instanceId_ = null;
       private com.google.protobuf.SingleFieldBuilder<
-          Chefmate.VMInfo, Chefmate.VMInfo.Builder, Chefmate.VMInfoOrBuilder> infoBuilder_;
+          Chefmate.VMInstanceId, Chefmate.VMInstanceId.Builder, Chefmate.VMInstanceIdOrBuilder> instanceIdBuilder_;
       /**
-       * <code>optional .VMInfo info = 1;</code>
+       * <code>optional .VMInstanceId instanceId = 1;</code>
        */
-      public boolean hasInfo() {
-        return infoBuilder_ != null || info_ != null;
+      public boolean hasInstanceId() {
+        return instanceIdBuilder_ != null || instanceId_ != null;
       }
       /**
-       * <code>optional .VMInfo info = 1;</code>
+       * <code>optional .VMInstanceId instanceId = 1;</code>
        */
-      public Chefmate.VMInfo getInfo() {
-        if (infoBuilder_ == null) {
-          return info_ == null ? Chefmate.VMInfo.getDefaultInstance() : info_;
+      public Chefmate.VMInstanceId getInstanceId() {
+        if (instanceIdBuilder_ == null) {
+          return instanceId_ == null ? Chefmate.VMInstanceId.getDefaultInstance() : instanceId_;
         } else {
-          return infoBuilder_.getMessage();
+          return instanceIdBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .VMInfo info = 1;</code>
+       * <code>optional .VMInstanceId instanceId = 1;</code>
        */
-      public Builder setInfo(Chefmate.VMInfo value) {
-        if (infoBuilder_ == null) {
+      public Builder setInstanceId(Chefmate.VMInstanceId value) {
+        if (instanceIdBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          info_ = value;
+          instanceId_ = value;
           onChanged();
         } else {
-          infoBuilder_.setMessage(value);
+          instanceIdBuilder_.setMessage(value);
         }
 
         return this;
       }
       /**
-       * <code>optional .VMInfo info = 1;</code>
+       * <code>optional .VMInstanceId instanceId = 1;</code>
        */
-      public Builder setInfo(
-          Chefmate.VMInfo.Builder builderForValue) {
-        if (infoBuilder_ == null) {
-          info_ = builderForValue.build();
+      public Builder setInstanceId(
+          Chefmate.VMInstanceId.Builder builderForValue) {
+        if (instanceIdBuilder_ == null) {
+          instanceId_ = builderForValue.build();
           onChanged();
         } else {
-          infoBuilder_.setMessage(builderForValue.build());
+          instanceIdBuilder_.setMessage(builderForValue.build());
         }
 
         return this;
       }
       /**
-       * <code>optional .VMInfo info = 1;</code>
+       * <code>optional .VMInstanceId instanceId = 1;</code>
        */
-      public Builder mergeInfo(Chefmate.VMInfo value) {
-        if (infoBuilder_ == null) {
-          if (info_ != null) {
-            info_ =
-              Chefmate.VMInfo.newBuilder(info_).mergeFrom(value).buildPartial();
+      public Builder mergeInstanceId(Chefmate.VMInstanceId value) {
+        if (instanceIdBuilder_ == null) {
+          if (instanceId_ != null) {
+            instanceId_ =
+              Chefmate.VMInstanceId.newBuilder(instanceId_).mergeFrom(value).buildPartial();
           } else {
-            info_ = value;
+            instanceId_ = value;
           }
           onChanged();
         } else {
-          infoBuilder_.mergeFrom(value);
+          instanceIdBuilder_.mergeFrom(value);
         }
 
         return this;
       }
       /**
-       * <code>optional .VMInfo info = 1;</code>
+       * <code>optional .VMInstanceId instanceId = 1;</code>
        */
-      public Builder clearInfo() {
-        if (infoBuilder_ == null) {
-          info_ = null;
+      public Builder clearInstanceId() {
+        if (instanceIdBuilder_ == null) {
+          instanceId_ = null;
           onChanged();
         } else {
-          info_ = null;
-          infoBuilder_ = null;
+          instanceId_ = null;
+          instanceIdBuilder_ = null;
         }
 
         return this;
       }
       /**
-       * <code>optional .VMInfo info = 1;</code>
+       * <code>optional .VMInstanceId instanceId = 1;</code>
        */
-      public Chefmate.VMInfo.Builder getInfoBuilder() {
+      public Chefmate.VMInstanceId.Builder getInstanceIdBuilder() {
         
         onChanged();
-        return getInfoFieldBuilder().getBuilder();
+        return getInstanceIdFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .VMInfo info = 1;</code>
+       * <code>optional .VMInstanceId instanceId = 1;</code>
        */
-      public Chefmate.VMInfoOrBuilder getInfoOrBuilder() {
-        if (infoBuilder_ != null) {
-          return infoBuilder_.getMessageOrBuilder();
+      public Chefmate.VMInstanceIdOrBuilder getInstanceIdOrBuilder() {
+        if (instanceIdBuilder_ != null) {
+          return instanceIdBuilder_.getMessageOrBuilder();
         } else {
-          return info_ == null ?
-              Chefmate.VMInfo.getDefaultInstance() : info_;
+          return instanceId_ == null ?
+              Chefmate.VMInstanceId.getDefaultInstance() : instanceId_;
         }
       }
       /**
-       * <code>optional .VMInfo info = 1;</code>
+       * <code>optional .VMInstanceId instanceId = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Chefmate.VMInfo, Chefmate.VMInfo.Builder, Chefmate.VMInfoOrBuilder> 
-          getInfoFieldBuilder() {
-        if (infoBuilder_ == null) {
-          infoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Chefmate.VMInfo, Chefmate.VMInfo.Builder, Chefmate.VMInfoOrBuilder>(
-                  getInfo(),
+          Chefmate.VMInstanceId, Chefmate.VMInstanceId.Builder, Chefmate.VMInstanceIdOrBuilder> 
+          getInstanceIdFieldBuilder() {
+        if (instanceIdBuilder_ == null) {
+          instanceIdBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              Chefmate.VMInstanceId, Chefmate.VMInstanceId.Builder, Chefmate.VMInstanceIdOrBuilder>(
+                  getInstanceId(),
                   getParentForChildren(),
                   isClean());
-          info_ = null;
+          instanceId_ = null;
         }
-        return infoBuilder_;
+        return instanceIdBuilder_;
+      }
+
+      private java.lang.Object outputLog_ = "";
+      /**
+       * <code>optional string outputLog = 2;</code>
+       */
+      public java.lang.String getOutputLog() {
+        java.lang.Object ref = outputLog_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          outputLog_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string outputLog = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getOutputLogBytes() {
+        java.lang.Object ref = outputLog_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          outputLog_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string outputLog = 2;</code>
+       */
+      public Builder setOutputLog(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        outputLog_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string outputLog = 2;</code>
+       */
+      public Builder clearOutputLog() {
+        
+        outputLog_ = getDefaultInstance().getOutputLog();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string outputLog = 2;</code>
+       */
+      public Builder setOutputLogBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        outputLog_ = value;
+        onChanged();
+        return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -3998,9 +4454,14 @@ public final class Chefmate {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional bool success = 1;</code>
+     * <code>optional string outputLog = 1;</code>
      */
-    boolean getSuccess();
+    java.lang.String getOutputLog();
+    /**
+     * <code>optional string outputLog = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getOutputLogBytes();
   }
   /**
    * Protobuf type {@code DestroyVMResponse}
@@ -4014,7 +4475,7 @@ public final class Chefmate {
       super(builder);
     }
     private DestroyVMResponse() {
-      success_ = false;
+      outputLog_ = "";
     }
 
     @java.lang.Override
@@ -4041,9 +4502,10 @@ public final class Chefmate {
               }
               break;
             }
-            case 8: {
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              success_ = input.readBool();
+              outputLog_ = s;
               break;
             }
           }
@@ -4070,13 +4532,38 @@ public final class Chefmate {
               Chefmate.DestroyVMResponse.class, Chefmate.DestroyVMResponse.Builder.class);
     }
 
-    public static final int SUCCESS_FIELD_NUMBER = 1;
-    private boolean success_;
+    public static final int OUTPUTLOG_FIELD_NUMBER = 1;
+    private volatile java.lang.Object outputLog_;
     /**
-     * <code>optional bool success = 1;</code>
+     * <code>optional string outputLog = 1;</code>
      */
-    public boolean getSuccess() {
-      return success_;
+    public java.lang.String getOutputLog() {
+      java.lang.Object ref = outputLog_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        outputLog_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string outputLog = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getOutputLogBytes() {
+      java.lang.Object ref = outputLog_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        outputLog_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4091,8 +4578,8 @@ public final class Chefmate {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (success_ != false) {
-        output.writeBool(1, success_);
+      if (!getOutputLogBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, outputLog_);
       }
     }
 
@@ -4101,9 +4588,8 @@ public final class Chefmate {
       if (size != -1) return size;
 
       size = 0;
-      if (success_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, success_);
+      if (!getOutputLogBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, outputLog_);
       }
       memoizedSize = size;
       return size;
@@ -4216,7 +4702,7 @@ public final class Chefmate {
       }
       public Builder clear() {
         super.clear();
-        success_ = false;
+        outputLog_ = "";
 
         return this;
       }
@@ -4240,7 +4726,7 @@ public final class Chefmate {
 
       public Chefmate.DestroyVMResponse buildPartial() {
         Chefmate.DestroyVMResponse result = new Chefmate.DestroyVMResponse(this);
-        result.success_ = success_;
+        result.outputLog_ = outputLog_;
         onBuilt();
         return result;
       }
@@ -4256,8 +4742,9 @@ public final class Chefmate {
 
       public Builder mergeFrom(Chefmate.DestroyVMResponse other) {
         if (other == Chefmate.DestroyVMResponse.getDefaultInstance()) return this;
-        if (other.getSuccess() != false) {
-          setSuccess(other.getSuccess());
+        if (!other.getOutputLog().isEmpty()) {
+          outputLog_ = other.outputLog_;
+          onChanged();
         }
         onChanged();
         return this;
@@ -4285,28 +4772,71 @@ public final class Chefmate {
         return this;
       }
 
-      private boolean success_ ;
+      private java.lang.Object outputLog_ = "";
       /**
-       * <code>optional bool success = 1;</code>
+       * <code>optional string outputLog = 1;</code>
        */
-      public boolean getSuccess() {
-        return success_;
+      public java.lang.String getOutputLog() {
+        java.lang.Object ref = outputLog_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          outputLog_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>optional bool success = 1;</code>
+       * <code>optional string outputLog = 1;</code>
        */
-      public Builder setSuccess(boolean value) {
-        
-        success_ = value;
+      public com.google.protobuf.ByteString
+          getOutputLogBytes() {
+        java.lang.Object ref = outputLog_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          outputLog_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string outputLog = 1;</code>
+       */
+      public Builder setOutputLog(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        outputLog_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bool success = 1;</code>
+       * <code>optional string outputLog = 1;</code>
        */
-      public Builder clearSuccess() {
+      public Builder clearOutputLog() {
         
-        success_ = false;
+        outputLog_ = getDefaultInstance().getOutputLog();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string outputLog = 1;</code>
+       */
+      public Builder setOutputLogBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        outputLog_ = value;
         onChanged();
         return this;
       }
@@ -4389,6 +4919,11 @@ public final class Chefmate {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_DestroyVMRequest_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_EmptyRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_EmptyRequest_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_CreateVMResponse_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -4416,12 +4951,14 @@ public final class Chefmate {
       "region\030\003 \001(\t\022\017\n\007imageId\030\004 \001(\t\022\024\n\014instanc" +
       "eType\030\005 \001(\t\022\030\n\020securityGroupIds\030\006 \003(\t\"-\n" +
       "\020DestroyVMRequest\022\031\n\002id\030\001 \001(\0132\r.VMInstan" +
-      "ceId\")\n\020CreateVMResponse\022\025\n\004info\030\001 \001(\0132\007",
-      ".VMInfo\"$\n\021DestroyVMResponse\022\017\n\007success\030" +
-      "\001 \001(\0102m\n\006EC2Ops\022/\n\010createVM\022\020.CreateVMRe" +
-      "quest\032\021.CreateVMResponse\0222\n\tdestroyVM\022\021." +
-      "DestroyVMRequest\032\022.DestroyVMResponseb\006pr" +
-      "oto3"
+      "ceId\"\016\n\014EmptyRequest\"H\n\020CreateVMResponse",
+      "\022!\n\ninstanceId\030\001 \001(\0132\r.VMInstanceId\022\021\n\to" +
+      "utputLog\030\002 \001(\t\"&\n\021DestroyVMResponse\022\021\n\to" +
+      "utputLog\030\001 \001(\t2\241\001\n\006EC2Ops\022/\n\010createVM\022\020." +
+      "CreateVMRequest\032\021.CreateVMResponse\0222\n\tde" +
+      "stroyVM\022\021.DestroyVMRequest\032\022.DestroyVMRe" +
+      "sponse\0222\n\rdestroyAllVMs\022\r.EmptyRequest\032\022" +
+      ".DestroyVMResponseb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4459,18 +4996,24 @@ public final class Chefmate {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_DestroyVMRequest_descriptor,
         new java.lang.String[] { "Id", });
-    internal_static_CreateVMResponse_descriptor =
+    internal_static_EmptyRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_EmptyRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_EmptyRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_CreateVMResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
     internal_static_CreateVMResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_CreateVMResponse_descriptor,
-        new java.lang.String[] { "Info", });
+        new java.lang.String[] { "InstanceId", "OutputLog", });
     internal_static_DestroyVMResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_DestroyVMResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_DestroyVMResponse_descriptor,
-        new java.lang.String[] { "Success", });
+        new java.lang.String[] { "OutputLog", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

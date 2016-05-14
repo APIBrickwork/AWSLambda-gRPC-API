@@ -35,16 +35,21 @@ message DestroyVMRequest{
 	VMInstanceId id = 1;
 }
 
+// An empty request message. Can be used when no parameters are needed for the request.
+message EmptyRequest{
+	
+}
 
 // #########
 // Responses
 // #########
 message CreateVMResponse{
-	VMInfo info = 1;
+	VMInstanceId instanceId = 1;
+	string outputLog = 2;
 }
 
 message DestroyVMResponse{
-	bool success = 1;
+	string outputLog = 1; 
 }
 
 
@@ -55,4 +60,5 @@ message DestroyVMResponse{
 service EC2Ops {
 	rpc createVM(CreateVMRequest) returns (CreateVMResponse);
 	rpc destroyVM(DestroyVMRequest) returns (DestroyVMResponse);
+	rpc destroyAllVMs(EmptyRequest) returns (DestroyVMResponse);
 }
