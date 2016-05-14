@@ -1,8 +1,3 @@
-import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.net.Socket;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -14,6 +9,7 @@ import services.Chefmate.CreateVMRequest;
 import services.Chefmate.CreateVMResponse;
 import services.Chefmate.DestroyVMRequest;
 import services.Chefmate.DestroyVMResponse;
+import services.Chefmate.EmptyRequest;
 import services.Chefmate.VMInstanceId;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -76,7 +72,8 @@ public class ChefMateClient
 			return;
 		}
 		logger.info("### Received response.");
-		System.out.println("Created new VM with VmInfo = " + createVMResponse.getInfo());
+		System.out.println("Created new VM with VmInfo = " + createVMResponse.getInstanceId());
+		System.out.println("\n Created new VM with OutPutLog = " + createVMResponse.getOutputLog());
 	}
 	
 	/**
@@ -97,7 +94,29 @@ public class ChefMateClient
 			return;
 		}
 		logger.info("### Received response.");
-		System.out.println("Destoyed VM with InstanceId" +destroyVMRequest.getId()+" = " + destroyVMResponse.getSuccess());
+		System.out.println("Destoyed VM with InstanceId" +destroyVMRequest.getId()+" = " + destroyVMResponse.getOutputLog());
+	}
+	
+	
+	/**
+	 * Sends the destroyAllVM request to the ChefMateServer.
+	 */
+	
+	public void sendDestroyAllVMRequest(EmptyRequest emptyRequest)
+	{
+		logger.info("### Sending request for Destroying VM.");
+		
+		DestroyVMResponse destroyVMResponse = null;
+		try
+		{
+			destroyVMResponse = this.blockingStub.destroyAllVMs(emptyRequest);
+		} catch (StatusRuntimeException e)
+		{
+			logger.warning("### RPC failed: {0}" + e.getStatus());
+			return;
+		}
+		logger.info("### Received response.");
+		System.out.println("Destoyed VMs with output Log  = " + destroyVMResponse.getOutputLog());
 	}
 	
 	/**
@@ -213,6 +232,13 @@ public class ChefMateClient
 					DestroyVMRequest destroyVMRequest = DestroyVMRequest.newBuilder().setId(VMInstanceId.newBuilder().setId(arr[1])).build();
 					client.sendDestroyVMRequest(destroyVMRequest);
 				}
+			}else if (command.startsWith("destroyAllVM"))
+			{
+				
+					
+					EmptyRequest emptyRequest = EmptyRequest.newBuilder().build();
+					client.sendDestroyAllVMRequest(emptyRequest);
+				
 			}					
 		}
 		scanner.close();
@@ -226,6 +252,7 @@ public class ChefMateClient
 		System.out.println("Available Commands: \n");
 		System.out.println("createVM \n\t Create VM Instance ");
 		System.out.println("destroyVM \n\t Destroy the VM Instance");
+		System.out.println("destroyAllVM \n\t Destroy All VM Instance");
 		System.out.println("shutdown \n\t Terminates this client and closes all connections.");
 	}
 
