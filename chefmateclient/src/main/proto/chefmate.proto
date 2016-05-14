@@ -4,18 +4,8 @@ syntax = "proto3";
 // Virtual Machine messages
 // ########################
 
-message VMInstanceId{
+message AWSInstanceId{
 	string id = 1;
-}
-
-message VMInfo{
-	VMInstanceId id = 1;
-	string name = 2;
-	string tag = 3;
-	string region = 4;
-	string imageId = 5;
-	string instanceType = 6;
-	repeated string securityGroupIds = 7;
 }
 
 // ########
@@ -27,25 +17,22 @@ message CreateVMRequest {
 	string tag = 2;
 	string region = 3;
 	string imageId = 4;
-	string instanceType = 5;
-	repeated string securityGroupIds = 6;
+	string username = 5;
+	string instanceType = 6;
+	repeated string securityGroupIds = 7;
 }
 
 message DestroyVMRequest{
-	VMInstanceId id = 1;
-}
-
-// An empty request message. Can be used when no parameters are needed for the request.
-message EmptyRequest{
-	
+	AWSInstanceId instanceId = 1;
 }
 
 // #########
 // Responses
 // #########
 message CreateVMResponse{
-	VMInstanceId instanceId = 1;
-	string outputLog = 2;
+	AWSInstanceId instanceId = 1;
+	string publicDNS = 2;
+	string outputLog = 3;
 }
 
 message DestroyVMResponse{
@@ -60,5 +47,4 @@ message DestroyVMResponse{
 service EC2Ops {
 	rpc createVM(CreateVMRequest) returns (CreateVMResponse);
 	rpc destroyVM(DestroyVMRequest) returns (DestroyVMResponse);
-	rpc destroyAllVMs(EmptyRequest) returns (DestroyVMResponse);
 }
