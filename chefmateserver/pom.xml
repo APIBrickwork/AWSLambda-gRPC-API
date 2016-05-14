@@ -12,6 +12,12 @@
 			<artifactId>grpc-all</artifactId>
 			<version>0.13.2</version>
 		</dependency>
+		<!-- http://mvnrepository.com/artifact/com.jcraft/jsch -->
+		<dependency>
+    		<groupId>com.jcraft</groupId>
+    		<artifactId>jsch</artifactId>
+    		<version>0.1.53</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<extensions>

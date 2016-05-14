@@ -3,13 +3,14 @@ import java.util.logging.Logger;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
-import services.Chefmate.AWSInstanceId;
-import services.Chefmate.CreateVMRequest;
-import services.Chefmate.DestroyVMRequest;
 import services.EC2OpsGrpc;
 import services.EC2OpsImpl;
 import util.Config;
 import util.EnvironmentInitializer;
+import util.SSHExecuter;
+import util.SSHExecuter.ChannelType;
+
+import com.jcraft.jsch.*;
 
 public class ChefMateServer
 {
@@ -79,21 +80,41 @@ public class ChefMateServer
 
 	public static void main(String[] args)
 	{
+		// TODO: Maybe also necessary to add Chef Installation when initializing!!
+		
+		/* Local Test Code */
 
-		// Ensure that config is read initially
-		Config.getInstance(false, true);
-
-		int port = -1;
 		// TODO: Delete demo code after testing
-		// CreateVMRequest req =
-		// CreateVMRequest.newBuilder().setName("vm1").setTag("mytag").setRegion("eu-central-1")
-		// .setImageId("ami-87564feb").setUsername("ubuntu").setInstanceType("t2.micro")
-		// .addSecurityGroupIds("sg-79ae5d11").build();
-		// new EC2OpsImpl().createVM(req, null);
+		Config.getInstance(false, true);
+		
+		
+		
+//		 CreateVMRequest req =
+//		 CreateVMRequest.newBuilder().setName("vm1").setTag("mytag").setRegion("eu-central-1")
+//		 .setImageId("ami-87564feb").setUsername("ubuntu").setInstanceType("t2.micro")
+//		 .addSecurityGroupIds("sg-79ae5d11").build();
+//		 new EC2OpsImpl().createVM(req, null);
 		//
 //		DestroyVMRequest req = DestroyVMRequest.newBuilder()
-//				.setInstanceId(AWSInstanceId.newBuilder().setId("i-0338d6bdd1f6786d4").build()).build();
+//				.setInstanceId(AWSInstanceId.newBuilder().setId("i-06d20782fa2113e32").build()).build();
 //		new EC2OpsImpl().destroyVM(req, null);
+
+		
+		
+		String username = "ubuntu";
+		String host = "ec2-52-28-43-243.eu-central-1.compute.amazonaws.com";
+		int timeout = 10000;
+		String homeDir = System.getProperty("user.home");
+		String keyFile = homeDir + "/.ssh/chefmateserver_key.pem";
+		
+		
+		SSHExecuter ssh = new SSHExecuter();
+		ssh.connectHost(username, host, 22, timeout, keyFile);
+		ssh.sendToChannel(ChannelType.EXEC, "ll", timeout);
+		ssh.tearDown();
+		/* END */
+		
+		int port = -1;
 		
 		for (int i = 0; i < args.length; i++)
 		{
@@ -142,7 +163,7 @@ public class ChefMateServer
 		final ChefMateServer server = new ChefMateServer();
 		try
 		{
-
+			Config.getInstance(false, true);
 			server.start(port);
 			server.blockUntilShutdown();
 		} catch (IOException | InterruptedException ex)
