@@ -86,7 +86,7 @@ public class ChefMateServer
 		/* Local Test Code */
 
 		// TODO: Delete demo code after testing
-		Config.getInstance(false, true);
+//		Config.getInstance(false, true);
 		
 		
 		
@@ -102,17 +102,17 @@ public class ChefMateServer
 
 		
 		
-		String username = "ubuntu";
-		String host = "ec2-52-58-86-119.eu-central-1.compute.amazonaws.com";
-		int timeout = 10000;
-		String homeDir = System.getProperty("user.home");
-		String keyFile = homeDir + "/.ssh/chefmateserver_key.pem";
-		
-		
-		SSHExecuter ssh = new SSHExecuter();
-		ssh.connectHost(username, host, 22, timeout, keyFile);
-		ssh.sendToChannel(ChannelType.EXEC, "ls -a", timeout);
-		ssh.tearDown();
+//		String username = "ubuntu";
+//		String host = "ec2-52-58-86-119.eu-central-1.compute.amazonaws.com";
+//		int timeout = 10000;
+//		String homeDir = System.getProperty("user.home");
+//		String keyFile = homeDir + "/.ssh/chefmateserver_key.pem";
+//		
+//		
+//		SSHExecuter ssh = new SSHExecuter();
+//		ssh.connectHost(username, host, 22, timeout, keyFile);
+//		ssh.sendToChannel(ChannelType.EXEC, "ls -a", timeout);
+//		ssh.tearDown();
 		/* END */
 		
 		int port = -1;

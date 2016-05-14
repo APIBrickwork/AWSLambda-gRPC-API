@@ -23,7 +23,7 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 	{
 		logger.info("### Received request for createVM with info:\n " + request.toString());
 
-		// Write the according attributes
+//		// Write the according attributes
 		Config config = Config.getInstance(false, false);
 		String filename = config.getChefAttributesDefaultFilename("cb-chefmate");
 		logger.info("### Writing Attributes file to: " + filename);
@@ -60,13 +60,29 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 			String[] splitL = splitPublicDns[1].split(System.lineSeparator());
 			publicDns = splitL[0].trim();
 		}
-
+		
+		logger.info("### Provisioning Output: \n" + outputLog);
+		
+		// Use knife to bootstrap the created VM
+		List<String> bootstrapCommands = new ArrayList<>();
+		bootstrapCommands.add("knife");
+		bootstrapCommands.add("bootstrap");
+		bootstrapCommands.add("-z");
+		bootstrapCommands.add(publicDns);
+		bootstrapCommands.add("-i");
+		String keyFile = System.getProperty("user.home") + "/.ssh/" + config.getAwsSSHKeyName() + ".pem";
+		bootstrapCommands.add(keyFile);
+		bootstrapCommands.add("--sudo");
+		bootstrapCommands.add("-x");
+		bootstrapCommands.add(request.getUsername());
+		
+		logger.info("### Starting bootstrapping using " + bootstrapCommands);
+		ShellExecuter.execute(config.getChefRepoPath(), bootstrapCommands);
+			
 		CreateVMResponse resp = CreateVMResponse.newBuilder()
 				.setInstanceId(AWSInstanceId.newBuilder().setId(instanceId).build()).setPublicDNS(publicDns)
 				.setOutputLog(outputLog).build();
 
-		logger.info("### Process Output: \n" + outputLog);
-		// TODO: Send response after testing
 		responseObserver.onNext(resp);
 		responseObserver.onCompleted();
 		logger.info("### Sent response.");
@@ -98,8 +114,8 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 		
 		DestroyVMResponse resp = DestroyVMResponse.newBuilder().setOutputLog(outputLog).build();
 
-		logger.info("### Process Output: \n" + outputLog);
-		// TODO: Send response after testing
+		logger.info("### Destroying Output: \n" + outputLog);
+
 		responseObserver.onNext(resp);
 		responseObserver.onCompleted();
 		logger.info("### Sent response.");
