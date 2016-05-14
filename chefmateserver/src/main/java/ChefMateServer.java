@@ -3,7 +3,9 @@ import java.util.logging.Logger;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import services.Chefmate.AWSInstanceId;
 import services.Chefmate.CreateVMRequest;
+import services.Chefmate.DestroyVMRequest;
 import services.EC2OpsGrpc;
 import services.EC2OpsImpl;
 import util.Config;
@@ -80,12 +82,19 @@ public class ChefMateServer
 
 		// Ensure that config is read initially
 		Config.getInstance(false, true);
-		
+
 		int port = -1;
 		// TODO: Delete demo code after testing
-		CreateVMRequest req = CreateVMRequest.newBuilder().setName("vm1").setTag("chefmate").build();
-		new EC2OpsImpl().createVM(req, null);
-
+		// CreateVMRequest req =
+		// CreateVMRequest.newBuilder().setName("vm1").setTag("mytag").setRegion("eu-central-1")
+		// .setImageId("ami-87564feb").setUsername("ubuntu").setInstanceType("t2.micro")
+		// .addSecurityGroupIds("sg-79ae5d11").build();
+		// new EC2OpsImpl().createVM(req, null);
+		//
+//		DestroyVMRequest req = DestroyVMRequest.newBuilder()
+//				.setInstanceId(AWSInstanceId.newBuilder().setId("i-0338d6bdd1f6786d4").build()).build();
+//		new EC2OpsImpl().destroyVM(req, null);
+		
 		for (int i = 0; i < args.length; i++)
 		{
 			if (args[i].equals("--help"))
