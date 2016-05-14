@@ -3,6 +3,7 @@ import java.util.logging.Logger;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import services.Chefmate.CreateVMRequest;
 import services.EC2OpsGrpc;
 import services.EC2OpsImpl;
 import util.Config;
@@ -102,7 +103,7 @@ public class ChefMateServer
 		
 		
 		String username = "ubuntu";
-		String host = "ec2-52-28-43-243.eu-central-1.compute.amazonaws.com";
+		String host = "ec2-52-58-86-119.eu-central-1.compute.amazonaws.com";
 		int timeout = 10000;
 		String homeDir = System.getProperty("user.home");
 		String keyFile = homeDir + "/.ssh/chefmateserver_key.pem";
@@ -110,7 +111,7 @@ public class ChefMateServer
 		
 		SSHExecuter ssh = new SSHExecuter();
 		ssh.connectHost(username, host, 22, timeout, keyFile);
-		ssh.sendToChannel(ChannelType.EXEC, "ll", timeout);
+		ssh.sendToChannel(ChannelType.EXEC, "ls -a", timeout);
 		ssh.tearDown();
 		/* END */
 		

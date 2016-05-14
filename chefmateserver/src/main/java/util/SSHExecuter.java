@@ -98,22 +98,52 @@ public class SSHExecuter
 			{
 				ChannelExec exec = (ChannelExec) this.session.openChannel(typeString);
 
-				
-				// TODO: Get output 
 				exec.setCommand(command);
 				exec.connect();
+				logger.info("### Executing " + command + " on channel " + typeString);
+				exec.setInputStream(null);
+				exec.setErrStream(System.err);
+
+				InputStream in;
 				
+				StringBuilder sb = new StringBuilder();
 				
-				// BufferedReader in = new BufferedReader(new
-				// InputStreamReader(exec.getInputStream()));
-
-				// String message = null;
-				// while ((message = in.readLine()) != null)
-				// {
-				// logger.info(message);
-				// }
-
-
+				try
+				{
+					in = exec.getInputStream();
+					byte[] tmp = new byte[1024];
+					while (true)
+					{
+						while (in.available() > 0)
+						{
+							int i = in.read(tmp, 0, 1024);
+							if (i < 0)
+								break;
+							System.out.print(new String(tmp, 0, i));
+							sb.append(new String(tmp));
+						}
+						if (exec.isClosed())
+						{
+							if (in.available() > 0)
+								continue;
+							System.out.println("exit-status: " + exec.getExitStatus());
+							sb.append("exit-status: " + exec.getExitStatus());
+							break;
+						}
+						try
+						{
+							Thread.sleep(1000);
+						} catch (Exception ee)
+						{
+						}
+					}
+				} catch (IOException e)
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				outputLog = sb.toString();
 				exec.disconnect();
 
 			} catch (JSchException e)
