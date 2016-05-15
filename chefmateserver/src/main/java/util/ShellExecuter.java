@@ -45,19 +45,22 @@ public class ShellExecuter
 		try
 		{
 			Process p = pb.start();
+			
+			BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			StringBuilder builder = new StringBuilder();
+			String line = null;
+			while ((line = reader.readLine()) != null)
+			{
+				builder.append(line);
+				builder.append(System.getProperty("line.separator"));
+			}
+			output = builder.toString();
+			
 			int code = p.waitFor();
 			if (code == 0)
 			{
 				logger.info("### Process terminated successfully with command: " + commands);
-				BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-				StringBuilder builder = new StringBuilder();
-				String line = null;
-				while ((line = reader.readLine()) != null)
-				{
-					builder.append(line);
-					builder.append(System.getProperty("line.separator"));
-				}
-				output = builder.toString();
+				
 			} else
 			{
 				logger.warning("### Process terminated unsuccessfully.");
@@ -71,5 +74,4 @@ public class ShellExecuter
 			return "";
 		}
 	}
-
 }

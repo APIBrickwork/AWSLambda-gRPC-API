@@ -8,6 +8,18 @@ message AWSInstanceId{
 	string id = 1;
 }
 
+
+// ########################
+// SSH section
+// ########################
+message SSHCredentials{
+	string username = 1;
+	string host = 2;
+	string keyfilename = 3;
+	string timeout = 4;
+}
+
+
 // ########
 // Requests
 // ########
@@ -26,6 +38,15 @@ message DestroyVMRequest{
 	AWSInstanceId instanceId = 1;
 }
 
+message DeployWPAppRequest{
+	SSHCredentials credentials = 1;
+}
+
+message DeployDBRequest{
+	SSHCredentials credentials = 1;
+	
+}
+
 // #########
 // Responses
 // #########
@@ -39,6 +60,10 @@ message DestroyVMResponse{
 	string outputLog = 1; 
 }
 
+message DeployWPAppResponse{
+	string outputLog = 1;
+}
+
 
 // #######################
 // EC2 operations services
@@ -47,4 +72,9 @@ message DestroyVMResponse{
 service EC2Ops {
 	rpc createVM(CreateVMRequest) returns (CreateVMResponse);
 	rpc destroyVM(DestroyVMRequest) returns (DestroyVMResponse);
+}
+
+service WordPressOps{
+	rpc deployWPApp(DeployWPAppRequest) returns (DeployWPAppResponse);
+	rpc deployDB()
 }

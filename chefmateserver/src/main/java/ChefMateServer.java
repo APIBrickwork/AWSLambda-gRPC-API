@@ -86,15 +86,15 @@ public class ChefMateServer
 		/* Local Test Code */
 
 		// TODO: Delete demo code after testing
-//		Config.getInstance(false, true);
+		Config.getInstance(false, true);
 		
 		
 		
-//		 CreateVMRequest req =
-//		 CreateVMRequest.newBuilder().setName("vm1").setTag("mytag").setRegion("eu-central-1")
-//		 .setImageId("ami-87564feb").setUsername("ubuntu").setInstanceType("t2.micro")
-//		 .addSecurityGroupIds("sg-79ae5d11").build();
-//		 new EC2OpsImpl().createVM(req, null);
+		 CreateVMRequest req =
+		 CreateVMRequest.newBuilder().setName("vm1").setTag("mytag").setRegion("eu-central-1")
+		 .setImageId("ami-87564feb").setUsername("ubuntu").setInstanceType("t2.micro")
+		 .addSecurityGroupIds("sg-79ae5d11").build();
+		 new EC2OpsImpl().createVM(req, null);
 		//
 //		DestroyVMRequest req = DestroyVMRequest.newBuilder()
 //				.setInstanceId(AWSInstanceId.newBuilder().setId("i-06d20782fa2113e32").build()).build();

@@ -76,9 +76,10 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 		bootstrapCommands.add("-x");
 		bootstrapCommands.add(request.getUsername());
 		
-		logger.info("### Starting bootstrapping using " + bootstrapCommands);
-		ShellExecuter.execute(config.getChefRepoPath(), bootstrapCommands);
-			
+		logger.info("### Starting bootstrapping using from directory " + execDir + " using commands: " + bootstrapCommands);
+		String bootStrapOutput = ShellExecuter.execute(execDir, bootstrapCommands);
+		logger.info("### Bootstrap Output: \n" + bootStrapOutput);
+		
 		CreateVMResponse resp = CreateVMResponse.newBuilder()
 				.setInstanceId(AWSInstanceId.newBuilder().setId(instanceId).build()).setPublicDNS(publicDns)
 				.setOutputLog(outputLog).build();
