@@ -52,6 +52,7 @@ public class ShellExecuter
 			while ((line = reader.readLine()) != null)
 			{
 				builder.append(line);
+				System.out.println(line);
 				builder.append(System.getProperty("line.separator"));
 			}
 			output = builder.toString();

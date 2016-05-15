@@ -1,13 +1,9 @@
 package util;
 
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.logging.Logger;
 
-import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.ChannelShell;
 import com.jcraft.jsch.JSch;
@@ -27,7 +23,7 @@ public class SSHExecuter
 
 	public enum ChannelType
 	{
-		SHELL, EXEC
+		SHELL, EXEC, SCP
 	};
 
 	public SSHExecuter()
@@ -139,7 +135,6 @@ public class SSHExecuter
 					}
 				} catch (IOException e)
 				{
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
@@ -148,10 +143,12 @@ public class SSHExecuter
 
 			} catch (JSchException e)
 			{
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
+		}
+		else if(typeString.equals("scp")){
+			
 		}
 		System.out.println("output = " + outputLog);
 		return outputLog;

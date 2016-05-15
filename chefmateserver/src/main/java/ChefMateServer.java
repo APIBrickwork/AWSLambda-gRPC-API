@@ -97,7 +97,7 @@ public class ChefMateServer
 		 * SSH credentials
 		 */
 		SSHCredentials credentials = SSHCredentials.newBuilder().setUsername("ubuntu")
-				.setHost("ec2-52-58-92-96.eu-central-1.compute.amazonaws.com").setKeyfilename("chefmateserver_key.pem")
+				.setHost("ec2-52-58-111-217.eu-central-1.compute.amazonaws.com").setKeyfilename("chefmateserver_key.pem")
 				.setTimeout(10000).build();
 
 		/**
@@ -119,11 +119,11 @@ public class ChefMateServer
 		/**
 		 * deployDB Tests
 		 */
-		 DeployDBRequest req =
-		 DeployDBRequest.newBuilder().setCredentials(credentials).setServiceName("server")
-		 .setPort(3306).setRootPassword("cloud2016").build();
-		
-		 new WordPressOpsImpl().deployDB(req, null);
+//		 DeployDBRequest req =
+//		 DeployDBRequest.newBuilder().setCredentials(credentials).setServiceName("server")
+//		 .setPort(3306).setRootPassword("cloud2016").build();
+//		
+//		 new WordPressOpsImpl().deployDB(req, null);
 
 		int port = -1;
 

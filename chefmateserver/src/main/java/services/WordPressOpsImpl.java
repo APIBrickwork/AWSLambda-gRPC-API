@@ -29,7 +29,6 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 	@Override
 	public void deployDB(DeployDBRequest request, StreamObserver<DeployDBResponse> responseObserver)
 	{
-		// TODO Auto-generated method stub
 		logger.info("### Received request for deployDB with info:\n " + request.toString());
 		String outputLog = "";
 		StringBuilder sb = new StringBuilder();
@@ -39,6 +38,8 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 		String username = request.getCredentials().getUsername();
 		String host = request.getCredentials().getHost();
 		int timeout = request.getCredentials().getTimeout();
+		String homeDir = System.getProperty("user.home");
+		String keyfile = homeDir + "/.ssh/" + request.getCredentials().getKeyfilename();
 		
 		// Write the according attributes
 		Config config = Config.getInstance(false, false);
@@ -46,38 +47,44 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 		logger.info("### Writing Attributes file to: " + filePath);
 		ChefAttributesWriter.writeAttributesFile(filePath, request);
 		
-		// TODO: Send atrributes file via scp (Doesnt work yet)
-		
 		String execDir = config.getChefAttributesPath(cookbookName);
 		List<String> scpCommands = new ArrayList<>();
 		scpCommands.add("scp");
-		scpCommands.add("default.rb");
-		String remoteDestinationPath = execDir.replace(config.getServerEnvDir(), "/home/" + username + "/");
+		scpCommands.add("-i");
+		scpCommands.add(keyfile);
+		scpCommands.add(config.getChefAttributesPath(cookbookName) + "/default.rb");
+		String remoteDestinationPath = execDir.replace(config.getServerEnvDir(), "/home/" + username + "/git/");
 		String remoteCall = username + "@" + host + ":" + remoteDestinationPath;
-		scpCommands.add( remoteCall);
+		scpCommands.add(remoteCall);
 
 
 		logger.info("### Sending default.rb from " + execDir + " using commands: " + scpCommands);
 
 		String scpOutput = ShellExecuter.execute(execDir, scpCommands);
 		sb.append(scpOutput);
-		logger.info("SCP Output:\n" + scpOutput);		
+		logger.info("### SCP Output:\n" + scpOutput);		
 		
 		// run chef-solo on node
 		String runChefSoloCommand = "cd ~/git/" + config.getChefRepoName() + " && sudo chef-solo -c config.rb -o 'recipe[cb-mysqlServer]'";
 
-		String homeDir = System.getProperty("user.home");
-		String keyfile = homeDir + "/.ssh/" + request.getCredentials().getKeyfilename();
+		
 		logger.info("### Executing chef-solo remotely using commands: " + runChefSoloCommand);
 		SSHExecuter ssh = new SSHExecuter();
 		ssh.connectHost(username, host, 22, timeout, keyfile);
 
 		String chefSoloOutput = ssh.sendToChannel(ChannelType.EXEC, runChefSoloCommand, timeout);
-		logger.info("Chef-Solo Output: \n" + chefSoloOutput);
+		logger.info("### Chef-Solo Output: \n" + chefSoloOutput);
 		ssh.tearDown();
 		sb.append(chefSoloOutput);
 		
-		// TODO: Return response
+		
+		outputLog = sb.toString();
+		DeployDBResponse resp = DeployDBResponse.newBuilder().setOutputLog(outputLog).build();
+		
+		responseObserver.onNext(resp);
+		responseObserver.onCompleted();
+		logger.info("### Sent Response.");
+		
 	}
 
 }

@@ -97,7 +97,6 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 	@Override
 	public void destroyVM(DestroyVMRequest request, StreamObserver<DestroyVMResponse> responseObserver)
 	{
-		// TODO Auto-generated method stub
 		logger.info("### Received request for destroyVM with info:\n " + request.toString());
 
 		// Write the according attributes
