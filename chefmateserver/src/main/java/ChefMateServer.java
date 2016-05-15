@@ -4,8 +4,12 @@ import java.util.logging.Logger;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import services.Chefmate.CreateVMRequest;
+import services.Chefmate.DeployDBRequest;
+import services.Chefmate.InitCHEFRepoRequest;
+import services.Chefmate.SSHCredentials;
 import services.EC2OpsGrpc;
 import services.EC2OpsImpl;
+import services.WordPressOpsImpl;
 import util.Config;
 import util.EnvironmentInitializer;
 import util.SSHExecuter;
@@ -81,42 +85,48 @@ public class ChefMateServer
 
 	public static void main(String[] args)
 	{
-		// TODO: Maybe also necessary to add Chef Installation when initializing!!
-		
+		// TODO: Maybe also necessary to add Chef Installation when
+		// initializing!!
+
 		/* Local Test Code */
 
 		// TODO: Delete demo code after testing
 		Config.getInstance(false, true);
-		
-		
-		
-		 CreateVMRequest req =
-		 CreateVMRequest.newBuilder().setName("vm1").setTag("mytag").setRegion("eu-central-1")
-		 .setImageId("ami-87564feb").setUsername("ubuntu").setInstanceType("t2.micro")
-		 .addSecurityGroupIds("sg-79ae5d11").build();
-		 new EC2OpsImpl().createVM(req, null);
-		//
-//		DestroyVMRequest req = DestroyVMRequest.newBuilder()
-//				.setInstanceId(AWSInstanceId.newBuilder().setId("i-06d20782fa2113e32").build()).build();
-//		new EC2OpsImpl().destroyVM(req, null);
 
+		/**
+		 * SSH credentials
+		 */
+		SSHCredentials credentials = SSHCredentials.newBuilder().setUsername("ubuntu")
+				.setHost("ec2-52-58-92-96.eu-central-1.compute.amazonaws.com").setKeyfilename("chefmateserver_key.pem")
+				.setTimeout(10000).build();
+
+		/**
+		 * VM Services Tests
+		 */
+//		CreateVMRequest req = CreateVMRequest.newBuilder().setName("database").setTag("mytag").setRegion("eu-central-1")
+//				.setImageId("ami-87564feb").setUsername("ubuntu").setInstanceType("t2.micro")
+//				.addSecurityGroupIds("sg-79ae5d11").build();
+//		new EC2OpsImpl().createVM(req, null);
+		//
+		// DestroyVMRequest req = DestroyVMRequest.newBuilder()
+		// .setInstanceId(AWSInstanceId.newBuilder().setId("i-06d20782fa2113e32").build()).build();
+		// new EC2OpsImpl().destroyVM(req, null);
+
+//		 InitCHEFRepoRequest req =
+//		 InitCHEFRepoRequest.newBuilder().setCredentials(credentials).build();
+//		 new EC2OpsImpl().initChefRepo(req, null);
+
+		/**
+		 * deployDB Tests
+		 */
+		 DeployDBRequest req =
+		 DeployDBRequest.newBuilder().setCredentials(credentials).setServiceName("server")
+		 .setPort(3306).setRootPassword("cloud2016").build();
 		
-		
-//		String username = "ubuntu";
-//		String host = "ec2-52-58-86-119.eu-central-1.compute.amazonaws.com";
-//		int timeout = 10000;
-//		String homeDir = System.getProperty("user.home");
-//		String keyFile = homeDir + "/.ssh/chefmateserver_key.pem";
-//		
-//		
-//		SSHExecuter ssh = new SSHExecuter();
-//		ssh.connectHost(username, host, 22, timeout, keyFile);
-//		ssh.sendToChannel(ChannelType.EXEC, "ls -a", timeout);
-//		ssh.tearDown();
-		/* END */
-		
+		 new WordPressOpsImpl().deployDB(req, null);
+
 		int port = -1;
-		
+
 		for (int i = 0; i < args.length; i++)
 		{
 			if (args[i].equals("--help"))

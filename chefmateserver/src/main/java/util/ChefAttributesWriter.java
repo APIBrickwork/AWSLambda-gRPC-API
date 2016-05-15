@@ -8,6 +8,7 @@ import java.util.List;
 
 import services.Chefmate;
 import services.Chefmate.CreateVMRequest;
+import services.Chefmate.DeployDBRequest;
 import services.Chefmate.DestroyVMRequest;
 
 public class ChefAttributesWriter
@@ -28,7 +29,11 @@ public class ChefAttributesWriter
 	private static final String CHEFMATE_MACHINE_USERNAME = "['chefmate']['machine']['username'] = ";
 
 	private static final String CHEFMATE_MACHINE_DESTROY_INSTANCEID = "['chefmate']['machine']['delete']['instanceid'] = ";
-
+	
+	private static final String CHEFMATE_MACHINE_MYSQL_SERVICENAME = "['chefmate']['machine']['mysql']['servicename'] = ";
+	private static final String CHEFMATE_MACHINE_MYSQL_PORT = "['chefmate']['machine']['mysql']['port'] = ";
+	private static final String CHEFMATE_MACHINE_MYSQL_ROOTPW = "['chefmate']['machine']['mysql']['rootpw'] = ";
+	
 	/**
 	 * Prevents from instance creation.
 	 */
@@ -156,6 +161,51 @@ public class ChefAttributesWriter
 			writer.write("# Custom values set by user (higher priority than default)");
 			writer.newLine();
 			writer.write(NORMAL_PRIORITY + CHEFMATE_MACHINE_DESTROY_INSTANCEID + "'" + requestedVM.getInstanceId().getId() + "'");
+			writer.newLine();
+			
+		} catch (
+
+		IOException e)
+		{
+			e.printStackTrace();
+		} finally
+		{
+			try
+			{
+				writer.close();
+			} catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	/**
+	 * Writes the Chef.io attributes (default and custom) file to the given
+	 * repository.
+	 * 
+	 * @param filename
+	 *            The filename (including the absolute path) that should be
+	 *            used.
+	 * @param request
+	 *            The values that should be added.
+	 */
+	public static void writeAttributesFile(String filename, DeployDBRequest request)
+	{
+		BufferedWriter writer = null;
+
+		try
+		{
+			writer = new BufferedWriter(new FileWriter(filename));
+			writeDefault(writer);
+			writer.newLine();
+			writer.write("# Custom values set by user (higher priority than default)");
+			writer.newLine();
+			writer.write(NORMAL_PRIORITY + CHEFMATE_MACHINE_MYSQL_SERVICENAME +  "'" + request.getServiceName() + "'");
+			writer.newLine();
+			writer.write(NORMAL_PRIORITY + CHEFMATE_MACHINE_MYSQL_PORT +  "'" + request.getPort() + "'");
+			writer.newLine();
+			writer.write(NORMAL_PRIORITY + CHEFMATE_MACHINE_MYSQL_ROOTPW +  "'" + request.getRootPassword() + "'");
 			writer.newLine();
 			
 		} catch (
