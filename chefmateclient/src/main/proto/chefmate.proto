@@ -62,7 +62,10 @@ message DeployDBRequest{
 	// MySql service will be called 'mysql-' + value of nameExtend
 	string serviceName = 2;
 	int32 port = 3;
-	string rootPassword = 4;
+	string username = 4;
+	string userPassword = 5;
+	string dbName = 6;
+	string rootPassword = 7;
 }
 
 // #########
