@@ -295,7 +295,7 @@ public class ChefMateClient
 				String host = scanner.nextLine();
 				System.out.println("\n Enter keyfile Name: ");
 				String keyfilename = scanner.nextLine();
-				System.out.println("\n Enter time out: ");
+				System.out.println("\n Enter timeout: ");
 				int timeout = Integer.parseInt(scanner.nextLine());
 				
 				SSHCredentials credentials = SSHCredentials.newBuilder().setUsername(username).setHost(host).setKeyfilename(keyfilename).setTimeout(timeout).build();
@@ -313,7 +313,7 @@ public class ChefMateClient
 				String host = scanner.nextLine();
 				System.out.println("\n Enter keyfile Name: ");
 				String keyfilename = scanner.nextLine();
-				System.out.println("\n Enter time out: ");
+				System.out.println("\n Enter timeout: ");
 				int timeout = Integer.parseInt(scanner.nextLine());
 				
 				SSHCredentials credentials = SSHCredentials.newBuilder().setUsername(username).setHost(host).setKeyfilename(keyfilename).setTimeout(timeout).build();
@@ -334,7 +334,7 @@ public class ChefMateClient
 				String dbUserPassword = scanner.nextLine();
 				System.out.println("\n Enter DB Root Password: ");
 				String dbRootPassword = scanner.nextLine();
-				System.out.println("\n Enter Worde Press Config Options: ");
+				System.out.println("\n Enter WordePress Config Options: ");
 				String wpConfigOptions = scanner.nextLine();
 				
 				DeployWPAppRequest deployWPAppRequest = DeployWPAppRequest.newBuilder().setCredentials(credentials).setServerName(serverName).setPort(serverPort)
@@ -352,21 +352,27 @@ public class ChefMateClient
 				String host = scanner.nextLine();
 				System.out.println("\n Enter keyfile Name: ");
 				String keyfilename = scanner.nextLine();
-				System.out.println("\n Enter time out: ");
+				System.out.println("\n Enter timeout: ");
 				int timeout = Integer.parseInt(scanner.nextLine());
 				
 				SSHCredentials credentials = SSHCredentials.newBuilder().setUsername(username).setHost(host).setKeyfilename(keyfilename).setTimeout(timeout).build();
 				
-				System.out.println("\n Enter My Sql Servuce Name : ");
+				System.out.println("\n Enter MySql Service Name : ");
 				String serviceName = scanner.nextLine();
 				System.out.println("\n Enter Port: ");
 				int mysqlPort = Integer.parseInt(scanner.nextLine());
+				System.out.println("\n Enter MySql User Name : ");
+				String mysqlUsername = scanner.nextLine();
+				System.out.println("\n Enter MySql User Password : ");
+				String userPassword = scanner.nextLine();
+				System.out.println("\n Enter Mysql Database Name : ");
+				String dbName = scanner.nextLine();
 				System.out.println("\n Enter Root Password: ");
 				String rootPassword = scanner.nextLine();
 
 				
 				DeployDBRequest deployDBRequest = DeployDBRequest.newBuilder().setCredentials(credentials).setServiceName(serviceName).setPort(mysqlPort)
-														.setRootPassword(rootPassword).build();
+												  .setUsername(mysqlUsername).setUserPassword(userPassword).setDbName(dbName).setRootPassword(rootPassword).build();
 				client.sendDeployDBRequest(deployDBRequest);
 				
 			}
