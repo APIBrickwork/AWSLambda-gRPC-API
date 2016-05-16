@@ -8,6 +8,18 @@ message AWSInstanceId{
 	string id = 1;
 }
 
+
+// ########################
+// SSH section
+// ########################
+message SSHCredentials{
+	string username = 1;
+	string host = 2;
+	string keyfilename = 3;
+	int32 timeout = 4;
+}
+
+
 // ########
 // Requests
 // ########
@@ -22,8 +34,35 @@ message CreateVMRequest {
 	repeated string securityGroupIds = 7;
 }
 
+message InitCHEFRepoRequest{
+	SSHCredentials credentials = 1;
+}
+
 message DestroyVMRequest{
 	AWSInstanceId instanceId = 1;
+}
+
+message DeployWPAppRequest{
+	SSHCredentials credentials = 1;
+	string serverName = 2;
+	// port has to be a string according to wordpress cookbook
+	string port = 3;
+	string dbName = 4;
+	string dbHost = 5;
+	string dbPort = 6;
+	string dbUserName = 7;
+	string dbUserPassword = 8;
+	string dbRootPassword = 9;
+	// A hash of options in PHP constants syntax
+	string wpConfigOptions = 10;	
+}
+
+message DeployDBRequest{
+	SSHCredentials credentials = 1;
+	// MySql service will be called 'mysql-' + value of nameExtend
+	string serviceName = 2;
+	int32 port = 3;
+	string rootPassword = 4;
 }
 
 // #########
@@ -39,6 +78,18 @@ message DestroyVMResponse{
 	string outputLog = 1; 
 }
 
+message InitCHEFRepoResponse{
+	string outputLog = 1;
+}
+
+message DeployWPAppResponse{
+	string outputLog = 1;
+}
+
+message DeployDBResponse{
+	string outputLog = 1;
+}
+
 
 // #######################
 // EC2 operations services
@@ -47,4 +98,10 @@ message DestroyVMResponse{
 service EC2Ops {
 	rpc createVM(CreateVMRequest) returns (CreateVMResponse);
 	rpc destroyVM(DestroyVMRequest) returns (DestroyVMResponse);
+	rpc initChefRepo(InitCHEFRepoRequest) returns (InitCHEFRepoResponse);
+}
+
+service WordPressOps{
+	rpc deployWPApp(DeployWPAppRequest) returns (DeployWPAppResponse);
+	rpc deployDB(DeployDBRequest) returns (DeployDBResponse);
 }

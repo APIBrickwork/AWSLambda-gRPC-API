@@ -5,11 +5,19 @@ import java.util.logging.Logger;
 
 import services.Chefmate;
 import services.EC2OpsGrpc;
+import services.WordPressOpsGrpc;
 import services.Chefmate.AWSInstanceId;
 import services.Chefmate.CreateVMRequest;
 import services.Chefmate.CreateVMResponse;
+import services.Chefmate.DeployDBRequest;
+import services.Chefmate.DeployDBResponse;
+import services.Chefmate.DeployWPAppRequest;
+import services.Chefmate.DeployWPAppResponse;
 import services.Chefmate.DestroyVMRequest;
 import services.Chefmate.DestroyVMResponse;
+import services.Chefmate.InitCHEFRepoRequest;
+import services.Chefmate.InitCHEFRepoResponse;
+import services.Chefmate.SSHCredentials;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
@@ -24,7 +32,7 @@ import io.grpc.StatusRuntimeException;
  */
 public class ChefMateClient
 {	
-	// TODO: See WebShopClient on how to set up this class!!
+	
 	private static final Logger logger = Logger.getLogger(ChefMateClient.class.getName());
 	
 	/**
@@ -36,6 +44,7 @@ public class ChefMateClient
 	 * The blocking Stub (response is synchronous).
 	 */
 	private final EC2OpsGrpc.EC2OpsBlockingStub blockingStub;
+	private final WordPressOpsGrpc.WordPressOpsBlockingStub wpBlockingStub;
 	
 	/**
 	 * Creates a new instance of the ChefMateClient connected to the
@@ -46,10 +55,11 @@ public class ChefMateClient
 	 * @param port
 	 *            The port of the ChefMateServer.
 	 */
-	public ChefMateClient(String host, int port)
+	public ChefMateClient(String host, int port) 
 	{
 		this.channel = ManagedChannelBuilder.forAddress(host, port).usePlaintext(true).build();
 		this.blockingStub = EC2OpsGrpc.newBlockingStub(this.channel);
+		this.wpBlockingStub = WordPressOpsGrpc.newBlockingStub(this.channel);
 		
 	}
 	
@@ -97,6 +107,69 @@ public class ChefMateClient
 		System.out.println("Destoyed VM with InstanceId" +destroyVMRequest.getInstanceId()+" = " + destroyVMResponse.getOutputLog());
 	}
 	
+	/**
+	 * Sends the initChefRepo request to the ChefMateServer.
+	 */
+	
+	public void sendInitChefRepoRequest(InitCHEFRepoRequest initCHEFRepoRequest)
+	{
+		logger.info("### Sending request for Destroying VM.");
+		
+		InitCHEFRepoResponse initCHEFRepoResponse = null;
+		try
+		{
+			initCHEFRepoResponse = this.blockingStub.initChefRepo(initCHEFRepoRequest);
+		} catch (StatusRuntimeException e)
+		{
+			logger.warning("### RPC failed: {0}" + e.getStatus());
+			return;
+		}
+		logger.info("### Received response.");
+		System.out.println("Response of Chef Repo Initialization " + initCHEFRepoResponse.getOutputLog());
+	}
+	
+	/**
+	 * Sends the deployWPApp request to the ChefMateServer.
+	 */
+	
+	public void sendDeployWPAppRequest(DeployWPAppRequest deployWPAppRequest)
+	{
+		logger.info("### Sending request for Creating VM.");
+		
+		DeployWPAppResponse deployWPAppResponse = null;
+		try
+		{
+			deployWPAppResponse = this.wpBlockingStub.deployWPApp(deployWPAppRequest);
+		} catch (StatusRuntimeException e)
+		{
+			logger.warning("### RPC failed: {0}" + e.getStatus());
+			return;
+		}
+		logger.info("### Received response.");
+		System.out.println("\n Deployed Word Press with OutPutLog = " + deployWPAppResponse.getOutputLog());
+	}
+
+	/**
+	 * Sends the deployDB request to the ChefMateServer.
+	 */
+	
+	public void sendDeployDBRequest(DeployDBRequest deployDBRequest)
+	{
+		logger.info("### Sending request for Creating VM.");
+		
+		DeployDBResponse deployDBResponse = null;
+		try
+		{
+			deployDBResponse = this.wpBlockingStub.deployDB(deployDBRequest);
+		} catch (StatusRuntimeException e)
+		{
+			logger.warning("### RPC failed: {0}" + e.getStatus());
+			return;
+		}
+		logger.info("### Received response.");
+		System.out.println("\n Deployed Word Press with OutPutLog = " + deployDBResponse.getOutputLog());
+	}
+
 	
 	/**
 	 * Initiates the shutdown sequence.
@@ -213,11 +286,94 @@ public class ChefMateClient
 					DestroyVMRequest destroyVMRequest = DestroyVMRequest.newBuilder().setInstanceId(AWSInstanceId.newBuilder().setId(arr[1])).build();
 					client.sendDestroyVMRequest(destroyVMRequest);
 				}
-			}				
+			}else if (command.startsWith("initChefRepo"))
+			{
+				
+				System.out.println("\n Enter User Name : ");
+				String username = scanner.nextLine();
+				System.out.println("\n Enter host: ");
+				String host = scanner.nextLine();
+				System.out.println("\n Enter keyfile Name: ");
+				String keyfilename = scanner.nextLine();
+				System.out.println("\n Enter time out: ");
+				int timeout = Integer.parseInt(scanner.nextLine());
+				
+				SSHCredentials credentials = SSHCredentials.newBuilder().setUsername(username).setHost(host).setKeyfilename(keyfilename).setTimeout(timeout).build();
+				
+				InitCHEFRepoRequest initCHEFRepoRequest = InitCHEFRepoRequest.newBuilder().setCredentials(credentials).build();
+				
+				client.sendInitChefRepoRequest(initCHEFRepoRequest);
+				
+			}else if (command.startsWith("deployWPApp"))
+			{
+				
+				System.out.println("\n Enter User Name : ");
+				String username = scanner.nextLine();
+				System.out.println("\n Enter host: ");
+				String host = scanner.nextLine();
+				System.out.println("\n Enter keyfile Name: ");
+				String keyfilename = scanner.nextLine();
+				System.out.println("\n Enter time out: ");
+				int timeout = Integer.parseInt(scanner.nextLine());
+				
+				SSHCredentials credentials = SSHCredentials.newBuilder().setUsername(username).setHost(host).setKeyfilename(keyfilename).setTimeout(timeout).build();
+				
+				System.out.println("\n Enter Server Name : ");
+				String serverName = scanner.nextLine();
+				System.out.println("\n Enter Port: ");
+				String serverPort = scanner.nextLine();
+				System.out.println("\n Enter Database Name: ");
+				String dbName = scanner.nextLine();
+				System.out.println("\n Enter Database Host : ");
+				String dbHost = scanner.nextLine();
+				System.out.println("\n Enter Database Port: ");
+				String dbPort = scanner.nextLine();
+				System.out.println("\n Enter DB User Name: ");
+				String dbUserName = scanner.nextLine();
+				System.out.println("\n Enter DB User Password : ");
+				String dbUserPassword = scanner.nextLine();
+				System.out.println("\n Enter DB Root Password: ");
+				String dbRootPassword = scanner.nextLine();
+				System.out.println("\n Enter Worde Press Config Options: ");
+				String wpConfigOptions = scanner.nextLine();
+				
+				DeployWPAppRequest deployWPAppRequest = DeployWPAppRequest.newBuilder().setCredentials(credentials).setServerName(serverName).setPort(serverPort)
+														.setDbName(dbName).setDbHost(dbHost).setDbPort(dbPort).setDbUserName(dbUserName).setDbUserPassword(dbUserPassword)
+														.setDbRootPassword(dbRootPassword).setWpConfigOptions(wpConfigOptions).build();
+				
+				client.sendDeployWPAppRequest(deployWPAppRequest);
+				
+			}else if (command.startsWith("deployDB"))
+			{
+				
+				System.out.println("\n Enter User Name : ");
+				String username = scanner.nextLine();
+				System.out.println("\n Enter host: ");
+				String host = scanner.nextLine();
+				System.out.println("\n Enter keyfile Name: ");
+				String keyfilename = scanner.nextLine();
+				System.out.println("\n Enter time out: ");
+				int timeout = Integer.parseInt(scanner.nextLine());
+				
+				SSHCredentials credentials = SSHCredentials.newBuilder().setUsername(username).setHost(host).setKeyfilename(keyfilename).setTimeout(timeout).build();
+				
+				System.out.println("\n Enter My Sql Servuce Name : ");
+				String serviceName = scanner.nextLine();
+				System.out.println("\n Enter Port: ");
+				int mysqlPort = Integer.parseInt(scanner.nextLine());
+				System.out.println("\n Enter Root Password: ");
+				String rootPassword = scanner.nextLine();
+
+				
+				DeployDBRequest deployDBRequest = DeployDBRequest.newBuilder().setCredentials(credentials).setServiceName(serviceName).setPort(mysqlPort)
+														.setRootPassword(rootPassword).build();
+				client.sendDeployDBRequest(deployDBRequest);
+				
+			}
 		}
 		scanner.close();
 	}
-	
+		
 	/**
 	 * Shows the command prompt for user commands.
 	 */
@@ -225,7 +381,10 @@ public class ChefMateClient
 	{
 		System.out.println("Available Commands: \n");
 		System.out.println("createVM \n\t Create VM Instance ");
+		System.out.println("initChefRepo \n\t Initialize Chef Repo");
 		System.out.println("destroyVM \n\t Destroy the VM Instance");
+		System.out.println("deployWPApp \n\t Deploy Word Press ");
+		System.out.println("deployDB \n\t Deploy Database");
 		System.out.println("shutdown \n\t Terminates this client and closes all connections.");
 	}
 
