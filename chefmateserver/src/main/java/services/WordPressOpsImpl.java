@@ -127,8 +127,45 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 		String chefSoloOutput = ssh.sendToChannel(ChannelType.EXEC, runChefSoloCommand, timeout);
 		logger.info("### Chef-Solo Output: \n" + chefSoloOutput);
 		ssh.tearDown();
+		ssh = null;
 		sb.append(chefSoloOutput);
 
+		/**
+		 * Create DB user and setup database and privileges
+		 */
+		
+
+		String dbServiceName = request.getServiceName(); 
+		String dbRootPw = request.getRootPassword();
+		String dbUsername = request.getUsername();
+		String dbUserpw = request.getUserPassword();
+		String dbName = request.getDbName();
+		
+
+		List<String> sqlCommands = new ArrayList<>();
+		String sqlCreateUserCmd = "CREATE USER '" + dbUsername + "'@'%' IDENTIFIED BY '" + dbUserpw + "';";
+		sqlCommands.add(sqlCreateUserCmd);
+		String sqlCreateDbCmd = "CREATE DATABASE " + dbName + ";";
+		sqlCommands.add(sqlCreateDbCmd);
+		String sqlGrantPrivileges = "GRANT ALL ON *.* TO " + dbUsername + "@'%' IDENTIFIED BY '" + dbUserpw + "';";
+		sqlCommands.add(sqlGrantPrivileges);
+		String sqlFlushPrivileges = "FLUSH PRIVILEGES;";
+		sqlCommands.add(sqlFlushPrivileges);
+		
+		
+		SSHExecuter sshDb = new SSHExecuter();
+		sshDb.connectHost(username, host, 22, timeout, keyfile);
+//		ssh = new SSHExecuter();
+//		ssh.connectHost(username, host, 22, timeout, keyfile);
+		
+		for(int i=0;i<sqlCommands.size();i++){
+			String command = "mysql -S /run/mysql-" + dbServiceName + "/mysqld.sock -u root -p" + dbRootPw + " -e "
+					+ "\"" + sqlCommands.get(i) + "\"";
+			logger.info("### Executing command:'" + command);
+			sshDb.sendToChannel(ChannelType.EXEC, command, timeout);			
+		}
+		sshDb.tearDown();
+		
 		outputLog = sb.toString();
 		DeployDBResponse resp = DeployDBResponse.newBuilder().setOutputLog(outputLog).build();
 

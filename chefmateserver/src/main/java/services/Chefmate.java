@@ -5357,11 +5357,41 @@ public final class Chefmate {
     int getPort();
 
     /**
-     * <code>optional string rootPassword = 4;</code>
+     * <code>optional string username = 4;</code>
+     */
+    java.lang.String getUsername();
+    /**
+     * <code>optional string username = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getUsernameBytes();
+
+    /**
+     * <code>optional string userPassword = 5;</code>
+     */
+    java.lang.String getUserPassword();
+    /**
+     * <code>optional string userPassword = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserPasswordBytes();
+
+    /**
+     * <code>optional string dbName = 6;</code>
+     */
+    java.lang.String getDbName();
+    /**
+     * <code>optional string dbName = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getDbNameBytes();
+
+    /**
+     * <code>optional string rootPassword = 7;</code>
      */
     java.lang.String getRootPassword();
     /**
-     * <code>optional string rootPassword = 4;</code>
+     * <code>optional string rootPassword = 7;</code>
      */
     com.google.protobuf.ByteString
         getRootPasswordBytes();
@@ -5380,6 +5410,9 @@ public final class Chefmate {
     private DeployDBRequest() {
       serviceName_ = "";
       port_ = 0;
+      username_ = "";
+      userPassword_ = "";
+      dbName_ = "";
       rootPassword_ = "";
     }
 
@@ -5432,6 +5465,24 @@ public final class Chefmate {
               break;
             }
             case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              username_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userPassword_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dbName_ = s;
+              break;
+            }
+            case 58: {
               java.lang.String s = input.readStringRequireUtf8();
 
               rootPassword_ = s;
@@ -5533,10 +5584,112 @@ public final class Chefmate {
       return port_;
     }
 
-    public static final int ROOTPASSWORD_FIELD_NUMBER = 4;
+    public static final int USERNAME_FIELD_NUMBER = 4;
+    private volatile java.lang.Object username_;
+    /**
+     * <code>optional string username = 4;</code>
+     */
+    public java.lang.String getUsername() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        username_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string username = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUsernameBytes() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        username_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int USERPASSWORD_FIELD_NUMBER = 5;
+    private volatile java.lang.Object userPassword_;
+    /**
+     * <code>optional string userPassword = 5;</code>
+     */
+    public java.lang.String getUserPassword() {
+      java.lang.Object ref = userPassword_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userPassword_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string userPassword = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserPasswordBytes() {
+      java.lang.Object ref = userPassword_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userPassword_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DBNAME_FIELD_NUMBER = 6;
+    private volatile java.lang.Object dbName_;
+    /**
+     * <code>optional string dbName = 6;</code>
+     */
+    public java.lang.String getDbName() {
+      java.lang.Object ref = dbName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dbName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string dbName = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDbNameBytes() {
+      java.lang.Object ref = dbName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dbName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ROOTPASSWORD_FIELD_NUMBER = 7;
     private volatile java.lang.Object rootPassword_;
     /**
-     * <code>optional string rootPassword = 4;</code>
+     * <code>optional string rootPassword = 7;</code>
      */
     public java.lang.String getRootPassword() {
       java.lang.Object ref = rootPassword_;
@@ -5551,7 +5704,7 @@ public final class Chefmate {
       }
     }
     /**
-     * <code>optional string rootPassword = 4;</code>
+     * <code>optional string rootPassword = 7;</code>
      */
     public com.google.protobuf.ByteString
         getRootPasswordBytes() {
@@ -5588,8 +5741,17 @@ public final class Chefmate {
       if (port_ != 0) {
         output.writeInt32(3, port_);
       }
+      if (!getUsernameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 4, username_);
+      }
+      if (!getUserPasswordBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 5, userPassword_);
+      }
+      if (!getDbNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 6, dbName_);
+      }
       if (!getRootPasswordBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 4, rootPassword_);
+        com.google.protobuf.GeneratedMessage.writeString(output, 7, rootPassword_);
       }
     }
 
@@ -5609,8 +5771,17 @@ public final class Chefmate {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, port_);
       }
+      if (!getUsernameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(4, username_);
+      }
+      if (!getUserPasswordBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(5, userPassword_);
+      }
+      if (!getDbNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(6, dbName_);
+      }
       if (!getRootPasswordBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(4, rootPassword_);
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(7, rootPassword_);
       }
       memoizedSize = size;
       return size;
@@ -5733,6 +5904,12 @@ public final class Chefmate {
 
         port_ = 0;
 
+        username_ = "";
+
+        userPassword_ = "";
+
+        dbName_ = "";
+
         rootPassword_ = "";
 
         return this;
@@ -5764,6 +5941,9 @@ public final class Chefmate {
         }
         result.serviceName_ = serviceName_;
         result.port_ = port_;
+        result.username_ = username_;
+        result.userPassword_ = userPassword_;
+        result.dbName_ = dbName_;
         result.rootPassword_ = rootPassword_;
         onBuilt();
         return result;
@@ -5789,6 +5969,18 @@ public final class Chefmate {
         }
         if (other.getPort() != 0) {
           setPort(other.getPort());
+        }
+        if (!other.getUsername().isEmpty()) {
+          username_ = other.username_;
+          onChanged();
+        }
+        if (!other.getUserPassword().isEmpty()) {
+          userPassword_ = other.userPassword_;
+          onChanged();
+        }
+        if (!other.getDbName().isEmpty()) {
+          dbName_ = other.dbName_;
+          onChanged();
         }
         if (!other.getRootPassword().isEmpty()) {
           rootPassword_ = other.rootPassword_;
@@ -6052,9 +6244,216 @@ public final class Chefmate {
         return this;
       }
 
+      private java.lang.Object username_ = "";
+      /**
+       * <code>optional string username = 4;</code>
+       */
+      public java.lang.String getUsername() {
+        java.lang.Object ref = username_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          username_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string username = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUsernameBytes() {
+        java.lang.Object ref = username_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          username_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string username = 4;</code>
+       */
+      public Builder setUsername(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        username_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string username = 4;</code>
+       */
+      public Builder clearUsername() {
+        
+        username_ = getDefaultInstance().getUsername();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string username = 4;</code>
+       */
+      public Builder setUsernameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        username_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object userPassword_ = "";
+      /**
+       * <code>optional string userPassword = 5;</code>
+       */
+      public java.lang.String getUserPassword() {
+        java.lang.Object ref = userPassword_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userPassword_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string userPassword = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserPasswordBytes() {
+        java.lang.Object ref = userPassword_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userPassword_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string userPassword = 5;</code>
+       */
+      public Builder setUserPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userPassword_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string userPassword = 5;</code>
+       */
+      public Builder clearUserPassword() {
+        
+        userPassword_ = getDefaultInstance().getUserPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string userPassword = 5;</code>
+       */
+      public Builder setUserPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userPassword_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object dbName_ = "";
+      /**
+       * <code>optional string dbName = 6;</code>
+       */
+      public java.lang.String getDbName() {
+        java.lang.Object ref = dbName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          dbName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string dbName = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDbNameBytes() {
+        java.lang.Object ref = dbName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dbName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string dbName = 6;</code>
+       */
+      public Builder setDbName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        dbName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbName = 6;</code>
+       */
+      public Builder clearDbName() {
+        
+        dbName_ = getDefaultInstance().getDbName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbName = 6;</code>
+       */
+      public Builder setDbNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        dbName_ = value;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object rootPassword_ = "";
       /**
-       * <code>optional string rootPassword = 4;</code>
+       * <code>optional string rootPassword = 7;</code>
        */
       public java.lang.String getRootPassword() {
         java.lang.Object ref = rootPassword_;
@@ -6069,7 +6468,7 @@ public final class Chefmate {
         }
       }
       /**
-       * <code>optional string rootPassword = 4;</code>
+       * <code>optional string rootPassword = 7;</code>
        */
       public com.google.protobuf.ByteString
           getRootPasswordBytes() {
@@ -6085,7 +6484,7 @@ public final class Chefmate {
         }
       }
       /**
-       * <code>optional string rootPassword = 4;</code>
+       * <code>optional string rootPassword = 7;</code>
        */
       public Builder setRootPassword(
           java.lang.String value) {
@@ -6098,7 +6497,7 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional string rootPassword = 4;</code>
+       * <code>optional string rootPassword = 7;</code>
        */
       public Builder clearRootPassword() {
         
@@ -6107,7 +6506,7 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional string rootPassword = 4;</code>
+       * <code>optional string rootPassword = 7;</code>
        */
       public Builder setRootPasswordBytes(
           com.google.protobuf.ByteString value) {
@@ -8837,24 +9236,26 @@ public final class Chefmate {
       "\004port\030\003 \001(\t\022\016\n\006dbName\030\004 \001(\t\022\016\n\006dbHost\030\005 " +
       "\001(\t\022\016\n\006dbPort\030\006 \001(\t\022\022\n\ndbUserName\030\007 \001(\t\022" +
       "\026\n\016dbUserPassword\030\010 \001(\t\022\026\n\016dbRootPasswor" +
-      "d\030\t \001(\t\022\027\n\017wpConfigOptions\030\n \001(\t\"p\n\017Depl" +
-      "oyDBRequest\022$\n\013credentials\030\001 \001(\0132\017.SSHCr" +
-      "edentials\022\023\n\013serviceName\030\002 \001(\t\022\014\n\004port\030\003" +
-      " \001(\005\022\024\n\014rootPassword\030\004 \001(\t\"\\\n\020CreateVMRe" +
-      "sponse\022\"\n\ninstanceId\030\001 \001(\0132\016.AWSInstance",
-      "Id\022\021\n\tpublicDNS\030\002 \001(\t\022\021\n\toutputLog\030\003 \001(\t" +
-      "\"&\n\021DestroyVMResponse\022\021\n\toutputLog\030\001 \001(\t" +
-      "\")\n\024InitCHEFRepoResponse\022\021\n\toutputLog\030\001 " +
-      "\001(\t\"(\n\023DeployWPAppResponse\022\021\n\toutputLog\030" +
-      "\001 \001(\t\"%\n\020DeployDBResponse\022\021\n\toutputLog\030\001" +
-      " \001(\t2\252\001\n\006EC2Ops\022/\n\010createVM\022\020.CreateVMRe" +
-      "quest\032\021.CreateVMResponse\0222\n\tdestroyVM\022\021." +
-      "DestroyVMRequest\032\022.DestroyVMResponse\022;\n\014" +
-      "initChefRepo\022\024.InitCHEFRepoRequest\032\025.Ini" +
-      "tCHEFRepoResponse2y\n\014WordPressOps\0228\n\013dep",
-      "loyWPApp\022\023.DeployWPAppRequest\032\024.DeployWP" +
-      "AppResponse\022/\n\010deployDB\022\020.DeployDBReques" +
-      "t\032\021.DeployDBResponseb\006proto3"
+      "d\030\t \001(\t\022\027\n\017wpConfigOptions\030\n \001(\t\"\250\001\n\017Dep" +
+      "loyDBRequest\022$\n\013credentials\030\001 \001(\0132\017.SSHC" +
+      "redentials\022\023\n\013serviceName\030\002 \001(\t\022\014\n\004port\030" +
+      "\003 \001(\005\022\020\n\010username\030\004 \001(\t\022\024\n\014userPassword\030" +
+      "\005 \001(\t\022\016\n\006dbName\030\006 \001(\t\022\024\n\014rootPassword\030\007 ",
+      "\001(\t\"\\\n\020CreateVMResponse\022\"\n\ninstanceId\030\001 " +
+      "\001(\0132\016.AWSInstanceId\022\021\n\tpublicDNS\030\002 \001(\t\022\021" +
+      "\n\toutputLog\030\003 \001(\t\"&\n\021DestroyVMResponse\022\021" +
+      "\n\toutputLog\030\001 \001(\t\")\n\024InitCHEFRepoRespons" +
+      "e\022\021\n\toutputLog\030\001 \001(\t\"(\n\023DeployWPAppRespo" +
+      "nse\022\021\n\toutputLog\030\001 \001(\t\"%\n\020DeployDBRespon" +
+      "se\022\021\n\toutputLog\030\001 \001(\t2\252\001\n\006EC2Ops\022/\n\010crea" +
+      "teVM\022\020.CreateVMRequest\032\021.CreateVMRespons" +
+      "e\0222\n\tdestroyVM\022\021.DestroyVMRequest\032\022.Dest" +
+      "royVMResponse\022;\n\014initChefRepo\022\024.InitCHEF",
+      "RepoRequest\032\025.InitCHEFRepoResponse2y\n\014Wo" +
+      "rdPressOps\0228\n\013deployWPApp\022\023.DeployWPAppR" +
+      "equest\032\024.DeployWPAppResponse\022/\n\010deployDB" +
+      "\022\020.DeployDBRequest\032\021.DeployDBResponseb\006p" +
+      "roto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -8909,7 +9310,7 @@ public final class Chefmate {
     internal_static_DeployDBRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_DeployDBRequest_descriptor,
-        new java.lang.String[] { "Credentials", "ServiceName", "Port", "RootPassword", });
+        new java.lang.String[] { "Credentials", "ServiceName", "Port", "Username", "UserPassword", "DbName", "RootPassword", });
     internal_static_CreateVMResponse_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_CreateVMResponse_fieldAccessorTable = new

@@ -150,7 +150,6 @@ public class SSHExecuter
 		else if(typeString.equals("scp")){
 			
 		}
-		System.out.println("output = " + outputLog);
 		return outputLog;
 	}
 

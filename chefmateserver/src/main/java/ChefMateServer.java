@@ -92,20 +92,20 @@ public class ChefMateServer
 		/* Local Test Code */
 
 		// TODO: Delete demo code after testing
-//		Config.getInstance(false, true);
+		Config.getInstance(false, true);
 
 		/**
 		 * SSH credentials
 		 */
-//		SSHCredentials credentials = SSHCredentials.newBuilder().setUsername("ubuntu")
-//				.setHost("ec2-52-58-130-58.eu-central-1.compute.amazonaws.com").setKeyfilename("chefmateserver_key.pem")
-//				.setTimeout(10000).build();
+		SSHCredentials credentials = SSHCredentials.newBuilder().setUsername("ubuntu")
+				.setHost("ec2-52-28-254-15.eu-central-1.compute.amazonaws.com").setKeyfilename("chefmateserver_key.pem")
+				.setTimeout(10000).build();
 
 		/**
 		 * VM Services Tests
 		 */
 		// CreateVMRequest req =
-		// CreateVMRequest.newBuilder().setName("wp").setTag("mytag").setRegion("eu-central-1")
+		// CreateVMRequest.newBuilder().setName("wordpress").setTag("mytag").setRegion("eu-central-1")
 		// .setImageId("ami-87564feb").setUsername("ubuntu").setInstanceType("t2.micro")
 		// .addSecurityGroupIds("sg-79ae5d11").build();
 		// new EC2OpsImpl().createVM(req, null);
@@ -123,7 +123,8 @@ public class ChefMateServer
 		 */
 		// DeployDBRequest req =
 		// DeployDBRequest.newBuilder().setCredentials(credentials).setServiceName("server")
-		// .setPort(3306).build();
+		// .setPort(3306).setUsername("wordpress").setUserPassword("cloud16").setDbName("wordpressdb")
+		// .setRootPassword("cloud16").build();
 		//
 		// new WordPressOpsImpl().deployDB(req, null);
 
@@ -132,10 +133,11 @@ public class ChefMateServer
 		 */
 		// TODO: MySQL DB kann folgendes garnicht verarbeiten: db_username;
 		// db_userpassword;
-//		DeployWPAppRequest req = DeployWPAppRequest.newBuilder().setCredentials(credentials)
-//				.setDbHost("ec2-52-58-77-232.eu-central-1.compute.amazonaws.com").setDbPort("3306").build();
-		// DeployWPAppRequest req =
-		// DeployWPAppRequest.newBuilder().setCredentials(credentials).build();
+//		DeployWPAppRequest req = DeployWPAppRequest.newBuilder().setCredentials(credentials).setDbName("wordpressdb")
+//				.setDbHost("ec2-52-58-191-79.eu-central-1.compute.amazonaws.com").setDbPort("3306")
+//				.setDbUserName("wordpress").setDbUserPassword("cloud16").setDbRootPassword("cloud16").build();
+//		// DeployWPAppRequest req =
+//		// DeployWPAppRequest.newBuilder().setCredentials(credentials).build();
 //		new WordPressOpsImpl().deployWPApp(req, null);
 
 		int port = -1;
