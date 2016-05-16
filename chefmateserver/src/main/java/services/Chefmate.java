@@ -6577,6 +6577,2338 @@ public final class Chefmate {
 
   }
 
+  public interface BackupDBRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:BackupDBRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional .SSHCredentials credentials = 1;</code>
+     */
+    boolean hasCredentials();
+    /**
+     * <code>optional .SSHCredentials credentials = 1;</code>
+     */
+    Chefmate.SSHCredentials getCredentials();
+    /**
+     * <code>optional .SSHCredentials credentials = 1;</code>
+     */
+    Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder();
+
+    /**
+     * <code>optional string serviceName = 2;</code>
+     */
+    java.lang.String getServiceName();
+    /**
+     * <code>optional string serviceName = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getServiceNameBytes();
+
+    /**
+     * <code>optional string dbUsername = 3;</code>
+     */
+    java.lang.String getDbUsername();
+    /**
+     * <code>optional string dbUsername = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getDbUsernameBytes();
+
+    /**
+     * <code>optional string dbUserPassword = 4;</code>
+     */
+    java.lang.String getDbUserPassword();
+    /**
+     * <code>optional string dbUserPassword = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getDbUserPasswordBytes();
+
+    /**
+     * <code>optional string dbName = 5;</code>
+     */
+    java.lang.String getDbName();
+    /**
+     * <code>optional string dbName = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getDbNameBytes();
+
+    /**
+     * <code>optional string backupFilename = 6;</code>
+     */
+    java.lang.String getBackupFilename();
+    /**
+     * <code>optional string backupFilename = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getBackupFilenameBytes();
+  }
+  /**
+   * Protobuf type {@code BackupDBRequest}
+   */
+  public  static final class BackupDBRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:BackupDBRequest)
+      BackupDBRequestOrBuilder {
+    // Use BackupDBRequest.newBuilder() to construct.
+    private BackupDBRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private BackupDBRequest() {
+      serviceName_ = "";
+      dbUsername_ = "";
+      dbUserPassword_ = "";
+      dbName_ = "";
+      backupFilename_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private BackupDBRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              Chefmate.SSHCredentials.Builder subBuilder = null;
+              if (credentials_ != null) {
+                subBuilder = credentials_.toBuilder();
+              }
+              credentials_ = input.readMessage(Chefmate.SSHCredentials.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(credentials_);
+                credentials_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              serviceName_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dbUsername_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dbUserPassword_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dbName_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              backupFilename_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Chefmate.internal_static_BackupDBRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Chefmate.internal_static_BackupDBRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Chefmate.BackupDBRequest.class, Chefmate.BackupDBRequest.Builder.class);
+    }
+
+    public static final int CREDENTIALS_FIELD_NUMBER = 1;
+    private Chefmate.SSHCredentials credentials_;
+    /**
+     * <code>optional .SSHCredentials credentials = 1;</code>
+     */
+    public boolean hasCredentials() {
+      return credentials_ != null;
+    }
+    /**
+     * <code>optional .SSHCredentials credentials = 1;</code>
+     */
+    public Chefmate.SSHCredentials getCredentials() {
+      return credentials_ == null ? Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+    }
+    /**
+     * <code>optional .SSHCredentials credentials = 1;</code>
+     */
+    public Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder() {
+      return getCredentials();
+    }
+
+    public static final int SERVICENAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object serviceName_;
+    /**
+     * <code>optional string serviceName = 2;</code>
+     */
+    public java.lang.String getServiceName() {
+      java.lang.Object ref = serviceName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        serviceName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string serviceName = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getServiceNameBytes() {
+      java.lang.Object ref = serviceName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        serviceName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DBUSERNAME_FIELD_NUMBER = 3;
+    private volatile java.lang.Object dbUsername_;
+    /**
+     * <code>optional string dbUsername = 3;</code>
+     */
+    public java.lang.String getDbUsername() {
+      java.lang.Object ref = dbUsername_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dbUsername_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string dbUsername = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDbUsernameBytes() {
+      java.lang.Object ref = dbUsername_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dbUsername_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DBUSERPASSWORD_FIELD_NUMBER = 4;
+    private volatile java.lang.Object dbUserPassword_;
+    /**
+     * <code>optional string dbUserPassword = 4;</code>
+     */
+    public java.lang.String getDbUserPassword() {
+      java.lang.Object ref = dbUserPassword_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dbUserPassword_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string dbUserPassword = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDbUserPasswordBytes() {
+      java.lang.Object ref = dbUserPassword_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dbUserPassword_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DBNAME_FIELD_NUMBER = 5;
+    private volatile java.lang.Object dbName_;
+    /**
+     * <code>optional string dbName = 5;</code>
+     */
+    public java.lang.String getDbName() {
+      java.lang.Object ref = dbName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dbName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string dbName = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDbNameBytes() {
+      java.lang.Object ref = dbName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dbName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BACKUPFILENAME_FIELD_NUMBER = 6;
+    private volatile java.lang.Object backupFilename_;
+    /**
+     * <code>optional string backupFilename = 6;</code>
+     */
+    public java.lang.String getBackupFilename() {
+      java.lang.Object ref = backupFilename_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        backupFilename_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string backupFilename = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getBackupFilenameBytes() {
+      java.lang.Object ref = backupFilename_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        backupFilename_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (credentials_ != null) {
+        output.writeMessage(1, getCredentials());
+      }
+      if (!getServiceNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 2, serviceName_);
+      }
+      if (!getDbUsernameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 3, dbUsername_);
+      }
+      if (!getDbUserPasswordBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 4, dbUserPassword_);
+      }
+      if (!getDbNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 5, dbName_);
+      }
+      if (!getBackupFilenameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 6, backupFilename_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (credentials_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getCredentials());
+      }
+      if (!getServiceNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, serviceName_);
+      }
+      if (!getDbUsernameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(3, dbUsername_);
+      }
+      if (!getDbUserPasswordBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(4, dbUserPassword_);
+      }
+      if (!getDbNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(5, dbName_);
+      }
+      if (!getBackupFilenameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(6, backupFilename_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    public static Chefmate.BackupDBRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Chefmate.BackupDBRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Chefmate.BackupDBRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Chefmate.BackupDBRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Chefmate.BackupDBRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static Chefmate.BackupDBRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static Chefmate.BackupDBRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static Chefmate.BackupDBRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static Chefmate.BackupDBRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static Chefmate.BackupDBRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Chefmate.BackupDBRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code BackupDBRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:BackupDBRequest)
+        Chefmate.BackupDBRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Chefmate.internal_static_BackupDBRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Chefmate.internal_static_BackupDBRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Chefmate.BackupDBRequest.class, Chefmate.BackupDBRequest.Builder.class);
+      }
+
+      // Construct using Chefmate.BackupDBRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (credentialsBuilder_ == null) {
+          credentials_ = null;
+        } else {
+          credentials_ = null;
+          credentialsBuilder_ = null;
+        }
+        serviceName_ = "";
+
+        dbUsername_ = "";
+
+        dbUserPassword_ = "";
+
+        dbName_ = "";
+
+        backupFilename_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Chefmate.internal_static_BackupDBRequest_descriptor;
+      }
+
+      public Chefmate.BackupDBRequest getDefaultInstanceForType() {
+        return Chefmate.BackupDBRequest.getDefaultInstance();
+      }
+
+      public Chefmate.BackupDBRequest build() {
+        Chefmate.BackupDBRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public Chefmate.BackupDBRequest buildPartial() {
+        Chefmate.BackupDBRequest result = new Chefmate.BackupDBRequest(this);
+        if (credentialsBuilder_ == null) {
+          result.credentials_ = credentials_;
+        } else {
+          result.credentials_ = credentialsBuilder_.build();
+        }
+        result.serviceName_ = serviceName_;
+        result.dbUsername_ = dbUsername_;
+        result.dbUserPassword_ = dbUserPassword_;
+        result.dbName_ = dbName_;
+        result.backupFilename_ = backupFilename_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Chefmate.BackupDBRequest) {
+          return mergeFrom((Chefmate.BackupDBRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Chefmate.BackupDBRequest other) {
+        if (other == Chefmate.BackupDBRequest.getDefaultInstance()) return this;
+        if (other.hasCredentials()) {
+          mergeCredentials(other.getCredentials());
+        }
+        if (!other.getServiceName().isEmpty()) {
+          serviceName_ = other.serviceName_;
+          onChanged();
+        }
+        if (!other.getDbUsername().isEmpty()) {
+          dbUsername_ = other.dbUsername_;
+          onChanged();
+        }
+        if (!other.getDbUserPassword().isEmpty()) {
+          dbUserPassword_ = other.dbUserPassword_;
+          onChanged();
+        }
+        if (!other.getDbName().isEmpty()) {
+          dbName_ = other.dbName_;
+          onChanged();
+        }
+        if (!other.getBackupFilename().isEmpty()) {
+          backupFilename_ = other.backupFilename_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Chefmate.BackupDBRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Chefmate.BackupDBRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private Chefmate.SSHCredentials credentials_ = null;
+      private com.google.protobuf.SingleFieldBuilder<
+          Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder> credentialsBuilder_;
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public boolean hasCredentials() {
+        return credentialsBuilder_ != null || credentials_ != null;
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Chefmate.SSHCredentials getCredentials() {
+        if (credentialsBuilder_ == null) {
+          return credentials_ == null ? Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+        } else {
+          return credentialsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Builder setCredentials(Chefmate.SSHCredentials value) {
+        if (credentialsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          credentials_ = value;
+          onChanged();
+        } else {
+          credentialsBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Builder setCredentials(
+          Chefmate.SSHCredentials.Builder builderForValue) {
+        if (credentialsBuilder_ == null) {
+          credentials_ = builderForValue.build();
+          onChanged();
+        } else {
+          credentialsBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Builder mergeCredentials(Chefmate.SSHCredentials value) {
+        if (credentialsBuilder_ == null) {
+          if (credentials_ != null) {
+            credentials_ =
+              Chefmate.SSHCredentials.newBuilder(credentials_).mergeFrom(value).buildPartial();
+          } else {
+            credentials_ = value;
+          }
+          onChanged();
+        } else {
+          credentialsBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Builder clearCredentials() {
+        if (credentialsBuilder_ == null) {
+          credentials_ = null;
+          onChanged();
+        } else {
+          credentials_ = null;
+          credentialsBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Chefmate.SSHCredentials.Builder getCredentialsBuilder() {
+        
+        onChanged();
+        return getCredentialsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder() {
+        if (credentialsBuilder_ != null) {
+          return credentialsBuilder_.getMessageOrBuilder();
+        } else {
+          return credentials_ == null ?
+              Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+        }
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder> 
+          getCredentialsFieldBuilder() {
+        if (credentialsBuilder_ == null) {
+          credentialsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder>(
+                  getCredentials(),
+                  getParentForChildren(),
+                  isClean());
+          credentials_ = null;
+        }
+        return credentialsBuilder_;
+      }
+
+      private java.lang.Object serviceName_ = "";
+      /**
+       * <code>optional string serviceName = 2;</code>
+       */
+      public java.lang.String getServiceName() {
+        java.lang.Object ref = serviceName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          serviceName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string serviceName = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getServiceNameBytes() {
+        java.lang.Object ref = serviceName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          serviceName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string serviceName = 2;</code>
+       */
+      public Builder setServiceName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        serviceName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string serviceName = 2;</code>
+       */
+      public Builder clearServiceName() {
+        
+        serviceName_ = getDefaultInstance().getServiceName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string serviceName = 2;</code>
+       */
+      public Builder setServiceNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        serviceName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object dbUsername_ = "";
+      /**
+       * <code>optional string dbUsername = 3;</code>
+       */
+      public java.lang.String getDbUsername() {
+        java.lang.Object ref = dbUsername_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          dbUsername_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string dbUsername = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDbUsernameBytes() {
+        java.lang.Object ref = dbUsername_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dbUsername_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string dbUsername = 3;</code>
+       */
+      public Builder setDbUsername(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        dbUsername_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbUsername = 3;</code>
+       */
+      public Builder clearDbUsername() {
+        
+        dbUsername_ = getDefaultInstance().getDbUsername();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbUsername = 3;</code>
+       */
+      public Builder setDbUsernameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        dbUsername_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object dbUserPassword_ = "";
+      /**
+       * <code>optional string dbUserPassword = 4;</code>
+       */
+      public java.lang.String getDbUserPassword() {
+        java.lang.Object ref = dbUserPassword_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          dbUserPassword_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string dbUserPassword = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDbUserPasswordBytes() {
+        java.lang.Object ref = dbUserPassword_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dbUserPassword_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string dbUserPassword = 4;</code>
+       */
+      public Builder setDbUserPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        dbUserPassword_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbUserPassword = 4;</code>
+       */
+      public Builder clearDbUserPassword() {
+        
+        dbUserPassword_ = getDefaultInstance().getDbUserPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbUserPassword = 4;</code>
+       */
+      public Builder setDbUserPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        dbUserPassword_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object dbName_ = "";
+      /**
+       * <code>optional string dbName = 5;</code>
+       */
+      public java.lang.String getDbName() {
+        java.lang.Object ref = dbName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          dbName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string dbName = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDbNameBytes() {
+        java.lang.Object ref = dbName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dbName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string dbName = 5;</code>
+       */
+      public Builder setDbName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        dbName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbName = 5;</code>
+       */
+      public Builder clearDbName() {
+        
+        dbName_ = getDefaultInstance().getDbName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbName = 5;</code>
+       */
+      public Builder setDbNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        dbName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object backupFilename_ = "";
+      /**
+       * <code>optional string backupFilename = 6;</code>
+       */
+      public java.lang.String getBackupFilename() {
+        java.lang.Object ref = backupFilename_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          backupFilename_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string backupFilename = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getBackupFilenameBytes() {
+        java.lang.Object ref = backupFilename_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          backupFilename_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string backupFilename = 6;</code>
+       */
+      public Builder setBackupFilename(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        backupFilename_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string backupFilename = 6;</code>
+       */
+      public Builder clearBackupFilename() {
+        
+        backupFilename_ = getDefaultInstance().getBackupFilename();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string backupFilename = 6;</code>
+       */
+      public Builder setBackupFilenameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        backupFilename_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:BackupDBRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:BackupDBRequest)
+    private static final Chefmate.BackupDBRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Chefmate.BackupDBRequest();
+    }
+
+    public static Chefmate.BackupDBRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<BackupDBRequest>
+        PARSER = new com.google.protobuf.AbstractParser<BackupDBRequest>() {
+      public BackupDBRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new BackupDBRequest(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<BackupDBRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BackupDBRequest> getParserForType() {
+      return PARSER;
+    }
+
+    public Chefmate.BackupDBRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RestoreDBRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:RestoreDBRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional .SSHCredentials credentials = 1;</code>
+     */
+    boolean hasCredentials();
+    /**
+     * <code>optional .SSHCredentials credentials = 1;</code>
+     */
+    Chefmate.SSHCredentials getCredentials();
+    /**
+     * <code>optional .SSHCredentials credentials = 1;</code>
+     */
+    Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder();
+
+    /**
+     * <code>optional string serviceName = 2;</code>
+     */
+    java.lang.String getServiceName();
+    /**
+     * <code>optional string serviceName = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getServiceNameBytes();
+
+    /**
+     * <code>optional string dbUsername = 3;</code>
+     */
+    java.lang.String getDbUsername();
+    /**
+     * <code>optional string dbUsername = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getDbUsernameBytes();
+
+    /**
+     * <code>optional string dbUserPassword = 4;</code>
+     */
+    java.lang.String getDbUserPassword();
+    /**
+     * <code>optional string dbUserPassword = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getDbUserPasswordBytes();
+
+    /**
+     * <code>optional string dbName = 5;</code>
+     */
+    java.lang.String getDbName();
+    /**
+     * <code>optional string dbName = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getDbNameBytes();
+
+    /**
+     * <code>optional string backupFilename = 6;</code>
+     */
+    java.lang.String getBackupFilename();
+    /**
+     * <code>optional string backupFilename = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getBackupFilenameBytes();
+  }
+  /**
+   * Protobuf type {@code RestoreDBRequest}
+   */
+  public  static final class RestoreDBRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:RestoreDBRequest)
+      RestoreDBRequestOrBuilder {
+    // Use RestoreDBRequest.newBuilder() to construct.
+    private RestoreDBRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private RestoreDBRequest() {
+      serviceName_ = "";
+      dbUsername_ = "";
+      dbUserPassword_ = "";
+      dbName_ = "";
+      backupFilename_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private RestoreDBRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              Chefmate.SSHCredentials.Builder subBuilder = null;
+              if (credentials_ != null) {
+                subBuilder = credentials_.toBuilder();
+              }
+              credentials_ = input.readMessage(Chefmate.SSHCredentials.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(credentials_);
+                credentials_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              serviceName_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dbUsername_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dbUserPassword_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dbName_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              backupFilename_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Chefmate.internal_static_RestoreDBRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Chefmate.internal_static_RestoreDBRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Chefmate.RestoreDBRequest.class, Chefmate.RestoreDBRequest.Builder.class);
+    }
+
+    public static final int CREDENTIALS_FIELD_NUMBER = 1;
+    private Chefmate.SSHCredentials credentials_;
+    /**
+     * <code>optional .SSHCredentials credentials = 1;</code>
+     */
+    public boolean hasCredentials() {
+      return credentials_ != null;
+    }
+    /**
+     * <code>optional .SSHCredentials credentials = 1;</code>
+     */
+    public Chefmate.SSHCredentials getCredentials() {
+      return credentials_ == null ? Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+    }
+    /**
+     * <code>optional .SSHCredentials credentials = 1;</code>
+     */
+    public Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder() {
+      return getCredentials();
+    }
+
+    public static final int SERVICENAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object serviceName_;
+    /**
+     * <code>optional string serviceName = 2;</code>
+     */
+    public java.lang.String getServiceName() {
+      java.lang.Object ref = serviceName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        serviceName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string serviceName = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getServiceNameBytes() {
+      java.lang.Object ref = serviceName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        serviceName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DBUSERNAME_FIELD_NUMBER = 3;
+    private volatile java.lang.Object dbUsername_;
+    /**
+     * <code>optional string dbUsername = 3;</code>
+     */
+    public java.lang.String getDbUsername() {
+      java.lang.Object ref = dbUsername_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dbUsername_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string dbUsername = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDbUsernameBytes() {
+      java.lang.Object ref = dbUsername_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dbUsername_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DBUSERPASSWORD_FIELD_NUMBER = 4;
+    private volatile java.lang.Object dbUserPassword_;
+    /**
+     * <code>optional string dbUserPassword = 4;</code>
+     */
+    public java.lang.String getDbUserPassword() {
+      java.lang.Object ref = dbUserPassword_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dbUserPassword_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string dbUserPassword = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDbUserPasswordBytes() {
+      java.lang.Object ref = dbUserPassword_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dbUserPassword_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DBNAME_FIELD_NUMBER = 5;
+    private volatile java.lang.Object dbName_;
+    /**
+     * <code>optional string dbName = 5;</code>
+     */
+    public java.lang.String getDbName() {
+      java.lang.Object ref = dbName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dbName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string dbName = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDbNameBytes() {
+      java.lang.Object ref = dbName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dbName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BACKUPFILENAME_FIELD_NUMBER = 6;
+    private volatile java.lang.Object backupFilename_;
+    /**
+     * <code>optional string backupFilename = 6;</code>
+     */
+    public java.lang.String getBackupFilename() {
+      java.lang.Object ref = backupFilename_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        backupFilename_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string backupFilename = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getBackupFilenameBytes() {
+      java.lang.Object ref = backupFilename_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        backupFilename_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (credentials_ != null) {
+        output.writeMessage(1, getCredentials());
+      }
+      if (!getServiceNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 2, serviceName_);
+      }
+      if (!getDbUsernameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 3, dbUsername_);
+      }
+      if (!getDbUserPasswordBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 4, dbUserPassword_);
+      }
+      if (!getDbNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 5, dbName_);
+      }
+      if (!getBackupFilenameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 6, backupFilename_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (credentials_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getCredentials());
+      }
+      if (!getServiceNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, serviceName_);
+      }
+      if (!getDbUsernameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(3, dbUsername_);
+      }
+      if (!getDbUserPasswordBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(4, dbUserPassword_);
+      }
+      if (!getDbNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(5, dbName_);
+      }
+      if (!getBackupFilenameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(6, backupFilename_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    public static Chefmate.RestoreDBRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Chefmate.RestoreDBRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Chefmate.RestoreDBRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Chefmate.RestoreDBRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Chefmate.RestoreDBRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static Chefmate.RestoreDBRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static Chefmate.RestoreDBRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static Chefmate.RestoreDBRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static Chefmate.RestoreDBRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static Chefmate.RestoreDBRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Chefmate.RestoreDBRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code RestoreDBRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:RestoreDBRequest)
+        Chefmate.RestoreDBRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Chefmate.internal_static_RestoreDBRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Chefmate.internal_static_RestoreDBRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Chefmate.RestoreDBRequest.class, Chefmate.RestoreDBRequest.Builder.class);
+      }
+
+      // Construct using Chefmate.RestoreDBRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (credentialsBuilder_ == null) {
+          credentials_ = null;
+        } else {
+          credentials_ = null;
+          credentialsBuilder_ = null;
+        }
+        serviceName_ = "";
+
+        dbUsername_ = "";
+
+        dbUserPassword_ = "";
+
+        dbName_ = "";
+
+        backupFilename_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Chefmate.internal_static_RestoreDBRequest_descriptor;
+      }
+
+      public Chefmate.RestoreDBRequest getDefaultInstanceForType() {
+        return Chefmate.RestoreDBRequest.getDefaultInstance();
+      }
+
+      public Chefmate.RestoreDBRequest build() {
+        Chefmate.RestoreDBRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public Chefmate.RestoreDBRequest buildPartial() {
+        Chefmate.RestoreDBRequest result = new Chefmate.RestoreDBRequest(this);
+        if (credentialsBuilder_ == null) {
+          result.credentials_ = credentials_;
+        } else {
+          result.credentials_ = credentialsBuilder_.build();
+        }
+        result.serviceName_ = serviceName_;
+        result.dbUsername_ = dbUsername_;
+        result.dbUserPassword_ = dbUserPassword_;
+        result.dbName_ = dbName_;
+        result.backupFilename_ = backupFilename_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Chefmate.RestoreDBRequest) {
+          return mergeFrom((Chefmate.RestoreDBRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Chefmate.RestoreDBRequest other) {
+        if (other == Chefmate.RestoreDBRequest.getDefaultInstance()) return this;
+        if (other.hasCredentials()) {
+          mergeCredentials(other.getCredentials());
+        }
+        if (!other.getServiceName().isEmpty()) {
+          serviceName_ = other.serviceName_;
+          onChanged();
+        }
+        if (!other.getDbUsername().isEmpty()) {
+          dbUsername_ = other.dbUsername_;
+          onChanged();
+        }
+        if (!other.getDbUserPassword().isEmpty()) {
+          dbUserPassword_ = other.dbUserPassword_;
+          onChanged();
+        }
+        if (!other.getDbName().isEmpty()) {
+          dbName_ = other.dbName_;
+          onChanged();
+        }
+        if (!other.getBackupFilename().isEmpty()) {
+          backupFilename_ = other.backupFilename_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Chefmate.RestoreDBRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Chefmate.RestoreDBRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private Chefmate.SSHCredentials credentials_ = null;
+      private com.google.protobuf.SingleFieldBuilder<
+          Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder> credentialsBuilder_;
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public boolean hasCredentials() {
+        return credentialsBuilder_ != null || credentials_ != null;
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Chefmate.SSHCredentials getCredentials() {
+        if (credentialsBuilder_ == null) {
+          return credentials_ == null ? Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+        } else {
+          return credentialsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Builder setCredentials(Chefmate.SSHCredentials value) {
+        if (credentialsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          credentials_ = value;
+          onChanged();
+        } else {
+          credentialsBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Builder setCredentials(
+          Chefmate.SSHCredentials.Builder builderForValue) {
+        if (credentialsBuilder_ == null) {
+          credentials_ = builderForValue.build();
+          onChanged();
+        } else {
+          credentialsBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Builder mergeCredentials(Chefmate.SSHCredentials value) {
+        if (credentialsBuilder_ == null) {
+          if (credentials_ != null) {
+            credentials_ =
+              Chefmate.SSHCredentials.newBuilder(credentials_).mergeFrom(value).buildPartial();
+          } else {
+            credentials_ = value;
+          }
+          onChanged();
+        } else {
+          credentialsBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Builder clearCredentials() {
+        if (credentialsBuilder_ == null) {
+          credentials_ = null;
+          onChanged();
+        } else {
+          credentials_ = null;
+          credentialsBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Chefmate.SSHCredentials.Builder getCredentialsBuilder() {
+        
+        onChanged();
+        return getCredentialsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder() {
+        if (credentialsBuilder_ != null) {
+          return credentialsBuilder_.getMessageOrBuilder();
+        } else {
+          return credentials_ == null ?
+              Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+        }
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder> 
+          getCredentialsFieldBuilder() {
+        if (credentialsBuilder_ == null) {
+          credentialsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder>(
+                  getCredentials(),
+                  getParentForChildren(),
+                  isClean());
+          credentials_ = null;
+        }
+        return credentialsBuilder_;
+      }
+
+      private java.lang.Object serviceName_ = "";
+      /**
+       * <code>optional string serviceName = 2;</code>
+       */
+      public java.lang.String getServiceName() {
+        java.lang.Object ref = serviceName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          serviceName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string serviceName = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getServiceNameBytes() {
+        java.lang.Object ref = serviceName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          serviceName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string serviceName = 2;</code>
+       */
+      public Builder setServiceName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        serviceName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string serviceName = 2;</code>
+       */
+      public Builder clearServiceName() {
+        
+        serviceName_ = getDefaultInstance().getServiceName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string serviceName = 2;</code>
+       */
+      public Builder setServiceNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        serviceName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object dbUsername_ = "";
+      /**
+       * <code>optional string dbUsername = 3;</code>
+       */
+      public java.lang.String getDbUsername() {
+        java.lang.Object ref = dbUsername_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          dbUsername_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string dbUsername = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDbUsernameBytes() {
+        java.lang.Object ref = dbUsername_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dbUsername_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string dbUsername = 3;</code>
+       */
+      public Builder setDbUsername(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        dbUsername_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbUsername = 3;</code>
+       */
+      public Builder clearDbUsername() {
+        
+        dbUsername_ = getDefaultInstance().getDbUsername();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbUsername = 3;</code>
+       */
+      public Builder setDbUsernameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        dbUsername_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object dbUserPassword_ = "";
+      /**
+       * <code>optional string dbUserPassword = 4;</code>
+       */
+      public java.lang.String getDbUserPassword() {
+        java.lang.Object ref = dbUserPassword_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          dbUserPassword_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string dbUserPassword = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDbUserPasswordBytes() {
+        java.lang.Object ref = dbUserPassword_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dbUserPassword_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string dbUserPassword = 4;</code>
+       */
+      public Builder setDbUserPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        dbUserPassword_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbUserPassword = 4;</code>
+       */
+      public Builder clearDbUserPassword() {
+        
+        dbUserPassword_ = getDefaultInstance().getDbUserPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbUserPassword = 4;</code>
+       */
+      public Builder setDbUserPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        dbUserPassword_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object dbName_ = "";
+      /**
+       * <code>optional string dbName = 5;</code>
+       */
+      public java.lang.String getDbName() {
+        java.lang.Object ref = dbName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          dbName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string dbName = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDbNameBytes() {
+        java.lang.Object ref = dbName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dbName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string dbName = 5;</code>
+       */
+      public Builder setDbName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        dbName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbName = 5;</code>
+       */
+      public Builder clearDbName() {
+        
+        dbName_ = getDefaultInstance().getDbName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbName = 5;</code>
+       */
+      public Builder setDbNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        dbName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object backupFilename_ = "";
+      /**
+       * <code>optional string backupFilename = 6;</code>
+       */
+      public java.lang.String getBackupFilename() {
+        java.lang.Object ref = backupFilename_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          backupFilename_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string backupFilename = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getBackupFilenameBytes() {
+        java.lang.Object ref = backupFilename_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          backupFilename_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string backupFilename = 6;</code>
+       */
+      public Builder setBackupFilename(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        backupFilename_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string backupFilename = 6;</code>
+       */
+      public Builder clearBackupFilename() {
+        
+        backupFilename_ = getDefaultInstance().getBackupFilename();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string backupFilename = 6;</code>
+       */
+      public Builder setBackupFilenameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        backupFilename_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:RestoreDBRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:RestoreDBRequest)
+    private static final Chefmate.RestoreDBRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Chefmate.RestoreDBRequest();
+    }
+
+    public static Chefmate.RestoreDBRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RestoreDBRequest>
+        PARSER = new com.google.protobuf.AbstractParser<RestoreDBRequest>() {
+      public RestoreDBRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new RestoreDBRequest(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<RestoreDBRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RestoreDBRequest> getParserForType() {
+      return PARSER;
+    }
+
+    public Chefmate.RestoreDBRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface CreateVMResponseOrBuilder extends
       // @@protoc_insertion_point(interface_extends:CreateVMResponse)
       com.google.protobuf.MessageOrBuilder {
@@ -9152,6 +11484,904 @@ public final class Chefmate {
 
   }
 
+  public interface BackupDBResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:BackupDBResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string outputLog = 1;</code>
+     */
+    java.lang.String getOutputLog();
+    /**
+     * <code>optional string outputLog = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getOutputLogBytes();
+  }
+  /**
+   * Protobuf type {@code BackupDBResponse}
+   */
+  public  static final class BackupDBResponse extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:BackupDBResponse)
+      BackupDBResponseOrBuilder {
+    // Use BackupDBResponse.newBuilder() to construct.
+    private BackupDBResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private BackupDBResponse() {
+      outputLog_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private BackupDBResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              outputLog_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Chefmate.internal_static_BackupDBResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Chefmate.internal_static_BackupDBResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Chefmate.BackupDBResponse.class, Chefmate.BackupDBResponse.Builder.class);
+    }
+
+    public static final int OUTPUTLOG_FIELD_NUMBER = 1;
+    private volatile java.lang.Object outputLog_;
+    /**
+     * <code>optional string outputLog = 1;</code>
+     */
+    public java.lang.String getOutputLog() {
+      java.lang.Object ref = outputLog_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        outputLog_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string outputLog = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getOutputLogBytes() {
+      java.lang.Object ref = outputLog_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        outputLog_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getOutputLogBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, outputLog_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getOutputLogBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, outputLog_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    public static Chefmate.BackupDBResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Chefmate.BackupDBResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Chefmate.BackupDBResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Chefmate.BackupDBResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Chefmate.BackupDBResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static Chefmate.BackupDBResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static Chefmate.BackupDBResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static Chefmate.BackupDBResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static Chefmate.BackupDBResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static Chefmate.BackupDBResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Chefmate.BackupDBResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code BackupDBResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:BackupDBResponse)
+        Chefmate.BackupDBResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Chefmate.internal_static_BackupDBResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Chefmate.internal_static_BackupDBResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Chefmate.BackupDBResponse.class, Chefmate.BackupDBResponse.Builder.class);
+      }
+
+      // Construct using Chefmate.BackupDBResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        outputLog_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Chefmate.internal_static_BackupDBResponse_descriptor;
+      }
+
+      public Chefmate.BackupDBResponse getDefaultInstanceForType() {
+        return Chefmate.BackupDBResponse.getDefaultInstance();
+      }
+
+      public Chefmate.BackupDBResponse build() {
+        Chefmate.BackupDBResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public Chefmate.BackupDBResponse buildPartial() {
+        Chefmate.BackupDBResponse result = new Chefmate.BackupDBResponse(this);
+        result.outputLog_ = outputLog_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Chefmate.BackupDBResponse) {
+          return mergeFrom((Chefmate.BackupDBResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Chefmate.BackupDBResponse other) {
+        if (other == Chefmate.BackupDBResponse.getDefaultInstance()) return this;
+        if (!other.getOutputLog().isEmpty()) {
+          outputLog_ = other.outputLog_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Chefmate.BackupDBResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Chefmate.BackupDBResponse) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object outputLog_ = "";
+      /**
+       * <code>optional string outputLog = 1;</code>
+       */
+      public java.lang.String getOutputLog() {
+        java.lang.Object ref = outputLog_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          outputLog_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string outputLog = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getOutputLogBytes() {
+        java.lang.Object ref = outputLog_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          outputLog_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string outputLog = 1;</code>
+       */
+      public Builder setOutputLog(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        outputLog_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string outputLog = 1;</code>
+       */
+      public Builder clearOutputLog() {
+        
+        outputLog_ = getDefaultInstance().getOutputLog();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string outputLog = 1;</code>
+       */
+      public Builder setOutputLogBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        outputLog_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:BackupDBResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:BackupDBResponse)
+    private static final Chefmate.BackupDBResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Chefmate.BackupDBResponse();
+    }
+
+    public static Chefmate.BackupDBResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<BackupDBResponse>
+        PARSER = new com.google.protobuf.AbstractParser<BackupDBResponse>() {
+      public BackupDBResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new BackupDBResponse(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<BackupDBResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BackupDBResponse> getParserForType() {
+      return PARSER;
+    }
+
+    public Chefmate.BackupDBResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RestoreDBResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:RestoreDBResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string outputLog = 1;</code>
+     */
+    java.lang.String getOutputLog();
+    /**
+     * <code>optional string outputLog = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getOutputLogBytes();
+  }
+  /**
+   * Protobuf type {@code RestoreDBResponse}
+   */
+  public  static final class RestoreDBResponse extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:RestoreDBResponse)
+      RestoreDBResponseOrBuilder {
+    // Use RestoreDBResponse.newBuilder() to construct.
+    private RestoreDBResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private RestoreDBResponse() {
+      outputLog_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private RestoreDBResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              outputLog_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Chefmate.internal_static_RestoreDBResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Chefmate.internal_static_RestoreDBResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Chefmate.RestoreDBResponse.class, Chefmate.RestoreDBResponse.Builder.class);
+    }
+
+    public static final int OUTPUTLOG_FIELD_NUMBER = 1;
+    private volatile java.lang.Object outputLog_;
+    /**
+     * <code>optional string outputLog = 1;</code>
+     */
+    public java.lang.String getOutputLog() {
+      java.lang.Object ref = outputLog_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        outputLog_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string outputLog = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getOutputLogBytes() {
+      java.lang.Object ref = outputLog_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        outputLog_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getOutputLogBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, outputLog_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getOutputLogBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, outputLog_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    public static Chefmate.RestoreDBResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Chefmate.RestoreDBResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Chefmate.RestoreDBResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Chefmate.RestoreDBResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Chefmate.RestoreDBResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static Chefmate.RestoreDBResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static Chefmate.RestoreDBResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static Chefmate.RestoreDBResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static Chefmate.RestoreDBResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static Chefmate.RestoreDBResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Chefmate.RestoreDBResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code RestoreDBResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:RestoreDBResponse)
+        Chefmate.RestoreDBResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Chefmate.internal_static_RestoreDBResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Chefmate.internal_static_RestoreDBResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Chefmate.RestoreDBResponse.class, Chefmate.RestoreDBResponse.Builder.class);
+      }
+
+      // Construct using Chefmate.RestoreDBResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        outputLog_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Chefmate.internal_static_RestoreDBResponse_descriptor;
+      }
+
+      public Chefmate.RestoreDBResponse getDefaultInstanceForType() {
+        return Chefmate.RestoreDBResponse.getDefaultInstance();
+      }
+
+      public Chefmate.RestoreDBResponse build() {
+        Chefmate.RestoreDBResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public Chefmate.RestoreDBResponse buildPartial() {
+        Chefmate.RestoreDBResponse result = new Chefmate.RestoreDBResponse(this);
+        result.outputLog_ = outputLog_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Chefmate.RestoreDBResponse) {
+          return mergeFrom((Chefmate.RestoreDBResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Chefmate.RestoreDBResponse other) {
+        if (other == Chefmate.RestoreDBResponse.getDefaultInstance()) return this;
+        if (!other.getOutputLog().isEmpty()) {
+          outputLog_ = other.outputLog_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Chefmate.RestoreDBResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Chefmate.RestoreDBResponse) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object outputLog_ = "";
+      /**
+       * <code>optional string outputLog = 1;</code>
+       */
+      public java.lang.String getOutputLog() {
+        java.lang.Object ref = outputLog_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          outputLog_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string outputLog = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getOutputLogBytes() {
+        java.lang.Object ref = outputLog_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          outputLog_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string outputLog = 1;</code>
+       */
+      public Builder setOutputLog(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        outputLog_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string outputLog = 1;</code>
+       */
+      public Builder clearOutputLog() {
+        
+        outputLog_ = getDefaultInstance().getOutputLog();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string outputLog = 1;</code>
+       */
+      public Builder setOutputLogBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        outputLog_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:RestoreDBResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:RestoreDBResponse)
+    private static final Chefmate.RestoreDBResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Chefmate.RestoreDBResponse();
+    }
+
+    public static Chefmate.RestoreDBResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RestoreDBResponse>
+        PARSER = new com.google.protobuf.AbstractParser<RestoreDBResponse>() {
+      public RestoreDBResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new RestoreDBResponse(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<RestoreDBResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RestoreDBResponse> getParserForType() {
+      return PARSER;
+    }
+
+    public Chefmate.RestoreDBResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_AWSInstanceId_descriptor;
   private static
@@ -9188,6 +12418,16 @@ public final class Chefmate {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_DeployDBRequest_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_BackupDBRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_BackupDBRequest_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_RestoreDBRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_RestoreDBRequest_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_CreateVMResponse_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -9212,6 +12452,16 @@ public final class Chefmate {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_DeployDBResponse_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_BackupDBResponse_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_BackupDBResponse_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_RestoreDBResponse_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_RestoreDBResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -9241,21 +12491,33 @@ public final class Chefmate {
       "redentials\022\023\n\013serviceName\030\002 \001(\t\022\014\n\004port\030" +
       "\003 \001(\005\022\020\n\010username\030\004 \001(\t\022\024\n\014userPassword\030" +
       "\005 \001(\t\022\016\n\006dbName\030\006 \001(\t\022\024\n\014rootPassword\030\007 ",
-      "\001(\t\"\\\n\020CreateVMResponse\022\"\n\ninstanceId\030\001 " +
-      "\001(\0132\016.AWSInstanceId\022\021\n\tpublicDNS\030\002 \001(\t\022\021" +
-      "\n\toutputLog\030\003 \001(\t\"&\n\021DestroyVMResponse\022\021" +
-      "\n\toutputLog\030\001 \001(\t\")\n\024InitCHEFRepoRespons" +
-      "e\022\021\n\toutputLog\030\001 \001(\t\"(\n\023DeployWPAppRespo" +
-      "nse\022\021\n\toutputLog\030\001 \001(\t\"%\n\020DeployDBRespon" +
-      "se\022\021\n\toutputLog\030\001 \001(\t2\252\001\n\006EC2Ops\022/\n\010crea" +
-      "teVM\022\020.CreateVMRequest\032\021.CreateVMRespons" +
-      "e\0222\n\tdestroyVM\022\021.DestroyVMRequest\032\022.Dest" +
-      "royVMResponse\022;\n\014initChefRepo\022\024.InitCHEF",
-      "RepoRequest\032\025.InitCHEFRepoResponse2y\n\014Wo" +
-      "rdPressOps\0228\n\013deployWPApp\022\023.DeployWPAppR" +
-      "equest\032\024.DeployWPAppResponse\022/\n\010deployDB" +
-      "\022\020.DeployDBRequest\032\021.DeployDBResponseb\006p" +
-      "roto3"
+      "\001(\t\"\240\001\n\017BackupDBRequest\022$\n\013credentials\030\001" +
+      " \001(\0132\017.SSHCredentials\022\023\n\013serviceName\030\002 \001" +
+      "(\t\022\022\n\ndbUsername\030\003 \001(\t\022\026\n\016dbUserPassword" +
+      "\030\004 \001(\t\022\016\n\006dbName\030\005 \001(\t\022\026\n\016backupFilename" +
+      "\030\006 \001(\t\"\241\001\n\020RestoreDBRequest\022$\n\013credentia" +
+      "ls\030\001 \001(\0132\017.SSHCredentials\022\023\n\013serviceName" +
+      "\030\002 \001(\t\022\022\n\ndbUsername\030\003 \001(\t\022\026\n\016dbUserPass" +
+      "word\030\004 \001(\t\022\016\n\006dbName\030\005 \001(\t\022\026\n\016backupFile" +
+      "name\030\006 \001(\t\"\\\n\020CreateVMResponse\022\"\n\ninstan" +
+      "ceId\030\001 \001(\0132\016.AWSInstanceId\022\021\n\tpublicDNS\030",
+      "\002 \001(\t\022\021\n\toutputLog\030\003 \001(\t\"&\n\021DestroyVMRes" +
+      "ponse\022\021\n\toutputLog\030\001 \001(\t\")\n\024InitCHEFRepo" +
+      "Response\022\021\n\toutputLog\030\001 \001(\t\"(\n\023DeployWPA" +
+      "ppResponse\022\021\n\toutputLog\030\001 \001(\t\"%\n\020DeployD" +
+      "BResponse\022\021\n\toutputLog\030\001 \001(\t\"%\n\020BackupDB" +
+      "Response\022\021\n\toutputLog\030\001 \001(\t\"&\n\021RestoreDB" +
+      "Response\022\021\n\toutputLog\030\001 \001(\t2\252\001\n\006EC2Ops\022/" +
+      "\n\010createVM\022\020.CreateVMRequest\032\021.CreateVMR" +
+      "esponse\0222\n\tdestroyVM\022\021.DestroyVMRequest\032" +
+      "\022.DestroyVMResponse\022;\n\014initChefRepo\022\024.In",
+      "itCHEFRepoRequest\032\025.InitCHEFRepoResponse" +
+      "2\336\001\n\014WordPressOps\0228\n\013deployWPApp\022\023.Deplo" +
+      "yWPAppRequest\032\024.DeployWPAppResponse\022/\n\010d" +
+      "eployDB\022\020.DeployDBRequest\032\021.DeployDBResp" +
+      "onse\022/\n\010backupDB\022\020.BackupDBRequest\032\021.Bac" +
+      "kupDBResponse\0222\n\trestoreDB\022\021.RestoreDBRe" +
+      "quest\032\022.RestoreDBResponseb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -9311,35 +12573,59 @@ public final class Chefmate {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_DeployDBRequest_descriptor,
         new java.lang.String[] { "Credentials", "ServiceName", "Port", "Username", "UserPassword", "DbName", "RootPassword", });
-    internal_static_CreateVMResponse_descriptor =
+    internal_static_BackupDBRequest_descriptor =
       getDescriptor().getMessageTypes().get(7);
+    internal_static_BackupDBRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_BackupDBRequest_descriptor,
+        new java.lang.String[] { "Credentials", "ServiceName", "DbUsername", "DbUserPassword", "DbName", "BackupFilename", });
+    internal_static_RestoreDBRequest_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_RestoreDBRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_RestoreDBRequest_descriptor,
+        new java.lang.String[] { "Credentials", "ServiceName", "DbUsername", "DbUserPassword", "DbName", "BackupFilename", });
+    internal_static_CreateVMResponse_descriptor =
+      getDescriptor().getMessageTypes().get(9);
     internal_static_CreateVMResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_CreateVMResponse_descriptor,
         new java.lang.String[] { "InstanceId", "PublicDNS", "OutputLog", });
     internal_static_DestroyVMResponse_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_DestroyVMResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_DestroyVMResponse_descriptor,
         new java.lang.String[] { "OutputLog", });
     internal_static_InitCHEFRepoResponse_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_InitCHEFRepoResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_InitCHEFRepoResponse_descriptor,
         new java.lang.String[] { "OutputLog", });
     internal_static_DeployWPAppResponse_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_DeployWPAppResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_DeployWPAppResponse_descriptor,
         new java.lang.String[] { "OutputLog", });
     internal_static_DeployDBResponse_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_DeployDBResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_DeployDBResponse_descriptor,
+        new java.lang.String[] { "OutputLog", });
+    internal_static_BackupDBResponse_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_BackupDBResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_BackupDBResponse_descriptor,
+        new java.lang.String[] { "OutputLog", });
+    internal_static_RestoreDBResponse_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_RestoreDBResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_RestoreDBResponse_descriptor,
         new java.lang.String[] { "OutputLog", });
   }
 

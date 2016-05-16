@@ -3,10 +3,12 @@ import java.util.logging.Logger;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import services.Chefmate.BackupDBRequest;
 import services.Chefmate.CreateVMRequest;
 import services.Chefmate.DeployDBRequest;
 import services.Chefmate.DeployWPAppRequest;
 import services.Chefmate.InitCHEFRepoRequest;
+import services.Chefmate.RestoreDBRequest;
 import services.Chefmate.SSHCredentials;
 import services.EC2OpsGrpc;
 import services.EC2OpsImpl;
@@ -98,14 +100,14 @@ public class ChefMateServer
 		 * SSH credentials
 		 */
 		SSHCredentials credentials = SSHCredentials.newBuilder().setUsername("ubuntu")
-				.setHost("ec2-52-28-254-15.eu-central-1.compute.amazonaws.com").setKeyfilename("chefmateserver_key.pem")
+				.setHost("ec2-52-28-99-214.eu-central-1.compute.amazonaws.com").setKeyfilename("chefmateserver_key.pem")
 				.setTimeout(10000).build();
 
 		/**
 		 * VM Services Tests
 		 */
 		// CreateVMRequest req =
-		// CreateVMRequest.newBuilder().setName("wordpress").setTag("mytag").setRegion("eu-central-1")
+		// CreateVMRequest.newBuilder().setName("mysql").setTag("mytag").setRegion("eu-central-1")
 		// .setImageId("ami-87564feb").setUsername("ubuntu").setInstanceType("t2.micro")
 		// .addSecurityGroupIds("sg-79ae5d11").build();
 		// new EC2OpsImpl().createVM(req, null);
@@ -129,16 +131,35 @@ public class ChefMateServer
 		// new WordPressOpsImpl().deployDB(req, null);
 
 		/**
+		 * Backup DB Tests
+		 */
+
+//		BackupDBRequest req = services.Chefmate.BackupDBRequest.newBuilder().setCredentials(credentials)
+//				.setServiceName("server").setDbUsername("wordpress").setDbUserPassword("cloud16")
+//				.setDbName("wordpressdb").setBackupFilename("wordpressdbbackup").build();
+//		new WordPressOpsImpl().backupDB(req, null);
+		
+		/**
+		 * Restore DB Tests
+		 */
+		RestoreDBRequest req = services.Chefmate.RestoreDBRequest.newBuilder().setCredentials(credentials)
+				.setServiceName("server").setDbUsername("wordpress").setDbUserPassword("cloud16")
+				.setDbName("wordpressdb").setBackupFilename("wordpressdbbackup").build();
+		new WordPressOpsImpl().restoreDB(req, null);
+
+		/**
 		 * deploy WP Tests
 		 */
 		// TODO: MySQL DB kann folgendes garnicht verarbeiten: db_username;
 		// db_userpassword;
-//		DeployWPAppRequest req = DeployWPAppRequest.newBuilder().setCredentials(credentials).setDbName("wordpressdb")
-//				.setDbHost("ec2-52-58-191-79.eu-central-1.compute.amazonaws.com").setDbPort("3306")
-//				.setDbUserName("wordpress").setDbUserPassword("cloud16").setDbRootPassword("cloud16").build();
-//		// DeployWPAppRequest req =
-//		// DeployWPAppRequest.newBuilder().setCredentials(credentials).build();
-//		new WordPressOpsImpl().deployWPApp(req, null);
+		// DeployWPAppRequest req =
+		// DeployWPAppRequest.newBuilder().setCredentials(credentials).setDbName("wordpressdb")
+		// .setDbHost("ec2-52-58-191-79.eu-central-1.compute.amazonaws.com").setDbPort("3306")
+		// .setDbUserName("wordpress").setDbUserPassword("cloud16").setDbRootPassword("cloud16").build();
+		// // DeployWPAppRequest req =
+		// //
+		// DeployWPAppRequest.newBuilder().setCredentials(credentials).build();
+		// new WordPressOpsImpl().deployWPApp(req, null);
 
 		int port = -1;
 

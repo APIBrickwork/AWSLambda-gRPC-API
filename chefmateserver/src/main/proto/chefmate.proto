@@ -68,6 +68,24 @@ message DeployDBRequest{
 	string rootPassword = 7;
 }
 
+message BackupDBRequest{
+	SSHCredentials credentials = 1;
+	string serviceName = 2;
+	string dbUsername = 3;
+	string dbUserPassword = 4;
+	string dbName = 5;
+	string backupFilename = 6;
+}
+
+message RestoreDBRequest{
+	SSHCredentials credentials = 1;
+	string serviceName = 2;
+	string dbUsername = 3;
+	string dbUserPassword = 4;
+	string dbName = 5;
+	string backupFilename = 6;
+}
+
 // #########
 // Responses
 // #########
@@ -93,6 +111,15 @@ message DeployDBResponse{
 	string outputLog = 1;
 }
 
+message BackupDBResponse{
+	string outputLog = 1;
+}
+
+message RestoreDBResponse{
+	string outputLog = 1;
+}
+
+
 
 // #######################
 // EC2 operations services
@@ -107,4 +134,6 @@ service EC2Ops {
 service WordPressOps{
 	rpc deployWPApp(DeployWPAppRequest) returns (DeployWPAppResponse);
 	rpc deployDB(DeployDBRequest) returns (DeployDBResponse);
+	rpc backupDB(BackupDBRequest) returns (BackupDBResponse);
+	rpc restoreDB(RestoreDBRequest) returns (RestoreDBResponse);
 }

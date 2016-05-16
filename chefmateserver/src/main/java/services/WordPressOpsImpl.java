@@ -5,10 +5,14 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import io.grpc.stub.StreamObserver;
+import services.Chefmate.BackupDBRequest;
+import services.Chefmate.BackupDBResponse;
 import services.Chefmate.DeployDBRequest;
 import services.Chefmate.DeployDBResponse;
 import services.Chefmate.DeployWPAppRequest;
 import services.Chefmate.DeployWPAppResponse;
+import services.Chefmate.RestoreDBRequest;
+import services.Chefmate.RestoreDBResponse;
 import util.ChefAttributesWriter;
 import util.Config;
 import util.SSHExecuter;
@@ -133,14 +137,12 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 		/**
 		 * Create DB user and setup database and privileges
 		 */
-		
 
-		String dbServiceName = request.getServiceName(); 
+		String dbServiceName = request.getServiceName();
 		String dbRootPw = request.getRootPassword();
 		String dbUsername = request.getUsername();
 		String dbUserpw = request.getUserPassword();
 		String dbName = request.getDbName();
-		
 
 		List<String> sqlCommands = new ArrayList<>();
 		String sqlCreateUserCmd = "CREATE USER '" + dbUsername + "'@'%' IDENTIFIED BY '" + dbUserpw + "';";
@@ -151,21 +153,21 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 		sqlCommands.add(sqlGrantPrivileges);
 		String sqlFlushPrivileges = "FLUSH PRIVILEGES;";
 		sqlCommands.add(sqlFlushPrivileges);
-		
-		
+
 		SSHExecuter sshDb = new SSHExecuter();
 		sshDb.connectHost(username, host, 22, timeout, keyfile);
-//		ssh = new SSHExecuter();
-//		ssh.connectHost(username, host, 22, timeout, keyfile);
-		
-		for(int i=0;i<sqlCommands.size();i++){
+		// ssh = new SSHExecuter();
+		// ssh.connectHost(username, host, 22, timeout, keyfile);
+
+		for (int i = 0; i < sqlCommands.size(); i++)
+		{
 			String command = "mysql -S /run/mysql-" + dbServiceName + "/mysqld.sock -u root -p" + dbRootPw + " -e "
 					+ "\"" + sqlCommands.get(i) + "\"";
 			logger.info("### Executing command:'" + command);
-			sshDb.sendToChannel(ChannelType.EXEC, command, timeout);			
+			sshDb.sendToChannel(ChannelType.EXEC, command, timeout);
 		}
 		sshDb.tearDown();
-		
+
 		outputLog = sb.toString();
 		DeployDBResponse resp = DeployDBResponse.newBuilder().setOutputLog(outputLog).build();
 
@@ -173,6 +175,64 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 		responseObserver.onCompleted();
 		logger.info("### Sent Response.");
 
+	}
+
+	@Override
+	public void backupDB(BackupDBRequest request, StreamObserver<BackupDBResponse> responseObserver)
+	{
+		logger.info("### Received request for backupDB with info:\n " + request.toString());
+		String username = request.getCredentials().getUsername();
+		String host = request.getCredentials().getHost();
+		int timeout = request.getCredentials().getTimeout();
+		String homeDir = System.getProperty("user.home");
+		String keyfile = homeDir + "/.ssh/" + request.getCredentials().getKeyfilename();
+
+		SSHExecuter ssh = new SSHExecuter();
+		ssh.connectHost(username, host, 22, timeout, keyfile);
+
+		String dbServiceName = request.getServiceName();
+		String dbUsername = request.getDbUsername();
+		String dbPassword = request.getDbUserPassword();
+		String dbName = request.getDbName();
+		String backupFilename = request.getBackupFilename();
+
+		String command = "mysqldump --socket=/run/mysql-"+ dbServiceName +"/mysqld.sock --opt -u " + dbUsername + " -p" + dbPassword + " " + dbName + " > " + backupFilename + ".sql";
+		logger.info("### Executing command: " + command);
+		String outputLog = ssh.sendToChannel(ChannelType.EXEC, command, timeout);
+		
+		BackupDBResponse resp = BackupDBResponse.newBuilder().setOutputLog(outputLog).build();
+		responseObserver.onNext(resp);
+		responseObserver.onCompleted();
+		logger.info("### Sent response.");
+	}
+
+	@Override
+	public void restoreDB(RestoreDBRequest request, StreamObserver<RestoreDBResponse> responseObserver)
+	{
+		logger.info("### Received request for restoreDB with info:\n " + request.toString());
+		String username = request.getCredentials().getUsername();
+		String host = request.getCredentials().getHost();
+		int timeout = request.getCredentials().getTimeout();
+		String homeDir = System.getProperty("user.home");
+		String keyfile = homeDir + "/.ssh/" + request.getCredentials().getKeyfilename();
+
+		SSHExecuter ssh = new SSHExecuter();
+		ssh.connectHost(username, host, 22, timeout, keyfile);
+
+		String dbServiceName = request.getServiceName();
+		String dbUsername = request.getDbUsername();
+		String dbPassword = request.getDbUserPassword();
+		String dbName = request.getDbName();
+		String backupFilename = request.getBackupFilename();
+
+		String command = "mysql --socket=/run/mysql-"+ dbServiceName +"/mysqld.sock -u " + dbUsername + " -p" + dbPassword + " " + dbName + " < " + backupFilename + ".sql";
+		logger.info("### Executing command: " + command);
+		String outputLog = ssh.sendToChannel(ChannelType.EXEC, command, timeout);
+		
+		RestoreDBResponse resp = RestoreDBResponse.newBuilder().setOutputLog(outputLog).build();
+		responseObserver.onNext(resp);
+		responseObserver.onCompleted();
+		logger.info("### Sent response.");
 	}
 
 }
