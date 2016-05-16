@@ -3562,6 +3562,112 @@ public final class Chefmate {
      * <code>optional .SSHCredentials credentials = 1;</code>
      */
     Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder();
+
+    /**
+     * <code>optional string serverName = 2;</code>
+     */
+    java.lang.String getServerName();
+    /**
+     * <code>optional string serverName = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getServerNameBytes();
+
+    /**
+     * <code>optional string port = 3;</code>
+     *
+     * <pre>
+     * port has to be a string according to wordpress cookbook
+     * </pre>
+     */
+    java.lang.String getPort();
+    /**
+     * <code>optional string port = 3;</code>
+     *
+     * <pre>
+     * port has to be a string according to wordpress cookbook
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getPortBytes();
+
+    /**
+     * <code>optional string dbName = 4;</code>
+     */
+    java.lang.String getDbName();
+    /**
+     * <code>optional string dbName = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getDbNameBytes();
+
+    /**
+     * <code>optional string dbHost = 5;</code>
+     */
+    java.lang.String getDbHost();
+    /**
+     * <code>optional string dbHost = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getDbHostBytes();
+
+    /**
+     * <code>optional string dbPort = 6;</code>
+     */
+    java.lang.String getDbPort();
+    /**
+     * <code>optional string dbPort = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getDbPortBytes();
+
+    /**
+     * <code>optional string dbUserName = 7;</code>
+     */
+    java.lang.String getDbUserName();
+    /**
+     * <code>optional string dbUserName = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getDbUserNameBytes();
+
+    /**
+     * <code>optional string dbUserPassword = 8;</code>
+     */
+    java.lang.String getDbUserPassword();
+    /**
+     * <code>optional string dbUserPassword = 8;</code>
+     */
+    com.google.protobuf.ByteString
+        getDbUserPasswordBytes();
+
+    /**
+     * <code>optional string dbRootPassword = 9;</code>
+     */
+    java.lang.String getDbRootPassword();
+    /**
+     * <code>optional string dbRootPassword = 9;</code>
+     */
+    com.google.protobuf.ByteString
+        getDbRootPasswordBytes();
+
+    /**
+     * <code>optional string wpConfigOptions = 10;</code>
+     *
+     * <pre>
+     * A hash of options in PHP constants syntax
+     * </pre>
+     */
+    java.lang.String getWpConfigOptions();
+    /**
+     * <code>optional string wpConfigOptions = 10;</code>
+     *
+     * <pre>
+     * A hash of options in PHP constants syntax
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getWpConfigOptionsBytes();
   }
   /**
    * Protobuf type {@code DeployWPAppRequest}
@@ -3575,6 +3681,15 @@ public final class Chefmate {
       super(builder);
     }
     private DeployWPAppRequest() {
+      serverName_ = "";
+      port_ = "";
+      dbName_ = "";
+      dbHost_ = "";
+      dbPort_ = "";
+      dbUserName_ = "";
+      dbUserPassword_ = "";
+      dbRootPassword_ = "";
+      wpConfigOptions_ = "";
     }
 
     @java.lang.Override
@@ -3612,6 +3727,60 @@ public final class Chefmate {
                 credentials_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              serverName_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              port_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dbName_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dbHost_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dbPort_ = s;
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dbUserName_ = s;
+              break;
+            }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dbUserPassword_ = s;
+              break;
+            }
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dbRootPassword_ = s;
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              wpConfigOptions_ = s;
               break;
             }
           }
@@ -3659,6 +3828,328 @@ public final class Chefmate {
       return getCredentials();
     }
 
+    public static final int SERVERNAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object serverName_;
+    /**
+     * <code>optional string serverName = 2;</code>
+     */
+    public java.lang.String getServerName() {
+      java.lang.Object ref = serverName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        serverName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string serverName = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getServerNameBytes() {
+      java.lang.Object ref = serverName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        serverName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PORT_FIELD_NUMBER = 3;
+    private volatile java.lang.Object port_;
+    /**
+     * <code>optional string port = 3;</code>
+     *
+     * <pre>
+     * port has to be a string according to wordpress cookbook
+     * </pre>
+     */
+    public java.lang.String getPort() {
+      java.lang.Object ref = port_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        port_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string port = 3;</code>
+     *
+     * <pre>
+     * port has to be a string according to wordpress cookbook
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getPortBytes() {
+      java.lang.Object ref = port_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        port_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DBNAME_FIELD_NUMBER = 4;
+    private volatile java.lang.Object dbName_;
+    /**
+     * <code>optional string dbName = 4;</code>
+     */
+    public java.lang.String getDbName() {
+      java.lang.Object ref = dbName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dbName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string dbName = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDbNameBytes() {
+      java.lang.Object ref = dbName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dbName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DBHOST_FIELD_NUMBER = 5;
+    private volatile java.lang.Object dbHost_;
+    /**
+     * <code>optional string dbHost = 5;</code>
+     */
+    public java.lang.String getDbHost() {
+      java.lang.Object ref = dbHost_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dbHost_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string dbHost = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDbHostBytes() {
+      java.lang.Object ref = dbHost_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dbHost_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DBPORT_FIELD_NUMBER = 6;
+    private volatile java.lang.Object dbPort_;
+    /**
+     * <code>optional string dbPort = 6;</code>
+     */
+    public java.lang.String getDbPort() {
+      java.lang.Object ref = dbPort_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dbPort_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string dbPort = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDbPortBytes() {
+      java.lang.Object ref = dbPort_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dbPort_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DBUSERNAME_FIELD_NUMBER = 7;
+    private volatile java.lang.Object dbUserName_;
+    /**
+     * <code>optional string dbUserName = 7;</code>
+     */
+    public java.lang.String getDbUserName() {
+      java.lang.Object ref = dbUserName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dbUserName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string dbUserName = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDbUserNameBytes() {
+      java.lang.Object ref = dbUserName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dbUserName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DBUSERPASSWORD_FIELD_NUMBER = 8;
+    private volatile java.lang.Object dbUserPassword_;
+    /**
+     * <code>optional string dbUserPassword = 8;</code>
+     */
+    public java.lang.String getDbUserPassword() {
+      java.lang.Object ref = dbUserPassword_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dbUserPassword_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string dbUserPassword = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDbUserPasswordBytes() {
+      java.lang.Object ref = dbUserPassword_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dbUserPassword_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DBROOTPASSWORD_FIELD_NUMBER = 9;
+    private volatile java.lang.Object dbRootPassword_;
+    /**
+     * <code>optional string dbRootPassword = 9;</code>
+     */
+    public java.lang.String getDbRootPassword() {
+      java.lang.Object ref = dbRootPassword_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dbRootPassword_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string dbRootPassword = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDbRootPasswordBytes() {
+      java.lang.Object ref = dbRootPassword_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dbRootPassword_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int WPCONFIGOPTIONS_FIELD_NUMBER = 10;
+    private volatile java.lang.Object wpConfigOptions_;
+    /**
+     * <code>optional string wpConfigOptions = 10;</code>
+     *
+     * <pre>
+     * A hash of options in PHP constants syntax
+     * </pre>
+     */
+    public java.lang.String getWpConfigOptions() {
+      java.lang.Object ref = wpConfigOptions_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        wpConfigOptions_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string wpConfigOptions = 10;</code>
+     *
+     * <pre>
+     * A hash of options in PHP constants syntax
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getWpConfigOptionsBytes() {
+      java.lang.Object ref = wpConfigOptions_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        wpConfigOptions_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -3674,6 +4165,33 @@ public final class Chefmate {
       if (credentials_ != null) {
         output.writeMessage(1, getCredentials());
       }
+      if (!getServerNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 2, serverName_);
+      }
+      if (!getPortBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 3, port_);
+      }
+      if (!getDbNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 4, dbName_);
+      }
+      if (!getDbHostBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 5, dbHost_);
+      }
+      if (!getDbPortBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 6, dbPort_);
+      }
+      if (!getDbUserNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 7, dbUserName_);
+      }
+      if (!getDbUserPasswordBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 8, dbUserPassword_);
+      }
+      if (!getDbRootPasswordBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 9, dbRootPassword_);
+      }
+      if (!getWpConfigOptionsBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 10, wpConfigOptions_);
+      }
     }
 
     public int getSerializedSize() {
@@ -3684,6 +4202,33 @@ public final class Chefmate {
       if (credentials_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getCredentials());
+      }
+      if (!getServerNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, serverName_);
+      }
+      if (!getPortBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(3, port_);
+      }
+      if (!getDbNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(4, dbName_);
+      }
+      if (!getDbHostBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(5, dbHost_);
+      }
+      if (!getDbPortBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(6, dbPort_);
+      }
+      if (!getDbUserNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(7, dbUserName_);
+      }
+      if (!getDbUserPasswordBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(8, dbUserPassword_);
+      }
+      if (!getDbRootPasswordBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(9, dbRootPassword_);
+      }
+      if (!getWpConfigOptionsBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(10, wpConfigOptions_);
       }
       memoizedSize = size;
       return size;
@@ -3802,6 +4347,24 @@ public final class Chefmate {
           credentials_ = null;
           credentialsBuilder_ = null;
         }
+        serverName_ = "";
+
+        port_ = "";
+
+        dbName_ = "";
+
+        dbHost_ = "";
+
+        dbPort_ = "";
+
+        dbUserName_ = "";
+
+        dbUserPassword_ = "";
+
+        dbRootPassword_ = "";
+
+        wpConfigOptions_ = "";
+
         return this;
       }
 
@@ -3829,6 +4392,15 @@ public final class Chefmate {
         } else {
           result.credentials_ = credentialsBuilder_.build();
         }
+        result.serverName_ = serverName_;
+        result.port_ = port_;
+        result.dbName_ = dbName_;
+        result.dbHost_ = dbHost_;
+        result.dbPort_ = dbPort_;
+        result.dbUserName_ = dbUserName_;
+        result.dbUserPassword_ = dbUserPassword_;
+        result.dbRootPassword_ = dbRootPassword_;
+        result.wpConfigOptions_ = wpConfigOptions_;
         onBuilt();
         return result;
       }
@@ -3846,6 +4418,42 @@ public final class Chefmate {
         if (other == Chefmate.DeployWPAppRequest.getDefaultInstance()) return this;
         if (other.hasCredentials()) {
           mergeCredentials(other.getCredentials());
+        }
+        if (!other.getServerName().isEmpty()) {
+          serverName_ = other.serverName_;
+          onChanged();
+        }
+        if (!other.getPort().isEmpty()) {
+          port_ = other.port_;
+          onChanged();
+        }
+        if (!other.getDbName().isEmpty()) {
+          dbName_ = other.dbName_;
+          onChanged();
+        }
+        if (!other.getDbHost().isEmpty()) {
+          dbHost_ = other.dbHost_;
+          onChanged();
+        }
+        if (!other.getDbPort().isEmpty()) {
+          dbPort_ = other.dbPort_;
+          onChanged();
+        }
+        if (!other.getDbUserName().isEmpty()) {
+          dbUserName_ = other.dbUserName_;
+          onChanged();
+        }
+        if (!other.getDbUserPassword().isEmpty()) {
+          dbUserPassword_ = other.dbUserPassword_;
+          onChanged();
+        }
+        if (!other.getDbRootPassword().isEmpty()) {
+          dbRootPassword_ = other.dbRootPassword_;
+          onChanged();
+        }
+        if (!other.getWpConfigOptions().isEmpty()) {
+          wpConfigOptions_ = other.wpConfigOptions_;
+          onChanged();
         }
         onChanged();
         return this;
@@ -3988,6 +4596,667 @@ public final class Chefmate {
           credentials_ = null;
         }
         return credentialsBuilder_;
+      }
+
+      private java.lang.Object serverName_ = "";
+      /**
+       * <code>optional string serverName = 2;</code>
+       */
+      public java.lang.String getServerName() {
+        java.lang.Object ref = serverName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          serverName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string serverName = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getServerNameBytes() {
+        java.lang.Object ref = serverName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          serverName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string serverName = 2;</code>
+       */
+      public Builder setServerName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        serverName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string serverName = 2;</code>
+       */
+      public Builder clearServerName() {
+        
+        serverName_ = getDefaultInstance().getServerName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string serverName = 2;</code>
+       */
+      public Builder setServerNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        serverName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object port_ = "";
+      /**
+       * <code>optional string port = 3;</code>
+       *
+       * <pre>
+       * port has to be a string according to wordpress cookbook
+       * </pre>
+       */
+      public java.lang.String getPort() {
+        java.lang.Object ref = port_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          port_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string port = 3;</code>
+       *
+       * <pre>
+       * port has to be a string according to wordpress cookbook
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getPortBytes() {
+        java.lang.Object ref = port_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          port_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string port = 3;</code>
+       *
+       * <pre>
+       * port has to be a string according to wordpress cookbook
+       * </pre>
+       */
+      public Builder setPort(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        port_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string port = 3;</code>
+       *
+       * <pre>
+       * port has to be a string according to wordpress cookbook
+       * </pre>
+       */
+      public Builder clearPort() {
+        
+        port_ = getDefaultInstance().getPort();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string port = 3;</code>
+       *
+       * <pre>
+       * port has to be a string according to wordpress cookbook
+       * </pre>
+       */
+      public Builder setPortBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        port_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object dbName_ = "";
+      /**
+       * <code>optional string dbName = 4;</code>
+       */
+      public java.lang.String getDbName() {
+        java.lang.Object ref = dbName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          dbName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string dbName = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDbNameBytes() {
+        java.lang.Object ref = dbName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dbName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string dbName = 4;</code>
+       */
+      public Builder setDbName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        dbName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbName = 4;</code>
+       */
+      public Builder clearDbName() {
+        
+        dbName_ = getDefaultInstance().getDbName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbName = 4;</code>
+       */
+      public Builder setDbNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        dbName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object dbHost_ = "";
+      /**
+       * <code>optional string dbHost = 5;</code>
+       */
+      public java.lang.String getDbHost() {
+        java.lang.Object ref = dbHost_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          dbHost_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string dbHost = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDbHostBytes() {
+        java.lang.Object ref = dbHost_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dbHost_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string dbHost = 5;</code>
+       */
+      public Builder setDbHost(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        dbHost_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbHost = 5;</code>
+       */
+      public Builder clearDbHost() {
+        
+        dbHost_ = getDefaultInstance().getDbHost();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbHost = 5;</code>
+       */
+      public Builder setDbHostBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        dbHost_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object dbPort_ = "";
+      /**
+       * <code>optional string dbPort = 6;</code>
+       */
+      public java.lang.String getDbPort() {
+        java.lang.Object ref = dbPort_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          dbPort_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string dbPort = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDbPortBytes() {
+        java.lang.Object ref = dbPort_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dbPort_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string dbPort = 6;</code>
+       */
+      public Builder setDbPort(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        dbPort_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbPort = 6;</code>
+       */
+      public Builder clearDbPort() {
+        
+        dbPort_ = getDefaultInstance().getDbPort();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbPort = 6;</code>
+       */
+      public Builder setDbPortBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        dbPort_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object dbUserName_ = "";
+      /**
+       * <code>optional string dbUserName = 7;</code>
+       */
+      public java.lang.String getDbUserName() {
+        java.lang.Object ref = dbUserName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          dbUserName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string dbUserName = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDbUserNameBytes() {
+        java.lang.Object ref = dbUserName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dbUserName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string dbUserName = 7;</code>
+       */
+      public Builder setDbUserName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        dbUserName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbUserName = 7;</code>
+       */
+      public Builder clearDbUserName() {
+        
+        dbUserName_ = getDefaultInstance().getDbUserName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbUserName = 7;</code>
+       */
+      public Builder setDbUserNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        dbUserName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object dbUserPassword_ = "";
+      /**
+       * <code>optional string dbUserPassword = 8;</code>
+       */
+      public java.lang.String getDbUserPassword() {
+        java.lang.Object ref = dbUserPassword_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          dbUserPassword_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string dbUserPassword = 8;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDbUserPasswordBytes() {
+        java.lang.Object ref = dbUserPassword_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dbUserPassword_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string dbUserPassword = 8;</code>
+       */
+      public Builder setDbUserPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        dbUserPassword_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbUserPassword = 8;</code>
+       */
+      public Builder clearDbUserPassword() {
+        
+        dbUserPassword_ = getDefaultInstance().getDbUserPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbUserPassword = 8;</code>
+       */
+      public Builder setDbUserPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        dbUserPassword_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object dbRootPassword_ = "";
+      /**
+       * <code>optional string dbRootPassword = 9;</code>
+       */
+      public java.lang.String getDbRootPassword() {
+        java.lang.Object ref = dbRootPassword_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          dbRootPassword_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string dbRootPassword = 9;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDbRootPasswordBytes() {
+        java.lang.Object ref = dbRootPassword_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dbRootPassword_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string dbRootPassword = 9;</code>
+       */
+      public Builder setDbRootPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        dbRootPassword_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbRootPassword = 9;</code>
+       */
+      public Builder clearDbRootPassword() {
+        
+        dbRootPassword_ = getDefaultInstance().getDbRootPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string dbRootPassword = 9;</code>
+       */
+      public Builder setDbRootPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        dbRootPassword_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object wpConfigOptions_ = "";
+      /**
+       * <code>optional string wpConfigOptions = 10;</code>
+       *
+       * <pre>
+       * A hash of options in PHP constants syntax
+       * </pre>
+       */
+      public java.lang.String getWpConfigOptions() {
+        java.lang.Object ref = wpConfigOptions_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          wpConfigOptions_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string wpConfigOptions = 10;</code>
+       *
+       * <pre>
+       * A hash of options in PHP constants syntax
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getWpConfigOptionsBytes() {
+        java.lang.Object ref = wpConfigOptions_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          wpConfigOptions_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string wpConfigOptions = 10;</code>
+       *
+       * <pre>
+       * A hash of options in PHP constants syntax
+       * </pre>
+       */
+      public Builder setWpConfigOptions(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        wpConfigOptions_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string wpConfigOptions = 10;</code>
+       *
+       * <pre>
+       * A hash of options in PHP constants syntax
+       * </pre>
+       */
+      public Builder clearWpConfigOptions() {
+        
+        wpConfigOptions_ = getDefaultInstance().getWpConfigOptions();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string wpConfigOptions = 10;</code>
+       *
+       * <pre>
+       * A hash of options in PHP constants syntax
+       * </pre>
+       */
+      public Builder setWpConfigOptionsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        wpConfigOptions_ = value;
+        onChanged();
+        return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -7562,26 +8831,30 @@ public final class Chefmate {
       "nceType\030\006 \001(\t\022\030\n\020securityGroupIds\030\007 \003(\t\"" +
       ";\n\023InitCHEFRepoRequest\022$\n\013credentials\030\001 " +
       "\001(\0132\017.SSHCredentials\"6\n\020DestroyVMRequest" +
-      "\022\"\n\ninstanceId\030\001 \001(\0132\016.AWSInstanceId\":\n\022",
-      "DeployWPAppRequest\022$\n\013credentials\030\001 \001(\0132" +
-      "\017.SSHCredentials\"p\n\017DeployDBRequest\022$\n\013c" +
-      "redentials\030\001 \001(\0132\017.SSHCredentials\022\023\n\013ser" +
-      "viceName\030\002 \001(\t\022\014\n\004port\030\003 \001(\005\022\024\n\014rootPass" +
-      "word\030\004 \001(\t\"\\\n\020CreateVMResponse\022\"\n\ninstan" +
-      "ceId\030\001 \001(\0132\016.AWSInstanceId\022\021\n\tpublicDNS\030" +
-      "\002 \001(\t\022\021\n\toutputLog\030\003 \001(\t\"&\n\021DestroyVMRes" +
-      "ponse\022\021\n\toutputLog\030\001 \001(\t\")\n\024InitCHEFRepo" +
-      "Response\022\021\n\toutputLog\030\001 \001(\t\"(\n\023DeployWPA" +
-      "ppResponse\022\021\n\toutputLog\030\001 \001(\t\"%\n\020DeployD",
-      "BResponse\022\021\n\toutputLog\030\001 \001(\t2\252\001\n\006EC2Ops\022" +
-      "/\n\010createVM\022\020.CreateVMRequest\032\021.CreateVM" +
-      "Response\0222\n\tdestroyVM\022\021.DestroyVMRequest" +
-      "\032\022.DestroyVMResponse\022;\n\014initChefRepo\022\024.I" +
-      "nitCHEFRepoRequest\032\025.InitCHEFRepoRespons" +
-      "e2y\n\014WordPressOps\0228\n\013deployWPApp\022\023.Deplo" +
-      "yWPAppRequest\032\024.DeployWPAppResponse\022/\n\010d" +
-      "eployDB\022\020.DeployDBRequest\032\021.DeployDBResp" +
-      "onseb\006proto3"
+      "\022\"\n\ninstanceId\030\001 \001(\0132\016.AWSInstanceId\"\351\001\n",
+      "\022DeployWPAppRequest\022$\n\013credentials\030\001 \001(\013" +
+      "2\017.SSHCredentials\022\022\n\nserverName\030\002 \001(\t\022\014\n" +
+      "\004port\030\003 \001(\t\022\016\n\006dbName\030\004 \001(\t\022\016\n\006dbHost\030\005 " +
+      "\001(\t\022\016\n\006dbPort\030\006 \001(\t\022\022\n\ndbUserName\030\007 \001(\t\022" +
+      "\026\n\016dbUserPassword\030\010 \001(\t\022\026\n\016dbRootPasswor" +
+      "d\030\t \001(\t\022\027\n\017wpConfigOptions\030\n \001(\t\"p\n\017Depl" +
+      "oyDBRequest\022$\n\013credentials\030\001 \001(\0132\017.SSHCr" +
+      "edentials\022\023\n\013serviceName\030\002 \001(\t\022\014\n\004port\030\003" +
+      " \001(\005\022\024\n\014rootPassword\030\004 \001(\t\"\\\n\020CreateVMRe" +
+      "sponse\022\"\n\ninstanceId\030\001 \001(\0132\016.AWSInstance",
+      "Id\022\021\n\tpublicDNS\030\002 \001(\t\022\021\n\toutputLog\030\003 \001(\t" +
+      "\"&\n\021DestroyVMResponse\022\021\n\toutputLog\030\001 \001(\t" +
+      "\")\n\024InitCHEFRepoResponse\022\021\n\toutputLog\030\001 " +
+      "\001(\t\"(\n\023DeployWPAppResponse\022\021\n\toutputLog\030" +
+      "\001 \001(\t\"%\n\020DeployDBResponse\022\021\n\toutputLog\030\001" +
+      " \001(\t2\252\001\n\006EC2Ops\022/\n\010createVM\022\020.CreateVMRe" +
+      "quest\032\021.CreateVMResponse\0222\n\tdestroyVM\022\021." +
+      "DestroyVMRequest\032\022.DestroyVMResponse\022;\n\014" +
+      "initChefRepo\022\024.InitCHEFRepoRequest\032\025.Ini" +
+      "tCHEFRepoResponse2y\n\014WordPressOps\0228\n\013dep",
+      "loyWPApp\022\023.DeployWPAppRequest\032\024.DeployWP" +
+      "AppResponse\022/\n\010deployDB\022\020.DeployDBReques" +
+      "t\032\021.DeployDBResponseb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -7630,7 +8903,7 @@ public final class Chefmate {
     internal_static_DeployWPAppRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_DeployWPAppRequest_descriptor,
-        new java.lang.String[] { "Credentials", });
+        new java.lang.String[] { "Credentials", "ServerName", "Port", "DbName", "DbHost", "DbPort", "DbUserName", "DbUserPassword", "DbRootPassword", "WpConfigOptions", });
     internal_static_DeployDBRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_DeployDBRequest_fieldAccessorTable = new

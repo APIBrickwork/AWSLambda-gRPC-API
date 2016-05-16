@@ -54,6 +54,8 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 			String[] splitLine = splitInstanceId[1].split(System.lineSeparator());
 			instanceId = splitLine[0].trim();
 		}
+		
+		// TODO: Delte old known_hosts file??
 
 		// Extract Public DNS
 		String publicDns = "";
@@ -65,12 +67,13 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 			publicDns = splitL[0].trim();
 		}
 
-		logger.info("### Provisioning Output: \n" + outputLog);
-
 		// Use knife to bootstrap the created VM
 		List<String> bootstrapCommands = new ArrayList<>();
 		bootstrapCommands.add("knife");
 		bootstrapCommands.add("bootstrap");
+//		bootstrapCommands.add("--no-host-key-verify");
+//		bootstrapCommands.add("--node-ssl-verify-mode");
+//		bootstrapCommands.add("none");
 		bootstrapCommands.add("-z");
 		bootstrapCommands.add(publicDns);
 		bootstrapCommands.add("-i");
@@ -82,9 +85,9 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 
 		logger.info(
 				"### Starting bootstrapping using from directory " + execDir+ "/.chef" + " using commands: " + bootstrapCommands);
-		String bootStrapOutput = ShellExecuter.execute(execDir, bootstrapCommands);
-		logger.info("### Bootstrap Output: \n" + bootStrapOutput);
-
+		String bootStrapOutput = ShellExecuter.execute(execDir + "/.chef", bootstrapCommands);
+		
+		outputLog += bootStrapOutput;
 		CreateVMResponse resp = CreateVMResponse.newBuilder()
 				.setInstanceId(AWSInstanceId.newBuilder().setId(instanceId).build()).setPublicDNS(publicDns)
 				.setOutputLog(outputLog).build();

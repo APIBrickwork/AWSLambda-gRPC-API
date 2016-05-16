@@ -5,6 +5,7 @@ import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import services.Chefmate.CreateVMRequest;
 import services.Chefmate.DeployDBRequest;
+import services.Chefmate.DeployWPAppRequest;
 import services.Chefmate.InitCHEFRepoRequest;
 import services.Chefmate.SSHCredentials;
 import services.EC2OpsGrpc;
@@ -91,39 +92,51 @@ public class ChefMateServer
 		/* Local Test Code */
 
 		// TODO: Delete demo code after testing
-		Config.getInstance(false, true);
+//		Config.getInstance(false, true);
 
 		/**
 		 * SSH credentials
 		 */
-		SSHCredentials credentials = SSHCredentials.newBuilder().setUsername("ubuntu")
-				.setHost("ec2-52-58-111-217.eu-central-1.compute.amazonaws.com").setKeyfilename("chefmateserver_key.pem")
-				.setTimeout(10000).build();
+//		SSHCredentials credentials = SSHCredentials.newBuilder().setUsername("ubuntu")
+//				.setHost("ec2-52-58-130-58.eu-central-1.compute.amazonaws.com").setKeyfilename("chefmateserver_key.pem")
+//				.setTimeout(10000).build();
 
 		/**
 		 * VM Services Tests
 		 */
-//		CreateVMRequest req = CreateVMRequest.newBuilder().setName("database").setTag("mytag").setRegion("eu-central-1")
-//				.setImageId("ami-87564feb").setUsername("ubuntu").setInstanceType("t2.micro")
-//				.addSecurityGroupIds("sg-79ae5d11").build();
-//		new EC2OpsImpl().createVM(req, null);
+		// CreateVMRequest req =
+		// CreateVMRequest.newBuilder().setName("wp").setTag("mytag").setRegion("eu-central-1")
+		// .setImageId("ami-87564feb").setUsername("ubuntu").setInstanceType("t2.micro")
+		// .addSecurityGroupIds("sg-79ae5d11").build();
+		// new EC2OpsImpl().createVM(req, null);
 		//
 		// DestroyVMRequest req = DestroyVMRequest.newBuilder()
 		// .setInstanceId(AWSInstanceId.newBuilder().setId("i-06d20782fa2113e32").build()).build();
 		// new EC2OpsImpl().destroyVM(req, null);
 
-//		 InitCHEFRepoRequest req =
-//		 InitCHEFRepoRequest.newBuilder().setCredentials(credentials).build();
-//		 new EC2OpsImpl().initChefRepo(req, null);
+		// InitCHEFRepoRequest req =
+		// InitCHEFRepoRequest.newBuilder().setCredentials(credentials).build();
+		// new EC2OpsImpl().initChefRepo(req, null);
 
 		/**
 		 * deployDB Tests
 		 */
-//		 DeployDBRequest req =
-//		 DeployDBRequest.newBuilder().setCredentials(credentials).setServiceName("server")
-//		 .setPort(3306).setRootPassword("cloud2016").build();
-//		
-//		 new WordPressOpsImpl().deployDB(req, null);
+		// DeployDBRequest req =
+		// DeployDBRequest.newBuilder().setCredentials(credentials).setServiceName("server")
+		// .setPort(3306).build();
+		//
+		// new WordPressOpsImpl().deployDB(req, null);
+
+		/**
+		 * deploy WP Tests
+		 */
+		// TODO: MySQL DB kann folgendes garnicht verarbeiten: db_username;
+		// db_userpassword;
+//		DeployWPAppRequest req = DeployWPAppRequest.newBuilder().setCredentials(credentials)
+//				.setDbHost("ec2-52-58-77-232.eu-central-1.compute.amazonaws.com").setDbPort("3306").build();
+		// DeployWPAppRequest req =
+		// DeployWPAppRequest.newBuilder().setCredentials(credentials).build();
+//		new WordPressOpsImpl().deployWPApp(req, null);
 
 		int port = -1;
 

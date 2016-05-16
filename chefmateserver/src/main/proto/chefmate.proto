@@ -44,6 +44,17 @@ message DestroyVMRequest{
 
 message DeployWPAppRequest{
 	SSHCredentials credentials = 1;
+	string serverName = 2;
+	// port has to be a string according to wordpress cookbook
+	string port = 3;
+	string dbName = 4;
+	string dbHost = 5;
+	string dbPort = 6;
+	string dbUserName = 7;
+	string dbUserPassword = 8;
+	string dbRootPassword = 9;
+	// A hash of options in PHP constants syntax
+	string wpConfigOptions = 10;	
 }
 
 message DeployDBRequest{
