@@ -38,6 +38,24 @@ public class WordPressOpsGrpc {
               "WordPressOps", "deployDB"),
           io.grpc.protobuf.ProtoUtils.marshaller(Chefmate.DeployDBRequest.getDefaultInstance()),
           io.grpc.protobuf.ProtoUtils.marshaller(Chefmate.DeployDBResponse.getDefaultInstance()));
+  @io.grpc.ExperimentalApi
+  public static final io.grpc.MethodDescriptor<Chefmate.BackupDBRequest,
+      Chefmate.BackupDBResponse> METHOD_BACKUP_DB =
+      io.grpc.MethodDescriptor.create(
+          io.grpc.MethodDescriptor.MethodType.UNARY,
+          generateFullMethodName(
+              "WordPressOps", "backupDB"),
+          io.grpc.protobuf.ProtoUtils.marshaller(Chefmate.BackupDBRequest.getDefaultInstance()),
+          io.grpc.protobuf.ProtoUtils.marshaller(Chefmate.BackupDBResponse.getDefaultInstance()));
+  @io.grpc.ExperimentalApi
+  public static final io.grpc.MethodDescriptor<Chefmate.RestoreDBRequest,
+      Chefmate.RestoreDBResponse> METHOD_RESTORE_DB =
+      io.grpc.MethodDescriptor.create(
+          io.grpc.MethodDescriptor.MethodType.UNARY,
+          generateFullMethodName(
+              "WordPressOps", "restoreDB"),
+          io.grpc.protobuf.ProtoUtils.marshaller(Chefmate.RestoreDBRequest.getDefaultInstance()),
+          io.grpc.protobuf.ProtoUtils.marshaller(Chefmate.RestoreDBResponse.getDefaultInstance()));
 
   public static WordPressOpsStub newStub(io.grpc.Channel channel) {
     return new WordPressOpsStub(channel);
@@ -60,6 +78,12 @@ public class WordPressOpsGrpc {
 
     public void deployDB(Chefmate.DeployDBRequest request,
         io.grpc.stub.StreamObserver<Chefmate.DeployDBResponse> responseObserver);
+
+    public void backupDB(Chefmate.BackupDBRequest request,
+        io.grpc.stub.StreamObserver<Chefmate.BackupDBResponse> responseObserver);
+
+    public void restoreDB(Chefmate.RestoreDBRequest request,
+        io.grpc.stub.StreamObserver<Chefmate.RestoreDBResponse> responseObserver);
   }
 
   public static interface WordPressOpsBlockingClient {
@@ -67,6 +91,10 @@ public class WordPressOpsGrpc {
     public Chefmate.DeployWPAppResponse deployWPApp(Chefmate.DeployWPAppRequest request);
 
     public Chefmate.DeployDBResponse deployDB(Chefmate.DeployDBRequest request);
+
+    public Chefmate.BackupDBResponse backupDB(Chefmate.BackupDBRequest request);
+
+    public Chefmate.RestoreDBResponse restoreDB(Chefmate.RestoreDBRequest request);
   }
 
   public static interface WordPressOpsFutureClient {
@@ -76,6 +104,12 @@ public class WordPressOpsGrpc {
 
     public com.google.common.util.concurrent.ListenableFuture<Chefmate.DeployDBResponse> deployDB(
         Chefmate.DeployDBRequest request);
+
+    public com.google.common.util.concurrent.ListenableFuture<Chefmate.BackupDBResponse> backupDB(
+        Chefmate.BackupDBRequest request);
+
+    public com.google.common.util.concurrent.ListenableFuture<Chefmate.RestoreDBResponse> restoreDB(
+        Chefmate.RestoreDBRequest request);
   }
 
   public static class WordPressOpsStub extends io.grpc.stub.AbstractStub<WordPressOpsStub>
@@ -108,6 +142,20 @@ public class WordPressOpsGrpc {
       asyncUnaryCall(
           getChannel().newCall(METHOD_DEPLOY_DB, getCallOptions()), request, responseObserver);
     }
+
+    @java.lang.Override
+    public void backupDB(Chefmate.BackupDBRequest request,
+        io.grpc.stub.StreamObserver<Chefmate.BackupDBResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_BACKUP_DB, getCallOptions()), request, responseObserver);
+    }
+
+    @java.lang.Override
+    public void restoreDB(Chefmate.RestoreDBRequest request,
+        io.grpc.stub.StreamObserver<Chefmate.RestoreDBResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_RESTORE_DB, getCallOptions()), request, responseObserver);
+    }
   }
 
   public static class WordPressOpsBlockingStub extends io.grpc.stub.AbstractStub<WordPressOpsBlockingStub>
@@ -137,6 +185,18 @@ public class WordPressOpsGrpc {
     public Chefmate.DeployDBResponse deployDB(Chefmate.DeployDBRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_DEPLOY_DB, getCallOptions(), request);
+    }
+
+    @java.lang.Override
+    public Chefmate.BackupDBResponse backupDB(Chefmate.BackupDBRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_BACKUP_DB, getCallOptions(), request);
+    }
+
+    @java.lang.Override
+    public Chefmate.RestoreDBResponse restoreDB(Chefmate.RestoreDBRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_RESTORE_DB, getCallOptions(), request);
     }
   }
 
@@ -170,10 +230,26 @@ public class WordPressOpsGrpc {
       return futureUnaryCall(
           getChannel().newCall(METHOD_DEPLOY_DB, getCallOptions()), request);
     }
+
+    @java.lang.Override
+    public com.google.common.util.concurrent.ListenableFuture<Chefmate.BackupDBResponse> backupDB(
+        Chefmate.BackupDBRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_BACKUP_DB, getCallOptions()), request);
+    }
+
+    @java.lang.Override
+    public com.google.common.util.concurrent.ListenableFuture<Chefmate.RestoreDBResponse> restoreDB(
+        Chefmate.RestoreDBRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_RESTORE_DB, getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_DEPLOY_WPAPP = 0;
   private static final int METHODID_DEPLOY_DB = 1;
+  private static final int METHODID_BACKUP_DB = 2;
+  private static final int METHODID_RESTORE_DB = 3;
 
   private static class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -198,6 +274,14 @@ public class WordPressOpsGrpc {
         case METHODID_DEPLOY_DB:
           serviceImpl.deployDB((Chefmate.DeployDBRequest) request,
               (io.grpc.stub.StreamObserver<Chefmate.DeployDBResponse>) responseObserver);
+          break;
+        case METHODID_BACKUP_DB:
+          serviceImpl.backupDB((Chefmate.BackupDBRequest) request,
+              (io.grpc.stub.StreamObserver<Chefmate.BackupDBResponse>) responseObserver);
+          break;
+        case METHODID_RESTORE_DB:
+          serviceImpl.restoreDB((Chefmate.RestoreDBRequest) request,
+              (io.grpc.stub.StreamObserver<Chefmate.RestoreDBResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -231,6 +315,20 @@ public class WordPressOpsGrpc {
               Chefmate.DeployDBRequest,
               Chefmate.DeployDBResponse>(
                 serviceImpl, METHODID_DEPLOY_DB)))
+        .addMethod(
+          METHOD_BACKUP_DB,
+          asyncUnaryCall(
+            new MethodHandlers<
+              Chefmate.BackupDBRequest,
+              Chefmate.BackupDBResponse>(
+                serviceImpl, METHODID_BACKUP_DB)))
+        .addMethod(
+          METHOD_RESTORE_DB,
+          asyncUnaryCall(
+            new MethodHandlers<
+              Chefmate.RestoreDBRequest,
+              Chefmate.RestoreDBResponse>(
+                serviceImpl, METHODID_RESTORE_DB)))
         .build();
   }
 }
