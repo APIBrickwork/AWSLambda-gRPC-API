@@ -6,11 +6,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import services.Chefmate;
 import services.Chefmate.CreateVMRequest;
 import services.Chefmate.DeployDBRequest;
 import services.Chefmate.DeployWPAppRequest;
 import services.Chefmate.DestroyVMRequest;
+import services.Chefmate.ExecuteCookbookRequest;
 
 public class ChefAttributesWriter
 {
@@ -324,6 +324,59 @@ public class ChefAttributesWriter
 				writer.newLine();
 			}
 
+		} catch (
+
+		IOException e)
+		{
+			e.printStackTrace();
+		} finally
+		{
+			try
+			{
+				writer.close();
+			} catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+
+	/**
+	 * Writes the Chef.io attributes (default and custom) file to the given
+	 * repository.
+	 * 
+	 * @param filename
+	 *            The filename (including the absolute path) that should be
+	 *            used.
+	 * @param genericExecuteCookbook
+	 *            The values that should be added.
+	 */
+	public static void writeAttributesFile(String filename, ExecuteCookbookRequest genericExecuteCookbook)
+	{
+		// TODO: Evaluate
+		BufferedWriter writer = null;
+
+		try
+		{
+			writer = new BufferedWriter(new FileWriter(filename));
+			writeDefault(writer);
+			writer.newLine();
+			writer.write("# Custom values set by user (higher priority than default)");
+			writer.newLine();
+
+			if (genericExecuteCookbook.getAttributesKeysCount() > 0
+					&& genericExecuteCookbook.getAttributesValuesCount() > 0 && (genericExecuteCookbook
+							.getAttributesKeysCount() == genericExecuteCookbook.getAttributesValuesCount()))
+			{
+				int size = genericExecuteCookbook.getAttributesValuesCount();
+				for (int i = 0; i < size; i++)
+				{
+					writer.write(OVERRIDE_PRIORITY + genericExecuteCookbook.getAttributesKeys(i) + " = '"
+							+ genericExecuteCookbook.getAttributesValues(i) + "'");
+					writer.newLine();
+				}
+
+			}
 		} catch (
 
 		IOException e)

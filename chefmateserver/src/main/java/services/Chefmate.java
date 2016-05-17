@@ -8945,6 +8945,60 @@ public final class Chefmate {
      */
     com.google.protobuf.ByteString
         getRecipeNameBytes();
+
+    /**
+     * <code>repeated string attributesKeys = 4;</code>
+     *
+     * <pre>
+     * Will be written in attributes of the cookbook
+     * </pre>
+     */
+    com.google.protobuf.ProtocolStringList
+        getAttributesKeysList();
+    /**
+     * <code>repeated string attributesKeys = 4;</code>
+     *
+     * <pre>
+     * Will be written in attributes of the cookbook
+     * </pre>
+     */
+    int getAttributesKeysCount();
+    /**
+     * <code>repeated string attributesKeys = 4;</code>
+     *
+     * <pre>
+     * Will be written in attributes of the cookbook
+     * </pre>
+     */
+    java.lang.String getAttributesKeys(int index);
+    /**
+     * <code>repeated string attributesKeys = 4;</code>
+     *
+     * <pre>
+     * Will be written in attributes of the cookbook
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getAttributesKeysBytes(int index);
+
+    /**
+     * <code>repeated string attributesValues = 5;</code>
+     */
+    com.google.protobuf.ProtocolStringList
+        getAttributesValuesList();
+    /**
+     * <code>repeated string attributesValues = 5;</code>
+     */
+    int getAttributesValuesCount();
+    /**
+     * <code>repeated string attributesValues = 5;</code>
+     */
+    java.lang.String getAttributesValues(int index);
+    /**
+     * <code>repeated string attributesValues = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getAttributesValuesBytes(int index);
   }
   /**
    * Protobuf type {@code ExecuteCookbookRequest}
@@ -8966,6 +9020,8 @@ public final class Chefmate {
     private ExecuteCookbookRequest() {
       cookbookName_ = "";
       recipeName_ = "";
+      attributesKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      attributesValues_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -9017,6 +9073,24 @@ public final class Chefmate {
               recipeName_ = s;
               break;
             }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                attributesKeys_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              attributesKeys_.add(s);
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                attributesValues_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              attributesValues_.add(s);
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -9026,6 +9100,12 @@ public final class Chefmate {
             new com.google.protobuf.InvalidProtocolBufferException(
                 e.getMessage()).setUnfinishedMessage(this));
       } finally {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          attributesKeys_ = attributesKeys_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+          attributesValues_ = attributesValues_.getUnmodifiableView();
+        }
         makeExtensionsImmutable();
       }
     }
@@ -9041,6 +9121,7 @@ public final class Chefmate {
               Chefmate.ExecuteCookbookRequest.class, Chefmate.ExecuteCookbookRequest.Builder.class);
     }
 
+    private int bitField0_;
     public static final int CREDENTIALS_FIELD_NUMBER = 1;
     private Chefmate.SSHCredentials credentials_;
     /**
@@ -9130,6 +9211,80 @@ public final class Chefmate {
       }
     }
 
+    public static final int ATTRIBUTESKEYS_FIELD_NUMBER = 4;
+    private com.google.protobuf.LazyStringList attributesKeys_;
+    /**
+     * <code>repeated string attributesKeys = 4;</code>
+     *
+     * <pre>
+     * Will be written in attributes of the cookbook
+     * </pre>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getAttributesKeysList() {
+      return attributesKeys_;
+    }
+    /**
+     * <code>repeated string attributesKeys = 4;</code>
+     *
+     * <pre>
+     * Will be written in attributes of the cookbook
+     * </pre>
+     */
+    public int getAttributesKeysCount() {
+      return attributesKeys_.size();
+    }
+    /**
+     * <code>repeated string attributesKeys = 4;</code>
+     *
+     * <pre>
+     * Will be written in attributes of the cookbook
+     * </pre>
+     */
+    public java.lang.String getAttributesKeys(int index) {
+      return attributesKeys_.get(index);
+    }
+    /**
+     * <code>repeated string attributesKeys = 4;</code>
+     *
+     * <pre>
+     * Will be written in attributes of the cookbook
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getAttributesKeysBytes(int index) {
+      return attributesKeys_.getByteString(index);
+    }
+
+    public static final int ATTRIBUTESVALUES_FIELD_NUMBER = 5;
+    private com.google.protobuf.LazyStringList attributesValues_;
+    /**
+     * <code>repeated string attributesValues = 5;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getAttributesValuesList() {
+      return attributesValues_;
+    }
+    /**
+     * <code>repeated string attributesValues = 5;</code>
+     */
+    public int getAttributesValuesCount() {
+      return attributesValues_.size();
+    }
+    /**
+     * <code>repeated string attributesValues = 5;</code>
+     */
+    public java.lang.String getAttributesValues(int index) {
+      return attributesValues_.get(index);
+    }
+    /**
+     * <code>repeated string attributesValues = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAttributesValuesBytes(int index) {
+      return attributesValues_.getByteString(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -9151,6 +9306,12 @@ public final class Chefmate {
       if (!getRecipeNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessage.writeString(output, 3, recipeName_);
       }
+      for (int i = 0; i < attributesKeys_.size(); i++) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 4, attributesKeys_.getRaw(i));
+      }
+      for (int i = 0; i < attributesValues_.size(); i++) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 5, attributesValues_.getRaw(i));
+      }
     }
 
     public int getSerializedSize() {
@@ -9167,6 +9328,22 @@ public final class Chefmate {
       }
       if (!getRecipeNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessage.computeStringSize(3, recipeName_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < attributesKeys_.size(); i++) {
+          dataSize += computeStringSizeNoTag(attributesKeys_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getAttributesKeysList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < attributesValues_.size(); i++) {
+          dataSize += computeStringSizeNoTag(attributesValues_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getAttributesValuesList().size();
       }
       memoizedSize = size;
       return size;
@@ -9295,6 +9472,10 @@ public final class Chefmate {
 
         recipeName_ = "";
 
+        attributesKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        attributesValues_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -9317,6 +9498,8 @@ public final class Chefmate {
 
       public Chefmate.ExecuteCookbookRequest buildPartial() {
         Chefmate.ExecuteCookbookRequest result = new Chefmate.ExecuteCookbookRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (credentialsBuilder_ == null) {
           result.credentials_ = credentials_;
         } else {
@@ -9324,6 +9507,17 @@ public final class Chefmate {
         }
         result.cookbookName_ = cookbookName_;
         result.recipeName_ = recipeName_;
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          attributesKeys_ = attributesKeys_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.attributesKeys_ = attributesKeys_;
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          attributesValues_ = attributesValues_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.attributesValues_ = attributesValues_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -9348,6 +9542,26 @@ public final class Chefmate {
         }
         if (!other.getRecipeName().isEmpty()) {
           recipeName_ = other.recipeName_;
+          onChanged();
+        }
+        if (!other.attributesKeys_.isEmpty()) {
+          if (attributesKeys_.isEmpty()) {
+            attributesKeys_ = other.attributesKeys_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureAttributesKeysIsMutable();
+            attributesKeys_.addAll(other.attributesKeys_);
+          }
+          onChanged();
+        }
+        if (!other.attributesValues_.isEmpty()) {
+          if (attributesValues_.isEmpty()) {
+            attributesValues_ = other.attributesValues_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensureAttributesValuesIsMutable();
+            attributesValues_.addAll(other.attributesValues_);
+          }
           onChanged();
         }
         onChanged();
@@ -9375,6 +9589,7 @@ public final class Chefmate {
         }
         return this;
       }
+      private int bitField0_;
 
       private Chefmate.SSHCredentials credentials_ = null;
       private com.google.protobuf.SingleFieldBuilder<
@@ -9627,6 +9842,230 @@ public final class Chefmate {
   checkByteStringIsUtf8(value);
         
         recipeName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList attributesKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureAttributesKeysIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          attributesKeys_ = new com.google.protobuf.LazyStringArrayList(attributesKeys_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <code>repeated string attributesKeys = 4;</code>
+       *
+       * <pre>
+       * Will be written in attributes of the cookbook
+       * </pre>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getAttributesKeysList() {
+        return attributesKeys_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string attributesKeys = 4;</code>
+       *
+       * <pre>
+       * Will be written in attributes of the cookbook
+       * </pre>
+       */
+      public int getAttributesKeysCount() {
+        return attributesKeys_.size();
+      }
+      /**
+       * <code>repeated string attributesKeys = 4;</code>
+       *
+       * <pre>
+       * Will be written in attributes of the cookbook
+       * </pre>
+       */
+      public java.lang.String getAttributesKeys(int index) {
+        return attributesKeys_.get(index);
+      }
+      /**
+       * <code>repeated string attributesKeys = 4;</code>
+       *
+       * <pre>
+       * Will be written in attributes of the cookbook
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getAttributesKeysBytes(int index) {
+        return attributesKeys_.getByteString(index);
+      }
+      /**
+       * <code>repeated string attributesKeys = 4;</code>
+       *
+       * <pre>
+       * Will be written in attributes of the cookbook
+       * </pre>
+       */
+      public Builder setAttributesKeys(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAttributesKeysIsMutable();
+        attributesKeys_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string attributesKeys = 4;</code>
+       *
+       * <pre>
+       * Will be written in attributes of the cookbook
+       * </pre>
+       */
+      public Builder addAttributesKeys(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAttributesKeysIsMutable();
+        attributesKeys_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string attributesKeys = 4;</code>
+       *
+       * <pre>
+       * Will be written in attributes of the cookbook
+       * </pre>
+       */
+      public Builder addAllAttributesKeys(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureAttributesKeysIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, attributesKeys_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string attributesKeys = 4;</code>
+       *
+       * <pre>
+       * Will be written in attributes of the cookbook
+       * </pre>
+       */
+      public Builder clearAttributesKeys() {
+        attributesKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string attributesKeys = 4;</code>
+       *
+       * <pre>
+       * Will be written in attributes of the cookbook
+       * </pre>
+       */
+      public Builder addAttributesKeysBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureAttributesKeysIsMutable();
+        attributesKeys_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList attributesValues_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureAttributesValuesIsMutable() {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+          attributesValues_ = new com.google.protobuf.LazyStringArrayList(attributesValues_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+      /**
+       * <code>repeated string attributesValues = 5;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getAttributesValuesList() {
+        return attributesValues_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string attributesValues = 5;</code>
+       */
+      public int getAttributesValuesCount() {
+        return attributesValues_.size();
+      }
+      /**
+       * <code>repeated string attributesValues = 5;</code>
+       */
+      public java.lang.String getAttributesValues(int index) {
+        return attributesValues_.get(index);
+      }
+      /**
+       * <code>repeated string attributesValues = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAttributesValuesBytes(int index) {
+        return attributesValues_.getByteString(index);
+      }
+      /**
+       * <code>repeated string attributesValues = 5;</code>
+       */
+      public Builder setAttributesValues(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAttributesValuesIsMutable();
+        attributesValues_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string attributesValues = 5;</code>
+       */
+      public Builder addAttributesValues(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAttributesValuesIsMutable();
+        attributesValues_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string attributesValues = 5;</code>
+       */
+      public Builder addAllAttributesValues(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureAttributesValuesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, attributesValues_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string attributesValues = 5;</code>
+       */
+      public Builder clearAttributesValues() {
+        attributesValues_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string attributesValues = 5;</code>
+       */
+      public Builder addAttributesValuesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureAttributesValuesIsMutable();
+        attributesValues_.add(value);
         onChanged();
         return this;
       }
@@ -14168,31 +14607,32 @@ public final class Chefmate {
       "ls\030\001 \001(\0132\017.SSHCredentials\022\023\n\013serviceName" +
       "\030\002 \001(\t\022\022\n\ndbUsername\030\003 \001(\t\022\026\n\016dbUserPass" +
       "word\030\004 \001(\t\022\016\n\006dbName\030\005 \001(\t\022\026\n\016backupFile" +
-      "name\030\006 \001(\t\"h\n\026ExecuteCookbookRequest\022$\n\013" +
-      "credentials\030\001 \001(\0132\017.SSHCredentials\022\024\n\014co",
-      "okbookName\030\002 \001(\t\022\022\n\nrecipeName\030\003 \001(\t\"\\\n\020" +
-      "CreateVMResponse\022\"\n\ninstanceId\030\001 \001(\0132\016.A" +
-      "WSInstanceId\022\021\n\tpublicDNS\030\002 \001(\t\022\021\n\toutpu" +
-      "tLog\030\003 \003(\t\"&\n\021DestroyVMResponse\022\021\n\toutpu" +
-      "tLog\030\001 \003(\t\")\n\024InitCHEFRepoResponse\022\021\n\tou" +
-      "tputLog\030\001 \003(\t\"(\n\023DeployWPAppResponse\022\021\n\t" +
-      "outputLog\030\001 \003(\t\"%\n\020DeployDBResponse\022\021\n\to" +
-      "utputLog\030\001 \003(\t\"%\n\020BackupDBResponse\022\021\n\tou" +
-      "tputLog\030\001 \003(\t\"&\n\021RestoreDBResponse\022\021\n\tou" +
-      "tputLog\030\001 \003(\t\",\n\027ExecuteCookbookResponse",
-      "\022\021\n\toutputLog\030\001 \003(\t2\252\001\n\006EC2Ops\022/\n\010create" +
-      "VM\022\020.CreateVMRequest\032\021.CreateVMResponse\022" +
-      "2\n\tdestroyVM\022\021.DestroyVMRequest\032\022.Destro" +
-      "yVMResponse\022;\n\014initChefRepo\022\024.InitCHEFRe" +
-      "poRequest\032\025.InitCHEFRepoResponse2\336\001\n\014Wor" +
-      "dPressOps\0228\n\013deployWPApp\022\023.DeployWPAppRe" +
-      "quest\032\024.DeployWPAppResponse\022/\n\010deployDB\022" +
-      "\020.DeployDBRequest\032\021.DeployDBResponse\022/\n\010" +
-      "backupDB\022\020.BackupDBRequest\032\021.BackupDBRes" +
-      "ponse\0222\n\trestoreDB\022\021.RestoreDBRequest\032\022.",
-      "RestoreDBResponse2R\n\nGenericOps\022D\n\017execu" +
-      "teCookbook\022\027.ExecuteCookbookRequest\032\030.Ex" +
-      "ecuteCookbookResponseb\006proto3"
+      "name\030\006 \001(\t\"\232\001\n\026ExecuteCookbookRequest\022$\n" +
+      "\013credentials\030\001 \001(\0132\017.SSHCredentials\022\024\n\014c",
+      "ookbookName\030\002 \001(\t\022\022\n\nrecipeName\030\003 \001(\t\022\026\n" +
+      "\016attributesKeys\030\004 \003(\t\022\030\n\020attributesValue" +
+      "s\030\005 \003(\t\"\\\n\020CreateVMResponse\022\"\n\ninstanceI" +
+      "d\030\001 \001(\0132\016.AWSInstanceId\022\021\n\tpublicDNS\030\002 \001" +
+      "(\t\022\021\n\toutputLog\030\003 \003(\t\"&\n\021DestroyVMRespon" +
+      "se\022\021\n\toutputLog\030\001 \003(\t\")\n\024InitCHEFRepoRes" +
+      "ponse\022\021\n\toutputLog\030\001 \003(\t\"(\n\023DeployWPAppR" +
+      "esponse\022\021\n\toutputLog\030\001 \003(\t\"%\n\020DeployDBRe" +
+      "sponse\022\021\n\toutputLog\030\001 \003(\t\"%\n\020BackupDBRes" +
+      "ponse\022\021\n\toutputLog\030\001 \003(\t\"&\n\021RestoreDBRes",
+      "ponse\022\021\n\toutputLog\030\001 \003(\t\",\n\027ExecuteCookb" +
+      "ookResponse\022\021\n\toutputLog\030\001 \003(\t2\252\001\n\006EC2Op" +
+      "s\022/\n\010createVM\022\020.CreateVMRequest\032\021.Create" +
+      "VMResponse\0222\n\tdestroyVM\022\021.DestroyVMReque" +
+      "st\032\022.DestroyVMResponse\022;\n\014initChefRepo\022\024" +
+      ".InitCHEFRepoRequest\032\025.InitCHEFRepoRespo" +
+      "nse2\336\001\n\014WordPressOps\0228\n\013deployWPApp\022\023.De" +
+      "ployWPAppRequest\032\024.DeployWPAppResponse\022/" +
+      "\n\010deployDB\022\020.DeployDBRequest\032\021.DeployDBR" +
+      "esponse\022/\n\010backupDB\022\020.BackupDBRequest\032\021.",
+      "BackupDBResponse\0222\n\trestoreDB\022\021.RestoreD" +
+      "BRequest\032\022.RestoreDBResponse2R\n\nGenericO" +
+      "ps\022D\n\017executeCookbook\022\027.ExecuteCookbookR" +
+      "equest\032\030.ExecuteCookbookResponseb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -14265,7 +14705,7 @@ public final class Chefmate {
     internal_static_ExecuteCookbookRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_ExecuteCookbookRequest_descriptor,
-        new java.lang.String[] { "Credentials", "CookbookName", "RecipeName", });
+        new java.lang.String[] { "Credentials", "CookbookName", "RecipeName", "AttributesKeys", "AttributesValues", });
     internal_static_CreateVMResponse_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_CreateVMResponse_fieldAccessorTable = new
