@@ -70,12 +70,7 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 				publicDns = splitL[0].trim();
 			}
 		}
-		// TODO: Delete this output
-		System.out.println("### Found instance id = " + instanceId);
-		System.out.println("### Found public dns = " + publicDns);
-
-		// TODO: Delete old known_hosts file??
-
+		
 		// Use knife to bootstrap the created VM
 		List<String> bootstrapCommands = new ArrayList<>();
 		bootstrapCommands.add("knife");

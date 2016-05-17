@@ -1,5 +1,9 @@
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.logging.Logger;
+
+import com.google.protobuf.compiler.PluginProtos.CodeGeneratorResponse.File;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
@@ -148,7 +152,7 @@ public class ChefMateServer
 		// //
 		// DeployWPAppRequest.newBuilder().setCredentials(credentials).build();
 		// new WordPressOpsImpl().deployWPApp(req, null);
-
+		
 		int port = -1;
 
 		for (int i = 0; i < args.length; i++)
@@ -170,7 +174,13 @@ public class ChefMateServer
 			}
 			if (args[i].equals("-p"))
 			{
-				Config.getInstance(false, true);
+				Config config = Config.getInstance(false, true);
+				
+				// Delete known_hosts file
+				java.io.File knownHostsFile = new java.io.File(config.getHomeDir() + ".ssh/known_hosts");
+				boolean deleted = knownHostsFile.delete();
+				logger.info("### Deleting known_hosts file at: " + knownHostsFile.getAbsolutePath() + " with success = " + deleted);
+				
 				// Check if there's a following command
 				if ((i + 1) < args.length)
 				{

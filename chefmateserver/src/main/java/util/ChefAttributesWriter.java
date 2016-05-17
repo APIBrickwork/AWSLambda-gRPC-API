@@ -209,7 +209,7 @@ public class ChefAttributesWriter
 	public static void writeAttributesFile(String filename, DeployWPAppRequest request)
 	{
 		BufferedWriter writer = null;
-		// TODO: Evaluate
+
 		try
 		{
 			writer = new BufferedWriter(new FileWriter(filename));

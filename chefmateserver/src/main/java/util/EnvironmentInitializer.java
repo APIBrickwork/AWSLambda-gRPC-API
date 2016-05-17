@@ -43,7 +43,6 @@ public class EnvironmentInitializer
 		commands.add("git");
 		commands.add("clone");
 		commands.add("-b");
-		// TODO: Change to master ASAP
 		commands.add("development");
 		commands.add(this.config.getChefRepoURL());
 
