@@ -48,7 +48,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>WebShopClient</mainClass>
+							<mainClass>ChefMateClient</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
@@ -58,7 +58,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>WebShopClient</mainClass>
+							<mainClass>ChefMateClient</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>

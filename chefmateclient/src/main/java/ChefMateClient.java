@@ -117,7 +117,7 @@ public class ChefMateClient
 	
 	public void sendInitChefRepoRequest(InitCHEFRepoRequest initCHEFRepoRequest)
 	{
-		logger.info("### Sending request for Destroying VM.");
+		logger.info("### Sending request for InitChefRepo.");
 		
 		InitCHEFRepoResponse initCHEFRepoResponse = null;
 		try
@@ -138,7 +138,7 @@ public class ChefMateClient
 	
 	public void sendDeployWPAppRequest(DeployWPAppRequest deployWPAppRequest)
 	{
-		logger.info("### Sending request for Creating VM.");
+		logger.info("### Sending request for Deploying WordPress.");
 		
 		DeployWPAppResponse deployWPAppResponse = null;
 		try
@@ -159,7 +159,7 @@ public class ChefMateClient
 	
 	public void sendDeployDBRequest(DeployDBRequest deployDBRequest)
 	{
-		logger.info("### Sending request for Creating VM.");
+		logger.info("### Sending request for Deploying Database.");
 		
 		DeployDBResponse deployDBResponse = null;
 		try
@@ -180,7 +180,7 @@ public class ChefMateClient
 	
 	public void sendBackupDBRequest(BackupDBRequest backupDBRequest)
 	{
-		logger.info("### Sending request for Creating VM.");
+		logger.info("### Sending request for BackupDB.");
 		
 		BackupDBResponse backupDBResponse = null;
 		try
@@ -201,7 +201,7 @@ public class ChefMateClient
 	
 	public void sendRestoreDBRequest(RestoreDBRequest restoreDBRequest)
 	{
-		logger.info("### Sending request for Creating VM.");
+		logger.info("### Sending request for RestoreDB.");
 		
 		RestoreDBResponse restoreDBResponse = null;
 		try
@@ -491,13 +491,22 @@ public class ChefMateClient
 	private static void showUserCommandPrompt()
 	{
 		System.out.println("Available Commands: \n");
+		System.out.println("########################");
+		System.out.println("##### VM Requests #####");
+		System.out.println("########################");
 		System.out.println("createVM \n\t Create VM Instance ");
 		System.out.println("initChefRepo \n\t Initialize Chef Repo");
-		System.out.println("destroyVM \n\t Destroy the VM Instance");
+		System.out.println("destroyVM <Instance-ID>\n\t Destroy the VM Instance");
+		System.out.println("########################");
+		System.out.println("### WordPress/MySQL ###");
+		System.out.println("########################");
 		System.out.println("deployWPApp \n\t Deploy Word Press ");
 		System.out.println("deployDB \n\t Deploy Database");
 		System.out.println("backupDB \n\t Database Backup ");
 		System.out.println("restoreDB \n\t Database Restore ");
+		System.out.println("########################");
+		System.out.println("######## System ########");
+		System.out.println("########################");
 		System.out.println("shutdown \n\t Terminates this client and closes all connections.");
 	}
 
