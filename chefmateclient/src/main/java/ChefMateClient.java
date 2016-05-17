@@ -3,6 +3,9 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
+import services.Chefmate.ExecuteCookbookResponse;
+import services.Chefmate.ExecuteCookbookRequest;
+import services.GenericOpsGrpc.GenericOpsBlockingStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
@@ -25,6 +28,7 @@ import services.Chefmate.RestoreDBResponse;
 import services.Chefmate.SSHCredentials;
 import services.EC2OpsGrpc;
 import services.EC2OpsGrpc.EC2OpsBlockingStub;
+import services.GenericOpsGrpc;
 import services.WordPressOpsGrpc;
 import services.WordPressOpsGrpc.WordPressOpsBlockingStub;
 
@@ -50,6 +54,7 @@ public class ChefMateClient
 	 */
 	private final EC2OpsBlockingStub blockingStub;
 	private final WordPressOpsBlockingStub wpBlockingStub;
+	private final GenericOpsBlockingStub genBlockingStub;
 
 	/**
 	 * Creates a new instance of the ChefMateClient connected to the
@@ -65,7 +70,7 @@ public class ChefMateClient
 		this.channel = ManagedChannelBuilder.forAddress(host, port).usePlaintext(true).build();
 		this.blockingStub = EC2OpsGrpc.newBlockingStub(this.channel);
 		this.wpBlockingStub = WordPressOpsGrpc.newBlockingStub(this.channel);
-
+		this.genBlockingStub = GenericOpsGrpc.newBlockingStub(this.channel);
 	}
 
 	/**
@@ -245,6 +250,31 @@ public class ChefMateClient
 		for (int i = 0; i < restoreDBResponse.getOutputLogList().size(); i++)
 		{
 			System.out.println(restoreDBResponse.getOutputLog(i));
+		}
+	}
+
+	/**
+	 * Sends the executeCookbook request to the ChefMateServer.
+	 */
+
+	public void sendExecuteCookbookRequest(ExecuteCookbookRequest execCookbookRequest)
+	{
+		logger.info("### Sending request for executeCookbook.");
+
+		ExecuteCookbookResponse execCookbookResponse = null;
+		try
+		{
+			execCookbookResponse = this.genBlockingStub.executeCookbook(execCookbookRequest);
+		} catch (StatusRuntimeException e)
+		{
+			logger.warning("### RPC failed: {0}" + e.getStatus());
+			return;
+		}
+		logger.info("### Received response.");
+		System.out.println("\n Exectued Cookbook with OutputLog =\n");
+		for (int i = 0; i < execCookbookResponse.getOutputLogList().size(); i++)
+		{
+			System.out.println(execCookbookResponse.getOutputLog(i));
 		}
 	}
 
@@ -521,6 +551,28 @@ public class ChefMateClient
 						.setDbName(dbName).setBackupFilename(backupFilename).build();
 				client.sendRestoreDBRequest(restoreDBRequest);
 
+			} else if (command.startsWith("executeCookbook"))
+			{
+				System.out.println("\n Enter User Name : ");
+				String username = scanner.nextLine();
+				System.out.println("\n Enter host: ");
+				String host = scanner.nextLine();
+				System.out.println("\n Enter keyfile Name: ");
+				String keyfilename = scanner.nextLine();
+				System.out.println("\n Enter timeout: ");
+				int timeout = Integer.parseInt(scanner.nextLine());
+
+				SSHCredentials credentials = SSHCredentials.newBuilder().setUsername(username).setHost(host)
+						.setKeyfilename(keyfilename).setTimeout(timeout).build();
+
+				System.out.println("\n Enter Cookbook Name: ");
+				String cookbookName = scanner.nextLine();
+				System.out.println("\n Enter Recipe Name: (default.rb if empty)");
+				String recipeName = scanner.nextLine();
+
+				ExecuteCookbookRequest execCookbookRequest = ExecuteCookbookRequest.newBuilder()
+						.setCredentials(credentials).setCookbookName(cookbookName).setRecipeName(recipeName).build();
+				client.sendExecuteCookbookRequest(execCookbookRequest);
 			}
 		}
 		scanner.close();
@@ -545,6 +597,10 @@ public class ChefMateClient
 		System.out.println("deployDB \n\t Deploy Database");
 		System.out.println("backupDB \n\t Database Backup ");
 		System.out.println("restoreDB \n\t Database Restore ");
+		System.out.println("###############");
+		System.out.println("### Generic ###");
+		System.out.println("###############");
+		System.out.println("executeCookbook \n\t Executes the given cookbook");
 		System.out.println("########################");
 		System.out.println("######## System ########");
 		System.out.println("########################");

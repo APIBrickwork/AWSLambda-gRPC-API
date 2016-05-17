@@ -20,9 +20,9 @@ message SSHCredentials{
 }
 
 
-// ########
-// Requests
-// ########
+// ##################
+// WordPress Requests
+// ##################
 
 message CreateVMRequest {
 	string name = 1;
@@ -86,9 +86,18 @@ message RestoreDBRequest{
 	string backupFilename = 6;
 }
 
-// #########
-// Responses
-// #########
+// ################
+// Generic Requests
+// ################
+message ExecuteCookbookRequest{
+	SSHCredentials credentials = 1;
+	string cookbookName = 2;
+	string recipeName = 3;
+}
+
+// ###################
+// WordPress Responses
+// ###################
 message CreateVMResponse{
 	AWSInstanceId instanceId = 1;
 	string publicDNS = 2;
@@ -119,6 +128,12 @@ message RestoreDBResponse{
 	repeated string outputLog = 1;
 }
 
+// #################
+// Generic Responses
+// #################
+message ExecuteCookbookResponse{
+	repeated string outputLog = 1;
+}
 
 
 // #######################
@@ -136,4 +151,8 @@ service WordPressOps{
 	rpc deployDB(DeployDBRequest) returns (DeployDBResponse);
 	rpc backupDB(BackupDBRequest) returns (BackupDBResponse);
 	rpc restoreDB(RestoreDBRequest) returns (RestoreDBResponse);
+}
+
+service GenericOps{
+	rpc executeCookbook(ExecuteCookbookRequest) returns (ExecuteCookbookResponse);
 }
