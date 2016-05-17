@@ -85,9 +85,9 @@ public class ChefMateClient
 			return;
 		}
 		logger.info("### Received response.");
+		System.out.println("\n Created new VM with OutputLog = \n" + createVMResponse.getOutputLog());
 		System.out.println("Created new VM with InstanceID = " + createVMResponse.getInstanceId());
 		System.out.println("Created new VM with Public DNS = " + createVMResponse.getPublicDNS());
-		System.out.println("\n Created new VM with OutPutLog = " + createVMResponse.getOutputLog());
 	}
 	
 	/**
@@ -108,7 +108,8 @@ public class ChefMateClient
 			return;
 		}
 		logger.info("### Received response.");
-		System.out.println("Destoyed VM with InstanceId" +destroyVMRequest.getInstanceId()+" = " + destroyVMResponse.getOutputLog());
+		System.out.println("\n Destroyed VM with OutputLog = \n" + destroyVMResponse.getOutputLog());
+		System.out.println("Destoyed VM with InstanceId =" +destroyVMRequest.getInstanceId());
 	}
 	
 	/**
@@ -129,7 +130,7 @@ public class ChefMateClient
 			return;
 		}
 		logger.info("### Received response.");
-		System.out.println("Response of Chef Repo Initialization " + initCHEFRepoResponse.getOutputLog());
+		System.out.println("Initialized Chef-Repo with OutputLog =\n" + initCHEFRepoResponse.getOutputLog());
 	}
 	
 	/**
@@ -150,7 +151,7 @@ public class ChefMateClient
 			return;
 		}
 		logger.info("### Received response.");
-		System.out.println("\n Deployed Word Press with OutPutLog = " + deployWPAppResponse.getOutputLog());
+		System.out.println("\n Deployed Word Press with OutputLog =\n" + deployWPAppResponse.getOutputLog());
 	}
 
 	/**
@@ -171,7 +172,7 @@ public class ChefMateClient
 			return;
 		}
 		logger.info("### Received response.");
-		System.out.println("\n Deployed Word Press with OutPutLog = " + deployDBResponse.getOutputLog());
+		System.out.println("\n Deployed Word Press with OutputLog =\n" + deployDBResponse.getOutputLog());
 	}
 	
 	/**
@@ -192,7 +193,7 @@ public class ChefMateClient
 			return;
 		}
 		logger.info("### Received response.");
-		System.out.println("\n Database Backup with OutPutLog = " + backupDBResponse.getOutputLog());
+		System.out.println("\n Database Backup with OutputLog =\n" + backupDBResponse.getOutputLog());
 	}
 	
 	/**
@@ -213,7 +214,7 @@ public class ChefMateClient
 			return;
 		}
 		logger.info("### Received response.");
-		System.out.println("\n Database Restore with OutPutLog = " + restoreDBResponse.getOutputLog());
+		System.out.println("\n Database Restore with OutputLog =\n" + restoreDBResponse.getOutputLog());
 	}
 	
 	/**
