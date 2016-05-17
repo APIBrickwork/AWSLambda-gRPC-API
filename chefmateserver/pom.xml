@@ -55,7 +55,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>WebshopServer</mainClass>
+							<mainClass>ChefMateServer</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
@@ -65,7 +65,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>WebshopServer</mainClass>
+							<mainClass>ChefMateServer</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>

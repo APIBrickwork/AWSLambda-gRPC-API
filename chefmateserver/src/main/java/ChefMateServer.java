@@ -94,14 +94,14 @@ public class ChefMateServer
 		/* Local Test Code */
 
 		// TODO: Delete demo code after testing
-		Config.getInstance(false, true);
+//		Config.getInstance(false, true);
 
 		/**
 		 * SSH credentials
 		 */
-		SSHCredentials credentials = SSHCredentials.newBuilder().setUsername("ubuntu")
-				.setHost("ec2-52-28-99-214.eu-central-1.compute.amazonaws.com").setKeyfilename("chefmateserver_key.pem")
-				.setTimeout(10000).build();
+//		SSHCredentials credentials = SSHCredentials.newBuilder().setUsername("ubuntu")
+//				.setHost("ec2-52-28-99-214.eu-central-1.compute.amazonaws.com").setKeyfilename("chefmateserver_key.pem")
+//				.setTimeout(10000).build();
 
 		/**
 		 * VM Services Tests
@@ -142,10 +142,10 @@ public class ChefMateServer
 		/**
 		 * Restore DB Tests
 		 */
-		RestoreDBRequest req = services.Chefmate.RestoreDBRequest.newBuilder().setCredentials(credentials)
-				.setServiceName("server").setDbUsername("wordpress").setDbUserPassword("cloud16")
-				.setDbName("wordpressdb").setBackupFilename("wordpressdbbackup").build();
-		new WordPressOpsImpl().restoreDB(req, null);
+//		RestoreDBRequest req = services.Chefmate.RestoreDBRequest.newBuilder().setCredentials(credentials)
+//				.setServiceName("server").setDbUsername("wordpress").setDbUserPassword("cloud16")
+//				.setDbName("wordpressdb").setBackupFilename("wordpressdbbackup").build();
+//		new WordPressOpsImpl().restoreDB(req, null);
 
 		/**
 		 * deploy WP Tests
@@ -182,6 +182,7 @@ public class ChefMateServer
 			}
 			if (args[i].equals("-p"))
 			{
+				Config.getInstance(false, true);
 				// Check if there's a following command
 				if ((i + 1) < args.length)
 				{
