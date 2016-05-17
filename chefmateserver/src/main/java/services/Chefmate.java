@@ -8909,6 +8909,785 @@ public final class Chefmate {
 
   }
 
+  public interface ExecuteCookbookRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ExecuteCookbookRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional .SSHCredentials credentials = 1;</code>
+     */
+    boolean hasCredentials();
+    /**
+     * <code>optional .SSHCredentials credentials = 1;</code>
+     */
+    Chefmate.SSHCredentials getCredentials();
+    /**
+     * <code>optional .SSHCredentials credentials = 1;</code>
+     */
+    Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder();
+
+    /**
+     * <code>optional string cookbookName = 2;</code>
+     */
+    java.lang.String getCookbookName();
+    /**
+     * <code>optional string cookbookName = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getCookbookNameBytes();
+
+    /**
+     * <code>optional string recipeName = 3;</code>
+     */
+    java.lang.String getRecipeName();
+    /**
+     * <code>optional string recipeName = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getRecipeNameBytes();
+  }
+  /**
+   * Protobuf type {@code ExecuteCookbookRequest}
+   *
+   * <pre>
+   * ################
+   * Generic Requests
+   * ################
+   * </pre>
+   */
+  public  static final class ExecuteCookbookRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:ExecuteCookbookRequest)
+      ExecuteCookbookRequestOrBuilder {
+    // Use ExecuteCookbookRequest.newBuilder() to construct.
+    private ExecuteCookbookRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private ExecuteCookbookRequest() {
+      cookbookName_ = "";
+      recipeName_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private ExecuteCookbookRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              Chefmate.SSHCredentials.Builder subBuilder = null;
+              if (credentials_ != null) {
+                subBuilder = credentials_.toBuilder();
+              }
+              credentials_ = input.readMessage(Chefmate.SSHCredentials.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(credentials_);
+                credentials_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              cookbookName_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              recipeName_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Chefmate.internal_static_ExecuteCookbookRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Chefmate.internal_static_ExecuteCookbookRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Chefmate.ExecuteCookbookRequest.class, Chefmate.ExecuteCookbookRequest.Builder.class);
+    }
+
+    public static final int CREDENTIALS_FIELD_NUMBER = 1;
+    private Chefmate.SSHCredentials credentials_;
+    /**
+     * <code>optional .SSHCredentials credentials = 1;</code>
+     */
+    public boolean hasCredentials() {
+      return credentials_ != null;
+    }
+    /**
+     * <code>optional .SSHCredentials credentials = 1;</code>
+     */
+    public Chefmate.SSHCredentials getCredentials() {
+      return credentials_ == null ? Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+    }
+    /**
+     * <code>optional .SSHCredentials credentials = 1;</code>
+     */
+    public Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder() {
+      return getCredentials();
+    }
+
+    public static final int COOKBOOKNAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object cookbookName_;
+    /**
+     * <code>optional string cookbookName = 2;</code>
+     */
+    public java.lang.String getCookbookName() {
+      java.lang.Object ref = cookbookName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        cookbookName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string cookbookName = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCookbookNameBytes() {
+      java.lang.Object ref = cookbookName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cookbookName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int RECIPENAME_FIELD_NUMBER = 3;
+    private volatile java.lang.Object recipeName_;
+    /**
+     * <code>optional string recipeName = 3;</code>
+     */
+    public java.lang.String getRecipeName() {
+      java.lang.Object ref = recipeName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        recipeName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string recipeName = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRecipeNameBytes() {
+      java.lang.Object ref = recipeName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        recipeName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (credentials_ != null) {
+        output.writeMessage(1, getCredentials());
+      }
+      if (!getCookbookNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 2, cookbookName_);
+      }
+      if (!getRecipeNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 3, recipeName_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (credentials_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getCredentials());
+      }
+      if (!getCookbookNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, cookbookName_);
+      }
+      if (!getRecipeNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(3, recipeName_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    public static Chefmate.ExecuteCookbookRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Chefmate.ExecuteCookbookRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Chefmate.ExecuteCookbookRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Chefmate.ExecuteCookbookRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Chefmate.ExecuteCookbookRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static Chefmate.ExecuteCookbookRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static Chefmate.ExecuteCookbookRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static Chefmate.ExecuteCookbookRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static Chefmate.ExecuteCookbookRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static Chefmate.ExecuteCookbookRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Chefmate.ExecuteCookbookRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ExecuteCookbookRequest}
+     *
+     * <pre>
+     * ################
+     * Generic Requests
+     * ################
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ExecuteCookbookRequest)
+        Chefmate.ExecuteCookbookRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Chefmate.internal_static_ExecuteCookbookRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Chefmate.internal_static_ExecuteCookbookRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Chefmate.ExecuteCookbookRequest.class, Chefmate.ExecuteCookbookRequest.Builder.class);
+      }
+
+      // Construct using Chefmate.ExecuteCookbookRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (credentialsBuilder_ == null) {
+          credentials_ = null;
+        } else {
+          credentials_ = null;
+          credentialsBuilder_ = null;
+        }
+        cookbookName_ = "";
+
+        recipeName_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Chefmate.internal_static_ExecuteCookbookRequest_descriptor;
+      }
+
+      public Chefmate.ExecuteCookbookRequest getDefaultInstanceForType() {
+        return Chefmate.ExecuteCookbookRequest.getDefaultInstance();
+      }
+
+      public Chefmate.ExecuteCookbookRequest build() {
+        Chefmate.ExecuteCookbookRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public Chefmate.ExecuteCookbookRequest buildPartial() {
+        Chefmate.ExecuteCookbookRequest result = new Chefmate.ExecuteCookbookRequest(this);
+        if (credentialsBuilder_ == null) {
+          result.credentials_ = credentials_;
+        } else {
+          result.credentials_ = credentialsBuilder_.build();
+        }
+        result.cookbookName_ = cookbookName_;
+        result.recipeName_ = recipeName_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Chefmate.ExecuteCookbookRequest) {
+          return mergeFrom((Chefmate.ExecuteCookbookRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Chefmate.ExecuteCookbookRequest other) {
+        if (other == Chefmate.ExecuteCookbookRequest.getDefaultInstance()) return this;
+        if (other.hasCredentials()) {
+          mergeCredentials(other.getCredentials());
+        }
+        if (!other.getCookbookName().isEmpty()) {
+          cookbookName_ = other.cookbookName_;
+          onChanged();
+        }
+        if (!other.getRecipeName().isEmpty()) {
+          recipeName_ = other.recipeName_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Chefmate.ExecuteCookbookRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Chefmate.ExecuteCookbookRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private Chefmate.SSHCredentials credentials_ = null;
+      private com.google.protobuf.SingleFieldBuilder<
+          Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder> credentialsBuilder_;
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public boolean hasCredentials() {
+        return credentialsBuilder_ != null || credentials_ != null;
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Chefmate.SSHCredentials getCredentials() {
+        if (credentialsBuilder_ == null) {
+          return credentials_ == null ? Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+        } else {
+          return credentialsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Builder setCredentials(Chefmate.SSHCredentials value) {
+        if (credentialsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          credentials_ = value;
+          onChanged();
+        } else {
+          credentialsBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Builder setCredentials(
+          Chefmate.SSHCredentials.Builder builderForValue) {
+        if (credentialsBuilder_ == null) {
+          credentials_ = builderForValue.build();
+          onChanged();
+        } else {
+          credentialsBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Builder mergeCredentials(Chefmate.SSHCredentials value) {
+        if (credentialsBuilder_ == null) {
+          if (credentials_ != null) {
+            credentials_ =
+              Chefmate.SSHCredentials.newBuilder(credentials_).mergeFrom(value).buildPartial();
+          } else {
+            credentials_ = value;
+          }
+          onChanged();
+        } else {
+          credentialsBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Builder clearCredentials() {
+        if (credentialsBuilder_ == null) {
+          credentials_ = null;
+          onChanged();
+        } else {
+          credentials_ = null;
+          credentialsBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Chefmate.SSHCredentials.Builder getCredentialsBuilder() {
+        
+        onChanged();
+        return getCredentialsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      public Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder() {
+        if (credentialsBuilder_ != null) {
+          return credentialsBuilder_.getMessageOrBuilder();
+        } else {
+          return credentials_ == null ?
+              Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+        }
+      }
+      /**
+       * <code>optional .SSHCredentials credentials = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder> 
+          getCredentialsFieldBuilder() {
+        if (credentialsBuilder_ == null) {
+          credentialsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder>(
+                  getCredentials(),
+                  getParentForChildren(),
+                  isClean());
+          credentials_ = null;
+        }
+        return credentialsBuilder_;
+      }
+
+      private java.lang.Object cookbookName_ = "";
+      /**
+       * <code>optional string cookbookName = 2;</code>
+       */
+      public java.lang.String getCookbookName() {
+        java.lang.Object ref = cookbookName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          cookbookName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string cookbookName = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCookbookNameBytes() {
+        java.lang.Object ref = cookbookName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          cookbookName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string cookbookName = 2;</code>
+       */
+      public Builder setCookbookName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        cookbookName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string cookbookName = 2;</code>
+       */
+      public Builder clearCookbookName() {
+        
+        cookbookName_ = getDefaultInstance().getCookbookName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string cookbookName = 2;</code>
+       */
+      public Builder setCookbookNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        cookbookName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object recipeName_ = "";
+      /**
+       * <code>optional string recipeName = 3;</code>
+       */
+      public java.lang.String getRecipeName() {
+        java.lang.Object ref = recipeName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          recipeName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string recipeName = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRecipeNameBytes() {
+        java.lang.Object ref = recipeName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          recipeName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string recipeName = 3;</code>
+       */
+      public Builder setRecipeName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        recipeName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string recipeName = 3;</code>
+       */
+      public Builder clearRecipeName() {
+        
+        recipeName_ = getDefaultInstance().getRecipeName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string recipeName = 3;</code>
+       */
+      public Builder setRecipeNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        recipeName_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:ExecuteCookbookRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:ExecuteCookbookRequest)
+    private static final Chefmate.ExecuteCookbookRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Chefmate.ExecuteCookbookRequest();
+    }
+
+    public static Chefmate.ExecuteCookbookRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ExecuteCookbookRequest>
+        PARSER = new com.google.protobuf.AbstractParser<ExecuteCookbookRequest>() {
+      public ExecuteCookbookRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new ExecuteCookbookRequest(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<ExecuteCookbookRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ExecuteCookbookRequest> getParserForType() {
+      return PARSER;
+    }
+
+    public Chefmate.ExecuteCookbookRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface CreateVMResponseOrBuilder extends
       // @@protoc_insertion_point(interface_extends:CreateVMResponse)
       com.google.protobuf.MessageOrBuilder {
@@ -8959,9 +9738,9 @@ public final class Chefmate {
    * Protobuf type {@code CreateVMResponse}
    *
    * <pre>
-   * #########
-   * Responses
-   * #########
+   * ###################
+   * WordPress Responses
+   * ###################
    * </pre>
    */
   public  static final class CreateVMResponse extends
@@ -9264,9 +10043,9 @@ public final class Chefmate {
      * Protobuf type {@code CreateVMResponse}
      *
      * <pre>
-     * #########
-     * Responses
-     * #########
+     * ###################
+     * WordPress Responses
+     * ###################
      * </pre>
      */
     public static final class Builder extends
@@ -12749,6 +13528,519 @@ public final class Chefmate {
 
   }
 
+  public interface ExecuteCookbookResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ExecuteCookbookResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated string outputLog = 1;</code>
+     */
+    com.google.protobuf.ProtocolStringList
+        getOutputLogList();
+    /**
+     * <code>repeated string outputLog = 1;</code>
+     */
+    int getOutputLogCount();
+    /**
+     * <code>repeated string outputLog = 1;</code>
+     */
+    java.lang.String getOutputLog(int index);
+    /**
+     * <code>repeated string outputLog = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getOutputLogBytes(int index);
+  }
+  /**
+   * Protobuf type {@code ExecuteCookbookResponse}
+   *
+   * <pre>
+   * #################
+   * Generic Responses
+   * #################
+   * </pre>
+   */
+  public  static final class ExecuteCookbookResponse extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:ExecuteCookbookResponse)
+      ExecuteCookbookResponseOrBuilder {
+    // Use ExecuteCookbookResponse.newBuilder() to construct.
+    private ExecuteCookbookResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private ExecuteCookbookResponse() {
+      outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private ExecuteCookbookResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                outputLog_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              outputLog_.add(s);
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = outputLog_.getUnmodifiableView();
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Chefmate.internal_static_ExecuteCookbookResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Chefmate.internal_static_ExecuteCookbookResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Chefmate.ExecuteCookbookResponse.class, Chefmate.ExecuteCookbookResponse.Builder.class);
+    }
+
+    public static final int OUTPUTLOG_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList outputLog_;
+    /**
+     * <code>repeated string outputLog = 1;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getOutputLogList() {
+      return outputLog_;
+    }
+    /**
+     * <code>repeated string outputLog = 1;</code>
+     */
+    public int getOutputLogCount() {
+      return outputLog_.size();
+    }
+    /**
+     * <code>repeated string outputLog = 1;</code>
+     */
+    public java.lang.String getOutputLog(int index) {
+      return outputLog_.get(index);
+    }
+    /**
+     * <code>repeated string outputLog = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getOutputLogBytes(int index) {
+      return outputLog_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < outputLog_.size(); i++) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, outputLog_.getRaw(i));
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < outputLog_.size(); i++) {
+          dataSize += computeStringSizeNoTag(outputLog_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getOutputLogList().size();
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    public static Chefmate.ExecuteCookbookResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Chefmate.ExecuteCookbookResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Chefmate.ExecuteCookbookResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Chefmate.ExecuteCookbookResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Chefmate.ExecuteCookbookResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static Chefmate.ExecuteCookbookResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static Chefmate.ExecuteCookbookResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static Chefmate.ExecuteCookbookResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static Chefmate.ExecuteCookbookResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static Chefmate.ExecuteCookbookResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Chefmate.ExecuteCookbookResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ExecuteCookbookResponse}
+     *
+     * <pre>
+     * #################
+     * Generic Responses
+     * #################
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ExecuteCookbookResponse)
+        Chefmate.ExecuteCookbookResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Chefmate.internal_static_ExecuteCookbookResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Chefmate.internal_static_ExecuteCookbookResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Chefmate.ExecuteCookbookResponse.class, Chefmate.ExecuteCookbookResponse.Builder.class);
+      }
+
+      // Construct using Chefmate.ExecuteCookbookResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Chefmate.internal_static_ExecuteCookbookResponse_descriptor;
+      }
+
+      public Chefmate.ExecuteCookbookResponse getDefaultInstanceForType() {
+        return Chefmate.ExecuteCookbookResponse.getDefaultInstance();
+      }
+
+      public Chefmate.ExecuteCookbookResponse build() {
+        Chefmate.ExecuteCookbookResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public Chefmate.ExecuteCookbookResponse buildPartial() {
+        Chefmate.ExecuteCookbookResponse result = new Chefmate.ExecuteCookbookResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = outputLog_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.outputLog_ = outputLog_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Chefmate.ExecuteCookbookResponse) {
+          return mergeFrom((Chefmate.ExecuteCookbookResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Chefmate.ExecuteCookbookResponse other) {
+        if (other == Chefmate.ExecuteCookbookResponse.getDefaultInstance()) return this;
+        if (!other.outputLog_.isEmpty()) {
+          if (outputLog_.isEmpty()) {
+            outputLog_ = other.outputLog_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureOutputLogIsMutable();
+            outputLog_.addAll(other.outputLog_);
+          }
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Chefmate.ExecuteCookbookResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Chefmate.ExecuteCookbookResponse) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.LazyStringList outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureOutputLogIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = new com.google.protobuf.LazyStringArrayList(outputLog_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getOutputLogList() {
+        return outputLog_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public int getOutputLogCount() {
+        return outputLog_.size();
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public java.lang.String getOutputLog(int index) {
+        return outputLog_.get(index);
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getOutputLogBytes(int index) {
+        return outputLog_.getByteString(index);
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public Builder setOutputLog(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureOutputLogIsMutable();
+        outputLog_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public Builder addOutputLog(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureOutputLogIsMutable();
+        outputLog_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public Builder addAllOutputLog(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureOutputLogIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, outputLog_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public Builder clearOutputLog() {
+        outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public Builder addOutputLogBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureOutputLogIsMutable();
+        outputLog_.add(value);
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:ExecuteCookbookResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:ExecuteCookbookResponse)
+    private static final Chefmate.ExecuteCookbookResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Chefmate.ExecuteCookbookResponse();
+    }
+
+    public static Chefmate.ExecuteCookbookResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ExecuteCookbookResponse>
+        PARSER = new com.google.protobuf.AbstractParser<ExecuteCookbookResponse>() {
+      public ExecuteCookbookResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new ExecuteCookbookResponse(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<ExecuteCookbookResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ExecuteCookbookResponse> getParserForType() {
+      return PARSER;
+    }
+
+    public Chefmate.ExecuteCookbookResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_AWSInstanceId_descriptor;
   private static
@@ -12795,6 +14087,11 @@ public final class Chefmate {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_RestoreDBRequest_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_ExecuteCookbookRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_ExecuteCookbookRequest_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_CreateVMResponse_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -12829,6 +14126,11 @@ public final class Chefmate {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_RestoreDBResponse_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_ExecuteCookbookResponse_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_ExecuteCookbookResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -12866,25 +14168,31 @@ public final class Chefmate {
       "ls\030\001 \001(\0132\017.SSHCredentials\022\023\n\013serviceName" +
       "\030\002 \001(\t\022\022\n\ndbUsername\030\003 \001(\t\022\026\n\016dbUserPass" +
       "word\030\004 \001(\t\022\016\n\006dbName\030\005 \001(\t\022\026\n\016backupFile" +
-      "name\030\006 \001(\t\"\\\n\020CreateVMResponse\022\"\n\ninstan" +
-      "ceId\030\001 \001(\0132\016.AWSInstanceId\022\021\n\tpublicDNS\030",
-      "\002 \001(\t\022\021\n\toutputLog\030\003 \003(\t\"&\n\021DestroyVMRes" +
-      "ponse\022\021\n\toutputLog\030\001 \003(\t\")\n\024InitCHEFRepo" +
-      "Response\022\021\n\toutputLog\030\001 \003(\t\"(\n\023DeployWPA" +
-      "ppResponse\022\021\n\toutputLog\030\001 \003(\t\"%\n\020DeployD" +
-      "BResponse\022\021\n\toutputLog\030\001 \003(\t\"%\n\020BackupDB" +
-      "Response\022\021\n\toutputLog\030\001 \003(\t\"&\n\021RestoreDB" +
-      "Response\022\021\n\toutputLog\030\001 \003(\t2\252\001\n\006EC2Ops\022/" +
-      "\n\010createVM\022\020.CreateVMRequest\032\021.CreateVMR" +
-      "esponse\0222\n\tdestroyVM\022\021.DestroyVMRequest\032" +
-      "\022.DestroyVMResponse\022;\n\014initChefRepo\022\024.In",
-      "itCHEFRepoRequest\032\025.InitCHEFRepoResponse" +
-      "2\336\001\n\014WordPressOps\0228\n\013deployWPApp\022\023.Deplo" +
-      "yWPAppRequest\032\024.DeployWPAppResponse\022/\n\010d" +
-      "eployDB\022\020.DeployDBRequest\032\021.DeployDBResp" +
-      "onse\022/\n\010backupDB\022\020.BackupDBRequest\032\021.Bac" +
-      "kupDBResponse\0222\n\trestoreDB\022\021.RestoreDBRe" +
-      "quest\032\022.RestoreDBResponseb\006proto3"
+      "name\030\006 \001(\t\"h\n\026ExecuteCookbookRequest\022$\n\013" +
+      "credentials\030\001 \001(\0132\017.SSHCredentials\022\024\n\014co",
+      "okbookName\030\002 \001(\t\022\022\n\nrecipeName\030\003 \001(\t\"\\\n\020" +
+      "CreateVMResponse\022\"\n\ninstanceId\030\001 \001(\0132\016.A" +
+      "WSInstanceId\022\021\n\tpublicDNS\030\002 \001(\t\022\021\n\toutpu" +
+      "tLog\030\003 \003(\t\"&\n\021DestroyVMResponse\022\021\n\toutpu" +
+      "tLog\030\001 \003(\t\")\n\024InitCHEFRepoResponse\022\021\n\tou" +
+      "tputLog\030\001 \003(\t\"(\n\023DeployWPAppResponse\022\021\n\t" +
+      "outputLog\030\001 \003(\t\"%\n\020DeployDBResponse\022\021\n\to" +
+      "utputLog\030\001 \003(\t\"%\n\020BackupDBResponse\022\021\n\tou" +
+      "tputLog\030\001 \003(\t\"&\n\021RestoreDBResponse\022\021\n\tou" +
+      "tputLog\030\001 \003(\t\",\n\027ExecuteCookbookResponse",
+      "\022\021\n\toutputLog\030\001 \003(\t2\252\001\n\006EC2Ops\022/\n\010create" +
+      "VM\022\020.CreateVMRequest\032\021.CreateVMResponse\022" +
+      "2\n\tdestroyVM\022\021.DestroyVMRequest\032\022.Destro" +
+      "yVMResponse\022;\n\014initChefRepo\022\024.InitCHEFRe" +
+      "poRequest\032\025.InitCHEFRepoResponse2\336\001\n\014Wor" +
+      "dPressOps\0228\n\013deployWPApp\022\023.DeployWPAppRe" +
+      "quest\032\024.DeployWPAppResponse\022/\n\010deployDB\022" +
+      "\020.DeployDBRequest\032\021.DeployDBResponse\022/\n\010" +
+      "backupDB\022\020.BackupDBRequest\032\021.BackupDBRes" +
+      "ponse\0222\n\trestoreDB\022\021.RestoreDBRequest\032\022.",
+      "RestoreDBResponse2R\n\nGenericOps\022D\n\017execu" +
+      "teCookbook\022\027.ExecuteCookbookRequest\032\030.Ex" +
+      "ecuteCookbookResponseb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -12952,47 +14260,59 @@ public final class Chefmate {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_RestoreDBRequest_descriptor,
         new java.lang.String[] { "Credentials", "ServiceName", "DbUsername", "DbUserPassword", "DbName", "BackupFilename", });
-    internal_static_CreateVMResponse_descriptor =
+    internal_static_ExecuteCookbookRequest_descriptor =
       getDescriptor().getMessageTypes().get(9);
+    internal_static_ExecuteCookbookRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_ExecuteCookbookRequest_descriptor,
+        new java.lang.String[] { "Credentials", "CookbookName", "RecipeName", });
+    internal_static_CreateVMResponse_descriptor =
+      getDescriptor().getMessageTypes().get(10);
     internal_static_CreateVMResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_CreateVMResponse_descriptor,
         new java.lang.String[] { "InstanceId", "PublicDNS", "OutputLog", });
     internal_static_DestroyVMResponse_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_DestroyVMResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_DestroyVMResponse_descriptor,
         new java.lang.String[] { "OutputLog", });
     internal_static_InitCHEFRepoResponse_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_InitCHEFRepoResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_InitCHEFRepoResponse_descriptor,
         new java.lang.String[] { "OutputLog", });
     internal_static_DeployWPAppResponse_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_DeployWPAppResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_DeployWPAppResponse_descriptor,
         new java.lang.String[] { "OutputLog", });
     internal_static_DeployDBResponse_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_DeployDBResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_DeployDBResponse_descriptor,
         new java.lang.String[] { "OutputLog", });
     internal_static_BackupDBResponse_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_BackupDBResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_BackupDBResponse_descriptor,
         new java.lang.String[] { "OutputLog", });
     internal_static_RestoreDBResponse_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_RestoreDBResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_RestoreDBResponse_descriptor,
+        new java.lang.String[] { "OutputLog", });
+    internal_static_ExecuteCookbookResponse_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_ExecuteCookbookResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_ExecuteCookbookResponse_descriptor,
         new java.lang.String[] { "OutputLog", });
   }
 
