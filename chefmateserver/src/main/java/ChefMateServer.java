@@ -9,6 +9,8 @@ import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import services.EC2OpsGrpc;
 import services.EC2OpsImpl;
+import services.WordPressOpsGrpc;
+import services.WordPressOpsImpl;
 import util.Config;
 import util.EnvironmentInitializer;
 
@@ -37,8 +39,8 @@ public class ChefMateServer
 	private void start(int port) throws IOException
 	{
 		this.port = port;
-		this.server = ServerBuilder.forPort(this.port).addService(EC2OpsGrpc.bindService(new EC2OpsImpl())).build()
-				.start();
+		this.server = ServerBuilder.forPort(this.port).addService(EC2OpsGrpc.bindService(new EC2OpsImpl()))
+				.addService(WordPressOpsGrpc.bindService(new WordPressOpsImpl())).build().start();
 
 		logger.info("### Server started listening on port " + this.port);
 		Runtime.getRuntime().addShutdownHook(new Thread()
@@ -86,14 +88,15 @@ public class ChefMateServer
 		/* Local Test Code */
 
 		// TODO: Delete demo code after testing
-//		Config.getInstance(false, true);
+		// Config.getInstance(false, true);
 
 		/**
 		 * SSH credentials
 		 */
-//		SSHCredentials credentials = SSHCredentials.newBuilder().setUsername("ubuntu")
-//				.setHost("ec2-52-28-99-214.eu-central-1.compute.amazonaws.com").setKeyfilename("chefmateserver_key.pem")
-//				.setTimeout(10000).build();
+		// SSHCredentials credentials =
+		// SSHCredentials.newBuilder().setUsername("ubuntu")
+		// .setHost("ec2-52-28-99-214.eu-central-1.compute.amazonaws.com").setKeyfilename("chefmateserver_key.pem")
+		// .setTimeout(10000).build();
 
 		/**
 		 * VM Services Tests
@@ -126,18 +129,20 @@ public class ChefMateServer
 		 * Backup DB Tests
 		 */
 
-//		BackupDBRequest req = services.Chefmate.BackupDBRequest.newBuilder().setCredentials(credentials)
-//				.setServiceName("server").setDbUsername("wordpress").setDbUserPassword("cloud16")
-//				.setDbName("wordpressdb").setBackupFilename("wordpressdbbackup").build();
-//		new WordPressOpsImpl().backupDB(req, null);
-		
+		// BackupDBRequest req =
+		// services.Chefmate.BackupDBRequest.newBuilder().setCredentials(credentials)
+		// .setServiceName("server").setDbUsername("wordpress").setDbUserPassword("cloud16")
+		// .setDbName("wordpressdb").setBackupFilename("wordpressdbbackup").build();
+		// new WordPressOpsImpl().backupDB(req, null);
+
 		/**
 		 * Restore DB Tests
 		 */
-//		RestoreDBRequest req = services.Chefmate.RestoreDBRequest.newBuilder().setCredentials(credentials)
-//				.setServiceName("server").setDbUsername("wordpress").setDbUserPassword("cloud16")
-//				.setDbName("wordpressdb").setBackupFilename("wordpressdbbackup").build();
-//		new WordPressOpsImpl().restoreDB(req, null);
+		// RestoreDBRequest req =
+		// services.Chefmate.RestoreDBRequest.newBuilder().setCredentials(credentials)
+		// .setServiceName("server").setDbUsername("wordpress").setDbUserPassword("cloud16")
+		// .setDbName("wordpressdb").setBackupFilename("wordpressdbbackup").build();
+		// new WordPressOpsImpl().restoreDB(req, null);
 
 		/**
 		 * deploy WP Tests
@@ -152,7 +157,7 @@ public class ChefMateServer
 		// //
 		// DeployWPAppRequest.newBuilder().setCredentials(credentials).build();
 		// new WordPressOpsImpl().deployWPApp(req, null);
-		
+
 		int port = -1;
 
 		for (int i = 0; i < args.length; i++)
@@ -175,12 +180,13 @@ public class ChefMateServer
 			if (args[i].equals("-p"))
 			{
 				Config config = Config.getInstance(false, true);
-				
+
 				// Delete known_hosts file
 				java.io.File knownHostsFile = new java.io.File(config.getHomeDir() + ".ssh/known_hosts");
 				boolean deleted = knownHostsFile.delete();
-				logger.info("### Deleting known_hosts file at: " + knownHostsFile.getAbsolutePath() + " with success = " + deleted);
-				
+				logger.info("### Deleting known_hosts file at: " + knownHostsFile.getAbsolutePath() + " with success = "
+						+ deleted);
+
 				// Check if there's a following command
 				if ((i + 1) < args.length)
 				{
