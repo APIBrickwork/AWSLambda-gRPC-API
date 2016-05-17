@@ -8937,14 +8937,23 @@ public final class Chefmate {
         getPublicDNSBytes();
 
     /**
-     * <code>optional string outputLog = 3;</code>
+     * <code>repeated string outputLog = 3;</code>
      */
-    java.lang.String getOutputLog();
+    com.google.protobuf.ProtocolStringList
+        getOutputLogList();
     /**
-     * <code>optional string outputLog = 3;</code>
+     * <code>repeated string outputLog = 3;</code>
+     */
+    int getOutputLogCount();
+    /**
+     * <code>repeated string outputLog = 3;</code>
+     */
+    java.lang.String getOutputLog(int index);
+    /**
+     * <code>repeated string outputLog = 3;</code>
      */
     com.google.protobuf.ByteString
-        getOutputLogBytes();
+        getOutputLogBytes(int index);
   }
   /**
    * Protobuf type {@code CreateVMResponse}
@@ -8965,7 +8974,7 @@ public final class Chefmate {
     }
     private CreateVMResponse() {
       publicDNS_ = "";
-      outputLog_ = "";
+      outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -9013,8 +9022,11 @@ public final class Chefmate {
             }
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
-
-              outputLog_ = s;
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                outputLog_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              outputLog_.add(s);
               break;
             }
           }
@@ -9026,6 +9038,9 @@ public final class Chefmate {
             new com.google.protobuf.InvalidProtocolBufferException(
                 e.getMessage()).setUnfinishedMessage(this));
       } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          outputLog_ = outputLog_.getUnmodifiableView();
+        }
         makeExtensionsImmutable();
       }
     }
@@ -9041,6 +9056,7 @@ public final class Chefmate {
               Chefmate.CreateVMResponse.class, Chefmate.CreateVMResponse.Builder.class);
     }
 
+    private int bitField0_;
     public static final int INSTANCEID_FIELD_NUMBER = 1;
     private Chefmate.AWSInstanceId instanceId_;
     /**
@@ -9097,37 +9113,32 @@ public final class Chefmate {
     }
 
     public static final int OUTPUTLOG_FIELD_NUMBER = 3;
-    private volatile java.lang.Object outputLog_;
+    private com.google.protobuf.LazyStringList outputLog_;
     /**
-     * <code>optional string outputLog = 3;</code>
+     * <code>repeated string outputLog = 3;</code>
      */
-    public java.lang.String getOutputLog() {
-      java.lang.Object ref = outputLog_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        outputLog_ = s;
-        return s;
-      }
+    public com.google.protobuf.ProtocolStringList
+        getOutputLogList() {
+      return outputLog_;
     }
     /**
-     * <code>optional string outputLog = 3;</code>
+     * <code>repeated string outputLog = 3;</code>
+     */
+    public int getOutputLogCount() {
+      return outputLog_.size();
+    }
+    /**
+     * <code>repeated string outputLog = 3;</code>
+     */
+    public java.lang.String getOutputLog(int index) {
+      return outputLog_.get(index);
+    }
+    /**
+     * <code>repeated string outputLog = 3;</code>
      */
     public com.google.protobuf.ByteString
-        getOutputLogBytes() {
-      java.lang.Object ref = outputLog_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        outputLog_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+        getOutputLogBytes(int index) {
+      return outputLog_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -9148,8 +9159,8 @@ public final class Chefmate {
       if (!getPublicDNSBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessage.writeString(output, 2, publicDNS_);
       }
-      if (!getOutputLogBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 3, outputLog_);
+      for (int i = 0; i < outputLog_.size(); i++) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 3, outputLog_.getRaw(i));
       }
     }
 
@@ -9165,8 +9176,13 @@ public final class Chefmate {
       if (!getPublicDNSBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessage.computeStringSize(2, publicDNS_);
       }
-      if (!getOutputLogBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(3, outputLog_);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < outputLog_.size(); i++) {
+          dataSize += computeStringSizeNoTag(outputLog_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getOutputLogList().size();
       }
       memoizedSize = size;
       return size;
@@ -9293,8 +9309,8 @@ public final class Chefmate {
         }
         publicDNS_ = "";
 
-        outputLog_ = "";
-
+        outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -9317,13 +9333,20 @@ public final class Chefmate {
 
       public Chefmate.CreateVMResponse buildPartial() {
         Chefmate.CreateVMResponse result = new Chefmate.CreateVMResponse(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (instanceIdBuilder_ == null) {
           result.instanceId_ = instanceId_;
         } else {
           result.instanceId_ = instanceIdBuilder_.build();
         }
         result.publicDNS_ = publicDNS_;
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          outputLog_ = outputLog_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
         result.outputLog_ = outputLog_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -9346,8 +9369,14 @@ public final class Chefmate {
           publicDNS_ = other.publicDNS_;
           onChanged();
         }
-        if (!other.getOutputLog().isEmpty()) {
-          outputLog_ = other.outputLog_;
+        if (!other.outputLog_.isEmpty()) {
+          if (outputLog_.isEmpty()) {
+            outputLog_ = other.outputLog_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureOutputLogIsMutable();
+            outputLog_.addAll(other.outputLog_);
+          }
           onChanged();
         }
         onChanged();
@@ -9375,6 +9404,7 @@ public final class Chefmate {
         }
         return this;
       }
+      private int bitField0_;
 
       private Chefmate.AWSInstanceId instanceId_ = null;
       private com.google.protobuf.SingleFieldBuilder<
@@ -9562,71 +9592,96 @@ public final class Chefmate {
         return this;
       }
 
-      private java.lang.Object outputLog_ = "";
-      /**
-       * <code>optional string outputLog = 3;</code>
-       */
-      public java.lang.String getOutputLog() {
-        java.lang.Object ref = outputLog_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          outputLog_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      private com.google.protobuf.LazyStringList outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureOutputLogIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          outputLog_ = new com.google.protobuf.LazyStringArrayList(outputLog_);
+          bitField0_ |= 0x00000004;
+         }
       }
       /**
-       * <code>optional string outputLog = 3;</code>
+       * <code>repeated string outputLog = 3;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getOutputLogList() {
+        return outputLog_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string outputLog = 3;</code>
+       */
+      public int getOutputLogCount() {
+        return outputLog_.size();
+      }
+      /**
+       * <code>repeated string outputLog = 3;</code>
+       */
+      public java.lang.String getOutputLog(int index) {
+        return outputLog_.get(index);
+      }
+      /**
+       * <code>repeated string outputLog = 3;</code>
        */
       public com.google.protobuf.ByteString
-          getOutputLogBytes() {
-        java.lang.Object ref = outputLog_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          outputLog_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+          getOutputLogBytes(int index) {
+        return outputLog_.getByteString(index);
       }
       /**
-       * <code>optional string outputLog = 3;</code>
+       * <code>repeated string outputLog = 3;</code>
        */
       public Builder setOutputLog(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureOutputLogIsMutable();
+        outputLog_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string outputLog = 3;</code>
+       */
+      public Builder addOutputLog(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
-        outputLog_ = value;
+  ensureOutputLogIsMutable();
+        outputLog_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>optional string outputLog = 3;</code>
+       * <code>repeated string outputLog = 3;</code>
+       */
+      public Builder addAllOutputLog(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureOutputLogIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, outputLog_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string outputLog = 3;</code>
        */
       public Builder clearOutputLog() {
-        
-        outputLog_ = getDefaultInstance().getOutputLog();
+        outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
       /**
-       * <code>optional string outputLog = 3;</code>
+       * <code>repeated string outputLog = 3;</code>
        */
-      public Builder setOutputLogBytes(
+      public Builder addOutputLogBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        
-        outputLog_ = value;
+        ensureOutputLogIsMutable();
+        outputLog_.add(value);
         onChanged();
         return this;
       }
@@ -9693,14 +9748,23 @@ public final class Chefmate {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
      */
-    java.lang.String getOutputLog();
+    com.google.protobuf.ProtocolStringList
+        getOutputLogList();
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
+     */
+    int getOutputLogCount();
+    /**
+     * <code>repeated string outputLog = 1;</code>
+     */
+    java.lang.String getOutputLog(int index);
+    /**
+     * <code>repeated string outputLog = 1;</code>
      */
     com.google.protobuf.ByteString
-        getOutputLogBytes();
+        getOutputLogBytes(int index);
   }
   /**
    * Protobuf type {@code DestroyVMResponse}
@@ -9714,7 +9778,7 @@ public final class Chefmate {
       super(builder);
     }
     private DestroyVMResponse() {
-      outputLog_ = "";
+      outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -9743,8 +9807,11 @@ public final class Chefmate {
             }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
-
-              outputLog_ = s;
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                outputLog_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              outputLog_.add(s);
               break;
             }
           }
@@ -9756,6 +9823,9 @@ public final class Chefmate {
             new com.google.protobuf.InvalidProtocolBufferException(
                 e.getMessage()).setUnfinishedMessage(this));
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = outputLog_.getUnmodifiableView();
+        }
         makeExtensionsImmutable();
       }
     }
@@ -9772,37 +9842,32 @@ public final class Chefmate {
     }
 
     public static final int OUTPUTLOG_FIELD_NUMBER = 1;
-    private volatile java.lang.Object outputLog_;
+    private com.google.protobuf.LazyStringList outputLog_;
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
      */
-    public java.lang.String getOutputLog() {
-      java.lang.Object ref = outputLog_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        outputLog_ = s;
-        return s;
-      }
+    public com.google.protobuf.ProtocolStringList
+        getOutputLogList() {
+      return outputLog_;
     }
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
+     */
+    public int getOutputLogCount() {
+      return outputLog_.size();
+    }
+    /**
+     * <code>repeated string outputLog = 1;</code>
+     */
+    public java.lang.String getOutputLog(int index) {
+      return outputLog_.get(index);
+    }
+    /**
+     * <code>repeated string outputLog = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getOutputLogBytes() {
-      java.lang.Object ref = outputLog_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        outputLog_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+        getOutputLogBytes(int index) {
+      return outputLog_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -9817,8 +9882,8 @@ public final class Chefmate {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getOutputLogBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 1, outputLog_);
+      for (int i = 0; i < outputLog_.size(); i++) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, outputLog_.getRaw(i));
       }
     }
 
@@ -9827,8 +9892,13 @@ public final class Chefmate {
       if (size != -1) return size;
 
       size = 0;
-      if (!getOutputLogBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, outputLog_);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < outputLog_.size(); i++) {
+          dataSize += computeStringSizeNoTag(outputLog_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getOutputLogList().size();
       }
       memoizedSize = size;
       return size;
@@ -9941,8 +10011,8 @@ public final class Chefmate {
       }
       public Builder clear() {
         super.clear();
-        outputLog_ = "";
-
+        outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -9965,6 +10035,11 @@ public final class Chefmate {
 
       public Chefmate.DestroyVMResponse buildPartial() {
         Chefmate.DestroyVMResponse result = new Chefmate.DestroyVMResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = outputLog_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
         result.outputLog_ = outputLog_;
         onBuilt();
         return result;
@@ -9981,8 +10056,14 @@ public final class Chefmate {
 
       public Builder mergeFrom(Chefmate.DestroyVMResponse other) {
         if (other == Chefmate.DestroyVMResponse.getDefaultInstance()) return this;
-        if (!other.getOutputLog().isEmpty()) {
-          outputLog_ = other.outputLog_;
+        if (!other.outputLog_.isEmpty()) {
+          if (outputLog_.isEmpty()) {
+            outputLog_ = other.outputLog_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureOutputLogIsMutable();
+            outputLog_.addAll(other.outputLog_);
+          }
           onChanged();
         }
         onChanged();
@@ -10010,72 +10091,98 @@ public final class Chefmate {
         }
         return this;
       }
+      private int bitField0_;
 
-      private java.lang.Object outputLog_ = "";
-      /**
-       * <code>optional string outputLog = 1;</code>
-       */
-      public java.lang.String getOutputLog() {
-        java.lang.Object ref = outputLog_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          outputLog_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      private com.google.protobuf.LazyStringList outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureOutputLogIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = new com.google.protobuf.LazyStringArrayList(outputLog_);
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getOutputLogList() {
+        return outputLog_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public int getOutputLogCount() {
+        return outputLog_.size();
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public java.lang.String getOutputLog(int index) {
+        return outputLog_.get(index);
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
        */
       public com.google.protobuf.ByteString
-          getOutputLogBytes() {
-        java.lang.Object ref = outputLog_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          outputLog_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+          getOutputLogBytes(int index) {
+        return outputLog_.getByteString(index);
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
        */
       public Builder setOutputLog(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureOutputLogIsMutable();
+        outputLog_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public Builder addOutputLog(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
-        outputLog_ = value;
+  ensureOutputLogIsMutable();
+        outputLog_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public Builder addAllOutputLog(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureOutputLogIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, outputLog_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
        */
       public Builder clearOutputLog() {
-        
-        outputLog_ = getDefaultInstance().getOutputLog();
+        outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
        */
-      public Builder setOutputLogBytes(
+      public Builder addOutputLogBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        
-        outputLog_ = value;
+        ensureOutputLogIsMutable();
+        outputLog_.add(value);
         onChanged();
         return this;
       }
@@ -10142,14 +10249,23 @@ public final class Chefmate {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
      */
-    java.lang.String getOutputLog();
+    com.google.protobuf.ProtocolStringList
+        getOutputLogList();
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
+     */
+    int getOutputLogCount();
+    /**
+     * <code>repeated string outputLog = 1;</code>
+     */
+    java.lang.String getOutputLog(int index);
+    /**
+     * <code>repeated string outputLog = 1;</code>
      */
     com.google.protobuf.ByteString
-        getOutputLogBytes();
+        getOutputLogBytes(int index);
   }
   /**
    * Protobuf type {@code InitCHEFRepoResponse}
@@ -10163,7 +10279,7 @@ public final class Chefmate {
       super(builder);
     }
     private InitCHEFRepoResponse() {
-      outputLog_ = "";
+      outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -10192,8 +10308,11 @@ public final class Chefmate {
             }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
-
-              outputLog_ = s;
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                outputLog_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              outputLog_.add(s);
               break;
             }
           }
@@ -10205,6 +10324,9 @@ public final class Chefmate {
             new com.google.protobuf.InvalidProtocolBufferException(
                 e.getMessage()).setUnfinishedMessage(this));
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = outputLog_.getUnmodifiableView();
+        }
         makeExtensionsImmutable();
       }
     }
@@ -10221,37 +10343,32 @@ public final class Chefmate {
     }
 
     public static final int OUTPUTLOG_FIELD_NUMBER = 1;
-    private volatile java.lang.Object outputLog_;
+    private com.google.protobuf.LazyStringList outputLog_;
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
      */
-    public java.lang.String getOutputLog() {
-      java.lang.Object ref = outputLog_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        outputLog_ = s;
-        return s;
-      }
+    public com.google.protobuf.ProtocolStringList
+        getOutputLogList() {
+      return outputLog_;
     }
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
+     */
+    public int getOutputLogCount() {
+      return outputLog_.size();
+    }
+    /**
+     * <code>repeated string outputLog = 1;</code>
+     */
+    public java.lang.String getOutputLog(int index) {
+      return outputLog_.get(index);
+    }
+    /**
+     * <code>repeated string outputLog = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getOutputLogBytes() {
-      java.lang.Object ref = outputLog_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        outputLog_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+        getOutputLogBytes(int index) {
+      return outputLog_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -10266,8 +10383,8 @@ public final class Chefmate {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getOutputLogBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 1, outputLog_);
+      for (int i = 0; i < outputLog_.size(); i++) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, outputLog_.getRaw(i));
       }
     }
 
@@ -10276,8 +10393,13 @@ public final class Chefmate {
       if (size != -1) return size;
 
       size = 0;
-      if (!getOutputLogBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, outputLog_);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < outputLog_.size(); i++) {
+          dataSize += computeStringSizeNoTag(outputLog_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getOutputLogList().size();
       }
       memoizedSize = size;
       return size;
@@ -10390,8 +10512,8 @@ public final class Chefmate {
       }
       public Builder clear() {
         super.clear();
-        outputLog_ = "";
-
+        outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -10414,6 +10536,11 @@ public final class Chefmate {
 
       public Chefmate.InitCHEFRepoResponse buildPartial() {
         Chefmate.InitCHEFRepoResponse result = new Chefmate.InitCHEFRepoResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = outputLog_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
         result.outputLog_ = outputLog_;
         onBuilt();
         return result;
@@ -10430,8 +10557,14 @@ public final class Chefmate {
 
       public Builder mergeFrom(Chefmate.InitCHEFRepoResponse other) {
         if (other == Chefmate.InitCHEFRepoResponse.getDefaultInstance()) return this;
-        if (!other.getOutputLog().isEmpty()) {
-          outputLog_ = other.outputLog_;
+        if (!other.outputLog_.isEmpty()) {
+          if (outputLog_.isEmpty()) {
+            outputLog_ = other.outputLog_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureOutputLogIsMutable();
+            outputLog_.addAll(other.outputLog_);
+          }
           onChanged();
         }
         onChanged();
@@ -10459,72 +10592,98 @@ public final class Chefmate {
         }
         return this;
       }
+      private int bitField0_;
 
-      private java.lang.Object outputLog_ = "";
-      /**
-       * <code>optional string outputLog = 1;</code>
-       */
-      public java.lang.String getOutputLog() {
-        java.lang.Object ref = outputLog_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          outputLog_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      private com.google.protobuf.LazyStringList outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureOutputLogIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = new com.google.protobuf.LazyStringArrayList(outputLog_);
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getOutputLogList() {
+        return outputLog_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public int getOutputLogCount() {
+        return outputLog_.size();
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public java.lang.String getOutputLog(int index) {
+        return outputLog_.get(index);
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
        */
       public com.google.protobuf.ByteString
-          getOutputLogBytes() {
-        java.lang.Object ref = outputLog_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          outputLog_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+          getOutputLogBytes(int index) {
+        return outputLog_.getByteString(index);
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
        */
       public Builder setOutputLog(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureOutputLogIsMutable();
+        outputLog_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public Builder addOutputLog(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
-        outputLog_ = value;
+  ensureOutputLogIsMutable();
+        outputLog_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public Builder addAllOutputLog(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureOutputLogIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, outputLog_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
        */
       public Builder clearOutputLog() {
-        
-        outputLog_ = getDefaultInstance().getOutputLog();
+        outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
        */
-      public Builder setOutputLogBytes(
+      public Builder addOutputLogBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        
-        outputLog_ = value;
+        ensureOutputLogIsMutable();
+        outputLog_.add(value);
         onChanged();
         return this;
       }
@@ -10591,14 +10750,23 @@ public final class Chefmate {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
      */
-    java.lang.String getOutputLog();
+    com.google.protobuf.ProtocolStringList
+        getOutputLogList();
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
+     */
+    int getOutputLogCount();
+    /**
+     * <code>repeated string outputLog = 1;</code>
+     */
+    java.lang.String getOutputLog(int index);
+    /**
+     * <code>repeated string outputLog = 1;</code>
      */
     com.google.protobuf.ByteString
-        getOutputLogBytes();
+        getOutputLogBytes(int index);
   }
   /**
    * Protobuf type {@code DeployWPAppResponse}
@@ -10612,7 +10780,7 @@ public final class Chefmate {
       super(builder);
     }
     private DeployWPAppResponse() {
-      outputLog_ = "";
+      outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -10641,8 +10809,11 @@ public final class Chefmate {
             }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
-
-              outputLog_ = s;
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                outputLog_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              outputLog_.add(s);
               break;
             }
           }
@@ -10654,6 +10825,9 @@ public final class Chefmate {
             new com.google.protobuf.InvalidProtocolBufferException(
                 e.getMessage()).setUnfinishedMessage(this));
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = outputLog_.getUnmodifiableView();
+        }
         makeExtensionsImmutable();
       }
     }
@@ -10670,37 +10844,32 @@ public final class Chefmate {
     }
 
     public static final int OUTPUTLOG_FIELD_NUMBER = 1;
-    private volatile java.lang.Object outputLog_;
+    private com.google.protobuf.LazyStringList outputLog_;
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
      */
-    public java.lang.String getOutputLog() {
-      java.lang.Object ref = outputLog_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        outputLog_ = s;
-        return s;
-      }
+    public com.google.protobuf.ProtocolStringList
+        getOutputLogList() {
+      return outputLog_;
     }
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
+     */
+    public int getOutputLogCount() {
+      return outputLog_.size();
+    }
+    /**
+     * <code>repeated string outputLog = 1;</code>
+     */
+    public java.lang.String getOutputLog(int index) {
+      return outputLog_.get(index);
+    }
+    /**
+     * <code>repeated string outputLog = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getOutputLogBytes() {
-      java.lang.Object ref = outputLog_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        outputLog_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+        getOutputLogBytes(int index) {
+      return outputLog_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -10715,8 +10884,8 @@ public final class Chefmate {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getOutputLogBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 1, outputLog_);
+      for (int i = 0; i < outputLog_.size(); i++) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, outputLog_.getRaw(i));
       }
     }
 
@@ -10725,8 +10894,13 @@ public final class Chefmate {
       if (size != -1) return size;
 
       size = 0;
-      if (!getOutputLogBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, outputLog_);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < outputLog_.size(); i++) {
+          dataSize += computeStringSizeNoTag(outputLog_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getOutputLogList().size();
       }
       memoizedSize = size;
       return size;
@@ -10839,8 +11013,8 @@ public final class Chefmate {
       }
       public Builder clear() {
         super.clear();
-        outputLog_ = "";
-
+        outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -10863,6 +11037,11 @@ public final class Chefmate {
 
       public Chefmate.DeployWPAppResponse buildPartial() {
         Chefmate.DeployWPAppResponse result = new Chefmate.DeployWPAppResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = outputLog_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
         result.outputLog_ = outputLog_;
         onBuilt();
         return result;
@@ -10879,8 +11058,14 @@ public final class Chefmate {
 
       public Builder mergeFrom(Chefmate.DeployWPAppResponse other) {
         if (other == Chefmate.DeployWPAppResponse.getDefaultInstance()) return this;
-        if (!other.getOutputLog().isEmpty()) {
-          outputLog_ = other.outputLog_;
+        if (!other.outputLog_.isEmpty()) {
+          if (outputLog_.isEmpty()) {
+            outputLog_ = other.outputLog_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureOutputLogIsMutable();
+            outputLog_.addAll(other.outputLog_);
+          }
           onChanged();
         }
         onChanged();
@@ -10908,72 +11093,98 @@ public final class Chefmate {
         }
         return this;
       }
+      private int bitField0_;
 
-      private java.lang.Object outputLog_ = "";
-      /**
-       * <code>optional string outputLog = 1;</code>
-       */
-      public java.lang.String getOutputLog() {
-        java.lang.Object ref = outputLog_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          outputLog_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      private com.google.protobuf.LazyStringList outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureOutputLogIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = new com.google.protobuf.LazyStringArrayList(outputLog_);
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getOutputLogList() {
+        return outputLog_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public int getOutputLogCount() {
+        return outputLog_.size();
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public java.lang.String getOutputLog(int index) {
+        return outputLog_.get(index);
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
        */
       public com.google.protobuf.ByteString
-          getOutputLogBytes() {
-        java.lang.Object ref = outputLog_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          outputLog_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+          getOutputLogBytes(int index) {
+        return outputLog_.getByteString(index);
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
        */
       public Builder setOutputLog(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureOutputLogIsMutable();
+        outputLog_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public Builder addOutputLog(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
-        outputLog_ = value;
+  ensureOutputLogIsMutable();
+        outputLog_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public Builder addAllOutputLog(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureOutputLogIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, outputLog_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
        */
       public Builder clearOutputLog() {
-        
-        outputLog_ = getDefaultInstance().getOutputLog();
+        outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
        */
-      public Builder setOutputLogBytes(
+      public Builder addOutputLogBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        
-        outputLog_ = value;
+        ensureOutputLogIsMutable();
+        outputLog_.add(value);
         onChanged();
         return this;
       }
@@ -11040,14 +11251,23 @@ public final class Chefmate {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
      */
-    java.lang.String getOutputLog();
+    com.google.protobuf.ProtocolStringList
+        getOutputLogList();
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
+     */
+    int getOutputLogCount();
+    /**
+     * <code>repeated string outputLog = 1;</code>
+     */
+    java.lang.String getOutputLog(int index);
+    /**
+     * <code>repeated string outputLog = 1;</code>
      */
     com.google.protobuf.ByteString
-        getOutputLogBytes();
+        getOutputLogBytes(int index);
   }
   /**
    * Protobuf type {@code DeployDBResponse}
@@ -11061,7 +11281,7 @@ public final class Chefmate {
       super(builder);
     }
     private DeployDBResponse() {
-      outputLog_ = "";
+      outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -11090,8 +11310,11 @@ public final class Chefmate {
             }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
-
-              outputLog_ = s;
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                outputLog_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              outputLog_.add(s);
               break;
             }
           }
@@ -11103,6 +11326,9 @@ public final class Chefmate {
             new com.google.protobuf.InvalidProtocolBufferException(
                 e.getMessage()).setUnfinishedMessage(this));
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = outputLog_.getUnmodifiableView();
+        }
         makeExtensionsImmutable();
       }
     }
@@ -11119,37 +11345,32 @@ public final class Chefmate {
     }
 
     public static final int OUTPUTLOG_FIELD_NUMBER = 1;
-    private volatile java.lang.Object outputLog_;
+    private com.google.protobuf.LazyStringList outputLog_;
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
      */
-    public java.lang.String getOutputLog() {
-      java.lang.Object ref = outputLog_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        outputLog_ = s;
-        return s;
-      }
+    public com.google.protobuf.ProtocolStringList
+        getOutputLogList() {
+      return outputLog_;
     }
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
+     */
+    public int getOutputLogCount() {
+      return outputLog_.size();
+    }
+    /**
+     * <code>repeated string outputLog = 1;</code>
+     */
+    public java.lang.String getOutputLog(int index) {
+      return outputLog_.get(index);
+    }
+    /**
+     * <code>repeated string outputLog = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getOutputLogBytes() {
-      java.lang.Object ref = outputLog_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        outputLog_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+        getOutputLogBytes(int index) {
+      return outputLog_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -11164,8 +11385,8 @@ public final class Chefmate {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getOutputLogBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 1, outputLog_);
+      for (int i = 0; i < outputLog_.size(); i++) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, outputLog_.getRaw(i));
       }
     }
 
@@ -11174,8 +11395,13 @@ public final class Chefmate {
       if (size != -1) return size;
 
       size = 0;
-      if (!getOutputLogBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, outputLog_);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < outputLog_.size(); i++) {
+          dataSize += computeStringSizeNoTag(outputLog_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getOutputLogList().size();
       }
       memoizedSize = size;
       return size;
@@ -11288,8 +11514,8 @@ public final class Chefmate {
       }
       public Builder clear() {
         super.clear();
-        outputLog_ = "";
-
+        outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -11312,6 +11538,11 @@ public final class Chefmate {
 
       public Chefmate.DeployDBResponse buildPartial() {
         Chefmate.DeployDBResponse result = new Chefmate.DeployDBResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = outputLog_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
         result.outputLog_ = outputLog_;
         onBuilt();
         return result;
@@ -11328,8 +11559,14 @@ public final class Chefmate {
 
       public Builder mergeFrom(Chefmate.DeployDBResponse other) {
         if (other == Chefmate.DeployDBResponse.getDefaultInstance()) return this;
-        if (!other.getOutputLog().isEmpty()) {
-          outputLog_ = other.outputLog_;
+        if (!other.outputLog_.isEmpty()) {
+          if (outputLog_.isEmpty()) {
+            outputLog_ = other.outputLog_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureOutputLogIsMutable();
+            outputLog_.addAll(other.outputLog_);
+          }
           onChanged();
         }
         onChanged();
@@ -11357,72 +11594,98 @@ public final class Chefmate {
         }
         return this;
       }
+      private int bitField0_;
 
-      private java.lang.Object outputLog_ = "";
-      /**
-       * <code>optional string outputLog = 1;</code>
-       */
-      public java.lang.String getOutputLog() {
-        java.lang.Object ref = outputLog_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          outputLog_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      private com.google.protobuf.LazyStringList outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureOutputLogIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = new com.google.protobuf.LazyStringArrayList(outputLog_);
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getOutputLogList() {
+        return outputLog_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public int getOutputLogCount() {
+        return outputLog_.size();
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public java.lang.String getOutputLog(int index) {
+        return outputLog_.get(index);
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
        */
       public com.google.protobuf.ByteString
-          getOutputLogBytes() {
-        java.lang.Object ref = outputLog_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          outputLog_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+          getOutputLogBytes(int index) {
+        return outputLog_.getByteString(index);
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
        */
       public Builder setOutputLog(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureOutputLogIsMutable();
+        outputLog_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public Builder addOutputLog(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
-        outputLog_ = value;
+  ensureOutputLogIsMutable();
+        outputLog_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public Builder addAllOutputLog(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureOutputLogIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, outputLog_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
        */
       public Builder clearOutputLog() {
-        
-        outputLog_ = getDefaultInstance().getOutputLog();
+        outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
        */
-      public Builder setOutputLogBytes(
+      public Builder addOutputLogBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        
-        outputLog_ = value;
+        ensureOutputLogIsMutable();
+        outputLog_.add(value);
         onChanged();
         return this;
       }
@@ -11489,14 +11752,23 @@ public final class Chefmate {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
      */
-    java.lang.String getOutputLog();
+    com.google.protobuf.ProtocolStringList
+        getOutputLogList();
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
+     */
+    int getOutputLogCount();
+    /**
+     * <code>repeated string outputLog = 1;</code>
+     */
+    java.lang.String getOutputLog(int index);
+    /**
+     * <code>repeated string outputLog = 1;</code>
      */
     com.google.protobuf.ByteString
-        getOutputLogBytes();
+        getOutputLogBytes(int index);
   }
   /**
    * Protobuf type {@code BackupDBResponse}
@@ -11510,7 +11782,7 @@ public final class Chefmate {
       super(builder);
     }
     private BackupDBResponse() {
-      outputLog_ = "";
+      outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -11539,8 +11811,11 @@ public final class Chefmate {
             }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
-
-              outputLog_ = s;
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                outputLog_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              outputLog_.add(s);
               break;
             }
           }
@@ -11552,6 +11827,9 @@ public final class Chefmate {
             new com.google.protobuf.InvalidProtocolBufferException(
                 e.getMessage()).setUnfinishedMessage(this));
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = outputLog_.getUnmodifiableView();
+        }
         makeExtensionsImmutable();
       }
     }
@@ -11568,37 +11846,32 @@ public final class Chefmate {
     }
 
     public static final int OUTPUTLOG_FIELD_NUMBER = 1;
-    private volatile java.lang.Object outputLog_;
+    private com.google.protobuf.LazyStringList outputLog_;
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
      */
-    public java.lang.String getOutputLog() {
-      java.lang.Object ref = outputLog_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        outputLog_ = s;
-        return s;
-      }
+    public com.google.protobuf.ProtocolStringList
+        getOutputLogList() {
+      return outputLog_;
     }
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
+     */
+    public int getOutputLogCount() {
+      return outputLog_.size();
+    }
+    /**
+     * <code>repeated string outputLog = 1;</code>
+     */
+    public java.lang.String getOutputLog(int index) {
+      return outputLog_.get(index);
+    }
+    /**
+     * <code>repeated string outputLog = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getOutputLogBytes() {
-      java.lang.Object ref = outputLog_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        outputLog_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+        getOutputLogBytes(int index) {
+      return outputLog_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -11613,8 +11886,8 @@ public final class Chefmate {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getOutputLogBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 1, outputLog_);
+      for (int i = 0; i < outputLog_.size(); i++) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, outputLog_.getRaw(i));
       }
     }
 
@@ -11623,8 +11896,13 @@ public final class Chefmate {
       if (size != -1) return size;
 
       size = 0;
-      if (!getOutputLogBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, outputLog_);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < outputLog_.size(); i++) {
+          dataSize += computeStringSizeNoTag(outputLog_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getOutputLogList().size();
       }
       memoizedSize = size;
       return size;
@@ -11737,8 +12015,8 @@ public final class Chefmate {
       }
       public Builder clear() {
         super.clear();
-        outputLog_ = "";
-
+        outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -11761,6 +12039,11 @@ public final class Chefmate {
 
       public Chefmate.BackupDBResponse buildPartial() {
         Chefmate.BackupDBResponse result = new Chefmate.BackupDBResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = outputLog_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
         result.outputLog_ = outputLog_;
         onBuilt();
         return result;
@@ -11777,8 +12060,14 @@ public final class Chefmate {
 
       public Builder mergeFrom(Chefmate.BackupDBResponse other) {
         if (other == Chefmate.BackupDBResponse.getDefaultInstance()) return this;
-        if (!other.getOutputLog().isEmpty()) {
-          outputLog_ = other.outputLog_;
+        if (!other.outputLog_.isEmpty()) {
+          if (outputLog_.isEmpty()) {
+            outputLog_ = other.outputLog_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureOutputLogIsMutable();
+            outputLog_.addAll(other.outputLog_);
+          }
           onChanged();
         }
         onChanged();
@@ -11806,72 +12095,98 @@ public final class Chefmate {
         }
         return this;
       }
+      private int bitField0_;
 
-      private java.lang.Object outputLog_ = "";
-      /**
-       * <code>optional string outputLog = 1;</code>
-       */
-      public java.lang.String getOutputLog() {
-        java.lang.Object ref = outputLog_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          outputLog_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      private com.google.protobuf.LazyStringList outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureOutputLogIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = new com.google.protobuf.LazyStringArrayList(outputLog_);
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getOutputLogList() {
+        return outputLog_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public int getOutputLogCount() {
+        return outputLog_.size();
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public java.lang.String getOutputLog(int index) {
+        return outputLog_.get(index);
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
        */
       public com.google.protobuf.ByteString
-          getOutputLogBytes() {
-        java.lang.Object ref = outputLog_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          outputLog_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+          getOutputLogBytes(int index) {
+        return outputLog_.getByteString(index);
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
        */
       public Builder setOutputLog(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureOutputLogIsMutable();
+        outputLog_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public Builder addOutputLog(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
-        outputLog_ = value;
+  ensureOutputLogIsMutable();
+        outputLog_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public Builder addAllOutputLog(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureOutputLogIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, outputLog_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
        */
       public Builder clearOutputLog() {
-        
-        outputLog_ = getDefaultInstance().getOutputLog();
+        outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
        */
-      public Builder setOutputLogBytes(
+      public Builder addOutputLogBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        
-        outputLog_ = value;
+        ensureOutputLogIsMutable();
+        outputLog_.add(value);
         onChanged();
         return this;
       }
@@ -11938,14 +12253,23 @@ public final class Chefmate {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
      */
-    java.lang.String getOutputLog();
+    com.google.protobuf.ProtocolStringList
+        getOutputLogList();
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
+     */
+    int getOutputLogCount();
+    /**
+     * <code>repeated string outputLog = 1;</code>
+     */
+    java.lang.String getOutputLog(int index);
+    /**
+     * <code>repeated string outputLog = 1;</code>
      */
     com.google.protobuf.ByteString
-        getOutputLogBytes();
+        getOutputLogBytes(int index);
   }
   /**
    * Protobuf type {@code RestoreDBResponse}
@@ -11959,7 +12283,7 @@ public final class Chefmate {
       super(builder);
     }
     private RestoreDBResponse() {
-      outputLog_ = "";
+      outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -11988,8 +12312,11 @@ public final class Chefmate {
             }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
-
-              outputLog_ = s;
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                outputLog_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              outputLog_.add(s);
               break;
             }
           }
@@ -12001,6 +12328,9 @@ public final class Chefmate {
             new com.google.protobuf.InvalidProtocolBufferException(
                 e.getMessage()).setUnfinishedMessage(this));
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = outputLog_.getUnmodifiableView();
+        }
         makeExtensionsImmutable();
       }
     }
@@ -12017,37 +12347,32 @@ public final class Chefmate {
     }
 
     public static final int OUTPUTLOG_FIELD_NUMBER = 1;
-    private volatile java.lang.Object outputLog_;
+    private com.google.protobuf.LazyStringList outputLog_;
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
      */
-    public java.lang.String getOutputLog() {
-      java.lang.Object ref = outputLog_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        outputLog_ = s;
-        return s;
-      }
+    public com.google.protobuf.ProtocolStringList
+        getOutputLogList() {
+      return outputLog_;
     }
     /**
-     * <code>optional string outputLog = 1;</code>
+     * <code>repeated string outputLog = 1;</code>
+     */
+    public int getOutputLogCount() {
+      return outputLog_.size();
+    }
+    /**
+     * <code>repeated string outputLog = 1;</code>
+     */
+    public java.lang.String getOutputLog(int index) {
+      return outputLog_.get(index);
+    }
+    /**
+     * <code>repeated string outputLog = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getOutputLogBytes() {
-      java.lang.Object ref = outputLog_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        outputLog_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+        getOutputLogBytes(int index) {
+      return outputLog_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -12062,8 +12387,8 @@ public final class Chefmate {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getOutputLogBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 1, outputLog_);
+      for (int i = 0; i < outputLog_.size(); i++) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, outputLog_.getRaw(i));
       }
     }
 
@@ -12072,8 +12397,13 @@ public final class Chefmate {
       if (size != -1) return size;
 
       size = 0;
-      if (!getOutputLogBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, outputLog_);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < outputLog_.size(); i++) {
+          dataSize += computeStringSizeNoTag(outputLog_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getOutputLogList().size();
       }
       memoizedSize = size;
       return size;
@@ -12186,8 +12516,8 @@ public final class Chefmate {
       }
       public Builder clear() {
         super.clear();
-        outputLog_ = "";
-
+        outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -12210,6 +12540,11 @@ public final class Chefmate {
 
       public Chefmate.RestoreDBResponse buildPartial() {
         Chefmate.RestoreDBResponse result = new Chefmate.RestoreDBResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = outputLog_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
         result.outputLog_ = outputLog_;
         onBuilt();
         return result;
@@ -12226,8 +12561,14 @@ public final class Chefmate {
 
       public Builder mergeFrom(Chefmate.RestoreDBResponse other) {
         if (other == Chefmate.RestoreDBResponse.getDefaultInstance()) return this;
-        if (!other.getOutputLog().isEmpty()) {
-          outputLog_ = other.outputLog_;
+        if (!other.outputLog_.isEmpty()) {
+          if (outputLog_.isEmpty()) {
+            outputLog_ = other.outputLog_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureOutputLogIsMutable();
+            outputLog_.addAll(other.outputLog_);
+          }
           onChanged();
         }
         onChanged();
@@ -12255,72 +12596,98 @@ public final class Chefmate {
         }
         return this;
       }
+      private int bitField0_;
 
-      private java.lang.Object outputLog_ = "";
-      /**
-       * <code>optional string outputLog = 1;</code>
-       */
-      public java.lang.String getOutputLog() {
-        java.lang.Object ref = outputLog_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          outputLog_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      private com.google.protobuf.LazyStringList outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureOutputLogIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          outputLog_ = new com.google.protobuf.LazyStringArrayList(outputLog_);
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getOutputLogList() {
+        return outputLog_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public int getOutputLogCount() {
+        return outputLog_.size();
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public java.lang.String getOutputLog(int index) {
+        return outputLog_.get(index);
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
        */
       public com.google.protobuf.ByteString
-          getOutputLogBytes() {
-        java.lang.Object ref = outputLog_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          outputLog_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+          getOutputLogBytes(int index) {
+        return outputLog_.getByteString(index);
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
        */
       public Builder setOutputLog(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureOutputLogIsMutable();
+        outputLog_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public Builder addOutputLog(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
-        outputLog_ = value;
+  ensureOutputLogIsMutable();
+        outputLog_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
+       */
+      public Builder addAllOutputLog(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureOutputLogIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, outputLog_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string outputLog = 1;</code>
        */
       public Builder clearOutputLog() {
-        
-        outputLog_ = getDefaultInstance().getOutputLog();
+        outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
-       * <code>optional string outputLog = 1;</code>
+       * <code>repeated string outputLog = 1;</code>
        */
-      public Builder setOutputLogBytes(
+      public Builder addOutputLogBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        
-        outputLog_ = value;
+        ensureOutputLogIsMutable();
+        outputLog_.add(value);
         onChanged();
         return this;
       }
@@ -12501,13 +12868,13 @@ public final class Chefmate {
       "word\030\004 \001(\t\022\016\n\006dbName\030\005 \001(\t\022\026\n\016backupFile" +
       "name\030\006 \001(\t\"\\\n\020CreateVMResponse\022\"\n\ninstan" +
       "ceId\030\001 \001(\0132\016.AWSInstanceId\022\021\n\tpublicDNS\030",
-      "\002 \001(\t\022\021\n\toutputLog\030\003 \001(\t\"&\n\021DestroyVMRes" +
-      "ponse\022\021\n\toutputLog\030\001 \001(\t\")\n\024InitCHEFRepo" +
-      "Response\022\021\n\toutputLog\030\001 \001(\t\"(\n\023DeployWPA" +
-      "ppResponse\022\021\n\toutputLog\030\001 \001(\t\"%\n\020DeployD" +
-      "BResponse\022\021\n\toutputLog\030\001 \001(\t\"%\n\020BackupDB" +
-      "Response\022\021\n\toutputLog\030\001 \001(\t\"&\n\021RestoreDB" +
-      "Response\022\021\n\toutputLog\030\001 \001(\t2\252\001\n\006EC2Ops\022/" +
+      "\002 \001(\t\022\021\n\toutputLog\030\003 \003(\t\"&\n\021DestroyVMRes" +
+      "ponse\022\021\n\toutputLog\030\001 \003(\t\")\n\024InitCHEFRepo" +
+      "Response\022\021\n\toutputLog\030\001 \003(\t\"(\n\023DeployWPA" +
+      "ppResponse\022\021\n\toutputLog\030\001 \003(\t\"%\n\020DeployD" +
+      "BResponse\022\021\n\toutputLog\030\001 \003(\t\"%\n\020BackupDB" +
+      "Response\022\021\n\toutputLog\030\001 \003(\t\"&\n\021RestoreDB" +
+      "Response\022\021\n\toutputLog\030\001 \003(\t2\252\001\n\006EC2Ops\022/" +
       "\n\010createVM\022\020.CreateVMRequest\032\021.CreateVMR" +
       "esponse\0222\n\tdestroyVM\022\021.DestroyVMRequest\032" +
       "\022.DestroyVMResponse\022;\n\014initChefRepo\022\024.In",

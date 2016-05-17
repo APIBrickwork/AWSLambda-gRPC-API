@@ -3,9 +3,10 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
+import io.grpc.StatusRuntimeException;
 import services.Chefmate;
-import services.EC2OpsGrpc;
-import services.WordPressOpsGrpc;
 import services.Chefmate.AWSInstanceId;
 import services.Chefmate.BackupDBRequest;
 import services.Chefmate.BackupDBResponse;
@@ -22,34 +23,34 @@ import services.Chefmate.InitCHEFRepoResponse;
 import services.Chefmate.RestoreDBRequest;
 import services.Chefmate.RestoreDBResponse;
 import services.Chefmate.SSHCredentials;
-import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
-import io.grpc.StatusRuntimeException;
-
-
-
+import services.EC2OpsGrpc;
+import services.EC2OpsGrpc.EC2OpsBlockingStub;
+import services.WordPressOpsGrpc;
+import services.WordPressOpsGrpc.WordPressOpsBlockingStub;
 
 /**
- * The ChefMateClient offering connection to the ChefMateServer and its services.
+ * The ChefMateClient offering connection to the ChefMateServer and its
+ * services.
+ * 
  * @author Tobias Freundorfer
  *
  */
 public class ChefMateClient
-{	
-	
+{
+
 	private static final Logger logger = Logger.getLogger(ChefMateClient.class.getName());
-	
+
 	/**
 	 * Channel for the connection to the server.
 	 */
 	private final ManagedChannel channel;
-	
+
 	/**
 	 * The blocking Stub (response is synchronous).
 	 */
-	private final EC2OpsGrpc.EC2OpsBlockingStub blockingStub;
-	private final WordPressOpsGrpc.WordPressOpsBlockingStub wpBlockingStub;
-	
+	private final EC2OpsBlockingStub blockingStub;
+	private final WordPressOpsBlockingStub wpBlockingStub;
+
 	/**
 	 * Creates a new instance of the ChefMateClient connected to the
 	 * ChefMateServer.
@@ -59,22 +60,22 @@ public class ChefMateClient
 	 * @param port
 	 *            The port of the ChefMateServer.
 	 */
-	public ChefMateClient(String host, int port) 
+	public ChefMateClient(String host, int port)
 	{
 		this.channel = ManagedChannelBuilder.forAddress(host, port).usePlaintext(true).build();
 		this.blockingStub = EC2OpsGrpc.newBlockingStub(this.channel);
 		this.wpBlockingStub = WordPressOpsGrpc.newBlockingStub(this.channel);
-		
+
 	}
-	
+
 	/**
 	 * Sends the createVM request to the ChefMateServer.
 	 */
-	
+
 	public void sendCreateVMRequest(CreateVMRequest createVMRequest)
 	{
 		logger.info("### Sending request for Creating VM.");
-		
+
 		CreateVMResponse createVMResponse = null;
 		try
 		{
@@ -85,19 +86,24 @@ public class ChefMateClient
 			return;
 		}
 		logger.info("### Received response.");
-		System.out.println("\n Created new VM with OutputLog = \n" + createVMResponse.getOutputLog());
+		System.out.println("\n Created new VM with OutputLog = \n");
+		for (int i = 0; i < createVMResponse.getOutputLogList().size(); i++)
+		{
+			System.out.println(createVMResponse.getOutputLog(i));
+		}
+
 		System.out.println("Created new VM with InstanceID = " + createVMResponse.getInstanceId());
 		System.out.println("Created new VM with Public DNS = " + createVMResponse.getPublicDNS());
 	}
-	
+
 	/**
 	 * Sends the destroyVM request to the ChefMateServer.
 	 */
-	
+
 	public void sendDestroyVMRequest(DestroyVMRequest destroyVMRequest)
 	{
 		logger.info("### Sending request for Destroying VM.");
-		
+
 		DestroyVMResponse destroyVMResponse = null;
 		try
 		{
@@ -108,18 +114,23 @@ public class ChefMateClient
 			return;
 		}
 		logger.info("### Received response.");
-		System.out.println("\n Destroyed VM with OutputLog = \n" + destroyVMResponse.getOutputLog());
-		System.out.println("Destoyed VM with InstanceId =" +destroyVMRequest.getInstanceId());
+		System.out.println("\n Destroyed VM with OutputLog = \n");
+		for (int i = 0; i < destroyVMResponse.getOutputLogList().size(); i++)
+		{
+			System.out.println(destroyVMResponse.getOutputLog(i));
+		}
+
+		System.out.println("Destoyed VM with InstanceId =" + destroyVMRequest.getInstanceId());
 	}
-	
+
 	/**
 	 * Sends the initChefRepo request to the ChefMateServer.
 	 */
-	
+
 	public void sendInitChefRepoRequest(InitCHEFRepoRequest initCHEFRepoRequest)
 	{
 		logger.info("### Sending request for InitChefRepo.");
-		
+
 		InitCHEFRepoResponse initCHEFRepoResponse = null;
 		try
 		{
@@ -130,17 +141,21 @@ public class ChefMateClient
 			return;
 		}
 		logger.info("### Received response.");
-		System.out.println("Initialized Chef-Repo with OutputLog =\n" + initCHEFRepoResponse.getOutputLog());
+		System.out.println("Initialized Chef-Repo with OutputLog =\n");
+		for (int i = 0; i < initCHEFRepoResponse.getOutputLogList().size(); i++)
+		{
+			System.out.println(initCHEFRepoResponse.getOutputLog(i));
+		}
 	}
-	
+
 	/**
 	 * Sends the deployWPApp request to the ChefMateServer.
 	 */
-	
+
 	public void sendDeployWPAppRequest(DeployWPAppRequest deployWPAppRequest)
 	{
 		logger.info("### Sending request for Deploying WordPress.");
-		
+
 		DeployWPAppResponse deployWPAppResponse = null;
 		try
 		{
@@ -151,17 +166,21 @@ public class ChefMateClient
 			return;
 		}
 		logger.info("### Received response.");
-		System.out.println("\n Deployed Word Press with OutputLog =\n" + deployWPAppResponse.getOutputLog());
+		System.out.println("\n Deployed Word Press with OutputLog =\n");
+		for (int i = 0; i < deployWPAppResponse.getOutputLogList().size(); i++)
+		{
+			System.out.println(deployWPAppResponse.getOutputLog(i));
+		}
 	}
 
 	/**
 	 * Sends the deployDB request to the ChefMateServer.
 	 */
-	
+
 	public void sendDeployDBRequest(DeployDBRequest deployDBRequest)
 	{
 		logger.info("### Sending request for Deploying Database.");
-		
+
 		DeployDBResponse deployDBResponse = null;
 		try
 		{
@@ -172,17 +191,21 @@ public class ChefMateClient
 			return;
 		}
 		logger.info("### Received response.");
-		System.out.println("\n Deployed Word Press with OutputLog =\n" + deployDBResponse.getOutputLog());
+		System.out.println("\n Deployed Word Press with OutputLog =\n");
+		for (int i = 0; i < deployDBResponse.getOutputLogList().size(); i++)
+		{
+			System.out.println(deployDBResponse.getOutputLog(i));
+		}
 	}
-	
+
 	/**
 	 * Sends the backupDB request to the ChefMateServer.
 	 */
-	
+
 	public void sendBackupDBRequest(BackupDBRequest backupDBRequest)
 	{
 		logger.info("### Sending request for BackupDB.");
-		
+
 		BackupDBResponse backupDBResponse = null;
 		try
 		{
@@ -193,17 +216,21 @@ public class ChefMateClient
 			return;
 		}
 		logger.info("### Received response.");
-		System.out.println("\n Database Backup with OutputLog =\n" + backupDBResponse.getOutputLog());
+		System.out.println("\n Database Backup with OutputLog =\n");
+		for (int i = 0; i < backupDBResponse.getOutputLogList().size(); i++)
+		{
+			System.out.println(backupDBResponse.getOutputLog(i));
+		}
 	}
-	
+
 	/**
 	 * Sends the restoreDB request to the ChefMateServer.
 	 */
-	
+
 	public void sendRestoreDBRequest(RestoreDBRequest restoreDBRequest)
 	{
 		logger.info("### Sending request for RestoreDB.");
-		
+
 		RestoreDBResponse restoreDBResponse = null;
 		try
 		{
@@ -214,9 +241,13 @@ public class ChefMateClient
 			return;
 		}
 		logger.info("### Received response.");
-		System.out.println("\n Database Restore with OutputLog =\n" + restoreDBResponse.getOutputLog());
+		System.out.println("\n Database Restore with OutputLog =\n");
+		for (int i = 0; i < restoreDBResponse.getOutputLogList().size(); i++)
+		{
+			System.out.println(restoreDBResponse.getOutputLog(i));
+		}
 	}
-	
+
 	/**
 	 * Initiates the shutdown sequence.
 	 * 
@@ -227,7 +258,7 @@ public class ChefMateClient
 	{
 		channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
 	}
-	
+
 	public static void main(String[] args)
 	{
 		// Read input args
@@ -305,7 +336,8 @@ public class ChefMateClient
 				String securityGroupIds = scanner.nextLine();
 
 				Chefmate.CreateVMRequest createVMRequest = Chefmate.CreateVMRequest.newBuilder().setName(name)
-						.setTag(tag).setRegion(region).setImageId(imageId).setUsername(userName).setInstanceType(instanceType).addSecurityGroupIds(securityGroupIds).build();
+						.setTag(tag).setRegion(region).setImageId(imageId).setUsername(userName)
+						.setInstanceType(instanceType).addSecurityGroupIds(securityGroupIds).build();
 
 				client.sendCreateVMRequest(createVMRequest);
 
@@ -328,13 +360,14 @@ public class ChefMateClient
 					logger.warning("### Wrong syntax.");
 				} else
 				{
-					
-					DestroyVMRequest destroyVMRequest = DestroyVMRequest.newBuilder().setInstanceId(AWSInstanceId.newBuilder().setId(arr[1])).build();
+
+					DestroyVMRequest destroyVMRequest = DestroyVMRequest.newBuilder()
+							.setInstanceId(AWSInstanceId.newBuilder().setId(arr[1])).build();
 					client.sendDestroyVMRequest(destroyVMRequest);
 				}
-			}else if (command.startsWith("initChefRepo"))
+			} else if (command.startsWith("initChefRepo"))
 			{
-				
+
 				System.out.println("\n Enter User Name : ");
 				String username = scanner.nextLine();
 				System.out.println("\n Enter host: ");
@@ -343,16 +376,18 @@ public class ChefMateClient
 				String keyfilename = scanner.nextLine();
 				System.out.println("\n Enter timeout: ");
 				int timeout = Integer.parseInt(scanner.nextLine());
-				
-				SSHCredentials credentials = SSHCredentials.newBuilder().setUsername(username).setHost(host).setKeyfilename(keyfilename).setTimeout(timeout).build();
-				
-				InitCHEFRepoRequest initCHEFRepoRequest = InitCHEFRepoRequest.newBuilder().setCredentials(credentials).build();
-				
+
+				SSHCredentials credentials = SSHCredentials.newBuilder().setUsername(username).setHost(host)
+						.setKeyfilename(keyfilename).setTimeout(timeout).build();
+
+				InitCHEFRepoRequest initCHEFRepoRequest = InitCHEFRepoRequest.newBuilder().setCredentials(credentials)
+						.build();
+
 				client.sendInitChefRepoRequest(initCHEFRepoRequest);
-				
-			}else if (command.startsWith("deployWPApp"))
+
+			} else if (command.startsWith("deployWPApp"))
 			{
-				
+
 				System.out.println("\n Enter User Name : ");
 				String username = scanner.nextLine();
 				System.out.println("\n Enter host: ");
@@ -361,9 +396,10 @@ public class ChefMateClient
 				String keyfilename = scanner.nextLine();
 				System.out.println("\n Enter timeout: ");
 				int timeout = Integer.parseInt(scanner.nextLine());
-				
-				SSHCredentials credentials = SSHCredentials.newBuilder().setUsername(username).setHost(host).setKeyfilename(keyfilename).setTimeout(timeout).build();
-				
+
+				SSHCredentials credentials = SSHCredentials.newBuilder().setUsername(username).setHost(host)
+						.setKeyfilename(keyfilename).setTimeout(timeout).build();
+
 				System.out.println("\n Enter Server Name : ");
 				String serverName = scanner.nextLine();
 				System.out.println("\n Enter Port: ");
@@ -382,16 +418,17 @@ public class ChefMateClient
 				String dbRootPassword = scanner.nextLine();
 				System.out.println("\n Enter WordePress Config Options: ");
 				String wpConfigOptions = scanner.nextLine();
-				
-				DeployWPAppRequest deployWPAppRequest = DeployWPAppRequest.newBuilder().setCredentials(credentials).setServerName(serverName).setPort(serverPort)
-														.setDbName(dbName).setDbHost(dbHost).setDbPort(dbPort).setDbUserName(dbUserName).setDbUserPassword(dbUserPassword)
-														.setDbRootPassword(dbRootPassword).setWpConfigOptions(wpConfigOptions).build();
-				
+
+				DeployWPAppRequest deployWPAppRequest = DeployWPAppRequest.newBuilder().setCredentials(credentials)
+						.setServerName(serverName).setPort(serverPort).setDbName(dbName).setDbHost(dbHost)
+						.setDbPort(dbPort).setDbUserName(dbUserName).setDbUserPassword(dbUserPassword)
+						.setDbRootPassword(dbRootPassword).setWpConfigOptions(wpConfigOptions).build();
+
 				client.sendDeployWPAppRequest(deployWPAppRequest);
-				
-			}else if (command.startsWith("deployDB"))
+
+			} else if (command.startsWith("deployDB"))
 			{
-				
+
 				System.out.println("\n Enter User Name : ");
 				String username = scanner.nextLine();
 				System.out.println("\n Enter host: ");
@@ -400,9 +437,10 @@ public class ChefMateClient
 				String keyfilename = scanner.nextLine();
 				System.out.println("\n Enter timeout: ");
 				int timeout = Integer.parseInt(scanner.nextLine());
-				
-				SSHCredentials credentials = SSHCredentials.newBuilder().setUsername(username).setHost(host).setKeyfilename(keyfilename).setTimeout(timeout).build();
-				
+
+				SSHCredentials credentials = SSHCredentials.newBuilder().setUsername(username).setHost(host)
+						.setKeyfilename(keyfilename).setTimeout(timeout).build();
+
 				System.out.println("\n Enter MySql Service Name : ");
 				String serviceName = scanner.nextLine();
 				System.out.println("\n Enter Port: ");
@@ -416,14 +454,14 @@ public class ChefMateClient
 				System.out.println("\n Enter Root Password: ");
 				String rootPassword = scanner.nextLine();
 
-				
-				DeployDBRequest deployDBRequest = DeployDBRequest.newBuilder().setCredentials(credentials).setServiceName(serviceName).setPort(mysqlPort)
-												  .setUsername(mysqlUsername).setUserPassword(userPassword).setDbName(dbName).setRootPassword(rootPassword).build();
+				DeployDBRequest deployDBRequest = DeployDBRequest.newBuilder().setCredentials(credentials)
+						.setServiceName(serviceName).setPort(mysqlPort).setUsername(mysqlUsername)
+						.setUserPassword(userPassword).setDbName(dbName).setRootPassword(rootPassword).build();
 				client.sendDeployDBRequest(deployDBRequest);
-				
-			}else if (command.startsWith("backupDB"))
+
+			} else if (command.startsWith("backupDB"))
 			{
-				
+
 				System.out.println("\n Enter User Name : ");
 				String username = scanner.nextLine();
 				System.out.println("\n Enter host: ");
@@ -432,9 +470,10 @@ public class ChefMateClient
 				String keyfilename = scanner.nextLine();
 				System.out.println("\n Enter timeout: ");
 				int timeout = Integer.parseInt(scanner.nextLine());
-				
-				SSHCredentials credentials = SSHCredentials.newBuilder().setUsername(username).setHost(host).setKeyfilename(keyfilename).setTimeout(timeout).build();
-				
+
+				SSHCredentials credentials = SSHCredentials.newBuilder().setUsername(username).setHost(host)
+						.setKeyfilename(keyfilename).setTimeout(timeout).build();
+
 				System.out.println("\n Enter MySql Service Name : ");
 				String serviceName = scanner.nextLine();
 				System.out.println("\n Enter Database User Name : ");
@@ -446,14 +485,14 @@ public class ChefMateClient
 				System.out.println("\n Enter Backup File Name: ");
 				String backupFilename = scanner.nextLine();
 
-				
-				BackupDBRequest backupDBRequest = BackupDBRequest.newBuilder().setCredentials(credentials).setServiceName(serviceName)
-												  .setDbUsername(dbUsername).setDbUserPassword(dbUserPassword).setDbName(dbName).setBackupFilename(backupFilename).build();
+				BackupDBRequest backupDBRequest = BackupDBRequest.newBuilder().setCredentials(credentials)
+						.setServiceName(serviceName).setDbUsername(dbUsername).setDbUserPassword(dbUserPassword)
+						.setDbName(dbName).setBackupFilename(backupFilename).build();
 				client.sendBackupDBRequest(backupDBRequest);
-				
-			}else if (command.startsWith("restoreDB"))
+
+			} else if (command.startsWith("restoreDB"))
 			{
-				
+
 				System.out.println("\n Enter User Name : ");
 				String username = scanner.nextLine();
 				System.out.println("\n Enter host: ");
@@ -462,9 +501,10 @@ public class ChefMateClient
 				String keyfilename = scanner.nextLine();
 				System.out.println("\n Enter timeout: ");
 				int timeout = Integer.parseInt(scanner.nextLine());
-				
-				SSHCredentials credentials = SSHCredentials.newBuilder().setUsername(username).setHost(host).setKeyfilename(keyfilename).setTimeout(timeout).build();
-				
+
+				SSHCredentials credentials = SSHCredentials.newBuilder().setUsername(username).setHost(host)
+						.setKeyfilename(keyfilename).setTimeout(timeout).build();
+
 				System.out.println("\n Enter MySql Service Name : ");
 				String serviceName = scanner.nextLine();
 				System.out.println("\n Enter Database User Name : ");
@@ -476,16 +516,16 @@ public class ChefMateClient
 				System.out.println("\n Enter Backup File Name: ");
 				String backupFilename = scanner.nextLine();
 
-				
-				RestoreDBRequest restoreDBRequest = RestoreDBRequest.newBuilder().setCredentials(credentials).setServiceName(serviceName)
-												  .setDbUsername(dbUsername).setDbUserPassword(dbUserPassword).setDbName(dbName).setBackupFilename(backupFilename).build();
+				RestoreDBRequest restoreDBRequest = RestoreDBRequest.newBuilder().setCredentials(credentials)
+						.setServiceName(serviceName).setDbUsername(dbUsername).setDbUserPassword(dbUserPassword)
+						.setDbName(dbName).setBackupFilename(backupFilename).build();
 				client.sendRestoreDBRequest(restoreDBRequest);
-				
+
 			}
 		}
 		scanner.close();
 	}
-		
+
 	/**
 	 * Shows the command prompt for user commands.
 	 */
@@ -519,5 +559,5 @@ public class ChefMateClient
 		System.out.println("Usage: \n <appname> command argument");
 		System.out.println("-h \t The host address to connect to. \n -p \t The port to connect to.");
 	}
-	
+
 }

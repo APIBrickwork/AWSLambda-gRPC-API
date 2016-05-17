@@ -92,31 +92,31 @@ message RestoreDBRequest{
 message CreateVMResponse{
 	AWSInstanceId instanceId = 1;
 	string publicDNS = 2;
-	string outputLog = 3;
+	repeated string outputLog = 3;
 }
 
 message DestroyVMResponse{
-	string outputLog = 1; 
+	repeated string outputLog = 1; 
 }
 
 message InitCHEFRepoResponse{
-	string outputLog = 1;
+	repeated string outputLog = 1;
 }
 
 message DeployWPAppResponse{
-	string outputLog = 1;
+	repeated string outputLog = 1;
 }
 
 message DeployDBResponse{
-	string outputLog = 1;
+	repeated string outputLog = 1;
 }
 
 message BackupDBResponse{
-	string outputLog = 1;
+	repeated string outputLog = 1;
 }
 
 message RestoreDBResponse{
-	string outputLog = 1;
+	repeated string outputLog = 1;
 }
 
 
