@@ -93,6 +93,9 @@ message ExecuteCookbookRequest{
 	SSHCredentials credentials = 1;
 	string cookbookName = 2;
 	string recipeName = 3;
+	// Will be written in attributes of the cookbook
+	repeated string attributesKeys = 4;
+	repeated string attributesValues = 5;
 }
 
 // ###################

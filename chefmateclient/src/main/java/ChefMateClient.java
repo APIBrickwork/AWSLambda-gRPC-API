@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -545,7 +547,7 @@ public class ChefMateClient
 				String dbName = scanner.nextLine();
 				System.out.println("\n Enter Backup File Name: ");
 				String backupFilename = scanner.nextLine();
-
+				// TODO: Add all stuff and push to git !!!
 				RestoreDBRequest restoreDBRequest = RestoreDBRequest.newBuilder().setCredentials(credentials)
 						.setServiceName(serviceName).setDbUsername(dbUsername).setDbUserPassword(dbUserPassword)
 						.setDbName(dbName).setBackupFilename(backupFilename).build();
@@ -569,6 +571,20 @@ public class ChefMateClient
 				String cookbookName = scanner.nextLine();
 				System.out.println("\n Enter Recipe Name: (default.rb if empty)");
 				String recipeName = scanner.nextLine();
+				System.out.println("\n Enter the amount of attribute configurations\n you want to use:");
+				
+				int attributesQty = Integer.parseInt(scanner.nextLine());
+				List<String> keys = new ArrayList<>();
+				List<String> values = new ArrayList<>();
+
+				for(int i=0;i<attributesQty;i++){
+					System.out.println("\n Enter Attribute Key:");
+					String key = scanner.nextLine();
+					System.out.println("\n Enter Attribute Value:");
+					String value = scanner.nextLine();
+					keys.add(key);
+					values.add(value);
+				}
 
 				ExecuteCookbookRequest execCookbookRequest = ExecuteCookbookRequest.newBuilder()
 						.setCredentials(credentials).setCookbookName(cookbookName).setRecipeName(recipeName).build();
