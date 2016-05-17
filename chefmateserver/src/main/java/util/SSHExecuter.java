@@ -2,6 +2,8 @@ package util;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
 import com.jcraft.jsch.ChannelExec;
@@ -58,37 +60,23 @@ public class SSHExecuter
 		}
 	}
 
-	public String sendToChannel(ChannelType type, String command, int timeout)
+	public List<String> sendToChannel(ChannelType type, String command, int timeout)
 	{
 		// The output (may be reused by the server to send back to client)
-		String outputLog = "";
+		List<String> outputLog = new ArrayList<>();
 
 		String typeString = "";
 		switch (type)
 		{
-		case SHELL:
-			typeString = "shell";
-			break;
 		case EXEC:
 			typeString = "exec";
 			break;
 		default:
-			typeString = "shell";
+			typeString = "exec";
 			break;
 		}
 
-		if (typeString.equals("shell"))
-		{
-			try
-			{
-				ChannelShell channel = (ChannelShell) this.session.openChannel(typeString);
-				// TODO: Implement if necessary
-			} catch (JSchException e)
-			{
-				// TODO: Log
-				e.printStackTrace();
-			}
-		} else if (typeString.equals("exec"))
+		if (typeString.equals("exec"))
 		{
 			try
 			{
@@ -102,8 +90,6 @@ public class SSHExecuter
 
 				InputStream in;
 				
-				StringBuilder sb = new StringBuilder();
-				
 				try
 				{
 					in = exec.getInputStream();
@@ -115,17 +101,20 @@ public class SSHExecuter
 							int i = in.read(tmp, 0, 1024);
 							if (i < 0)
 								break;
-							System.out.print(new String(tmp, 0, i));
-							sb.append(new String(tmp));
+							String s = new String(tmp, 0, i);
+							System.out.print(s);
+							outputLog.add(s);
 						}
 						if (exec.isClosed())
 						{
 							if (in.available() > 0)
 								continue;
-							System.out.println("exit-status: " + exec.getExitStatus());
-							sb.append("exit-status: " + exec.getExitStatus());
+							String exitstatus = "\n exit-status: " + exec.getExitStatus() + "\n";
+							System.out.println(exitstatus);
+							outputLog.add(exitstatus);
 							break;
 						}
+
 						try
 						{
 							Thread.sleep(1000);
@@ -138,7 +127,6 @@ public class SSHExecuter
 					e.printStackTrace();
 				}
 				
-				outputLog = sb.toString();
 				exec.disconnect();
 
 			} catch (JSchException e)

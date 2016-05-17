@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -35,27 +36,25 @@ public class ShellExecuter
 	 *            The commands that should be executed.
 	 * @return The error and standard output of the process executed.
 	 */
-	public static String execute(String processDirectory, List<String> commands)
+	public static List<String> execute(String processDirectory, List<String> commands)
 	{
 
 		ProcessBuilder pb = new ProcessBuilder(commands);
 		pb.directory(new File(processDirectory));
 		pb.redirectErrorStream(true);
-		String output = "";
+		List<String> outputLog = new ArrayList<>();
 		try
 		{
 			Process p = pb.start();
 			
 			BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-			StringBuilder builder = new StringBuilder();
+
 			String line = null;
 			while ((line = reader.readLine()) != null)
 			{
-				builder.append(line);
+				outputLog.add(line);
 				System.out.println(line);
-				builder.append(System.getProperty("line.separator"));
 			}
-			output = builder.toString();
 			
 			int code = p.waitFor();
 			if (code == 0)
@@ -67,12 +66,12 @@ public class ShellExecuter
 				logger.warning("### Process terminated unsuccessfully.");
 			}
 
-			return output;
+			return outputLog;
 
 		} catch (InterruptedException | IOException e)
 		{
-			e.printStackTrace();
-			return "";
+			outputLog.add(e.getMessage());
+			return outputLog;
 		}
 	}
 }

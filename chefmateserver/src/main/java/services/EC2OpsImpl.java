@@ -26,7 +26,8 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 	public void createVM(CreateVMRequest request, StreamObserver<CreateVMResponse> responseObserver)
 	{
 		logger.info("### Received request for createVM with info:\n " + request.toString());
-
+		List<String> outputLog = new ArrayList<>();
+		
 		// Write the according attributes
 		Config config = Config.getInstance(false, false);
 		String filename = config.getChefAttributesDefaultFilename("cb-chefmate");
@@ -43,35 +44,43 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 
 		logger.info(
 				"### Starting provisioning task from directory " + execDir + " using commands: " + provisionCommands);
-		String outputLog = ShellExecuter.execute(execDir, provisionCommands);
+		outputLog.addAll(ShellExecuter.execute(execDir, provisionCommands));
 
-		// Extract instance id from output
+		// Extract instance id and public dns from output
 		String instanceId = "";
-		String[] splitInstanceId = outputLog.split(config.getChefMateInfo_Keyword_InstanceID());
-		if (splitInstanceId.length > 1)
-		{
-
-			String[] splitLine = splitInstanceId[1].split(System.lineSeparator());
-			instanceId = splitLine[0].trim();
-		}
-		
-		// TODO: Delte old known_hosts file??
-
-		// Extract Public DNS
 		String publicDns = "";
-		String[] splitPublicDns = outputLog.split(config.getChefMateInfo_Keyword_PublicDNS());
-		if (splitPublicDns.length > 1)
-		{
+		
+		for(int i=0;i<outputLog.size();i++){
+			// Get instance-id
+			if(outputLog.get(i).startsWith(config.getChefMateInfo_Keyword_InstanceID())){
+				String[] splitInstanceId = outputLog.get(i).split(config.getChefMateInfo_Keyword_InstanceID());
+				if (splitInstanceId.length > 1)
+				{
 
-			String[] splitL = splitPublicDns[1].split(System.lineSeparator());
-			publicDns = splitL[0].trim();
+					String[] splitLine = splitInstanceId[1].split(System.lineSeparator());
+					instanceId = splitLine[0].trim();
+				}
+			}
+			// Get public dns
+			String[] splitPublicDns = outputLog.get(i).split(config.getChefMateInfo_Keyword_PublicDNS());
+			if (splitPublicDns.length > 1)
+			{
+
+				String[] splitL = splitPublicDns[1].split(System.lineSeparator());
+				publicDns = splitL[0].trim();
+			}
 		}
+		// TODO: Delete this output
+		System.out.println("### Found instance id = " + instanceId);
+		System.out.println("### Found public dns = " + publicDns);
+
+		// TODO: Delete old known_hosts file??
 
 		// Use knife to bootstrap the created VM
 		List<String> bootstrapCommands = new ArrayList<>();
 		bootstrapCommands.add("knife");
 		bootstrapCommands.add("bootstrap");
-//		bootstrapCommands.add("--no-host-key-verify");
+		bootstrapCommands.add("--no-host-key-verify");
 //		bootstrapCommands.add("--node-ssl-verify-mode");
 //		bootstrapCommands.add("none");
 		bootstrapCommands.add("-z");
@@ -85,12 +94,13 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 
 		logger.info(
 				"### Starting bootstrapping using from directory " + execDir+ "/.chef" + " using commands: " + bootstrapCommands);
-		String bootStrapOutput = ShellExecuter.execute(execDir + "/.chef", bootstrapCommands);
+		outputLog.addAll(ShellExecuter.execute(execDir + "/.chef", bootstrapCommands));
 		
-		outputLog += bootStrapOutput;
+		
+		
 		CreateVMResponse resp = CreateVMResponse.newBuilder()
 				.setInstanceId(AWSInstanceId.newBuilder().setId(instanceId).build()).setPublicDNS(publicDns)
-				.setOutputLog(outputLog).build();
+				.addAllOutputLog(outputLog).build();
 
 		responseObserver.onNext(resp);
 		responseObserver.onCompleted();
@@ -101,6 +111,7 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 	public void destroyVM(DestroyVMRequest request, StreamObserver<DestroyVMResponse> responseObserver)
 	{
 		logger.info("### Received request for destroyVM with info:\n " + request.toString());
+		List<String> outputLog = new ArrayList<>();
 
 		// Write the according attributes
 		Config config = Config.getInstance(false, false);
@@ -117,11 +128,9 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 		destoryCommands.add("recipe[cb-chefmate::aws_fogDestroy]");
 
 		logger.info("### Starting destorying task from directory " + execDir + " using commands: " + destoryCommands);
-		String outputLog = ShellExecuter.execute(config.getChefRepoPath(), destoryCommands);
+		outputLog.addAll(ShellExecuter.execute(config.getChefRepoPath(), destoryCommands));
 
-		DestroyVMResponse resp = DestroyVMResponse.newBuilder().setOutputLog(outputLog).build();
-
-		logger.info("### Destroying Output: \n" + outputLog);
+		DestroyVMResponse resp = DestroyVMResponse.newBuilder().addAllOutputLog(outputLog).build();
 
 		responseObserver.onNext(resp);
 		responseObserver.onCompleted();
@@ -132,11 +141,9 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 	public void initChefRepo(InitCHEFRepoRequest request, StreamObserver<InitCHEFRepoResponse> responseObserver)
 	{
 		logger.info("### Received request for initChefRepo with info:\n " + request.toString());
+		List<String> outputLog = new ArrayList<>();
 
 		Config config = Config.getInstance(false, false);
-
-		String outputLog = "";
-		StringBuilder sb = new StringBuilder();
 
 		String username = request.getCredentials().getUsername();
 		String host = request.getCredentials().getHost();
@@ -145,24 +152,21 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 		String keyfile = homeDir + "/.ssh/" + request.getCredentials().getKeyfilename();
 		int timeout = request.getCredentials().getTimeout();
 		SSHExecuter ssh = new SSHExecuter();
+		
 		ssh.connectHost(username, host, 22, timeout, keyfile);
 
 		String aptGetUpdateCommand = "sudo apt-get -y update";
 		logger.info("### Starting apt-repository update using commands: " + aptGetUpdateCommand);
-		String aptgetUpdateOutput = ssh.sendToChannel(ChannelType.EXEC, aptGetUpdateCommand, timeout);
+		outputLog.addAll(ssh.sendToChannel(ChannelType.EXEC, aptGetUpdateCommand, timeout));
 		ssh.tearDown();
-
-		logger.info("Apt-get Update Output: \n" + aptgetUpdateOutput);
 
 		String gitInstallCommand = "sudo apt-get -y install git";
 		logger.info("### Installing git using commands: " + gitInstallCommand);
 		ssh = new SSHExecuter();
 		ssh.connectHost(username, host, 22, timeout, keyfile);
 
-		String gitInstallOutput = ssh.sendToChannel(ChannelType.EXEC, gitInstallCommand, timeout);
-		logger.info("Install git Output: \n" + gitInstallOutput);
+		outputLog.addAll(ssh.sendToChannel(ChannelType.EXEC, gitInstallCommand, timeout));
 		ssh.tearDown();
-		sb.append(gitInstallOutput);
 
 		String pullChefRepoCommand = "mkdir git && cd git && git clone -b development " + config.getChefRepoURL();
 
@@ -170,16 +174,10 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 		ssh = new SSHExecuter();
 		ssh.connectHost(username, host, 22, timeout, keyfile);
 
-		String pullChefRepoOutput = ssh.sendToChannel(ChannelType.EXEC, pullChefRepoCommand, timeout);
-		logger.info("Cloning git repo Output: \n" + pullChefRepoOutput);
+		outputLog.addAll(ssh.sendToChannel(ChannelType.EXEC, pullChefRepoCommand, timeout));
 		ssh.tearDown();
-		sb.append(pullChefRepoOutput);
 
-		// TODO: Send response etc.
-		outputLog = sb.toString();
-		System.out.println("Output: \n" + outputLog);
-
-		InitCHEFRepoResponse resp = InitCHEFRepoResponse.newBuilder().setOutputLog(outputLog).build();
+		InitCHEFRepoResponse resp = InitCHEFRepoResponse.newBuilder().addAllOutputLog(outputLog).build();
 
 		responseObserver.onNext(resp);
 		responseObserver.onCompleted();

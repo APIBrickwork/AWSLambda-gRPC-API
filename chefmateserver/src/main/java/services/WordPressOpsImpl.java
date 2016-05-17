@@ -26,14 +26,8 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 	@Override
 	public void deployWPApp(DeployWPAppRequest request, StreamObserver<DeployWPAppResponse> responseObserver)
 	{
-		// TODO Auto-generated method stub
 		logger.info("### Received request for deployWPApp with info:\n " + request.toString());
-
-		// TODO: All the outputs maybe should be delivered to the client using a
-		// stream of strings!!
-
-		String outputLog = "";
-		StringBuilder sb = new StringBuilder();
+		List<String> outputLog = new ArrayList<>();
 
 		String cookbookName = "cb-wordpress";
 		String username = request.getCredentials().getUsername();
@@ -60,24 +54,20 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 
 		logger.info("### Sending default.rb from " + execDir + " using commands: " + scpCommands);
 
-		String scpOutput = ShellExecuter.execute(execDir, scpCommands);
-		sb.append(scpOutput);
+		outputLog.addAll(ShellExecuter.execute(execDir, scpCommands));
 
 		// run chef-solo on node
 		String runChefSoloCommand = "cd ~/git/" + config.getChefRepoName()
-				+ " && sudo chef-solo -c config.rb -o 'recipe[cb-wordpress]'";
+				+ " && sudo chef-solo -c config.rb -o 'recipe[" + cookbookName +"]'";
 
 		logger.info("### Executing chef-solo remotely using commands: " + runChefSoloCommand);
 		SSHExecuter ssh = new SSHExecuter();
 		ssh.connectHost(username, host, 22, timeout, keyfile);
 
-		String chefSoloOutput = ssh.sendToChannel(ChannelType.EXEC, runChefSoloCommand, timeout);
-		logger.info("### Chef-Solo Output: \n" + chefSoloOutput);
+		outputLog.addAll(ssh.sendToChannel(ChannelType.EXEC, runChefSoloCommand, timeout));
 		ssh.tearDown();
-		sb.append(chefSoloOutput);
 
-		outputLog = sb.toString();
-		DeployWPAppResponse resp = DeployWPAppResponse.newBuilder().setOutputLog(outputLog).build();
+		DeployWPAppResponse resp = DeployWPAppResponse.newBuilder().addAllOutputLog(outputLog).build();
 
 		responseObserver.onNext(resp);
 		responseObserver.onCompleted();
@@ -88,8 +78,7 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 	public void deployDB(DeployDBRequest request, StreamObserver<DeployDBResponse> responseObserver)
 	{
 		logger.info("### Received request for deployDB with info:\n " + request.toString());
-		String outputLog = "";
-		StringBuilder sb = new StringBuilder();
+		List<String> outputLog = new ArrayList<>();
 
 		String cookbookName = "cb-mysqlServer";
 
@@ -117,22 +106,19 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 
 		logger.info("### Sending default.rb from " + execDir + " using commands: " + scpCommands);
 
-		String scpOutput = ShellExecuter.execute(execDir, scpCommands);
-		sb.append(scpOutput);
+		outputLog.addAll(ShellExecuter.execute(execDir, scpCommands));
 
 		// run chef-solo on node
 		String runChefSoloCommand = "cd ~/git/" + config.getChefRepoName()
-				+ " && sudo chef-solo -c config.rb -o 'recipe[cb-mysqlServer]'";
+				+ " && sudo chef-solo -c config.rb -o 'recipe[" + cookbookName + "]'";
 
 		logger.info("### Executing chef-solo remotely using commands: " + runChefSoloCommand);
 		SSHExecuter ssh = new SSHExecuter();
 		ssh.connectHost(username, host, 22, timeout, keyfile);
 
-		String chefSoloOutput = ssh.sendToChannel(ChannelType.EXEC, runChefSoloCommand, timeout);
-		logger.info("### Chef-Solo Output: \n" + chefSoloOutput);
+		outputLog.addAll(ssh.sendToChannel(ChannelType.EXEC, runChefSoloCommand, timeout));
 		ssh.tearDown();
 		ssh = null;
-		sb.append(chefSoloOutput);
 
 		/**
 		 * Create DB user and setup database and privileges
@@ -156,20 +142,19 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 
 		SSHExecuter sshDb = new SSHExecuter();
 		sshDb.connectHost(username, host, 22, timeout, keyfile);
-		// ssh = new SSHExecuter();
-		// ssh.connectHost(username, host, 22, timeout, keyfile);
 
 		for (int i = 0; i < sqlCommands.size(); i++)
 		{
 			String command = "mysql -S /run/mysql-" + dbServiceName + "/mysqld.sock -u root -p" + dbRootPw + " -e "
 					+ "\"" + sqlCommands.get(i) + "\"";
-			logger.info("### Executing command:'" + command);
-			sshDb.sendToChannel(ChannelType.EXEC, command, timeout);
+			String commandLog = "### Executing command:" + command;
+			logger.info(commandLog);
+			outputLog.add(commandLog);
+			outputLog.addAll(sshDb.sendToChannel(ChannelType.EXEC, command, timeout));
 		}
 		sshDb.tearDown();
 
-		outputLog = sb.toString();
-		DeployDBResponse resp = DeployDBResponse.newBuilder().setOutputLog(outputLog).build();
+		DeployDBResponse resp = DeployDBResponse.newBuilder().addAllOutputLog(outputLog).build();
 
 		responseObserver.onNext(resp);
 		responseObserver.onCompleted();
@@ -181,6 +166,8 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 	public void backupDB(BackupDBRequest request, StreamObserver<BackupDBResponse> responseObserver)
 	{
 		logger.info("### Received request for backupDB with info:\n " + request.toString());
+		List<String> outputLog = new ArrayList<>();
+		
 		String username = request.getCredentials().getUsername();
 		String host = request.getCredentials().getHost();
 		int timeout = request.getCredentials().getTimeout();
@@ -197,10 +184,12 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 		String backupFilename = request.getBackupFilename();
 
 		String command = "mysqldump --socket=/run/mysql-"+ dbServiceName +"/mysqld.sock --opt -u " + dbUsername + " -p" + dbPassword + " " + dbName + " > " + backupFilename + ".sql";
-		logger.info("### Executing command: " + command);
-		String outputLog = ssh.sendToChannel(ChannelType.EXEC, command, timeout);
+		String commandLog = "### Executing command: " + command;
+		logger.info(commandLog);
+		outputLog.add(commandLog);
+		outputLog.addAll(ssh.sendToChannel(ChannelType.EXEC, command, timeout));
 		
-		BackupDBResponse resp = BackupDBResponse.newBuilder().setOutputLog(outputLog).build();
+		BackupDBResponse resp = BackupDBResponse.newBuilder().addAllOutputLog(outputLog).build();
 		responseObserver.onNext(resp);
 		responseObserver.onCompleted();
 		logger.info("### Sent response.");
@@ -210,6 +199,8 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 	public void restoreDB(RestoreDBRequest request, StreamObserver<RestoreDBResponse> responseObserver)
 	{
 		logger.info("### Received request for restoreDB with info:\n " + request.toString());
+		List<String> outputLog = new ArrayList<>();
+		
 		String username = request.getCredentials().getUsername();
 		String host = request.getCredentials().getHost();
 		int timeout = request.getCredentials().getTimeout();
@@ -226,10 +217,12 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 		String backupFilename = request.getBackupFilename();
 
 		String command = "mysql --socket=/run/mysql-"+ dbServiceName +"/mysqld.sock -u " + dbUsername + " -p" + dbPassword + " " + dbName + " < " + backupFilename + ".sql";
-		logger.info("### Executing command: " + command);
-		String outputLog = ssh.sendToChannel(ChannelType.EXEC, command, timeout);
+		String commandLog = "### Executing command: " + command;
+		logger.info(commandLog);
+		outputLog.add(commandLog);
+		outputLog.addAll(ssh.sendToChannel(ChannelType.EXEC, command, timeout));
 		
-		RestoreDBResponse resp = RestoreDBResponse.newBuilder().setOutputLog(outputLog).build();
+		RestoreDBResponse resp = RestoreDBResponse.newBuilder().addAllOutputLog(outputLog).build();
 		responseObserver.onNext(resp);
 		responseObserver.onCompleted();
 		logger.info("### Sent response.");

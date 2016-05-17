@@ -3,22 +3,10 @@ import java.util.logging.Logger;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
-import services.Chefmate.BackupDBRequest;
-import services.Chefmate.CreateVMRequest;
-import services.Chefmate.DeployDBRequest;
-import services.Chefmate.DeployWPAppRequest;
-import services.Chefmate.InitCHEFRepoRequest;
-import services.Chefmate.RestoreDBRequest;
-import services.Chefmate.SSHCredentials;
 import services.EC2OpsGrpc;
 import services.EC2OpsImpl;
-import services.WordPressOpsImpl;
 import util.Config;
 import util.EnvironmentInitializer;
-import util.SSHExecuter;
-import util.SSHExecuter.ChannelType;
-
-import com.jcraft.jsch.*;
 
 public class ChefMateServer
 {
