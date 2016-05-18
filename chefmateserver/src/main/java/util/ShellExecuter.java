@@ -46,7 +46,7 @@ public class ShellExecuter
 		try
 		{
 			Process p = pb.start();
-			
+
 			BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
 
 			String line = null;
@@ -55,12 +55,12 @@ public class ShellExecuter
 				outputLog.add(line);
 				System.out.println(line);
 			}
-			
+
 			int code = p.waitFor();
 			if (code == 0)
 			{
 				logger.info("### Process terminated successfully with command: " + commands);
-				
+
 			} else
 			{
 				logger.warning("### Process terminated unsuccessfully.");

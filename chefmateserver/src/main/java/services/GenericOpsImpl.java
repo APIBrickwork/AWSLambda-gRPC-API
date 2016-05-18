@@ -14,18 +14,27 @@ import util.SSHExecuter;
 import util.ShellExecuter;
 import util.SSHExecuter.ChannelType;
 
+/**
+ * Service implementation for GenericOps.
+ * 
+ * @author Tobias Freundorfer
+ *
+ */
 public class GenericOpsImpl implements GenericOps
 {
 	private static final Logger logger = Logger.getLogger(WordPressOpsImpl.class.getName());
 
+	/**
+	 * Executes the given cookbook on the VM.
+	 * 
+	 * @param request
+	 *            The request containing necessary information.
+	 * @responseObserver The observer for the response.
+	 */
 	@Override
 	public void executeCookbook(ExecuteCookbookRequest request,
 			StreamObserver<ExecuteCookbookResponse> responseObserver)
 	{
-		// TODO: Untested
-		// TODO: Rebuild proto stuff for client!!
-		// TODO: Push everything (also client stuff) to git
-
 		logger.info("### Received request for executeCookbook with info:\n " + request.toString());
 		List<String> outputLog = new ArrayList<>();
 

@@ -13,17 +13,23 @@ import java.util.logging.Logger;
 public class EnvironmentInitializer
 {
 	private static final Logger logger = Logger.getLogger(EnvironmentInitializer.class.getName());
-	
+
+	/**
+	 * The config for ChefMateServer.
+	 */
 	private Config config = null;
-	
+
 	/**
 	 * Creates the environment initializer.
-	 * @param writeDefaultConfig Whether the default config file should be written or not.
+	 * 
+	 * @param writeDefaultConfig
+	 *            Whether the default config file should be written or not.
 	 */
-	public EnvironmentInitializer(boolean writeDefaultConfig){
+	public EnvironmentInitializer(boolean writeDefaultConfig)
+	{
 		config = Config.getInstance(writeDefaultConfig, true);
 	}
-	
+
 	/**
 	 * Initializes the server environment.
 	 */
@@ -35,7 +41,7 @@ public class EnvironmentInitializer
 	}
 
 	/**
-	 * Fetches the Chef.io git repository.
+	 * Fetches the Chef git repository.
 	 */
 	private void fetchGitRepo()
 	{
@@ -59,15 +65,16 @@ public class EnvironmentInitializer
 	{
 		if (this.config.getAwsSecretAccessKey().isEmpty())
 		{
-			logger.warning(
-					"AWS Secret Key was empty. Be sure to insert it in the config " + Config.CONFIG_FILENAME + " first.");
+			logger.warning("AWS Secret Key was empty. Be sure to insert it in the config " + Config.CONFIG_FILENAME
+					+ " first.");
 		} else
 		{
 			List<String> commands = new ArrayList<>();
 			commands.add(this.config.getChefProvisioningInitScriptPath());
 			commands.add(this.config.getAwsSecretAccessKey());
 
-			logger.info("### Exectuing AWS Chef Provisioning init script at: " + this.config.getChefProvisioningInitScriptPath());
+			logger.info("### Exectuing AWS Chef Provisioning init script at: "
+					+ this.config.getChefProvisioningInitScriptPath());
 			logger.info("### Executing using commands: " + commands);
 
 			ShellExecuter.execute(this.config.getServerEnvDir(), commands);

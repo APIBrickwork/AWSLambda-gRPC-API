@@ -7,11 +7,16 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import com.jcraft.jsch.ChannelExec;
-import com.jcraft.jsch.ChannelShell;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 
+/**
+ * Helper class for SSH execution using the library JSch.
+ * 
+ * @author Tobias Freundorfer
+ *
+ */
 public class SSHExecuter
 {
 	private static final Logger logger = Logger.getLogger(SSHExecuter.class.getName());
@@ -21,21 +26,35 @@ public class SSHExecuter
 	 */
 	private JSch jsch = new JSch();
 
+	/**
+	 * The session.
+	 */
 	private Session session = null;
 
+	/**
+	 * Enumeration of the available channels to use.
+	 */
 	public enum ChannelType
 	{
-		SHELL, EXEC, SCP
+		EXEC
 	};
 
-	public SSHExecuter()
-	{
-
-	}
-
+	/**
+	 * Connects to the given host.
+	 * 
+	 * @param username
+	 *            The username that should be used.
+	 * @param host
+	 *            The host address that should be used.
+	 * @param port
+	 *            The port that should be used.
+	 * @param timeout
+	 *            The timeout that should be used.
+	 * @param privateKeyFile
+	 *            The private key that should be used.
+	 */
 	public void connectHost(String username, String host, int port, int timeout, String privateKeyFile)
 	{
-
 		try
 		{
 			jsch.addIdentity(privateKeyFile);
@@ -60,6 +79,17 @@ public class SSHExecuter
 		}
 	}
 
+	/**
+	 * Sends the given command through the given channel.
+	 * 
+	 * @param type
+	 *            The type of channel that should be used.
+	 * @param command
+	 *            The command that should be transmitted.
+	 * @param timeout
+	 *            The timeout that should be used.
+	 * @return
+	 */
 	public List<String> sendToChannel(ChannelType type, String command, int timeout)
 	{
 		// The output (may be reused by the server to send back to client)
@@ -89,7 +119,7 @@ public class SSHExecuter
 				exec.setErrStream(System.err);
 
 				InputStream in;
-				
+
 				try
 				{
 					in = exec.getInputStream();
@@ -126,7 +156,7 @@ public class SSHExecuter
 				{
 					e.printStackTrace();
 				}
-				
+
 				exec.disconnect();
 
 			} catch (JSchException e)
@@ -134,13 +164,16 @@ public class SSHExecuter
 				e.printStackTrace();
 			}
 
-		}
-		else if(typeString.equals("scp")){
-			
+		} else if (typeString.equals("scp"))
+		{
+
 		}
 		return outputLog;
 	}
 
+	/**
+	 * Tears the ressources down.
+	 */
 	public void tearDown()
 	{
 		this.session.disconnect();

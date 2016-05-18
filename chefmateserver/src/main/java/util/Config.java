@@ -12,7 +12,8 @@ import java.util.Properties;
 import java.util.logging.Logger;
 
 /**
- * Singleton class representing the configuration file for ChefMate.
+ * Singleton class representing the configuration file for ChefMateServer.
+ * 
  * @author Tobias Freundorfer
  *
  */
@@ -24,13 +25,15 @@ public class Config
 	 * The singleton instance.
 	 */
 	private static Config instance;
-	
+
 	/**
 	 * The name of the configuration file.
 	 */
 	public static final String CONFIG_FILENAME = "chefmate.conf";
-	
-	/* Section of property keys */
+
+	/**
+	 * Section of property keys.
+	 */
 	public static final String PROPKEY_CHEF_REPO_NAME = "chef_repo_name";
 	public static final String PROPKEY_CHEF_REPO_URL = "chef_repo_url";
 	public static final String PROPKEY_AWS_ACCESS_KEY = "aws_access_key";
@@ -38,8 +41,6 @@ public class Config
 	public static final String PROPKEY_AWS_SSH_KEY_NAME = "aws_ssh_key_name";
 	public static final String PROPKEY_CHEFMATEINFO_FROM_CHEF_KEYWORD_PUBLICDNS = "chefmate_from_chef_keyword_publicdns";
 	public static final String PROPKEY_CHEFMATEINFO_FROM_CHEF_KEYWORD_INSTANCEID = "chefmate_from_chef_keyword_instanceid";
-	
-	/* end */
 
 	/**
 	 * The home directory of the user executing this.
@@ -70,57 +71,68 @@ public class Config
 	 * The access key for AWS.
 	 */
 	private String awsAccessKey = "";
-	
+
 	/**
 	 * The secret access key for AWS. Has to be set manually in the config file
 	 * for security reasons!!
 	 */
 	private String awsSecretAccessKey = "";
-	
+
 	/**
 	 * The name of the ssh key used.
 	 */
 	private String awsSSHKeyName = "";
-	
+
 	/**
 	 * The keyword for public DNS information received from Chef.
 	 */
 	private String chefMateInfo_Keyword_PublicDNS = "";
-	
+
 	/**
 	 * The keyword for instance id information received from Chef.
 	 */
 	private String chefMateInfo_Keyword_InstanceID = "";
-	
+
 	/**
 	 * Private constructor.
-	 * @param writeDefault Whether the default config file should be written or not.
-	 * @param reload Whether the config file should be reloaded or not.
+	 * 
+	 * @param writeDefault
+	 *            Whether the default config file should be written or not.
+	 * @param reload
+	 *            Whether the config file should be reloaded or not.
 	 */
-	private Config(boolean writeDefault, boolean reload){
+	private Config(boolean writeDefault, boolean reload)
+	{
 		this.homeDir = System.getProperty("user.home") + "/";
 		this.serverEnvDir = this.homeDir + "chefmateserver/";
-		if(writeDefault){
+		if (writeDefault)
+		{
 			this.writeDefaultConfigFile();
 		}
-		if(reload){
+		if (reload)
+		{
 			this.readConfig();
 		}
 	}
-	
+
 	/**
 	 * Returns the singleton instance.
-	 * @param writeDefault Whether the default config file should be written or not.
-	 * @param reload Whether the config file should be reloaded or not.
+	 * 
+	 * @param writeDefault
+	 *            Whether the default config file should be written or not.
+	 * @param reload
+	 *            Whether the config file should be reloaded or not.
 	 * @return The singleton instance.
 	 */
-	public static synchronized Config getInstance(boolean writeDefault, boolean reload){
-		if(Config.instance == null){
+	public static synchronized Config getInstance(boolean writeDefault, boolean reload)
+	{
+		if (Config.instance == null)
+		{
 			Config.instance = new Config(writeDefault, reload);
 		}
 		return Config.instance;
 	}
-	
+
 	/**
 	 * Writes the default configuration properties to the config file.
 	 */
@@ -140,7 +152,7 @@ public class Config
 			properties.setProperty(PROPKEY_AWS_SSH_KEY_NAME, "chefmateserver_key");
 			properties.setProperty(PROPKEY_CHEFMATEINFO_FROM_CHEF_KEYWORD_PUBLICDNS, "CHEFMATEINFO::PublicDNS=");
 			properties.setProperty(PROPKEY_CHEFMATEINFO_FROM_CHEF_KEYWORD_INSTANCEID, "CHEFMATEINFO::InstanceID=");
-			
+
 			BufferedOutputStream stream = new BufferedOutputStream(
 					new FileOutputStream(this.serverEnvDir + CONFIG_FILENAME));
 			properties.store(stream, "---Environment Initializer Config file---");
@@ -151,7 +163,7 @@ public class Config
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Reads the properties from the config file.
 	 */
@@ -171,22 +183,21 @@ public class Config
 			this.awsAccessKey = properties.getProperty(PROPKEY_AWS_ACCESS_KEY);
 			this.awsSecretAccessKey = properties.getProperty(PROPKEY_AWS_SECRET_ACCESS_KEY);
 			this.awsSSHKeyName = properties.getProperty(PROPKEY_AWS_SSH_KEY_NAME);
-			this.chefMateInfo_Keyword_InstanceID = properties.getProperty(PROPKEY_CHEFMATEINFO_FROM_CHEF_KEYWORD_INSTANCEID);
-			this.chefMateInfo_Keyword_PublicDNS = properties.getProperty(PROPKEY_CHEFMATEINFO_FROM_CHEF_KEYWORD_PUBLICDNS);
-			
-			
+			this.chefMateInfo_Keyword_InstanceID = properties
+					.getProperty(PROPKEY_CHEFMATEINFO_FROM_CHEF_KEYWORD_INSTANCEID);
+			this.chefMateInfo_Keyword_PublicDNS = properties
+					.getProperty(PROPKEY_CHEFMATEINFO_FROM_CHEF_KEYWORD_PUBLICDNS);
+
 			this.chefProvisioningInitScriptPath = this.serverEnvDir + this.chefRepoName
 					+ "/initScripts/chefMateServerChefProvisioningSetup.sh";
-			
-			
-			
+
 			stream.close();
 		} catch (IOException e)
 		{
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Creates the server environment directory.
 	 */
@@ -204,6 +215,10 @@ public class Config
 
 		ShellExecuter.execute(this.getHomeDir(), commands);
 	}
+
+	/**
+	 * Section for getters.
+	 */
 
 	public String getHomeDir()
 	{
@@ -225,26 +240,31 @@ public class Config
 		return chefRepoName;
 	}
 
-	public String getChefRepoPath(){
+	public String getChefRepoPath()
+	{
 		return this.serverEnvDir + this.chefRepoName;
 	}
-	
-	public String getChefCookbooksPath(){
+
+	public String getChefCookbooksPath()
+	{
 		return this.getChefRepoPath() + "/cookbooks";
 	}
-	
-	public String getChefAttributesPath(String cookbookname){
-		return this.getChefCookbooksPath() + "/" + cookbookname +"/attributes";
+
+	public String getChefAttributesPath(String cookbookname)
+	{
+		return this.getChefCookbooksPath() + "/" + cookbookname + "/attributes";
 	}
-	
-	public String getChefAttributesDefaultFilename(String cookbookname){
+
+	public String getChefAttributesDefaultFilename(String cookbookname)
+	{
 		return this.getChefAttributesPath(cookbookname) + "/default.rb";
 	}
-	
-	public String getChefSSHKeyPath(){
+
+	public String getChefSSHKeyPath()
+	{
 		return this.getServerEnvDir() + ".ssh/";
 	}
-	
+
 	public String getChefProvisioningInitScriptPath()
 	{
 		return chefProvisioningInitScriptPath;

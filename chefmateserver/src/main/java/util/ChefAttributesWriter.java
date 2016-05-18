@@ -12,16 +12,30 @@ import services.Chefmate.DeployWPAppRequest;
 import services.Chefmate.DestroyVMRequest;
 import services.Chefmate.ExecuteCookbookRequest;
 
+/**
+ * Helper class that is able to write Chef.io attributes files for given
+ * requests.
+ * 
+ * @author Tobias Freundorfer
+ *
+ */
 public class ChefAttributesWriter
 {
-
+	/**
+	 * Chef.io attribute priorities.
+	 */
 	private static final String DEFAULT_PRIORITY = "default";
-	private static final String NORMAL_PRIORITY = "normal";
 	private static final String OVERRIDE_PRIORITY = "override";
 
+	/**
+	 * AWS credentials attribute keys.
+	 */
 	private static final String CHEFMATE_AWS_CREDENTIALS_ACCESS_KEY = "['chefmate']['aws']['credentials']['accesskey'] = ";
 	private static final String CHEFMATE_AWS_CREDENTIALS_SECRET_KEY = "['chefmate']['aws']['credentials']['secretkey'] = ";
 
+	/**
+	 * AWS machine attribute keys.
+	 */
 	private static final String CHEFMATE_MACHINE_NAME = "['chefmate']['machine']['name'] = ";
 	private static final String CHEFMATE_MACHINE_TAG = "['chefmate']['machine']['tag'] = ";
 	private static final String CHEFMATE_MACHINE_REGION = "['chefmate']['machine']['region'] = ";
@@ -32,10 +46,16 @@ public class ChefAttributesWriter
 
 	private static final String CHEFMATE_MACHINE_DESTROY_INSTANCEID = "['chefmate']['machine']['delete']['instanceid'] = ";
 
+	/**
+	 * MySQL attribute keys.
+	 */
 	private static final String CHEFMATE_MACHINE_MYSQL_SERVICENAME = "['chefmate']['machine']['mysql']['servicename'] = ";
 	private static final String CHEFMATE_MACHINE_MYSQL_PORT = "['chefmate']['machine']['mysql']['port'] = ";
 	private static final String CHEFMATE_MACHINE_MYSQL_ROOTPW = "['chefmate']['machine']['mysql']['rootpw'] = ";
 
+	/**
+	 * WordPress attribute keys.
+	 */
 	private static final String CHEFMATE_MACHINE_WORDPRESS_SERVERNAME = "['wordpress']['server_name'] = ";
 	private static final String CHEFMATE_MACHINE_WORDPRESS_PORT = "['wordpress']['server_port'] = ";
 	private static final String CHEFMATE_MACHINE_WORDPRESS_DB_NAME = "['wordpress']['db']['name'] = ";
@@ -47,7 +67,7 @@ public class ChefAttributesWriter
 	private static final String CHEFMATE_MACHINE_WORDPRESS_CONFIG_OPTIONS = "['wordpress']['wp_config_options'] = ";
 
 	/**
-	 * Prevents from instance creation.
+	 * Prevents from instantiation.
 	 */
 	private ChefAttributesWriter()
 	{
@@ -353,7 +373,6 @@ public class ChefAttributesWriter
 	 */
 	public static void writeAttributesFile(String filename, ExecuteCookbookRequest genericExecuteCookbook)
 	{
-		// TODO: Evaluate
 		BufferedWriter writer = null;
 
 		try

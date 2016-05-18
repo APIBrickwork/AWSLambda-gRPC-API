@@ -18,16 +18,29 @@ import util.SSHExecuter;
 import util.SSHExecuter.ChannelType;
 import util.ShellExecuter;
 
+/**
+ * Service implementation for EC2Ops.
+ * 
+ * @author Tobias Freundorfer
+ *
+ */
 public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 {
 	private static final Logger logger = Logger.getLogger(EC2OpsImpl.class.getName());
 
+	/**
+	 * Creates a VM on AWS.
+	 * 
+	 * @param request
+	 *            The request containing necessary information.
+	 * @responseObserver The observer for the response.
+	 */
 	@Override
 	public void createVM(CreateVMRequest request, StreamObserver<CreateVMResponse> responseObserver)
 	{
 		logger.info("### Received request for createVM with info:\n " + request.toString());
 		List<String> outputLog = new ArrayList<>();
-		
+
 		// Write the according attributes
 		Config config = Config.getInstance(false, false);
 		String filename = config.getChefAttributesDefaultFilename("cb-chefmate");
@@ -49,10 +62,12 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 		// Extract instance id and public dns from output
 		String instanceId = "";
 		String publicDns = "";
-		
-		for(int i=0;i<outputLog.size();i++){
+
+		for (int i = 0; i < outputLog.size(); i++)
+		{
 			// Get instance-id
-			if(outputLog.get(i).startsWith(config.getChefMateInfo_Keyword_InstanceID())){
+			if (outputLog.get(i).startsWith(config.getChefMateInfo_Keyword_InstanceID()))
+			{
 				String[] splitInstanceId = outputLog.get(i).split(config.getChefMateInfo_Keyword_InstanceID());
 				if (splitInstanceId.length > 1)
 				{
@@ -70,14 +85,12 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 				publicDns = splitL[0].trim();
 			}
 		}
-		
+
 		// Use knife to bootstrap the created VM
 		List<String> bootstrapCommands = new ArrayList<>();
 		bootstrapCommands.add("knife");
 		bootstrapCommands.add("bootstrap");
 		bootstrapCommands.add("--no-host-key-verify");
-//		bootstrapCommands.add("--node-ssl-verify-mode");
-//		bootstrapCommands.add("none");
 		bootstrapCommands.add("-z");
 		bootstrapCommands.add(publicDns);
 		bootstrapCommands.add("-i");
@@ -87,12 +100,10 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 		bootstrapCommands.add("-x");
 		bootstrapCommands.add(request.getUsername());
 
-		logger.info(
-				"### Starting bootstrapping using from directory " + execDir+ "/.chef" + " using commands: " + bootstrapCommands);
+		logger.info("### Starting bootstrapping using from directory " + execDir + "/.chef" + " using commands: "
+				+ bootstrapCommands);
 		outputLog.addAll(ShellExecuter.execute(execDir + "/.chef", bootstrapCommands));
-		
-		
-		
+
 		CreateVMResponse resp = CreateVMResponse.newBuilder()
 				.setInstanceId(AWSInstanceId.newBuilder().setId(instanceId).build()).setPublicDNS(publicDns)
 				.addAllOutputLog(outputLog).build();
@@ -102,6 +113,13 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 		logger.info("### Sent response.");
 	}
 
+	/**
+	 * Destorys a VM on AWS.
+	 * 
+	 * @param request
+	 *            The request containing necessary information.
+	 * @responseObserver The observer for the response.
+	 */
 	@Override
 	public void destroyVM(DestroyVMRequest request, StreamObserver<DestroyVMResponse> responseObserver)
 	{
@@ -132,6 +150,13 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 		logger.info("### Sent response.");
 	}
 
+	/**
+	 * Initializes the Chef Repository on the VM.
+	 * 
+	 * @param request
+	 *            The request containing necessary information.
+	 * @responseObserver The observer for the response.
+	 */
 	@Override
 	public void initChefRepo(InitCHEFRepoRequest request, StreamObserver<InitCHEFRepoResponse> responseObserver)
 	{
@@ -147,7 +172,7 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 		String keyfile = homeDir + "/.ssh/" + request.getCredentials().getKeyfilename();
 		int timeout = request.getCredentials().getTimeout();
 		SSHExecuter ssh = new SSHExecuter();
-		
+
 		ssh.connectHost(username, host, 22, timeout, keyfile);
 
 		String aptGetUpdateCommand = "sudo apt-get -y update";

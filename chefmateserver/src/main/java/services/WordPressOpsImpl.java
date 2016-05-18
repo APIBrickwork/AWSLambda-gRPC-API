@@ -19,10 +19,23 @@ import util.SSHExecuter;
 import util.ShellExecuter;
 import util.SSHExecuter.ChannelType;
 
+/**
+ * Service implementation for WordPressOps.
+ * 
+ * @author Tobias Freundorfer
+ *
+ */
 public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 {
 	private static final Logger logger = Logger.getLogger(WordPressOpsImpl.class.getName());
 
+	/**
+	 * Deploys WordPress on the VM.
+	 * 
+	 * @param request
+	 *            The request containing necessary information.
+	 * @responseObserver The observer for the response.
+	 */
 	@Override
 	public void deployWPApp(DeployWPAppRequest request, StreamObserver<DeployWPAppResponse> responseObserver)
 	{
@@ -58,7 +71,7 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 
 		// run chef-solo on node
 		String runChefSoloCommand = "cd ~/git/" + config.getChefRepoName()
-				+ " && sudo chef-solo -c config.rb -o 'recipe[" + cookbookName +"]'";
+				+ " && sudo chef-solo -c config.rb -o 'recipe[" + cookbookName + "]'";
 
 		logger.info("### Executing chef-solo remotely using commands: " + runChefSoloCommand);
 		SSHExecuter ssh = new SSHExecuter();
@@ -74,6 +87,13 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 		logger.info("### Sent Response.");
 	}
 
+	/**
+	 * Deploys a MySQL database on the VM.
+	 * 
+	 * @param request
+	 *            The request containing necessary information.
+	 * @responseObserver The observer for the response.
+	 */
 	@Override
 	public void deployDB(DeployDBRequest request, StreamObserver<DeployDBResponse> responseObserver)
 	{
@@ -162,12 +182,19 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 
 	}
 
+	/**
+	 * Creates a Backup of the specified MySQL database on the VM.
+	 * 
+	 * @param request
+	 *            The request containing necessary information.
+	 * @responseObserver The observer for the response.
+	 */
 	@Override
 	public void backupDB(BackupDBRequest request, StreamObserver<BackupDBResponse> responseObserver)
 	{
 		logger.info("### Received request for backupDB with info:\n " + request.toString());
 		List<String> outputLog = new ArrayList<>();
-		
+
 		String username = request.getCredentials().getUsername();
 		String host = request.getCredentials().getHost();
 		int timeout = request.getCredentials().getTimeout();
@@ -183,24 +210,32 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 		String dbName = request.getDbName();
 		String backupFilename = request.getBackupFilename();
 
-		String command = "mysqldump --socket=/run/mysql-"+ dbServiceName +"/mysqld.sock --opt -u " + dbUsername + " -p" + dbPassword + " " + dbName + " > " + backupFilename + ".sql";
+		String command = "mysqldump --socket=/run/mysql-" + dbServiceName + "/mysqld.sock --opt -u " + dbUsername
+				+ " -p" + dbPassword + " " + dbName + " > " + backupFilename + ".sql";
 		String commandLog = "### Executing command: " + command;
 		logger.info(commandLog);
 		outputLog.add(commandLog);
 		outputLog.addAll(ssh.sendToChannel(ChannelType.EXEC, command, timeout));
-		
+
 		BackupDBResponse resp = BackupDBResponse.newBuilder().addAllOutputLog(outputLog).build();
 		responseObserver.onNext(resp);
 		responseObserver.onCompleted();
 		logger.info("### Sent response.");
 	}
 
+	/**
+	 * Restores a previously created backup of a MySQL database on the VM.
+	 * 
+	 * @param request
+	 *            The request containing necessary information.
+	 * @responseObserver The observer for the response.
+	 */
 	@Override
 	public void restoreDB(RestoreDBRequest request, StreamObserver<RestoreDBResponse> responseObserver)
 	{
 		logger.info("### Received request for restoreDB with info:\n " + request.toString());
 		List<String> outputLog = new ArrayList<>();
-		
+
 		String username = request.getCredentials().getUsername();
 		String host = request.getCredentials().getHost();
 		int timeout = request.getCredentials().getTimeout();
@@ -216,12 +251,13 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 		String dbName = request.getDbName();
 		String backupFilename = request.getBackupFilename();
 
-		String command = "mysql --socket=/run/mysql-"+ dbServiceName +"/mysqld.sock -u " + dbUsername + " -p" + dbPassword + " " + dbName + " < " + backupFilename + ".sql";
+		String command = "mysql --socket=/run/mysql-" + dbServiceName + "/mysqld.sock -u " + dbUsername + " -p"
+				+ dbPassword + " " + dbName + " < " + backupFilename + ".sql";
 		String commandLog = "### Executing command: " + command;
 		logger.info(commandLog);
 		outputLog.add(commandLog);
 		outputLog.addAll(ssh.sendToChannel(ChannelType.EXEC, command, timeout));
-		
+
 		RestoreDBResponse resp = RestoreDBResponse.newBuilder().addAllOutputLog(outputLog).build();
 		responseObserver.onNext(resp);
 		responseObserver.onCompleted();

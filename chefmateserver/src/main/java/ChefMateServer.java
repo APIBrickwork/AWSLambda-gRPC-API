@@ -1,10 +1,5 @@
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.logging.Logger;
-
-import com.google.protobuf.compiler.PluginProtos.CodeGeneratorResponse.File;
-
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import services.EC2OpsGrpc;
@@ -16,6 +11,13 @@ import services.WordPressOpsImpl;
 import util.Config;
 import util.EnvironmentInitializer;
 
+/**
+ * The ChefMateServer offering services for Chef.io and hosting on Amazon
+ * WebServices (AWS).
+ * 
+ * @author Tobias Freundorfer
+ *
+ */
 public class ChefMateServer
 {
 
@@ -83,6 +85,12 @@ public class ChefMateServer
 		}
 	}
 
+	/**
+	 * Main method.
+	 * 
+	 * @param args
+	 *            Input arguments.
+	 */
 	public static void main(String[] args)
 	{
 		int port = -1;
