@@ -8,7 +8,9 @@ Holds the submission for Assignment 1
 The java (+maven) client implementation for Assignment 2 - Task 2.3 & 2.5
 
 ## chefmateserver
-The java (+maven) server implementation for Assignment 2 - Task 2.3 & 2.5
+The java (+maven) server implementation for Assignment 2 - Task 2.3 & 2.5.
+
+See the architectural documentation [here](https://github.com/tfreundo/LabCourse-group4-SS2016/wiki/ChefMateServer-Architecture)
 
 ## webshopclient
 The java (+maven) client implementation for Assignment 2 - Task 2.1 & 2.2.
