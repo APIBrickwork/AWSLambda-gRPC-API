@@ -7,8 +7,8 @@ MAINTAINER Tobias Freundorfer, https://github.com/tfreundo
 #################################
 ## INSERT AWS CREDENTIALS HERE ##
 #################################
-ENV awsAccessKey 'AKIAIJRM4MK36G27VPCQ'
-ENV awsSecretAccessKey 'DCUS8ZkIzRq26Y9zPwIbmAC18maenfwGJHX\/4VXB'
+ENV awsAccessKey 'ENTER KEY'
+ENV awsSecretAccessKey 'ENTER KEY'
 
 # Install java 8 and git
 RUN apt-get update && \
@@ -68,11 +68,6 @@ RUN sed -i "s/^aws_secret_access_key=.*$/aws_secret_access_key=${awsSecretAccess
 
 # Initialize
 RUN java -jar chefmateserver-1.0.jar -i
-
-# TODO: Delete after testing
-#RUN ls -a
-#WORKDIR /home/chefmate/chefmateserver/LabCourse-group4-SS2016-CHEFrepo/cookbooks
-#RUN ls -a
 
 
 # Start server
