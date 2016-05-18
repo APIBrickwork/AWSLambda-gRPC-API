@@ -1,13 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
-import services.Chefmate.ExecuteCookbookResponse;
-import services.Chefmate.ExecuteCookbookRequest;
-import services.GenericOpsGrpc.GenericOpsBlockingStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
@@ -23,6 +19,8 @@ import services.Chefmate.DeployWPAppRequest;
 import services.Chefmate.DeployWPAppResponse;
 import services.Chefmate.DestroyVMRequest;
 import services.Chefmate.DestroyVMResponse;
+import services.Chefmate.ExecuteCookbookRequest;
+import services.Chefmate.ExecuteCookbookResponse;
 import services.Chefmate.InitCHEFRepoRequest;
 import services.Chefmate.InitCHEFRepoResponse;
 import services.Chefmate.RestoreDBRequest;
@@ -31,6 +29,7 @@ import services.Chefmate.SSHCredentials;
 import services.EC2OpsGrpc;
 import services.EC2OpsGrpc.EC2OpsBlockingStub;
 import services.GenericOpsGrpc;
+import services.GenericOpsGrpc.GenericOpsBlockingStub;
 import services.WordPressOpsGrpc;
 import services.WordPressOpsGrpc.WordPressOpsBlockingStub;
 
@@ -351,7 +350,6 @@ public class ChefMateClient
 
 			if (command.equals("createVM"))
 			{
-				String requestId = UUID.randomUUID().toString();
 				System.out.println("\n Enter Instance Name: ");
 				String name = scanner.nextLine();
 				System.out.println("\n Enter Instance Tag: ");
@@ -547,7 +545,7 @@ public class ChefMateClient
 				String dbName = scanner.nextLine();
 				System.out.println("\n Enter Backup File Name: ");
 				String backupFilename = scanner.nextLine();
-				// TODO: Add all stuff and push to git !!!
+
 				RestoreDBRequest restoreDBRequest = RestoreDBRequest.newBuilder().setCredentials(credentials)
 						.setServiceName(serviceName).setDbUsername(dbUsername).setDbUserPassword(dbUserPassword)
 						.setDbName(dbName).setBackupFilename(backupFilename).build();
@@ -572,12 +570,13 @@ public class ChefMateClient
 				System.out.println("\n Enter Recipe Name: (default.rb if empty)");
 				String recipeName = scanner.nextLine();
 				System.out.println("\n Enter the amount of attribute configurations\n you want to use:");
-				
+
 				int attributesQty = Integer.parseInt(scanner.nextLine());
 				List<String> keys = new ArrayList<>();
 				List<String> values = new ArrayList<>();
 
-				for(int i=0;i<attributesQty;i++){
+				for (int i = 0; i < attributesQty; i++)
+				{
 					System.out.println("\n Enter Attribute Key:");
 					String key = scanner.nextLine();
 					System.out.println("\n Enter Attribute Value:");
