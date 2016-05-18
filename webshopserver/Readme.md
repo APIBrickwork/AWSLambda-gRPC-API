@@ -6,3 +6,8 @@ Default port: 50505
 
 ## Maven build goal
 `assembly:single`
+
+## Release candidate
+
+* [According Commit](https://github.com/tfreundo/LabCourse-group4-SS2016/tree/webshop_v1.1)
+* [Release Page](https://github.com/tfreundo/LabCourse-group4-SS2016/releases)
