@@ -20,3 +20,19 @@ This is the ChefMateServer offering Chef-Functionality through gRPC calls.
 
 ## Release candidates
 // TODO: Link ASAP
+
+## Docker
+
+### Prerequesites
+
+* Copy the ssh keys `chefmateserver_key.pem` and `chefmateserver_key.pub` into the folder containing the docker file
+* Open the docker file and insert `aws_access_key` and `aws_secret_access_key` WITHIN the high comma's (if the key looks like xxxxx/xxxx be sure to escape the slash like this: xxxxx\/xxxx
+
+### Build the image
+Change to the Dockerfiles directory and execute: `sudo docker build -t chefmateserver:latest .`
+
+### List all containers
+`sudo docker ps -a`
+
+### Get IP of container
+Get the ID of the desired container and execute: `sudo docker inspect <containerId>` and look for the field `IPAddress`
