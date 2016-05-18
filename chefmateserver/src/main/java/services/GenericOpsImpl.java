@@ -65,6 +65,8 @@ public class GenericOpsImpl implements GenericOps
 			String execDir = config.getChefAttributesPath(cookbookName);
 			List<String> scpCommands = new ArrayList<>();
 			scpCommands.add("scp");
+			scpCommands.add("-o");
+			scpCommands.add("StrictHostKeyChecking=no");
 			scpCommands.add("-i");
 			scpCommands.add(keyfile);
 			scpCommands.add(config.getChefAttributesPath(cookbookName) + "/default.rb");
