@@ -8,5 +8,6 @@ The java (+maven) client implementation for Assignment 2 - Task 2.3 & 2.5
 ## Maven build goal
 `assembly:single`
 
-## Release candidate
-// TODO: Add link ASAP
+## Docker
+
+Consists of the scripts, the Dockerfile and the release candidate.
