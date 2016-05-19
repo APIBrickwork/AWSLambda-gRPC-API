@@ -97,9 +97,10 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 		String keyFile = System.getProperty("user.home") + "/.ssh/" + config.getAwsSSHKeyName() + ".pem";
 		bootstrapCommands.add(keyFile);
 		bootstrapCommands.add("--sudo");
+		bootstrapCommands.add("--use-sudo-password");
 		bootstrapCommands.add("-x");
 		bootstrapCommands.add(request.getUsername());
-
+		
 		logger.info("### Starting bootstrapping using from directory " + execDir + "/.chef" + " using commands: "
 				+ bootstrapCommands);
 		outputLog.addAll(ShellExecuter.execute(execDir + "/.chef", bootstrapCommands));
