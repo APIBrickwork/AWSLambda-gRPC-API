@@ -7,8 +7,9 @@ MAINTAINER Tobias Freundorfer, https://github.com/tfreundo
 #################################
 ## INSERT AWS CREDENTIALS HERE ##
 #################################
-ENV host 'ENTER CHEFMATESERVER HOST'
-ENV port 'ENTER CHEFMATESERVER PORT'
+ENV vmhost 'ENTER REMOTE VM HOST'
+ENV chefmatehost 'ENTER CHEFMATESERVER HOST'
+ENV chefmateport 'ENTER CHEFMATESERVER PORT'
 
 # Install java 8
 RUN apt-get update && \
@@ -31,6 +32,7 @@ WORKDIR /home/chefmate
 COPY ./chefmateclient-1.0.jar /home/chefmate/
 
 # Copy scripts to container
+COPY ./CreateVMScript.sh /home/chefmate
 COPY ./WordPressScript.sh /home/chefmate
 COPY ./GenericWordPressScript.sh /home/chefmate
 
@@ -45,8 +47,11 @@ EXPOSE 8080
 RUN chmod +x WordPressScript.sh
 RUN chmod +x GenericWordPressScript.sh
 
+# Create VM
+RUN ./CreateVMScript.sh ${chefmatehost} ${chefmateport}
+
 # Start WordPress specific script
-RUN ./WordPressScript.sh ${host} ${port}
+RUN ./WordPressScript.sh ${chefmatehost} ${chefmateport} ${vmhost}
 
 # Start Generic script
-RUN ./GenericWordPressScript.sh ${host} ${port}
+RUN ./GenericWordPressScript.sh ${chefmatehost} ${chefmateport} ${vmhost}
