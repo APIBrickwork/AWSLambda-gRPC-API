@@ -17,10 +17,6 @@ This is the ChefMateServer offering Chef-Functionality through gRPC calls.
 * __-i__ Initializes the server environment according to the settings specified in `chefmate.conf`. This includes pulling the following [Chef repository](https://github.com/tfreundo/LabCourse-group4-SS2016-CHEFrepo) by default (or the one specified in `chefmate.conf`) and afterwards executing the initialization script [chefMateServerChefProvisioningSetup.sh](https://github.com/tfreundo/LabCourse-group4-SS2016-CHEFrepo/blob/master/initScripts/chefMateServerChefProvisioningSetup.sh)
 * __-p__ Start the ChefMateServer listening on the specified port.
 
-
-## Release candidates
-// TODO: Link ASAP
-
 ## Docker
 
 ### Prerequesites
