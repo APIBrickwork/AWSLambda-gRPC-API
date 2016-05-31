@@ -15,9 +15,9 @@ import services.Chefmate.RestoreDBRequest;
 import services.Chefmate.RestoreDBResponse;
 import util.ChefAttributesWriter;
 import util.Config;
-import util.SSHExecuter;
-import util.ShellExecuter;
-import util.SSHExecuter.ChannelType;
+import util.SSHExecutor;
+import util.ShellExecutor;
+import util.SSHExecutor.ChannelType;
 
 /**
  * Service implementation for WordPressOps.
@@ -69,14 +69,14 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 
 		logger.info("### Sending default.rb from " + execDir + " using commands: " + scpCommands);
 
-		outputLog.addAll(ShellExecuter.execute(execDir, scpCommands));
+		outputLog.addAll(ShellExecutor.execute(execDir, scpCommands));
 
 		// run chef-solo on node
 		String runChefSoloCommand = "cd ~/git/" + config.getChefRepoName()
 				+ " && sudo chef-solo -c config.rb -o 'recipe[" + cookbookName + "]'";
 
 		logger.info("### Executing chef-solo remotely using commands: " + runChefSoloCommand);
-		SSHExecuter ssh = new SSHExecuter();
+		SSHExecutor ssh = new SSHExecutor();
 		ssh.connectHost(username, host, 22, timeout, keyfile);
 
 		outputLog.addAll(ssh.sendToChannel(ChannelType.EXEC, runChefSoloCommand, timeout));
@@ -130,14 +130,14 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 
 		logger.info("### Sending default.rb from " + execDir + " using commands: " + scpCommands);
 
-		outputLog.addAll(ShellExecuter.execute(execDir, scpCommands));
+		outputLog.addAll(ShellExecutor.execute(execDir, scpCommands));
 
 		// run chef-solo on node
 		String runChefSoloCommand = "cd ~/git/" + config.getChefRepoName()
 				+ " && sudo chef-solo -c config.rb -o 'recipe[" + cookbookName + "]'";
 
 		logger.info("### Executing chef-solo remotely using commands: " + runChefSoloCommand);
-		SSHExecuter ssh = new SSHExecuter();
+		SSHExecutor ssh = new SSHExecutor();
 		ssh.connectHost(username, host, 22, timeout, keyfile);
 
 		outputLog.addAll(ssh.sendToChannel(ChannelType.EXEC, runChefSoloCommand, timeout));
@@ -164,7 +164,7 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 		String sqlFlushPrivileges = "FLUSH PRIVILEGES;";
 		sqlCommands.add(sqlFlushPrivileges);
 
-		SSHExecuter sshDb = new SSHExecuter();
+		SSHExecutor sshDb = new SSHExecutor();
 		sshDb.connectHost(username, host, 22, timeout, keyfile);
 
 		for (int i = 0; i < sqlCommands.size(); i++)
@@ -205,7 +205,7 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 		String homeDir = System.getProperty("user.home");
 		String keyfile = homeDir + "/.ssh/" + request.getCredentials().getKeyfilename();
 
-		SSHExecuter ssh = new SSHExecuter();
+		SSHExecutor ssh = new SSHExecutor();
 		ssh.connectHost(username, host, 22, timeout, keyfile);
 
 		String dbServiceName = request.getServiceName();
@@ -246,7 +246,7 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 		String homeDir = System.getProperty("user.home");
 		String keyfile = homeDir + "/.ssh/" + request.getCredentials().getKeyfilename();
 
-		SSHExecuter ssh = new SSHExecuter();
+		SSHExecutor ssh = new SSHExecutor();
 		ssh.connectHost(username, host, 22, timeout, keyfile);
 
 		String dbServiceName = request.getServiceName();

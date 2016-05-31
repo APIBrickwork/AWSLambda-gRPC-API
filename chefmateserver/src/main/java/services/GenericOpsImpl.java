@@ -10,9 +10,9 @@ import services.Chefmate.ExecuteCookbookResponse;
 import services.GenericOpsGrpc.GenericOps;
 import util.ChefAttributesWriter;
 import util.Config;
-import util.SSHExecuter;
-import util.ShellExecuter;
-import util.SSHExecuter.ChannelType;
+import util.SSHExecutor;
+import util.ShellExecutor;
+import util.SSHExecutor.ChannelType;
 
 /**
  * Service implementation for GenericOps.
@@ -76,14 +76,14 @@ public class GenericOpsImpl implements GenericOps
 
 			logger.info("### Sending default.rb from " + execDir + " using commands: " + scpCommands);
 
-			outputLog.addAll(ShellExecuter.execute(execDir, scpCommands));
+			outputLog.addAll(ShellExecutor.execute(execDir, scpCommands));
 
 			// run chef-solo on node
 			String runChefSoloCommand = "cd ~/git/" + config.getChefRepoName()
 					+ " && sudo chef-solo -c config.rb -o 'recipe[" + cookbookName + ":" + recipeName + "]'";
 
 			logger.info("### Executing chef-solo remotely using commands: " + runChefSoloCommand);
-			SSHExecuter ssh = new SSHExecuter();
+			SSHExecutor ssh = new SSHExecutor();
 			ssh.connectHost(username, host, 22, timeout, keyfile);
 
 			outputLog.addAll(ssh.sendToChannel(ChannelType.EXEC, runChefSoloCommand, timeout));

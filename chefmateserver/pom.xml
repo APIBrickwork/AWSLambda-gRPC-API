@@ -8,6 +8,11 @@
 	<description>A Server that abstracts Chef.io deployment using gRPC.</description>
 	<dependencies>
 		<dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk</artifactId>
+            <version>1.11.5</version>
+        </dependency>
+		<dependency>
 			<groupId>io.grpc</groupId>
 			<artifactId>grpc-all</artifactId>
 			<version>0.13.2</version>
@@ -20,6 +25,11 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<resources>
+            <resource>
+                <directory>${env.HOME}/.aws/</directory>
+            </resource>
+        </resources>
 		<extensions>
 			<extension>
 				<groupId>kr.motd.maven</groupId>

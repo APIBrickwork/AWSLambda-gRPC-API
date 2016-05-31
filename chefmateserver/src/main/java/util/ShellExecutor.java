@@ -16,14 +16,14 @@ import services.EC2OpsImpl;
  * @author Tobias Freundorfer
  *
  */
-public class ShellExecuter
+public class ShellExecutor
 {
 	private static final Logger logger = Logger.getLogger(EC2OpsImpl.class.getName());
 
 	/**
 	 * Private constructor preventing from instance creation.
 	 */
-	private ShellExecuter()
+	private ShellExecutor()
 	{
 	};
 
@@ -59,11 +59,15 @@ public class ShellExecuter
 			int code = p.waitFor();
 			if (code == 0)
 			{
-				logger.info("### Process terminated successfully with command: " + commands);
+				String msg = "### Process terminated successfully with command: " + commands;
+				logger.info(msg);
+				outputLog.add(msg);
 
 			} else
 			{
-				logger.warning("### Process terminated unsuccessfully.");
+				String msg = "### Process terminated unsuccessfully.";
+				logger.warning(msg);
+				outputLog.add(msg);
 			}
 
 			return outputLog;

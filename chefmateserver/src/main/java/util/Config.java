@@ -213,7 +213,7 @@ public class Config
 		ProcessBuilder pb = new ProcessBuilder(commands);
 		pb.directory(new File(getHomeDir()));
 
-		ShellExecuter.execute(this.getHomeDir(), commands);
+		ShellExecutor.execute(this.getHomeDir(), commands);
 	}
 
 	/**
@@ -275,6 +275,11 @@ public class Config
 		return awsSecretAccessKey;
 	}
 
+	public String getDefaultSSHKeyPath()
+	{
+		return this.homeDir + ".ssh/";
+	}
+
 	public String getAwsSSHKeyName()
 	{
 		return awsSSHKeyName;
@@ -283,6 +288,11 @@ public class Config
 	public String getAwsAccessKey()
 	{
 		return awsAccessKey;
+	}
+
+	public String getAwsCredentialsFile()
+	{
+		return this.homeDir + ".aws/credentials";
 	}
 
 	public String getChefMateInfo_Keyword_PublicDNS()

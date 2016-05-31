@@ -17,9 +17,9 @@ import com.jcraft.jsch.Session;
  * @author Tobias Freundorfer
  *
  */
-public class SSHExecuter
+public class SSHExecutor
 {
-	private static final Logger logger = Logger.getLogger(SSHExecuter.class.getName());
+	private static final Logger logger = Logger.getLogger(SSHExecutor.class.getName());
 
 	/**
 	 * The JSCH used to connect via SSH to remote hosts.

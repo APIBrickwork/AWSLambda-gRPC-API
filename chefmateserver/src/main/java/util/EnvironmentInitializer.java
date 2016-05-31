@@ -55,7 +55,7 @@ public class EnvironmentInitializer
 		logger.info("### Fetching git repository from " + this.config.getChefRepoURL());
 		logger.info("### Fetching using: " + commands);
 
-		ShellExecuter.execute(this.config.getServerEnvDir(), commands);
+		ShellExecutor.execute(this.config.getServerEnvDir(), commands);
 	}
 
 	/**
@@ -77,7 +77,7 @@ public class EnvironmentInitializer
 					+ this.config.getChefProvisioningInitScriptPath());
 			logger.info("### Executing using commands: " + commands);
 
-			ShellExecuter.execute(this.config.getServerEnvDir(), commands);
+			ShellExecutor.execute(this.config.getServerEnvDir(), commands);
 		}
 	}
 }
