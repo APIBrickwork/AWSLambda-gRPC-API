@@ -18,14 +18,18 @@ import com.amazonaws.services.ec2.model.DeleteKeyPairRequest;
 import com.amazonaws.services.ec2.model.DeleteKeyPairResult;
 import com.amazonaws.services.ec2.model.DescribeInstancesRequest;
 import com.amazonaws.services.ec2.model.DescribeInstancesResult;
+import com.amazonaws.services.ec2.model.Instance;
 import com.amazonaws.services.ec2.model.InstanceState;
 import com.amazonaws.services.ec2.model.InstanceStateName;
 import com.amazonaws.services.ec2.model.InstanceType;
 import com.amazonaws.services.ec2.model.KeyPair;
 import com.amazonaws.services.ec2.model.KeyPairInfo;
+import com.amazonaws.services.ec2.model.Reservation;
 import com.amazonaws.services.ec2.model.RunInstancesRequest;
 import com.amazonaws.services.ec2.model.RunInstancesResult;
 import com.amazonaws.services.ec2.model.Tag;
+import com.amazonaws.services.ec2.model.TerminateInstancesRequest;
+import com.amazonaws.services.ec2.model.TerminateInstancesResult;
 
 import io.grpc.stub.StreamObserver;
 import services.Chefmate.AWSInstanceId;
@@ -63,6 +67,7 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 	{
 		logger.info("### Received request for createVM with info:\n " + request.toString());
 		List<String> outputLog = new ArrayList<>();
+		List<String> instanceInformations = new ArrayList<>();
 
 		Config config = Config.getInstance(false, false);
 		List<String> instanceIds = new ArrayList<>();
@@ -77,7 +82,7 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 
 		} catch (IllegalArgumentException e)
 		{
-			String msg = "### Region " + request.getRegion() + " is not valid. Using default region.";
+			String msg = "### Region " + request.getRegion() + " is not valid.";
 			logger.warning(msg);
 			outputLog.add(msg);
 		}
@@ -217,10 +222,10 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 			String currentPublicDns = result.getReservations().get(0).getInstances().get(0).getPublicDnsName();
 			publicDNSs.add(currentPublicDns);
 
-			String msg = "### Instance " + i + " | instance-id = " + currentInstanceId + " | publicDNS = "
-					+ currentPublicDns;
+			String msg = "############################\n ### Instance-Information " + i + " | instance-id = "
+					+ currentInstanceId + " | publicDNS = " + currentPublicDns + "\n ############################";
+			instanceInformations.add(msg);
 			logger.info(msg);
-			outputLog.add(msg);
 			createdInstancesIds.add(currentInstanceId);
 		}
 
@@ -311,13 +316,19 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 			System.out.println("end " + success + " | " + tries);
 		}
 
+		for (String msg : instanceInformations)
+		{
+			logger.info(msg);
+			outputLog.add(msg);
+		}
+
 		CreateVMResponse resp = CreateVMResponse.newBuilder()
 				.setInstanceId(AWSInstanceId.newBuilder().setId(instanceIds.get(0)).build())
 				.setPublicDNS(publicDNSs.get(0)).addAllOutputLog(outputLog).build();
 
-		 responseObserver.onNext(resp);
-		 responseObserver.onCompleted();
-		 logger.info("### Sent response.");
+		responseObserver.onNext(resp);
+		responseObserver.onCompleted();
+		logger.info("### Sent response.");
 	}
 
 	/**
@@ -333,22 +344,51 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 		logger.info("### Received request for destroyVM with info:\n " + request.toString());
 		List<String> outputLog = new ArrayList<>();
 
-		// Write the according attributes
-		Config config = Config.getInstance(false, false);
-		String filename = config.getChefAttributesDefaultFilename("cb-chefmate");
-		logger.info("### Writing Attributes file to: " + filename);
-		ChefAttributesWriter.writeAttributesFile(filename, request);
+		DefaultAWSCredentialsProviderChain credentials = new DefaultAWSCredentialsProviderChain();
+		AmazonEC2Client ec2 = new AmazonEC2Client(credentials);
 
-		// Call cookbook for destorying
-		String execDir = config.getChefRepoPath();
-		List<String> destoryCommands = new ArrayList<>();
-		destoryCommands.add("chef-client");
-		destoryCommands.add("-z");
-		destoryCommands.add("-o");
-		destoryCommands.add("recipe[cb-chefmate::aws_fogDestroy]");
+		try
+		{
+			ec2.setRegion(Region.getRegion(Regions.fromName(request.getRegion())));
 
-		logger.info("### Starting destorying task from directory " + execDir + " using commands: " + destoryCommands);
-		outputLog.addAll(ShellExecutor.execute(config.getChefRepoPath(), destoryCommands));
+		} catch (IllegalArgumentException e)
+		{
+			 String msg = "### Region " + request.getRegion() + " is not valid.";
+			 logger.warning(msg);
+			 outputLog.add(msg);
+		}
+
+		DescribeInstancesResult describeResult = ec2.describeInstances();
+
+		String seekingMsg = "### Seeking in " + describeResult.getReservations().size()
+				+ " reservations for instance with Id = " + request.getInstanceId();
+		logger.info(seekingMsg);
+		outputLog.add(seekingMsg);
+
+		for (Reservation reservation : describeResult.getReservations())
+		{
+			List<Instance> instances = reservation.getInstances();
+			for (Instance instance : instances)
+			{
+				if (instance.getInstanceId().equals(request.getInstanceId().getId()))
+				{
+					String foundMsg = "### Found instance with Id = " + instance.getInstanceId()
+							+ ". Terminating it...";
+					logger.info(foundMsg);
+					outputLog.add(foundMsg);
+
+					TerminateInstancesRequest terminateRequest = new TerminateInstancesRequest();
+					List<String> ids = new ArrayList<>();
+					ids.add(request.getInstanceId().getId());
+					terminateRequest.setInstanceIds(ids);
+					TerminateInstancesResult terminateResult = ec2.terminateInstances(terminateRequest);
+
+					String terminatedMsg = "### Terminated instances " + terminateResult.getTerminatingInstances();
+					logger.info(terminatedMsg);
+					outputLog.add(terminatedMsg);
+				}
+			}
+		}
 
 		DestroyVMResponse resp = DestroyVMResponse.newBuilder().addAllOutputLog(outputLog).build();
 

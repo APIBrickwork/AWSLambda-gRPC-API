@@ -8,22 +8,6 @@ message AWSInstanceId{
 	string id = 1;
 }
 
-
-// ########################
-// SSH section
-// ########################
-message SSHCredentials{
-	string username = 1;
-	string host = 2;
-	string keyfilename = 3;
-	int32 timeout = 4;
-}
-
-
-// ##################
-// WordPress Requests
-// ##################
-
 message CreateVMRequest {
 	string name = 1;
 	string tag = 2;
@@ -40,7 +24,22 @@ message InitCHEFRepoRequest{
 
 message DestroyVMRequest{
 	AWSInstanceId instanceId = 1;
+	string region = 2;
 }
+
+// ########################
+// SSH section
+// ########################
+message SSHCredentials{
+	string username = 1;
+	string host = 2;
+	string keyfilename = 3;
+	int32 timeout = 4;
+}
+
+// ##################
+// WordPress Requests
+// ##################
 
 message DeployWPAppRequest{
 	SSHCredentials credentials = 1;
@@ -54,7 +53,7 @@ message DeployWPAppRequest{
 	string dbUserPassword = 8;
 	string dbRootPassword = 9;
 	// A hash of options in PHP constants syntax
-	string wpConfigOptions = 10;	
+	string wpConfigOptions = 10;
 }
 
 message DeployDBRequest{
@@ -108,7 +107,7 @@ message CreateVMResponse{
 }
 
 message DestroyVMResponse{
-	repeated string outputLog = 1; 
+	repeated string outputLog = 1;
 }
 
 message InitCHEFRepoResponse{
