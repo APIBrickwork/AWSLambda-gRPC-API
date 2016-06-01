@@ -6,6 +6,7 @@ MAINTAINER Tobias Freundorfer, https://github.com/tfreundo
 
 #################################
 ## INSERT AWS CREDENTIALS HERE ##
+## Escape '/' with '\' if used ##
 #################################
 ENV awsAccessKey 'ENTER KEY'
 ENV awsSecretAccessKey 'ENTER KEY'
@@ -42,12 +43,7 @@ WORKDIR /home/chefmate
 
 # Copy chefmateserver to container
 RUN mkdir /home/chefmate/chefmateserver
-COPY ./chefmateserver-1.0.jar /home/chefmate/chefmateserver
-
-# Copy ssh keys to container
-RUN mkdir /home/chefmate/.ssh
-COPY ./chefmateserver_key.pem /home/chefmate/.ssh
-COPY ./chefmateserver_key.pub /home/chefmate/.ssh
+COPY ./chefmateserver-1.1.jar /home/chefmate/chefmateserver
 
 #Expose ports
 EXPOSE 8080
@@ -60,17 +56,11 @@ EXPOSE 8080
 WORKDIR /home/chefmate/chefmateserver
 
 # Create default chefmateserver config file
-RUN java -jar chefmateserver-1.0.jar -dc
+RUN java -jar chefmateserver-1.1.jar -dc
 
 # Modify config and insert AWS credentials
-RUN sed -i "s/^aws_access_key=.*$/aws_access_key=${awsAccessKey}/" chefmate.conf 
+RUN sed -i "s/^aws_access_key=.*$/aws_access_key=${awsAccessKey}/" chefmate.conf
 RUN sed -i "s/^aws_secret_access_key=.*$/aws_secret_access_key=${awsSecretAccessKey}/" chefmate.conf
 
 # Initialize
-RUN java -jar chefmateserver-1.0.jar -i
-
-
-# Start server
-RUN java -jar chefmateserver-1.0.jar -p 8080
-
-# TODO: Add user permissions to create /etc/chef (or create beforehand??)
+RUN java -jar chefmateserver-1.1.jar -i

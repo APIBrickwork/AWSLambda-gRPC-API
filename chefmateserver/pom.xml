@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.labcourse.ss16</groupId>
 	<artifactId>chefmateserver</artifactId>
-	<version>1.0</version>
+	<version>1.1</version>
 	<name>ChefMateServer</name>
 	<description>A Server that abstracts Chef.io deployment using gRPC.</description>
 	<dependencies>
