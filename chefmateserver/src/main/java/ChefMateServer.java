@@ -94,71 +94,74 @@ public class ChefMateServer
 	 */
 	public static void main(String[] args)
 	{
-		int port = -1;
-
-		for (int i = 0; i < args.length; i++)
-		{
-			if (args[i].equals("--help"))
-			{
-				showArgsPrompt();
-			}
-			if (args[i].equals("-dc"))
-			{
-				new EnvironmentInitializer(true);
-				return;
-			}
-			if (args[i].equals("-i"))
-			{
-				EnvironmentInitializer env = new EnvironmentInitializer(false);
-				env.init();
-				return;
-			}
-			if (args[i].equals("-p"))
-			{
-				Config config = Config.getInstance(false, true);
-
-				// Delete known_hosts file
-				java.io.File knownHostsFile = new java.io.File(config.getHomeDir() + ".ssh/known_hosts");
-				boolean deleted = knownHostsFile.delete();
-				logger.info("### Deleting known_hosts file at: " + knownHostsFile.getAbsolutePath() + " with success = "
-						+ deleted);
-
-				// Check if there's a following command
-				if ((i + 1) < args.length)
-				{
-					try
-					{
-						port = Integer.parseInt(args[i + 1]);
-						i++;
-					} catch (NumberFormatException e)
-					{
-						ChefMateServer.showArgsPrompt();
-						return;
-					}
-				}
-			} else
-			{
-				ChefMateServer.showArgsPrompt();
-				return;
-			}
-		}
-
-		if (port == -1)
-		{
-			ChefMateServer.showArgsPrompt();
-			return;
-		}
-		final ChefMateServer server = new ChefMateServer();
-		try
-		{
-			Config.getInstance(false, true);
-			server.start(port);
-			server.blockUntilShutdown();
-		} catch (IOException | InterruptedException ex)
-		{
-			logger.warning("### Error when starting server on port " + port + ".\n " + ex.getMessage());
-			System.exit(1);
-		}
+		Config config = Config.getInstance(true, true);
+		
+		
+//		int port = -1;
+//
+//		for (int i = 0; i < args.length; i++)
+//		{
+//			if (args[i].equals("--help"))
+//			{
+//				showArgsPrompt();
+//			}
+//			if (args[i].equals("-dc"))
+//			{
+//				new EnvironmentInitializer(true);
+//				return;
+//			}
+//			if (args[i].equals("-i"))
+//			{
+//				EnvironmentInitializer env = new EnvironmentInitializer(false);
+//				env.init();
+//				return;
+//			}
+//			if (args[i].equals("-p"))
+//			{
+//				Config config = Config.getInstance(false, true);
+//
+//				// Delete known_hosts file
+//				java.io.File knownHostsFile = new java.io.File(config.getHomeDir() + ".ssh/known_hosts");
+//				boolean deleted = knownHostsFile.delete();
+//				logger.info("### Deleting known_hosts file at: " + knownHostsFile.getAbsolutePath() + " with success = "
+//						+ deleted);
+//
+//				// Check if there's a following command
+//				if ((i + 1) < args.length)
+//				{
+//					try
+//					{
+//						port = Integer.parseInt(args[i + 1]);
+//						i++;
+//					} catch (NumberFormatException e)
+//					{
+//						ChefMateServer.showArgsPrompt();
+//						return;
+//					}
+//				}
+//			} else
+//			{
+//				ChefMateServer.showArgsPrompt();
+//				return;
+//			}
+//		}
+//
+//		if (port == -1)
+//		{
+//			ChefMateServer.showArgsPrompt();
+//			return;
+//		}
+//		final ChefMateServer server = new ChefMateServer();
+//		try
+//		{
+//			Config.getInstance(false, true);
+//			server.start(port);
+//			server.blockUntilShutdown();
+//		} catch (IOException | InterruptedException ex)
+//		{
+//			logger.warning("### Error when starting server on port " + port + ".\n " + ex.getMessage());
+//			System.exit(1);
+//		}
 	}
 
 	/**

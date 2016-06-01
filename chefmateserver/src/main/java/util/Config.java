@@ -36,6 +36,7 @@ public class Config
 	 */
 	public static final String PROPKEY_CHEF_REPO_NAME = "chef_repo_name";
 	public static final String PROPKEY_CHEF_REPO_URL = "chef_repo_url";
+	public static final String PROPKEY_CHEF_REPO_BRANCH = "chef_repo_branch";
 	public static final String PROPKEY_AWS_ACCESS_KEY = "aws_access_key";
 	public static final String PROPKEY_AWS_SECRET_ACCESS_KEY = "aws_secret_access_key";
 	public static final String PROPKEY_AWS_SSH_KEY_NAME = "aws_ssh_key_name";
@@ -53,9 +54,14 @@ public class Config
 	private String serverEnvDir = "";
 
 	/**
-	 * The Chef.io repsoitory URL.
+	 * The Chef repsoitory URL.
 	 */
 	private String chefRepoURL = "";
+
+	/**
+	 * The branche that should be used.
+	 */
+	private String chefRepoBranch = "";
 
 	/**
 	 * The name of the Chef.io repository.
@@ -147,6 +153,7 @@ public class Config
 			properties.setProperty(PROPKEY_CHEF_REPO_NAME, "LabCourse-group4-SS2016-CHEFrepo");
 			properties.setProperty(PROPKEY_CHEF_REPO_URL,
 					"https://github.com/tfreundo/LabCourse-group4-SS2016-CHEFrepo.git");
+			properties.setProperty(PROPKEY_CHEF_REPO_BRANCH, "development");
 			properties.setProperty(PROPKEY_AWS_ACCESS_KEY, "TODO_SET_THIS_MANUALLY_DUE_TO_SECURITY_REASONS");
 			properties.setProperty(PROPKEY_AWS_SECRET_ACCESS_KEY, "TODO_SET_THIS_MANUALLY_DUE_TO_SECURITY_REASONS");
 			properties.setProperty(PROPKEY_AWS_SSH_KEY_NAME, "chefmateserver_key");
@@ -180,6 +187,7 @@ public class Config
 
 			this.chefRepoName = properties.getProperty(PROPKEY_CHEF_REPO_NAME);
 			this.chefRepoURL = properties.getProperty(PROPKEY_CHEF_REPO_URL);
+			this.chefRepoBranch = properties.getProperty(PROPKEY_CHEF_REPO_BRANCH);
 			this.awsAccessKey = properties.getProperty(PROPKEY_AWS_ACCESS_KEY);
 			this.awsSecretAccessKey = properties.getProperty(PROPKEY_AWS_SECRET_ACCESS_KEY);
 			this.awsSSHKeyName = properties.getProperty(PROPKEY_AWS_SSH_KEY_NAME);
@@ -238,6 +246,11 @@ public class Config
 	public String getChefRepoName()
 	{
 		return chefRepoName;
+	}
+
+	public String getChefRepoBranch()
+	{
+		return chefRepoBranch;
 	}
 
 	public String getChefRepoPath()

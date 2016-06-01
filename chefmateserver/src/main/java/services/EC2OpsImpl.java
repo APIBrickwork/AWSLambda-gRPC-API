@@ -39,7 +39,6 @@ import services.Chefmate.DestroyVMRequest;
 import services.Chefmate.DestroyVMResponse;
 import services.Chefmate.InitCHEFRepoRequest;
 import services.Chefmate.InitCHEFRepoResponse;
-import util.ChefAttributesWriter;
 import util.Config;
 import util.SSHExecutor;
 import util.SSHExecutor.ChannelType;
@@ -435,8 +434,9 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 		outputLog.addAll(ssh.sendToChannel(ChannelType.EXEC, gitInstallCommand, timeout));
 		ssh.tearDown();
 
-		String pullChefRepoCommand = "mkdir git && cd git && git clone -b development " + config.getChefRepoURL();
-
+		String pullChefRepoCommand = "mkdir git && cd git && git clone -b " + config.getChefRepoBranch() + " " + config.getChefRepoURL();
+		
+		
 		logger.info("### Pulling git repository using commands: " + pullChefRepoCommand);
 		ssh = new SSHExecutor();
 		ssh.connectHost(username, host, 22, timeout, keyfile);
