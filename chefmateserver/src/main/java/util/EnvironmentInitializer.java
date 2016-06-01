@@ -63,14 +63,21 @@ public class EnvironmentInitializer
 	 */
 	private void executeChefProvisioningSetup()
 	{
+		if (this.config.getAwsAccessKey().isEmpty())
+		{
+			logger.warning("AWS Key was empty. Be sure to insert it in the config " + Config.CONFIG_FILENAME
+					+ " first.");
+		}
 		if (this.config.getAwsSecretAccessKey().isEmpty())
 		{
 			logger.warning("AWS Secret Key was empty. Be sure to insert it in the config " + Config.CONFIG_FILENAME
 					+ " first.");
-		} else
+		}
+		else
 		{
 			List<String> commands = new ArrayList<>();
 			commands.add(this.config.getChefProvisioningInitScriptPath());
+			commands.add(this.config.getAwsAccessKey());
 			commands.add(this.config.getAwsSecretAccessKey());
 
 			logger.info("### Exectuing AWS Chef Provisioning init script at: "
