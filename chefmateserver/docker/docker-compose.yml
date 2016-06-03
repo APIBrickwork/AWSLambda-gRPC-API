@@ -18,6 +18,7 @@ services:
     links:
       - chefmateserver
     # TODO: Ports needed for REST?
+    # TODO: I think that isn't needed if already defined in Dockerfile
     environment:
       # TODO: Update ASAP
       API_HOST: localhost
