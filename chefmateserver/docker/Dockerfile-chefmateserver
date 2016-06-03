@@ -1,4 +1,4 @@
-# Ubuntu 14.04 with Java 8 installed.
+# Container using ubuntu and java 8 hosting the ChefMateServer.
 # Build image with:  docker build -t Chefmate/chemateserver .
 
 FROM ubuntu
