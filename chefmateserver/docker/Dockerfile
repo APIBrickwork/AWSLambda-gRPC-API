@@ -45,6 +45,9 @@ WORKDIR /home/chefmate
 RUN mkdir /home/chefmate/chefmateserver
 COPY ./chefmateserver-1.1.jar /home/chefmate/chefmateserver
 
+# Create folder for ssh keys
+RUN mkdir /home/chefmate/.ssh
+
 #Expose ports
 EXPOSE 8080
 
