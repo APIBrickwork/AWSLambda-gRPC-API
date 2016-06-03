@@ -34,6 +34,10 @@ RUN dpkg -i chefdk_0.13.21-1_amd64.deb
 RUN rm -f chef_12.10.24-1_amd64.deb
 RUN rm -f chefdk_0.13.21-1_amd64.deb
 
+# Add main.proto to api folder
+RUN mkdir /api
+COPY ./main.proto /api
+
 # Add user
 RUN useradd -ms /bin/bash chefmate
 
