@@ -25,6 +25,7 @@ This is the ChefMateServer offering Chef-Functionality through gRPC calls.
 
 ### Images
 * Build an image: `sudo docker build -t <name>:<version> .`
+* Build from other dockerfile: `sudo docker build -t <name>:<version> -f <path/to/file> .`
 * List all images: `sudo docker images`
 * Remove image: `sudo docker rmi <image>`
 
@@ -35,6 +36,10 @@ This is the ChefMateServer offering Chef-Functionality through gRPC calls.
 * Run interactively: `sudo docker run -t -i <image> <cmd>`
 * Run deamonized: `sudo docker run -d -i <image> <cmd>`
 `<cmd>` may be for example `/bin/bash` or in our case running the jar using `java -jar xyz.jar`
+* Get bash in running container: `sudo docker exec -it <container> bash`
 
 ### Get IP of container
 Get the ID of the desired container and execute: `sudo docker inspect <containerId>` and look for the field `IPAddress`
+
+### Docker compose
+* Create an run (docker-compose file in same directory): `sudo docker-compose up`
