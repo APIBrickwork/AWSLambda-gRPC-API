@@ -30,6 +30,10 @@ RUN dpkg -i chef_12.10.24-1_amd64.deb
 RUN wget https://packages.chef.io/stable/ubuntu/12.04/chefdk_0.13.21-1_amd64.deb
 RUN dpkg -i chefdk_0.13.21-1_amd64.deb
 
+# Delete .deb files
+RUN rm -f chef_12.10.24-1_amd64.deb
+RUN rm -f chefdk_0.13.21-1_amd64.deb
+
 # Add user
 RUN useradd -ms /bin/bash chefmate
 
