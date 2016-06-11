@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import services.Chefmate.CreateVMRequest;
-import services.Chefmate.DeployDBRequest;
-import services.Chefmate.DeployWPAppRequest;
-import services.Chefmate.DestroyVMRequest;
+import services.Chefmate.CreateVmRequest;
+import services.Chefmate.DeployDbRequest;
+import services.Chefmate.DeployWpAppRequest;
+import services.Chefmate.DestroyVmRequest;
 import services.Chefmate.ExecuteCookbookRequest;
 
 /**
@@ -83,7 +83,7 @@ public class ChefAttributesWriter
 	 * @param requestedVM
 	 *            The values that should be added.
 	 */
-	public static void writeAttributesFile(String filename, CreateVMRequest requestedVM)
+	public static void writeAttributesFile(String filename, CreateVmRequest requestedVM)
 	{
 		BufferedWriter writer = null;
 
@@ -181,7 +181,7 @@ public class ChefAttributesWriter
 	 * @param requestedVM
 	 *            The values that should be added.
 	 */
-	public static void writeAttributesFile(String filename, DestroyVMRequest requestedVM)
+	public static void writeAttributesFile(String filename, DestroyVmRequest requestedVM)
 	{
 		BufferedWriter writer = null;
 
@@ -226,7 +226,7 @@ public class ChefAttributesWriter
 	 * @param request
 	 *            The values that should be added.
 	 */
-	public static void writeAttributesFile(String filename, DeployWPAppRequest request)
+	public static void writeAttributesFile(String filename, DeployWpAppRequest request)
 	{
 		BufferedWriter writer = null;
 
@@ -313,7 +313,7 @@ public class ChefAttributesWriter
 	 * @param request
 	 *            The values that should be added.
 	 */
-	public static void writeAttributesFile(String filename, DeployDBRequest request)
+	public static void writeAttributesFile(String filename, DeployDbRequest request)
 	{
 		BufferedWriter writer = null;
 

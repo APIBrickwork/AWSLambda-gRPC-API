@@ -4,11 +4,11 @@ syntax = "proto3";
 // Virtual Machine messages
 // ########################
 
-message AWSInstanceId{
+message AwsInstanceId{
 	string id = 1;
 }
 
-message CreateVMRequest {
+message CreateVmRequest {
 	string name = 1;
 	string tag = 2;
 	string region = 3;
@@ -18,19 +18,19 @@ message CreateVMRequest {
 	repeated string securityGroupIds = 7;
 }
 
-message InitCHEFRepoRequest{
-	SSHCredentials credentials = 1;
+message InitChefRepoRequest{
+	SshCredentials credentials = 1;
 }
 
-message DestroyVMRequest{
-	AWSInstanceId instanceId = 1;
+message DestroyVmRequest{
+	AwsInstanceId instanceId = 1;
 	string region = 2;
 }
 
 // ########################
 // SSH section
 // ########################
-message SSHCredentials{
+message SshCredentials{
 	string username = 1;
 	string host = 2;
 	string keyfilename = 3;
@@ -41,8 +41,8 @@ message SSHCredentials{
 // WordPress Requests
 // ##################
 
-message DeployWPAppRequest{
-	SSHCredentials credentials = 1;
+message DeployWpAppRequest{
+	SshCredentials credentials = 1;
 	string serverName = 2;
 	// port has to be a string according to wordpress cookbook
 	string port = 3;
@@ -56,8 +56,8 @@ message DeployWPAppRequest{
 	string wpConfigOptions = 10;
 }
 
-message DeployDBRequest{
-	SSHCredentials credentials = 1;
+message DeployDbRequest{
+	SshCredentials credentials = 1;
 	// MySql service will be called 'mysql-' + value of nameExtend
 	string serviceName = 2;
 	int32 port = 3;
@@ -67,8 +67,8 @@ message DeployDBRequest{
 	string rootPassword = 7;
 }
 
-message BackupDBRequest{
-	SSHCredentials credentials = 1;
+message BackupDbRequest{
+	SshCredentials credentials = 1;
 	string serviceName = 2;
 	string dbUsername = 3;
 	string dbUserPassword = 4;
@@ -76,8 +76,8 @@ message BackupDBRequest{
 	string backupFilename = 6;
 }
 
-message RestoreDBRequest{
-	SSHCredentials credentials = 1;
+message RestoreDbRequest{
+	SshCredentials credentials = 1;
 	string serviceName = 2;
 	string dbUsername = 3;
 	string dbUserPassword = 4;
@@ -89,7 +89,7 @@ message RestoreDBRequest{
 // Generic Requests
 // ################
 message ExecuteCookbookRequest{
-	SSHCredentials credentials = 1;
+	SshCredentials credentials = 1;
 	string cookbookName = 2;
 	string recipeName = 3;
 	// Will be written in attributes of the cookbook
@@ -100,33 +100,33 @@ message ExecuteCookbookRequest{
 // ###################
 // WordPress Responses
 // ###################
-message CreateVMResponse{
-	AWSInstanceId instanceId = 1;
-	string publicDNS = 2;
+message CreateVmResponse{
+	AwsInstanceId instanceId = 1;
+	string publicDns = 2;
 	repeated string outputLog = 3;
 }
 
-message DestroyVMResponse{
+message DestroyVmResponse{
 	repeated string outputLog = 1;
 }
 
-message InitCHEFRepoResponse{
+message InitChefRepoResponse{
 	repeated string outputLog = 1;
 }
 
-message DeployWPAppResponse{
+message DeployWpAppResponse{
 	repeated string outputLog = 1;
 }
 
-message DeployDBResponse{
+message DeployDbResponse{
 	repeated string outputLog = 1;
 }
 
-message BackupDBResponse{
+message BackupDbResponse{
 	repeated string outputLog = 1;
 }
 
-message RestoreDBResponse{
+message RestoreDbResponse{
 	repeated string outputLog = 1;
 }
 
@@ -142,17 +142,17 @@ message ExecuteCookbookResponse{
 // EC2 operations services
 // #######################
 
-service EC2Ops {
-	rpc createVM(CreateVMRequest) returns (CreateVMResponse);
-	rpc destroyVM(DestroyVMRequest) returns (DestroyVMResponse);
-	rpc initChefRepo(InitCHEFRepoRequest) returns (InitCHEFRepoResponse);
+service Ec2Ops {
+	rpc createVm(CreateVmRequest) returns (CreateVmResponse);
+	rpc destroyVm(DestroyVmRequest) returns (DestroyVmResponse);
+	rpc initChefRepo(InitChefRepoRequest) returns (InitChefRepoResponse);
 }
 
 service WordPressOps{
-	rpc deployWPApp(DeployWPAppRequest) returns (DeployWPAppResponse);
-	rpc deployDB(DeployDBRequest) returns (DeployDBResponse);
-	rpc backupDB(BackupDBRequest) returns (BackupDBResponse);
-	rpc restoreDB(RestoreDBRequest) returns (RestoreDBResponse);
+	rpc deployWpApp(DeployWpAppRequest) returns (DeployWpAppResponse);
+	rpc deployDb(DeployDbRequest) returns (DeployDbResponse);
+	rpc backupDb(BackupDbRequest) returns (BackupDbResponse);
+	rpc restoreDb(RestoreDbRequest) returns (RestoreDbResponse);
 }
 
 service GenericOps{

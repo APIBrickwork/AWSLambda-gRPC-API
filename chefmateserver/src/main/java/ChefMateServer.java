@@ -3,7 +3,7 @@ import java.util.logging.Logger;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
-import services.EC2OpsGrpc;
+import services.Ec2OpsGrpc;
 import services.EC2OpsImpl;
 import services.GenericOpsGrpc;
 import services.GenericOpsImpl;
@@ -44,7 +44,8 @@ public class ChefMateServer
 	private void start(int port) throws IOException
 	{
 		this.port = port;
-		this.server = ServerBuilder.forPort(this.port).addService(EC2OpsGrpc.bindService(new EC2OpsImpl()))
+		
+		this.server = ServerBuilder.forPort(this.port).addService(Ec2OpsGrpc.bindService(new EC2OpsImpl()))
 				.addService(WordPressOpsGrpc.bindService(new WordPressOpsImpl()))
 				.addService(GenericOpsGrpc.bindService(new GenericOpsImpl())).build().start();
 

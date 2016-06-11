@@ -5,14 +5,14 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import io.grpc.stub.StreamObserver;
-import services.Chefmate.BackupDBRequest;
-import services.Chefmate.BackupDBResponse;
-import services.Chefmate.DeployDBRequest;
-import services.Chefmate.DeployDBResponse;
-import services.Chefmate.DeployWPAppRequest;
-import services.Chefmate.DeployWPAppResponse;
-import services.Chefmate.RestoreDBRequest;
-import services.Chefmate.RestoreDBResponse;
+import services.Chefmate.BackupDbRequest;
+import services.Chefmate.BackupDbResponse;
+import services.Chefmate.DeployDbRequest;
+import services.Chefmate.DeployDbResponse;
+import services.Chefmate.DeployWpAppRequest;
+import services.Chefmate.DeployWpAppResponse;
+import services.Chefmate.RestoreDbRequest;
+import services.Chefmate.RestoreDbResponse;
 import util.ChefAttributesWriter;
 import util.Config;
 import util.SSHExecutor;
@@ -37,7 +37,7 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 	 * @responseObserver The observer for the response.
 	 */
 	@Override
-	public void deployWPApp(DeployWPAppRequest request, StreamObserver<DeployWPAppResponse> responseObserver)
+	public void deployWpApp(DeployWpAppRequest request, StreamObserver<DeployWpAppResponse> responseObserver)
 	{
 		logger.info("### Received request for deployWPApp with info:\n " + request.toString());
 		List<String> outputLog = new ArrayList<>();
@@ -82,7 +82,7 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 		outputLog.addAll(ssh.sendToChannel(ChannelType.EXEC, runChefSoloCommand, timeout));
 		ssh.tearDown();
 
-		DeployWPAppResponse resp = DeployWPAppResponse.newBuilder().addAllOutputLog(outputLog).build();
+		DeployWpAppResponse resp = DeployWpAppResponse.newBuilder().addAllOutputLog(outputLog).build();
 
 		responseObserver.onNext(resp);
 		responseObserver.onCompleted();
@@ -97,7 +97,7 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 	 * @responseObserver The observer for the response.
 	 */
 	@Override
-	public void deployDB(DeployDBRequest request, StreamObserver<DeployDBResponse> responseObserver)
+	public void deployDb(DeployDbRequest request, StreamObserver<DeployDbResponse> responseObserver)
 	{
 		logger.info("### Received request for deployDB with info:\n " + request.toString());
 		List<String> outputLog = new ArrayList<>();
@@ -178,7 +178,7 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 		}
 		sshDb.tearDown();
 
-		DeployDBResponse resp = DeployDBResponse.newBuilder().addAllOutputLog(outputLog).build();
+		DeployDbResponse resp = DeployDbResponse.newBuilder().addAllOutputLog(outputLog).build();
 
 		responseObserver.onNext(resp);
 		responseObserver.onCompleted();
@@ -194,7 +194,7 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 	 * @responseObserver The observer for the response.
 	 */
 	@Override
-	public void backupDB(BackupDBRequest request, StreamObserver<BackupDBResponse> responseObserver)
+	public void backupDb(BackupDbRequest request, StreamObserver<BackupDbResponse> responseObserver)
 	{
 		logger.info("### Received request for backupDB with info:\n " + request.toString());
 		List<String> outputLog = new ArrayList<>();
@@ -221,7 +221,7 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 		outputLog.add(commandLog);
 		outputLog.addAll(ssh.sendToChannel(ChannelType.EXEC, command, timeout));
 
-		BackupDBResponse resp = BackupDBResponse.newBuilder().addAllOutputLog(outputLog).build();
+		BackupDbResponse resp = BackupDbResponse.newBuilder().addAllOutputLog(outputLog).build();
 		responseObserver.onNext(resp);
 		responseObserver.onCompleted();
 		logger.info("### Sent response.");
@@ -235,7 +235,7 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 	 * @responseObserver The observer for the response.
 	 */
 	@Override
-	public void restoreDB(RestoreDBRequest request, StreamObserver<RestoreDBResponse> responseObserver)
+	public void restoreDb(RestoreDbRequest request, StreamObserver<RestoreDbResponse> responseObserver)
 	{
 		logger.info("### Received request for restoreDB with info:\n " + request.toString());
 		List<String> outputLog = new ArrayList<>();
@@ -262,7 +262,7 @@ public class WordPressOpsImpl implements WordPressOpsGrpc.WordPressOps
 		outputLog.add(commandLog);
 		outputLog.addAll(ssh.sendToChannel(ChannelType.EXEC, command, timeout));
 
-		RestoreDBResponse resp = RestoreDBResponse.newBuilder().addAllOutputLog(outputLog).build();
+		RestoreDbResponse resp = RestoreDbResponse.newBuilder().addAllOutputLog(outputLog).build();
 		responseObserver.onNext(resp);
 		responseObserver.onCompleted();
 		logger.info("### Sent response.");

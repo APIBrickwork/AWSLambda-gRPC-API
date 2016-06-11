@@ -32,13 +32,13 @@ import com.amazonaws.services.ec2.model.TerminateInstancesRequest;
 import com.amazonaws.services.ec2.model.TerminateInstancesResult;
 
 import io.grpc.stub.StreamObserver;
-import services.Chefmate.AWSInstanceId;
-import services.Chefmate.CreateVMRequest;
-import services.Chefmate.CreateVMResponse;
-import services.Chefmate.DestroyVMRequest;
-import services.Chefmate.DestroyVMResponse;
-import services.Chefmate.InitCHEFRepoRequest;
-import services.Chefmate.InitCHEFRepoResponse;
+import services.Chefmate.AwsInstanceId;
+import services.Chefmate.CreateVmRequest;
+import services.Chefmate.CreateVmResponse;
+import services.Chefmate.DestroyVmRequest;
+import services.Chefmate.DestroyVmResponse;
+import services.Chefmate.InitChefRepoRequest;
+import services.Chefmate.InitChefRepoResponse;
 import util.Config;
 import util.SSHExecutor;
 import util.SSHExecutor.ChannelType;
@@ -50,7 +50,7 @@ import util.ShellExecutor;
  * @author Tobias Freundorfer
  *
  */
-public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
+public class EC2OpsImpl implements Ec2OpsGrpc.Ec2Ops
 {
 	private static final Logger logger = Logger.getLogger(EC2OpsImpl.class.getName());
 
@@ -62,7 +62,7 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 	 * @responseObserver The observer for the response.
 	 */
 	@Override
-	public void createVM(CreateVMRequest request, StreamObserver<CreateVMResponse> responseObserver)
+	public void createVm(CreateVmRequest request, StreamObserver<CreateVmResponse> responseObserver)
 	{
 		logger.info("### Received request for createVM with info:\n " + request.toString());
 		List<String> outputLog = new ArrayList<>();
@@ -321,9 +321,9 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 			outputLog.add(msg);
 		}
 
-		CreateVMResponse resp = CreateVMResponse.newBuilder()
-				.setInstanceId(AWSInstanceId.newBuilder().setId(instanceIds.get(0)).build())
-				.setPublicDNS(publicDNSs.get(0)).addAllOutputLog(outputLog).build();
+		CreateVmResponse resp = CreateVmResponse.newBuilder()
+				.setInstanceId(AwsInstanceId.newBuilder().setId(instanceIds.get(0)).build())
+				.setPublicDns(publicDNSs.get(0)).addAllOutputLog(outputLog).build();
 
 		responseObserver.onNext(resp);
 		responseObserver.onCompleted();
@@ -338,7 +338,7 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 	 * @responseObserver The observer for the response.
 	 */
 	@Override
-	public void destroyVM(DestroyVMRequest request, StreamObserver<DestroyVMResponse> responseObserver)
+	public void destroyVm(DestroyVmRequest request, StreamObserver<DestroyVmResponse> responseObserver)
 	{
 		logger.info("### Received request for destroyVM with info:\n " + request.toString());
 		List<String> outputLog = new ArrayList<>();
@@ -389,7 +389,7 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 			}
 		}
 
-		DestroyVMResponse resp = DestroyVMResponse.newBuilder().addAllOutputLog(outputLog).build();
+		DestroyVmResponse resp = DestroyVmResponse.newBuilder().addAllOutputLog(outputLog).build();
 
 		responseObserver.onNext(resp);
 		responseObserver.onCompleted();
@@ -404,7 +404,7 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 	 * @responseObserver The observer for the response.
 	 */
 	@Override
-	public void initChefRepo(InitCHEFRepoRequest request, StreamObserver<InitCHEFRepoResponse> responseObserver)
+	public void initChefRepo(InitChefRepoRequest request, StreamObserver<InitChefRepoResponse> responseObserver)
 	{
 		logger.info("### Received request for initChefRepo with info:\n " + request.toString());
 		List<String> outputLog = new ArrayList<>();
@@ -444,7 +444,7 @@ public class EC2OpsImpl implements EC2OpsGrpc.EC2Ops
 		outputLog.addAll(ssh.sendToChannel(ChannelType.EXEC, pullChefRepoCommand, timeout));
 		ssh.tearDown();
 
-		InitCHEFRepoResponse resp = InitCHEFRepoResponse.newBuilder().addAllOutputLog(outputLog).build();
+		InitChefRepoResponse resp = InitChefRepoResponse.newBuilder().addAllOutputLog(outputLog).build();
 
 		responseObserver.onNext(resp);
 		responseObserver.onCompleted();

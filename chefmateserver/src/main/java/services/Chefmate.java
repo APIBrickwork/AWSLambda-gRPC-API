@@ -7,8 +7,8 @@ public final class Chefmate {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface AWSInstanceIdOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:AWSInstanceId)
+  public interface AwsInstanceIdOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:AwsInstanceId)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -22,17 +22,17 @@ public final class Chefmate {
         getIdBytes();
   }
   /**
-   * Protobuf type {@code AWSInstanceId}
+   * Protobuf type {@code AwsInstanceId}
    */
-  public  static final class AWSInstanceId extends
+  public  static final class AwsInstanceId extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:AWSInstanceId)
-      AWSInstanceIdOrBuilder {
-    // Use AWSInstanceId.newBuilder() to construct.
-    private AWSInstanceId(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:AwsInstanceId)
+      AwsInstanceIdOrBuilder {
+    // Use AwsInstanceId.newBuilder() to construct.
+    private AwsInstanceId(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private AWSInstanceId() {
+    private AwsInstanceId() {
       id_ = "";
     }
 
@@ -41,7 +41,7 @@ public final class Chefmate {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-    private AWSInstanceId(
+    private AwsInstanceId(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
       this();
@@ -80,14 +80,14 @@ public final class Chefmate {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Chefmate.internal_static_AWSInstanceId_descriptor;
+      return Chefmate.internal_static_AwsInstanceId_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Chefmate.internal_static_AWSInstanceId_fieldAccessorTable
+      return Chefmate.internal_static_AwsInstanceId_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Chefmate.AWSInstanceId.class, Chefmate.AWSInstanceId.Builder.class);
+              Chefmate.AwsInstanceId.class, Chefmate.AwsInstanceId.Builder.class);
     }
 
     public static final int ID_FIELD_NUMBER = 1;
@@ -154,53 +154,53 @@ public final class Chefmate {
     }
 
     private static final long serialVersionUID = 0L;
-    public static Chefmate.AWSInstanceId parseFrom(
+    public static Chefmate.AwsInstanceId parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.AWSInstanceId parseFrom(
+    public static Chefmate.AwsInstanceId parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.AWSInstanceId parseFrom(byte[] data)
+    public static Chefmate.AwsInstanceId parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.AWSInstanceId parseFrom(
+    public static Chefmate.AwsInstanceId parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.AWSInstanceId parseFrom(java.io.InputStream input)
+    public static Chefmate.AwsInstanceId parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.AWSInstanceId parseFrom(
+    public static Chefmate.AwsInstanceId parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Chefmate.AWSInstanceId parseDelimitedFrom(java.io.InputStream input)
+    public static Chefmate.AwsInstanceId parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Chefmate.AWSInstanceId parseDelimitedFrom(
+    public static Chefmate.AwsInstanceId parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Chefmate.AWSInstanceId parseFrom(
+    public static Chefmate.AwsInstanceId parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.AWSInstanceId parseFrom(
+    public static Chefmate.AwsInstanceId parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -211,7 +211,7 @@ public final class Chefmate {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Chefmate.AWSInstanceId prototype) {
+    public static Builder newBuilder(Chefmate.AwsInstanceId prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -226,25 +226,25 @@ public final class Chefmate {
       return builder;
     }
     /**
-     * Protobuf type {@code AWSInstanceId}
+     * Protobuf type {@code AwsInstanceId}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:AWSInstanceId)
-        Chefmate.AWSInstanceIdOrBuilder {
+        // @@protoc_insertion_point(builder_implements:AwsInstanceId)
+        Chefmate.AwsInstanceIdOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Chefmate.internal_static_AWSInstanceId_descriptor;
+        return Chefmate.internal_static_AwsInstanceId_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Chefmate.internal_static_AWSInstanceId_fieldAccessorTable
+        return Chefmate.internal_static_AwsInstanceId_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Chefmate.AWSInstanceId.class, Chefmate.AWSInstanceId.Builder.class);
+                Chefmate.AwsInstanceId.class, Chefmate.AwsInstanceId.Builder.class);
       }
 
-      // Construct using Chefmate.AWSInstanceId.newBuilder()
+      // Construct using Chefmate.AwsInstanceId.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -267,39 +267,39 @@ public final class Chefmate {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Chefmate.internal_static_AWSInstanceId_descriptor;
+        return Chefmate.internal_static_AwsInstanceId_descriptor;
       }
 
-      public Chefmate.AWSInstanceId getDefaultInstanceForType() {
-        return Chefmate.AWSInstanceId.getDefaultInstance();
+      public Chefmate.AwsInstanceId getDefaultInstanceForType() {
+        return Chefmate.AwsInstanceId.getDefaultInstance();
       }
 
-      public Chefmate.AWSInstanceId build() {
-        Chefmate.AWSInstanceId result = buildPartial();
+      public Chefmate.AwsInstanceId build() {
+        Chefmate.AwsInstanceId result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Chefmate.AWSInstanceId buildPartial() {
-        Chefmate.AWSInstanceId result = new Chefmate.AWSInstanceId(this);
+      public Chefmate.AwsInstanceId buildPartial() {
+        Chefmate.AwsInstanceId result = new Chefmate.AwsInstanceId(this);
         result.id_ = id_;
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Chefmate.AWSInstanceId) {
-          return mergeFrom((Chefmate.AWSInstanceId)other);
+        if (other instanceof Chefmate.AwsInstanceId) {
+          return mergeFrom((Chefmate.AwsInstanceId)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Chefmate.AWSInstanceId other) {
-        if (other == Chefmate.AWSInstanceId.getDefaultInstance()) return this;
+      public Builder mergeFrom(Chefmate.AwsInstanceId other) {
+        if (other == Chefmate.AwsInstanceId.getDefaultInstance()) return this;
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
           onChanged();
@@ -316,11 +316,11 @@ public final class Chefmate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Chefmate.AWSInstanceId parsedMessage = null;
+        Chefmate.AwsInstanceId parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Chefmate.AWSInstanceId) e.getUnfinishedMessage();
+          parsedMessage = (Chefmate.AwsInstanceId) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -409,27 +409,27 @@ public final class Chefmate {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:AWSInstanceId)
+      // @@protoc_insertion_point(builder_scope:AwsInstanceId)
     }
 
-    // @@protoc_insertion_point(class_scope:AWSInstanceId)
-    private static final Chefmate.AWSInstanceId DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:AwsInstanceId)
+    private static final Chefmate.AwsInstanceId DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Chefmate.AWSInstanceId();
+      DEFAULT_INSTANCE = new Chefmate.AwsInstanceId();
     }
 
-    public static Chefmate.AWSInstanceId getDefaultInstance() {
+    public static Chefmate.AwsInstanceId getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<AWSInstanceId>
-        PARSER = new com.google.protobuf.AbstractParser<AWSInstanceId>() {
-      public AWSInstanceId parsePartialFrom(
+    private static final com.google.protobuf.Parser<AwsInstanceId>
+        PARSER = new com.google.protobuf.AbstractParser<AwsInstanceId>() {
+      public AwsInstanceId parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         try {
-          return new AWSInstanceId(input, extensionRegistry);
+          return new AwsInstanceId(input, extensionRegistry);
         } catch (RuntimeException e) {
           if (e.getCause() instanceof
               com.google.protobuf.InvalidProtocolBufferException) {
@@ -441,23 +441,23 @@ public final class Chefmate {
       }
     };
 
-    public static com.google.protobuf.Parser<AWSInstanceId> parser() {
+    public static com.google.protobuf.Parser<AwsInstanceId> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<AWSInstanceId> getParserForType() {
+    public com.google.protobuf.Parser<AwsInstanceId> getParserForType() {
       return PARSER;
     }
 
-    public Chefmate.AWSInstanceId getDefaultInstanceForType() {
+    public Chefmate.AwsInstanceId getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface CreateVMRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:CreateVMRequest)
+  public interface CreateVmRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:CreateVmRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -540,17 +540,17 @@ public final class Chefmate {
         getSecurityGroupIdsBytes(int index);
   }
   /**
-   * Protobuf type {@code CreateVMRequest}
+   * Protobuf type {@code CreateVmRequest}
    */
-  public  static final class CreateVMRequest extends
+  public  static final class CreateVmRequest extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:CreateVMRequest)
-      CreateVMRequestOrBuilder {
-    // Use CreateVMRequest.newBuilder() to construct.
-    private CreateVMRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:CreateVmRequest)
+      CreateVmRequestOrBuilder {
+    // Use CreateVmRequest.newBuilder() to construct.
+    private CreateVmRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private CreateVMRequest() {
+    private CreateVmRequest() {
       name_ = "";
       tag_ = "";
       region_ = "";
@@ -565,7 +565,7 @@ public final class Chefmate {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-    private CreateVMRequest(
+    private CreateVmRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
       this();
@@ -646,14 +646,14 @@ public final class Chefmate {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Chefmate.internal_static_CreateVMRequest_descriptor;
+      return Chefmate.internal_static_CreateVmRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Chefmate.internal_static_CreateVMRequest_fieldAccessorTable
+      return Chefmate.internal_static_CreateVmRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Chefmate.CreateVMRequest.class, Chefmate.CreateVMRequest.Builder.class);
+              Chefmate.CreateVmRequest.class, Chefmate.CreateVmRequest.Builder.class);
     }
 
     private int bitField0_;
@@ -961,53 +961,53 @@ public final class Chefmate {
     }
 
     private static final long serialVersionUID = 0L;
-    public static Chefmate.CreateVMRequest parseFrom(
+    public static Chefmate.CreateVmRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.CreateVMRequest parseFrom(
+    public static Chefmate.CreateVmRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.CreateVMRequest parseFrom(byte[] data)
+    public static Chefmate.CreateVmRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.CreateVMRequest parseFrom(
+    public static Chefmate.CreateVmRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.CreateVMRequest parseFrom(java.io.InputStream input)
+    public static Chefmate.CreateVmRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.CreateVMRequest parseFrom(
+    public static Chefmate.CreateVmRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Chefmate.CreateVMRequest parseDelimitedFrom(java.io.InputStream input)
+    public static Chefmate.CreateVmRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Chefmate.CreateVMRequest parseDelimitedFrom(
+    public static Chefmate.CreateVmRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Chefmate.CreateVMRequest parseFrom(
+    public static Chefmate.CreateVmRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.CreateVMRequest parseFrom(
+    public static Chefmate.CreateVmRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1018,7 +1018,7 @@ public final class Chefmate {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Chefmate.CreateVMRequest prototype) {
+    public static Builder newBuilder(Chefmate.CreateVmRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -1033,25 +1033,25 @@ public final class Chefmate {
       return builder;
     }
     /**
-     * Protobuf type {@code CreateVMRequest}
+     * Protobuf type {@code CreateVmRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:CreateVMRequest)
-        Chefmate.CreateVMRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:CreateVmRequest)
+        Chefmate.CreateVmRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Chefmate.internal_static_CreateVMRequest_descriptor;
+        return Chefmate.internal_static_CreateVmRequest_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Chefmate.internal_static_CreateVMRequest_fieldAccessorTable
+        return Chefmate.internal_static_CreateVmRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Chefmate.CreateVMRequest.class, Chefmate.CreateVMRequest.Builder.class);
+                Chefmate.CreateVmRequest.class, Chefmate.CreateVmRequest.Builder.class);
       }
 
-      // Construct using Chefmate.CreateVMRequest.newBuilder()
+      // Construct using Chefmate.CreateVmRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1086,23 +1086,23 @@ public final class Chefmate {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Chefmate.internal_static_CreateVMRequest_descriptor;
+        return Chefmate.internal_static_CreateVmRequest_descriptor;
       }
 
-      public Chefmate.CreateVMRequest getDefaultInstanceForType() {
-        return Chefmate.CreateVMRequest.getDefaultInstance();
+      public Chefmate.CreateVmRequest getDefaultInstanceForType() {
+        return Chefmate.CreateVmRequest.getDefaultInstance();
       }
 
-      public Chefmate.CreateVMRequest build() {
-        Chefmate.CreateVMRequest result = buildPartial();
+      public Chefmate.CreateVmRequest build() {
+        Chefmate.CreateVmRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Chefmate.CreateVMRequest buildPartial() {
-        Chefmate.CreateVMRequest result = new Chefmate.CreateVMRequest(this);
+      public Chefmate.CreateVmRequest buildPartial() {
+        Chefmate.CreateVmRequest result = new Chefmate.CreateVmRequest(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.name_ = name_;
@@ -1122,16 +1122,16 @@ public final class Chefmate {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Chefmate.CreateVMRequest) {
-          return mergeFrom((Chefmate.CreateVMRequest)other);
+        if (other instanceof Chefmate.CreateVmRequest) {
+          return mergeFrom((Chefmate.CreateVmRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Chefmate.CreateVMRequest other) {
-        if (other == Chefmate.CreateVMRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(Chefmate.CreateVmRequest other) {
+        if (other == Chefmate.CreateVmRequest.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
           onChanged();
@@ -1178,11 +1178,11 @@ public final class Chefmate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Chefmate.CreateVMRequest parsedMessage = null;
+        Chefmate.CreateVmRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Chefmate.CreateVMRequest) e.getUnfinishedMessage();
+          parsedMessage = (Chefmate.CreateVmRequest) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -1711,27 +1711,27 @@ public final class Chefmate {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:CreateVMRequest)
+      // @@protoc_insertion_point(builder_scope:CreateVmRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:CreateVMRequest)
-    private static final Chefmate.CreateVMRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:CreateVmRequest)
+    private static final Chefmate.CreateVmRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Chefmate.CreateVMRequest();
+      DEFAULT_INSTANCE = new Chefmate.CreateVmRequest();
     }
 
-    public static Chefmate.CreateVMRequest getDefaultInstance() {
+    public static Chefmate.CreateVmRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<CreateVMRequest>
-        PARSER = new com.google.protobuf.AbstractParser<CreateVMRequest>() {
-      public CreateVMRequest parsePartialFrom(
+    private static final com.google.protobuf.Parser<CreateVmRequest>
+        PARSER = new com.google.protobuf.AbstractParser<CreateVmRequest>() {
+      public CreateVmRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         try {
-          return new CreateVMRequest(input, extensionRegistry);
+          return new CreateVmRequest(input, extensionRegistry);
         } catch (RuntimeException e) {
           if (e.getCause() instanceof
               com.google.protobuf.InvalidProtocolBufferException) {
@@ -1743,50 +1743,50 @@ public final class Chefmate {
       }
     };
 
-    public static com.google.protobuf.Parser<CreateVMRequest> parser() {
+    public static com.google.protobuf.Parser<CreateVmRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<CreateVMRequest> getParserForType() {
+    public com.google.protobuf.Parser<CreateVmRequest> getParserForType() {
       return PARSER;
     }
 
-    public Chefmate.CreateVMRequest getDefaultInstanceForType() {
+    public Chefmate.CreateVmRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface InitCHEFRepoRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:InitCHEFRepoRequest)
+  public interface InitChefRepoRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:InitChefRepoRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
     boolean hasCredentials();
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    Chefmate.SSHCredentials getCredentials();
+    Chefmate.SshCredentials getCredentials();
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder();
+    Chefmate.SshCredentialsOrBuilder getCredentialsOrBuilder();
   }
   /**
-   * Protobuf type {@code InitCHEFRepoRequest}
+   * Protobuf type {@code InitChefRepoRequest}
    */
-  public  static final class InitCHEFRepoRequest extends
+  public  static final class InitChefRepoRequest extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:InitCHEFRepoRequest)
-      InitCHEFRepoRequestOrBuilder {
-    // Use InitCHEFRepoRequest.newBuilder() to construct.
-    private InitCHEFRepoRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:InitChefRepoRequest)
+      InitChefRepoRequestOrBuilder {
+    // Use InitChefRepoRequest.newBuilder() to construct.
+    private InitChefRepoRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private InitCHEFRepoRequest() {
+    private InitChefRepoRequest() {
     }
 
     @java.lang.Override
@@ -1794,7 +1794,7 @@ public final class Chefmate {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-    private InitCHEFRepoRequest(
+    private InitChefRepoRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
       this();
@@ -1814,11 +1814,11 @@ public final class Chefmate {
               break;
             }
             case 10: {
-              Chefmate.SSHCredentials.Builder subBuilder = null;
+              Chefmate.SshCredentials.Builder subBuilder = null;
               if (credentials_ != null) {
                 subBuilder = credentials_.toBuilder();
               }
-              credentials_ = input.readMessage(Chefmate.SSHCredentials.parser(), extensionRegistry);
+              credentials_ = input.readMessage(Chefmate.SshCredentials.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(credentials_);
                 credentials_ = subBuilder.buildPartial();
@@ -1840,34 +1840,34 @@ public final class Chefmate {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Chefmate.internal_static_InitCHEFRepoRequest_descriptor;
+      return Chefmate.internal_static_InitChefRepoRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Chefmate.internal_static_InitCHEFRepoRequest_fieldAccessorTable
+      return Chefmate.internal_static_InitChefRepoRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Chefmate.InitCHEFRepoRequest.class, Chefmate.InitCHEFRepoRequest.Builder.class);
+              Chefmate.InitChefRepoRequest.class, Chefmate.InitChefRepoRequest.Builder.class);
     }
 
     public static final int CREDENTIALS_FIELD_NUMBER = 1;
-    private Chefmate.SSHCredentials credentials_;
+    private Chefmate.SshCredentials credentials_;
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
     public boolean hasCredentials() {
       return credentials_ != null;
     }
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    public Chefmate.SSHCredentials getCredentials() {
-      return credentials_ == null ? Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+    public Chefmate.SshCredentials getCredentials() {
+      return credentials_ == null ? Chefmate.SshCredentials.getDefaultInstance() : credentials_;
     }
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    public Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder() {
+    public Chefmate.SshCredentialsOrBuilder getCredentialsOrBuilder() {
       return getCredentials();
     }
 
@@ -1902,53 +1902,53 @@ public final class Chefmate {
     }
 
     private static final long serialVersionUID = 0L;
-    public static Chefmate.InitCHEFRepoRequest parseFrom(
+    public static Chefmate.InitChefRepoRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.InitCHEFRepoRequest parseFrom(
+    public static Chefmate.InitChefRepoRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.InitCHEFRepoRequest parseFrom(byte[] data)
+    public static Chefmate.InitChefRepoRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.InitCHEFRepoRequest parseFrom(
+    public static Chefmate.InitChefRepoRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.InitCHEFRepoRequest parseFrom(java.io.InputStream input)
+    public static Chefmate.InitChefRepoRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.InitCHEFRepoRequest parseFrom(
+    public static Chefmate.InitChefRepoRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Chefmate.InitCHEFRepoRequest parseDelimitedFrom(java.io.InputStream input)
+    public static Chefmate.InitChefRepoRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Chefmate.InitCHEFRepoRequest parseDelimitedFrom(
+    public static Chefmate.InitChefRepoRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Chefmate.InitCHEFRepoRequest parseFrom(
+    public static Chefmate.InitChefRepoRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.InitCHEFRepoRequest parseFrom(
+    public static Chefmate.InitChefRepoRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1959,7 +1959,7 @@ public final class Chefmate {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Chefmate.InitCHEFRepoRequest prototype) {
+    public static Builder newBuilder(Chefmate.InitChefRepoRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -1974,25 +1974,25 @@ public final class Chefmate {
       return builder;
     }
     /**
-     * Protobuf type {@code InitCHEFRepoRequest}
+     * Protobuf type {@code InitChefRepoRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:InitCHEFRepoRequest)
-        Chefmate.InitCHEFRepoRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:InitChefRepoRequest)
+        Chefmate.InitChefRepoRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Chefmate.internal_static_InitCHEFRepoRequest_descriptor;
+        return Chefmate.internal_static_InitChefRepoRequest_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Chefmate.internal_static_InitCHEFRepoRequest_fieldAccessorTable
+        return Chefmate.internal_static_InitChefRepoRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Chefmate.InitCHEFRepoRequest.class, Chefmate.InitCHEFRepoRequest.Builder.class);
+                Chefmate.InitChefRepoRequest.class, Chefmate.InitChefRepoRequest.Builder.class);
       }
 
-      // Construct using Chefmate.InitCHEFRepoRequest.newBuilder()
+      // Construct using Chefmate.InitChefRepoRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2019,23 +2019,23 @@ public final class Chefmate {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Chefmate.internal_static_InitCHEFRepoRequest_descriptor;
+        return Chefmate.internal_static_InitChefRepoRequest_descriptor;
       }
 
-      public Chefmate.InitCHEFRepoRequest getDefaultInstanceForType() {
-        return Chefmate.InitCHEFRepoRequest.getDefaultInstance();
+      public Chefmate.InitChefRepoRequest getDefaultInstanceForType() {
+        return Chefmate.InitChefRepoRequest.getDefaultInstance();
       }
 
-      public Chefmate.InitCHEFRepoRequest build() {
-        Chefmate.InitCHEFRepoRequest result = buildPartial();
+      public Chefmate.InitChefRepoRequest build() {
+        Chefmate.InitChefRepoRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Chefmate.InitCHEFRepoRequest buildPartial() {
-        Chefmate.InitCHEFRepoRequest result = new Chefmate.InitCHEFRepoRequest(this);
+      public Chefmate.InitChefRepoRequest buildPartial() {
+        Chefmate.InitChefRepoRequest result = new Chefmate.InitChefRepoRequest(this);
         if (credentialsBuilder_ == null) {
           result.credentials_ = credentials_;
         } else {
@@ -2046,16 +2046,16 @@ public final class Chefmate {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Chefmate.InitCHEFRepoRequest) {
-          return mergeFrom((Chefmate.InitCHEFRepoRequest)other);
+        if (other instanceof Chefmate.InitChefRepoRequest) {
+          return mergeFrom((Chefmate.InitChefRepoRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Chefmate.InitCHEFRepoRequest other) {
-        if (other == Chefmate.InitCHEFRepoRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(Chefmate.InitChefRepoRequest other) {
+        if (other == Chefmate.InitChefRepoRequest.getDefaultInstance()) return this;
         if (other.hasCredentials()) {
           mergeCredentials(other.getCredentials());
         }
@@ -2071,11 +2071,11 @@ public final class Chefmate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Chefmate.InitCHEFRepoRequest parsedMessage = null;
+        Chefmate.InitChefRepoRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Chefmate.InitCHEFRepoRequest) e.getUnfinishedMessage();
+          parsedMessage = (Chefmate.InitChefRepoRequest) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -2085,29 +2085,29 @@ public final class Chefmate {
         return this;
       }
 
-      private Chefmate.SSHCredentials credentials_ = null;
+      private Chefmate.SshCredentials credentials_ = null;
       private com.google.protobuf.SingleFieldBuilder<
-          Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder> credentialsBuilder_;
+          Chefmate.SshCredentials, Chefmate.SshCredentials.Builder, Chefmate.SshCredentialsOrBuilder> credentialsBuilder_;
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       public boolean hasCredentials() {
         return credentialsBuilder_ != null || credentials_ != null;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Chefmate.SSHCredentials getCredentials() {
+      public Chefmate.SshCredentials getCredentials() {
         if (credentialsBuilder_ == null) {
-          return credentials_ == null ? Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+          return credentials_ == null ? Chefmate.SshCredentials.getDefaultInstance() : credentials_;
         } else {
           return credentialsBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Builder setCredentials(Chefmate.SSHCredentials value) {
+      public Builder setCredentials(Chefmate.SshCredentials value) {
         if (credentialsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2121,10 +2121,10 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       public Builder setCredentials(
-          Chefmate.SSHCredentials.Builder builderForValue) {
+          Chefmate.SshCredentials.Builder builderForValue) {
         if (credentialsBuilder_ == null) {
           credentials_ = builderForValue.build();
           onChanged();
@@ -2135,13 +2135,13 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Builder mergeCredentials(Chefmate.SSHCredentials value) {
+      public Builder mergeCredentials(Chefmate.SshCredentials value) {
         if (credentialsBuilder_ == null) {
           if (credentials_ != null) {
             credentials_ =
-              Chefmate.SSHCredentials.newBuilder(credentials_).mergeFrom(value).buildPartial();
+              Chefmate.SshCredentials.newBuilder(credentials_).mergeFrom(value).buildPartial();
           } else {
             credentials_ = value;
           }
@@ -2153,7 +2153,7 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       public Builder clearCredentials() {
         if (credentialsBuilder_ == null) {
@@ -2167,33 +2167,33 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Chefmate.SSHCredentials.Builder getCredentialsBuilder() {
+      public Chefmate.SshCredentials.Builder getCredentialsBuilder() {
         
         onChanged();
         return getCredentialsFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder() {
+      public Chefmate.SshCredentialsOrBuilder getCredentialsOrBuilder() {
         if (credentialsBuilder_ != null) {
           return credentialsBuilder_.getMessageOrBuilder();
         } else {
           return credentials_ == null ?
-              Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+              Chefmate.SshCredentials.getDefaultInstance() : credentials_;
         }
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder> 
+          Chefmate.SshCredentials, Chefmate.SshCredentials.Builder, Chefmate.SshCredentialsOrBuilder> 
           getCredentialsFieldBuilder() {
         if (credentialsBuilder_ == null) {
           credentialsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder>(
+              Chefmate.SshCredentials, Chefmate.SshCredentials.Builder, Chefmate.SshCredentialsOrBuilder>(
                   getCredentials(),
                   getParentForChildren(),
                   isClean());
@@ -2212,27 +2212,27 @@ public final class Chefmate {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:InitCHEFRepoRequest)
+      // @@protoc_insertion_point(builder_scope:InitChefRepoRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:InitCHEFRepoRequest)
-    private static final Chefmate.InitCHEFRepoRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:InitChefRepoRequest)
+    private static final Chefmate.InitChefRepoRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Chefmate.InitCHEFRepoRequest();
+      DEFAULT_INSTANCE = new Chefmate.InitChefRepoRequest();
     }
 
-    public static Chefmate.InitCHEFRepoRequest getDefaultInstance() {
+    public static Chefmate.InitChefRepoRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<InitCHEFRepoRequest>
-        PARSER = new com.google.protobuf.AbstractParser<InitCHEFRepoRequest>() {
-      public InitCHEFRepoRequest parsePartialFrom(
+    private static final com.google.protobuf.Parser<InitChefRepoRequest>
+        PARSER = new com.google.protobuf.AbstractParser<InitChefRepoRequest>() {
+      public InitChefRepoRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         try {
-          return new InitCHEFRepoRequest(input, extensionRegistry);
+          return new InitChefRepoRequest(input, extensionRegistry);
         } catch (RuntimeException e) {
           if (e.getCause() instanceof
               com.google.protobuf.InvalidProtocolBufferException) {
@@ -2244,37 +2244,37 @@ public final class Chefmate {
       }
     };
 
-    public static com.google.protobuf.Parser<InitCHEFRepoRequest> parser() {
+    public static com.google.protobuf.Parser<InitChefRepoRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<InitCHEFRepoRequest> getParserForType() {
+    public com.google.protobuf.Parser<InitChefRepoRequest> getParserForType() {
       return PARSER;
     }
 
-    public Chefmate.InitCHEFRepoRequest getDefaultInstanceForType() {
+    public Chefmate.InitChefRepoRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface DestroyVMRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DestroyVMRequest)
+  public interface DestroyVmRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:DestroyVmRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .AWSInstanceId instanceId = 1;</code>
+     * <code>optional .AwsInstanceId instanceId = 1;</code>
      */
     boolean hasInstanceId();
     /**
-     * <code>optional .AWSInstanceId instanceId = 1;</code>
+     * <code>optional .AwsInstanceId instanceId = 1;</code>
      */
-    Chefmate.AWSInstanceId getInstanceId();
+    Chefmate.AwsInstanceId getInstanceId();
     /**
-     * <code>optional .AWSInstanceId instanceId = 1;</code>
+     * <code>optional .AwsInstanceId instanceId = 1;</code>
      */
-    Chefmate.AWSInstanceIdOrBuilder getInstanceIdOrBuilder();
+    Chefmate.AwsInstanceIdOrBuilder getInstanceIdOrBuilder();
 
     /**
      * <code>optional string region = 2;</code>
@@ -2287,17 +2287,17 @@ public final class Chefmate {
         getRegionBytes();
   }
   /**
-   * Protobuf type {@code DestroyVMRequest}
+   * Protobuf type {@code DestroyVmRequest}
    */
-  public  static final class DestroyVMRequest extends
+  public  static final class DestroyVmRequest extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:DestroyVMRequest)
-      DestroyVMRequestOrBuilder {
-    // Use DestroyVMRequest.newBuilder() to construct.
-    private DestroyVMRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:DestroyVmRequest)
+      DestroyVmRequestOrBuilder {
+    // Use DestroyVmRequest.newBuilder() to construct.
+    private DestroyVmRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private DestroyVMRequest() {
+    private DestroyVmRequest() {
       region_ = "";
     }
 
@@ -2306,7 +2306,7 @@ public final class Chefmate {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-    private DestroyVMRequest(
+    private DestroyVmRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
       this();
@@ -2326,11 +2326,11 @@ public final class Chefmate {
               break;
             }
             case 10: {
-              Chefmate.AWSInstanceId.Builder subBuilder = null;
+              Chefmate.AwsInstanceId.Builder subBuilder = null;
               if (instanceId_ != null) {
                 subBuilder = instanceId_.toBuilder();
               }
-              instanceId_ = input.readMessage(Chefmate.AWSInstanceId.parser(), extensionRegistry);
+              instanceId_ = input.readMessage(Chefmate.AwsInstanceId.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(instanceId_);
                 instanceId_ = subBuilder.buildPartial();
@@ -2358,34 +2358,34 @@ public final class Chefmate {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Chefmate.internal_static_DestroyVMRequest_descriptor;
+      return Chefmate.internal_static_DestroyVmRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Chefmate.internal_static_DestroyVMRequest_fieldAccessorTable
+      return Chefmate.internal_static_DestroyVmRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Chefmate.DestroyVMRequest.class, Chefmate.DestroyVMRequest.Builder.class);
+              Chefmate.DestroyVmRequest.class, Chefmate.DestroyVmRequest.Builder.class);
     }
 
     public static final int INSTANCEID_FIELD_NUMBER = 1;
-    private Chefmate.AWSInstanceId instanceId_;
+    private Chefmate.AwsInstanceId instanceId_;
     /**
-     * <code>optional .AWSInstanceId instanceId = 1;</code>
+     * <code>optional .AwsInstanceId instanceId = 1;</code>
      */
     public boolean hasInstanceId() {
       return instanceId_ != null;
     }
     /**
-     * <code>optional .AWSInstanceId instanceId = 1;</code>
+     * <code>optional .AwsInstanceId instanceId = 1;</code>
      */
-    public Chefmate.AWSInstanceId getInstanceId() {
-      return instanceId_ == null ? Chefmate.AWSInstanceId.getDefaultInstance() : instanceId_;
+    public Chefmate.AwsInstanceId getInstanceId() {
+      return instanceId_ == null ? Chefmate.AwsInstanceId.getDefaultInstance() : instanceId_;
     }
     /**
-     * <code>optional .AWSInstanceId instanceId = 1;</code>
+     * <code>optional .AwsInstanceId instanceId = 1;</code>
      */
-    public Chefmate.AWSInstanceIdOrBuilder getInstanceIdOrBuilder() {
+    public Chefmate.AwsInstanceIdOrBuilder getInstanceIdOrBuilder() {
       return getInstanceId();
     }
 
@@ -2460,53 +2460,53 @@ public final class Chefmate {
     }
 
     private static final long serialVersionUID = 0L;
-    public static Chefmate.DestroyVMRequest parseFrom(
+    public static Chefmate.DestroyVmRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.DestroyVMRequest parseFrom(
+    public static Chefmate.DestroyVmRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.DestroyVMRequest parseFrom(byte[] data)
+    public static Chefmate.DestroyVmRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.DestroyVMRequest parseFrom(
+    public static Chefmate.DestroyVmRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.DestroyVMRequest parseFrom(java.io.InputStream input)
+    public static Chefmate.DestroyVmRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.DestroyVMRequest parseFrom(
+    public static Chefmate.DestroyVmRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Chefmate.DestroyVMRequest parseDelimitedFrom(java.io.InputStream input)
+    public static Chefmate.DestroyVmRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Chefmate.DestroyVMRequest parseDelimitedFrom(
+    public static Chefmate.DestroyVmRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Chefmate.DestroyVMRequest parseFrom(
+    public static Chefmate.DestroyVmRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.DestroyVMRequest parseFrom(
+    public static Chefmate.DestroyVmRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2517,7 +2517,7 @@ public final class Chefmate {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Chefmate.DestroyVMRequest prototype) {
+    public static Builder newBuilder(Chefmate.DestroyVmRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -2532,25 +2532,25 @@ public final class Chefmate {
       return builder;
     }
     /**
-     * Protobuf type {@code DestroyVMRequest}
+     * Protobuf type {@code DestroyVmRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:DestroyVMRequest)
-        Chefmate.DestroyVMRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:DestroyVmRequest)
+        Chefmate.DestroyVmRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Chefmate.internal_static_DestroyVMRequest_descriptor;
+        return Chefmate.internal_static_DestroyVmRequest_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Chefmate.internal_static_DestroyVMRequest_fieldAccessorTable
+        return Chefmate.internal_static_DestroyVmRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Chefmate.DestroyVMRequest.class, Chefmate.DestroyVMRequest.Builder.class);
+                Chefmate.DestroyVmRequest.class, Chefmate.DestroyVmRequest.Builder.class);
       }
 
-      // Construct using Chefmate.DestroyVMRequest.newBuilder()
+      // Construct using Chefmate.DestroyVmRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2579,23 +2579,23 @@ public final class Chefmate {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Chefmate.internal_static_DestroyVMRequest_descriptor;
+        return Chefmate.internal_static_DestroyVmRequest_descriptor;
       }
 
-      public Chefmate.DestroyVMRequest getDefaultInstanceForType() {
-        return Chefmate.DestroyVMRequest.getDefaultInstance();
+      public Chefmate.DestroyVmRequest getDefaultInstanceForType() {
+        return Chefmate.DestroyVmRequest.getDefaultInstance();
       }
 
-      public Chefmate.DestroyVMRequest build() {
-        Chefmate.DestroyVMRequest result = buildPartial();
+      public Chefmate.DestroyVmRequest build() {
+        Chefmate.DestroyVmRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Chefmate.DestroyVMRequest buildPartial() {
-        Chefmate.DestroyVMRequest result = new Chefmate.DestroyVMRequest(this);
+      public Chefmate.DestroyVmRequest buildPartial() {
+        Chefmate.DestroyVmRequest result = new Chefmate.DestroyVmRequest(this);
         if (instanceIdBuilder_ == null) {
           result.instanceId_ = instanceId_;
         } else {
@@ -2607,16 +2607,16 @@ public final class Chefmate {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Chefmate.DestroyVMRequest) {
-          return mergeFrom((Chefmate.DestroyVMRequest)other);
+        if (other instanceof Chefmate.DestroyVmRequest) {
+          return mergeFrom((Chefmate.DestroyVmRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Chefmate.DestroyVMRequest other) {
-        if (other == Chefmate.DestroyVMRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(Chefmate.DestroyVmRequest other) {
+        if (other == Chefmate.DestroyVmRequest.getDefaultInstance()) return this;
         if (other.hasInstanceId()) {
           mergeInstanceId(other.getInstanceId());
         }
@@ -2636,11 +2636,11 @@ public final class Chefmate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Chefmate.DestroyVMRequest parsedMessage = null;
+        Chefmate.DestroyVmRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Chefmate.DestroyVMRequest) e.getUnfinishedMessage();
+          parsedMessage = (Chefmate.DestroyVmRequest) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -2650,29 +2650,29 @@ public final class Chefmate {
         return this;
       }
 
-      private Chefmate.AWSInstanceId instanceId_ = null;
+      private Chefmate.AwsInstanceId instanceId_ = null;
       private com.google.protobuf.SingleFieldBuilder<
-          Chefmate.AWSInstanceId, Chefmate.AWSInstanceId.Builder, Chefmate.AWSInstanceIdOrBuilder> instanceIdBuilder_;
+          Chefmate.AwsInstanceId, Chefmate.AwsInstanceId.Builder, Chefmate.AwsInstanceIdOrBuilder> instanceIdBuilder_;
       /**
-       * <code>optional .AWSInstanceId instanceId = 1;</code>
+       * <code>optional .AwsInstanceId instanceId = 1;</code>
        */
       public boolean hasInstanceId() {
         return instanceIdBuilder_ != null || instanceId_ != null;
       }
       /**
-       * <code>optional .AWSInstanceId instanceId = 1;</code>
+       * <code>optional .AwsInstanceId instanceId = 1;</code>
        */
-      public Chefmate.AWSInstanceId getInstanceId() {
+      public Chefmate.AwsInstanceId getInstanceId() {
         if (instanceIdBuilder_ == null) {
-          return instanceId_ == null ? Chefmate.AWSInstanceId.getDefaultInstance() : instanceId_;
+          return instanceId_ == null ? Chefmate.AwsInstanceId.getDefaultInstance() : instanceId_;
         } else {
           return instanceIdBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .AWSInstanceId instanceId = 1;</code>
+       * <code>optional .AwsInstanceId instanceId = 1;</code>
        */
-      public Builder setInstanceId(Chefmate.AWSInstanceId value) {
+      public Builder setInstanceId(Chefmate.AwsInstanceId value) {
         if (instanceIdBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2686,10 +2686,10 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .AWSInstanceId instanceId = 1;</code>
+       * <code>optional .AwsInstanceId instanceId = 1;</code>
        */
       public Builder setInstanceId(
-          Chefmate.AWSInstanceId.Builder builderForValue) {
+          Chefmate.AwsInstanceId.Builder builderForValue) {
         if (instanceIdBuilder_ == null) {
           instanceId_ = builderForValue.build();
           onChanged();
@@ -2700,13 +2700,13 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .AWSInstanceId instanceId = 1;</code>
+       * <code>optional .AwsInstanceId instanceId = 1;</code>
        */
-      public Builder mergeInstanceId(Chefmate.AWSInstanceId value) {
+      public Builder mergeInstanceId(Chefmate.AwsInstanceId value) {
         if (instanceIdBuilder_ == null) {
           if (instanceId_ != null) {
             instanceId_ =
-              Chefmate.AWSInstanceId.newBuilder(instanceId_).mergeFrom(value).buildPartial();
+              Chefmate.AwsInstanceId.newBuilder(instanceId_).mergeFrom(value).buildPartial();
           } else {
             instanceId_ = value;
           }
@@ -2718,7 +2718,7 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .AWSInstanceId instanceId = 1;</code>
+       * <code>optional .AwsInstanceId instanceId = 1;</code>
        */
       public Builder clearInstanceId() {
         if (instanceIdBuilder_ == null) {
@@ -2732,33 +2732,33 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .AWSInstanceId instanceId = 1;</code>
+       * <code>optional .AwsInstanceId instanceId = 1;</code>
        */
-      public Chefmate.AWSInstanceId.Builder getInstanceIdBuilder() {
+      public Chefmate.AwsInstanceId.Builder getInstanceIdBuilder() {
         
         onChanged();
         return getInstanceIdFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .AWSInstanceId instanceId = 1;</code>
+       * <code>optional .AwsInstanceId instanceId = 1;</code>
        */
-      public Chefmate.AWSInstanceIdOrBuilder getInstanceIdOrBuilder() {
+      public Chefmate.AwsInstanceIdOrBuilder getInstanceIdOrBuilder() {
         if (instanceIdBuilder_ != null) {
           return instanceIdBuilder_.getMessageOrBuilder();
         } else {
           return instanceId_ == null ?
-              Chefmate.AWSInstanceId.getDefaultInstance() : instanceId_;
+              Chefmate.AwsInstanceId.getDefaultInstance() : instanceId_;
         }
       }
       /**
-       * <code>optional .AWSInstanceId instanceId = 1;</code>
+       * <code>optional .AwsInstanceId instanceId = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Chefmate.AWSInstanceId, Chefmate.AWSInstanceId.Builder, Chefmate.AWSInstanceIdOrBuilder> 
+          Chefmate.AwsInstanceId, Chefmate.AwsInstanceId.Builder, Chefmate.AwsInstanceIdOrBuilder> 
           getInstanceIdFieldBuilder() {
         if (instanceIdBuilder_ == null) {
           instanceIdBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Chefmate.AWSInstanceId, Chefmate.AWSInstanceId.Builder, Chefmate.AWSInstanceIdOrBuilder>(
+              Chefmate.AwsInstanceId, Chefmate.AwsInstanceId.Builder, Chefmate.AwsInstanceIdOrBuilder>(
                   getInstanceId(),
                   getParentForChildren(),
                   isClean());
@@ -2846,27 +2846,27 @@ public final class Chefmate {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:DestroyVMRequest)
+      // @@protoc_insertion_point(builder_scope:DestroyVmRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:DestroyVMRequest)
-    private static final Chefmate.DestroyVMRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:DestroyVmRequest)
+    private static final Chefmate.DestroyVmRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Chefmate.DestroyVMRequest();
+      DEFAULT_INSTANCE = new Chefmate.DestroyVmRequest();
     }
 
-    public static Chefmate.DestroyVMRequest getDefaultInstance() {
+    public static Chefmate.DestroyVmRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<DestroyVMRequest>
-        PARSER = new com.google.protobuf.AbstractParser<DestroyVMRequest>() {
-      public DestroyVMRequest parsePartialFrom(
+    private static final com.google.protobuf.Parser<DestroyVmRequest>
+        PARSER = new com.google.protobuf.AbstractParser<DestroyVmRequest>() {
+      public DestroyVmRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         try {
-          return new DestroyVMRequest(input, extensionRegistry);
+          return new DestroyVmRequest(input, extensionRegistry);
         } catch (RuntimeException e) {
           if (e.getCause() instanceof
               com.google.protobuf.InvalidProtocolBufferException) {
@@ -2878,23 +2878,23 @@ public final class Chefmate {
       }
     };
 
-    public static com.google.protobuf.Parser<DestroyVMRequest> parser() {
+    public static com.google.protobuf.Parser<DestroyVmRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DestroyVMRequest> getParserForType() {
+    public com.google.protobuf.Parser<DestroyVmRequest> getParserForType() {
       return PARSER;
     }
 
-    public Chefmate.DestroyVMRequest getDefaultInstanceForType() {
+    public Chefmate.DestroyVmRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface SSHCredentialsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:SSHCredentials)
+  public interface SshCredentialsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SshCredentials)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -2933,7 +2933,7 @@ public final class Chefmate {
     int getTimeout();
   }
   /**
-   * Protobuf type {@code SSHCredentials}
+   * Protobuf type {@code SshCredentials}
    *
    * <pre>
    * ########################
@@ -2941,15 +2941,15 @@ public final class Chefmate {
    * ########################
    * </pre>
    */
-  public  static final class SSHCredentials extends
+  public  static final class SshCredentials extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:SSHCredentials)
-      SSHCredentialsOrBuilder {
-    // Use SSHCredentials.newBuilder() to construct.
-    private SSHCredentials(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:SshCredentials)
+      SshCredentialsOrBuilder {
+    // Use SshCredentials.newBuilder() to construct.
+    private SshCredentials(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private SSHCredentials() {
+    private SshCredentials() {
       username_ = "";
       host_ = "";
       keyfilename_ = "";
@@ -2961,7 +2961,7 @@ public final class Chefmate {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-    private SSHCredentials(
+    private SshCredentials(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
       this();
@@ -3017,14 +3017,14 @@ public final class Chefmate {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Chefmate.internal_static_SSHCredentials_descriptor;
+      return Chefmate.internal_static_SshCredentials_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Chefmate.internal_static_SSHCredentials_fieldAccessorTable
+      return Chefmate.internal_static_SshCredentials_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Chefmate.SSHCredentials.class, Chefmate.SSHCredentials.Builder.class);
+              Chefmate.SshCredentials.class, Chefmate.SshCredentials.Builder.class);
     }
 
     public static final int USERNAME_FIELD_NUMBER = 1;
@@ -3187,53 +3187,53 @@ public final class Chefmate {
     }
 
     private static final long serialVersionUID = 0L;
-    public static Chefmate.SSHCredentials parseFrom(
+    public static Chefmate.SshCredentials parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.SSHCredentials parseFrom(
+    public static Chefmate.SshCredentials parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.SSHCredentials parseFrom(byte[] data)
+    public static Chefmate.SshCredentials parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.SSHCredentials parseFrom(
+    public static Chefmate.SshCredentials parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.SSHCredentials parseFrom(java.io.InputStream input)
+    public static Chefmate.SshCredentials parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.SSHCredentials parseFrom(
+    public static Chefmate.SshCredentials parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Chefmate.SSHCredentials parseDelimitedFrom(java.io.InputStream input)
+    public static Chefmate.SshCredentials parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Chefmate.SSHCredentials parseDelimitedFrom(
+    public static Chefmate.SshCredentials parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Chefmate.SSHCredentials parseFrom(
+    public static Chefmate.SshCredentials parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.SSHCredentials parseFrom(
+    public static Chefmate.SshCredentials parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3244,7 +3244,7 @@ public final class Chefmate {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Chefmate.SSHCredentials prototype) {
+    public static Builder newBuilder(Chefmate.SshCredentials prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -3259,7 +3259,7 @@ public final class Chefmate {
       return builder;
     }
     /**
-     * Protobuf type {@code SSHCredentials}
+     * Protobuf type {@code SshCredentials}
      *
      * <pre>
      * ########################
@@ -3269,21 +3269,21 @@ public final class Chefmate {
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:SSHCredentials)
-        Chefmate.SSHCredentialsOrBuilder {
+        // @@protoc_insertion_point(builder_implements:SshCredentials)
+        Chefmate.SshCredentialsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Chefmate.internal_static_SSHCredentials_descriptor;
+        return Chefmate.internal_static_SshCredentials_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Chefmate.internal_static_SSHCredentials_fieldAccessorTable
+        return Chefmate.internal_static_SshCredentials_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Chefmate.SSHCredentials.class, Chefmate.SSHCredentials.Builder.class);
+                Chefmate.SshCredentials.class, Chefmate.SshCredentials.Builder.class);
       }
 
-      // Construct using Chefmate.SSHCredentials.newBuilder()
+      // Construct using Chefmate.SshCredentials.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3312,23 +3312,23 @@ public final class Chefmate {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Chefmate.internal_static_SSHCredentials_descriptor;
+        return Chefmate.internal_static_SshCredentials_descriptor;
       }
 
-      public Chefmate.SSHCredentials getDefaultInstanceForType() {
-        return Chefmate.SSHCredentials.getDefaultInstance();
+      public Chefmate.SshCredentials getDefaultInstanceForType() {
+        return Chefmate.SshCredentials.getDefaultInstance();
       }
 
-      public Chefmate.SSHCredentials build() {
-        Chefmate.SSHCredentials result = buildPartial();
+      public Chefmate.SshCredentials build() {
+        Chefmate.SshCredentials result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Chefmate.SSHCredentials buildPartial() {
-        Chefmate.SSHCredentials result = new Chefmate.SSHCredentials(this);
+      public Chefmate.SshCredentials buildPartial() {
+        Chefmate.SshCredentials result = new Chefmate.SshCredentials(this);
         result.username_ = username_;
         result.host_ = host_;
         result.keyfilename_ = keyfilename_;
@@ -3338,16 +3338,16 @@ public final class Chefmate {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Chefmate.SSHCredentials) {
-          return mergeFrom((Chefmate.SSHCredentials)other);
+        if (other instanceof Chefmate.SshCredentials) {
+          return mergeFrom((Chefmate.SshCredentials)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Chefmate.SSHCredentials other) {
-        if (other == Chefmate.SSHCredentials.getDefaultInstance()) return this;
+      public Builder mergeFrom(Chefmate.SshCredentials other) {
+        if (other == Chefmate.SshCredentials.getDefaultInstance()) return this;
         if (!other.getUsername().isEmpty()) {
           username_ = other.username_;
           onChanged();
@@ -3375,11 +3375,11 @@ public final class Chefmate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Chefmate.SSHCredentials parsedMessage = null;
+        Chefmate.SshCredentials parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Chefmate.SSHCredentials) e.getUnfinishedMessage();
+          parsedMessage = (Chefmate.SshCredentials) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -3632,27 +3632,27 @@ public final class Chefmate {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:SSHCredentials)
+      // @@protoc_insertion_point(builder_scope:SshCredentials)
     }
 
-    // @@protoc_insertion_point(class_scope:SSHCredentials)
-    private static final Chefmate.SSHCredentials DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:SshCredentials)
+    private static final Chefmate.SshCredentials DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Chefmate.SSHCredentials();
+      DEFAULT_INSTANCE = new Chefmate.SshCredentials();
     }
 
-    public static Chefmate.SSHCredentials getDefaultInstance() {
+    public static Chefmate.SshCredentials getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<SSHCredentials>
-        PARSER = new com.google.protobuf.AbstractParser<SSHCredentials>() {
-      public SSHCredentials parsePartialFrom(
+    private static final com.google.protobuf.Parser<SshCredentials>
+        PARSER = new com.google.protobuf.AbstractParser<SshCredentials>() {
+      public SshCredentials parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         try {
-          return new SSHCredentials(input, extensionRegistry);
+          return new SshCredentials(input, extensionRegistry);
         } catch (RuntimeException e) {
           if (e.getCause() instanceof
               com.google.protobuf.InvalidProtocolBufferException) {
@@ -3664,37 +3664,37 @@ public final class Chefmate {
       }
     };
 
-    public static com.google.protobuf.Parser<SSHCredentials> parser() {
+    public static com.google.protobuf.Parser<SshCredentials> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<SSHCredentials> getParserForType() {
+    public com.google.protobuf.Parser<SshCredentials> getParserForType() {
       return PARSER;
     }
 
-    public Chefmate.SSHCredentials getDefaultInstanceForType() {
+    public Chefmate.SshCredentials getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface DeployWPAppRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DeployWPAppRequest)
+  public interface DeployWpAppRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:DeployWpAppRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
     boolean hasCredentials();
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    Chefmate.SSHCredentials getCredentials();
+    Chefmate.SshCredentials getCredentials();
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder();
+    Chefmate.SshCredentialsOrBuilder getCredentialsOrBuilder();
 
     /**
      * <code>optional string serverName = 2;</code>
@@ -3803,17 +3803,17 @@ public final class Chefmate {
         getWpConfigOptionsBytes();
   }
   /**
-   * Protobuf type {@code DeployWPAppRequest}
+   * Protobuf type {@code DeployWpAppRequest}
    */
-  public  static final class DeployWPAppRequest extends
+  public  static final class DeployWpAppRequest extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:DeployWPAppRequest)
-      DeployWPAppRequestOrBuilder {
-    // Use DeployWPAppRequest.newBuilder() to construct.
-    private DeployWPAppRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:DeployWpAppRequest)
+      DeployWpAppRequestOrBuilder {
+    // Use DeployWpAppRequest.newBuilder() to construct.
+    private DeployWpAppRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private DeployWPAppRequest() {
+    private DeployWpAppRequest() {
       serverName_ = "";
       port_ = "";
       dbName_ = "";
@@ -3830,7 +3830,7 @@ public final class Chefmate {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-    private DeployWPAppRequest(
+    private DeployWpAppRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
       this();
@@ -3850,11 +3850,11 @@ public final class Chefmate {
               break;
             }
             case 10: {
-              Chefmate.SSHCredentials.Builder subBuilder = null;
+              Chefmate.SshCredentials.Builder subBuilder = null;
               if (credentials_ != null) {
                 subBuilder = credentials_.toBuilder();
               }
-              credentials_ = input.readMessage(Chefmate.SSHCredentials.parser(), extensionRegistry);
+              credentials_ = input.readMessage(Chefmate.SshCredentials.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(credentials_);
                 credentials_ = subBuilder.buildPartial();
@@ -3930,34 +3930,34 @@ public final class Chefmate {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Chefmate.internal_static_DeployWPAppRequest_descriptor;
+      return Chefmate.internal_static_DeployWpAppRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Chefmate.internal_static_DeployWPAppRequest_fieldAccessorTable
+      return Chefmate.internal_static_DeployWpAppRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Chefmate.DeployWPAppRequest.class, Chefmate.DeployWPAppRequest.Builder.class);
+              Chefmate.DeployWpAppRequest.class, Chefmate.DeployWpAppRequest.Builder.class);
     }
 
     public static final int CREDENTIALS_FIELD_NUMBER = 1;
-    private Chefmate.SSHCredentials credentials_;
+    private Chefmate.SshCredentials credentials_;
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
     public boolean hasCredentials() {
       return credentials_ != null;
     }
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    public Chefmate.SSHCredentials getCredentials() {
-      return credentials_ == null ? Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+    public Chefmate.SshCredentials getCredentials() {
+      return credentials_ == null ? Chefmate.SshCredentials.getDefaultInstance() : credentials_;
     }
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    public Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder() {
+    public Chefmate.SshCredentialsOrBuilder getCredentialsOrBuilder() {
       return getCredentials();
     }
 
@@ -4368,53 +4368,53 @@ public final class Chefmate {
     }
 
     private static final long serialVersionUID = 0L;
-    public static Chefmate.DeployWPAppRequest parseFrom(
+    public static Chefmate.DeployWpAppRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.DeployWPAppRequest parseFrom(
+    public static Chefmate.DeployWpAppRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.DeployWPAppRequest parseFrom(byte[] data)
+    public static Chefmate.DeployWpAppRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.DeployWPAppRequest parseFrom(
+    public static Chefmate.DeployWpAppRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.DeployWPAppRequest parseFrom(java.io.InputStream input)
+    public static Chefmate.DeployWpAppRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.DeployWPAppRequest parseFrom(
+    public static Chefmate.DeployWpAppRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Chefmate.DeployWPAppRequest parseDelimitedFrom(java.io.InputStream input)
+    public static Chefmate.DeployWpAppRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Chefmate.DeployWPAppRequest parseDelimitedFrom(
+    public static Chefmate.DeployWpAppRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Chefmate.DeployWPAppRequest parseFrom(
+    public static Chefmate.DeployWpAppRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.DeployWPAppRequest parseFrom(
+    public static Chefmate.DeployWpAppRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4425,7 +4425,7 @@ public final class Chefmate {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Chefmate.DeployWPAppRequest prototype) {
+    public static Builder newBuilder(Chefmate.DeployWpAppRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -4440,25 +4440,25 @@ public final class Chefmate {
       return builder;
     }
     /**
-     * Protobuf type {@code DeployWPAppRequest}
+     * Protobuf type {@code DeployWpAppRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:DeployWPAppRequest)
-        Chefmate.DeployWPAppRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:DeployWpAppRequest)
+        Chefmate.DeployWpAppRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Chefmate.internal_static_DeployWPAppRequest_descriptor;
+        return Chefmate.internal_static_DeployWpAppRequest_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Chefmate.internal_static_DeployWPAppRequest_fieldAccessorTable
+        return Chefmate.internal_static_DeployWpAppRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Chefmate.DeployWPAppRequest.class, Chefmate.DeployWPAppRequest.Builder.class);
+                Chefmate.DeployWpAppRequest.class, Chefmate.DeployWpAppRequest.Builder.class);
       }
 
-      // Construct using Chefmate.DeployWPAppRequest.newBuilder()
+      // Construct using Chefmate.DeployWpAppRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4503,23 +4503,23 @@ public final class Chefmate {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Chefmate.internal_static_DeployWPAppRequest_descriptor;
+        return Chefmate.internal_static_DeployWpAppRequest_descriptor;
       }
 
-      public Chefmate.DeployWPAppRequest getDefaultInstanceForType() {
-        return Chefmate.DeployWPAppRequest.getDefaultInstance();
+      public Chefmate.DeployWpAppRequest getDefaultInstanceForType() {
+        return Chefmate.DeployWpAppRequest.getDefaultInstance();
       }
 
-      public Chefmate.DeployWPAppRequest build() {
-        Chefmate.DeployWPAppRequest result = buildPartial();
+      public Chefmate.DeployWpAppRequest build() {
+        Chefmate.DeployWpAppRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Chefmate.DeployWPAppRequest buildPartial() {
-        Chefmate.DeployWPAppRequest result = new Chefmate.DeployWPAppRequest(this);
+      public Chefmate.DeployWpAppRequest buildPartial() {
+        Chefmate.DeployWpAppRequest result = new Chefmate.DeployWpAppRequest(this);
         if (credentialsBuilder_ == null) {
           result.credentials_ = credentials_;
         } else {
@@ -4539,16 +4539,16 @@ public final class Chefmate {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Chefmate.DeployWPAppRequest) {
-          return mergeFrom((Chefmate.DeployWPAppRequest)other);
+        if (other instanceof Chefmate.DeployWpAppRequest) {
+          return mergeFrom((Chefmate.DeployWpAppRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Chefmate.DeployWPAppRequest other) {
-        if (other == Chefmate.DeployWPAppRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(Chefmate.DeployWpAppRequest other) {
+        if (other == Chefmate.DeployWpAppRequest.getDefaultInstance()) return this;
         if (other.hasCredentials()) {
           mergeCredentials(other.getCredentials());
         }
@@ -4600,11 +4600,11 @@ public final class Chefmate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Chefmate.DeployWPAppRequest parsedMessage = null;
+        Chefmate.DeployWpAppRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Chefmate.DeployWPAppRequest) e.getUnfinishedMessage();
+          parsedMessage = (Chefmate.DeployWpAppRequest) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -4614,29 +4614,29 @@ public final class Chefmate {
         return this;
       }
 
-      private Chefmate.SSHCredentials credentials_ = null;
+      private Chefmate.SshCredentials credentials_ = null;
       private com.google.protobuf.SingleFieldBuilder<
-          Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder> credentialsBuilder_;
+          Chefmate.SshCredentials, Chefmate.SshCredentials.Builder, Chefmate.SshCredentialsOrBuilder> credentialsBuilder_;
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       public boolean hasCredentials() {
         return credentialsBuilder_ != null || credentials_ != null;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Chefmate.SSHCredentials getCredentials() {
+      public Chefmate.SshCredentials getCredentials() {
         if (credentialsBuilder_ == null) {
-          return credentials_ == null ? Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+          return credentials_ == null ? Chefmate.SshCredentials.getDefaultInstance() : credentials_;
         } else {
           return credentialsBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Builder setCredentials(Chefmate.SSHCredentials value) {
+      public Builder setCredentials(Chefmate.SshCredentials value) {
         if (credentialsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4650,10 +4650,10 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       public Builder setCredentials(
-          Chefmate.SSHCredentials.Builder builderForValue) {
+          Chefmate.SshCredentials.Builder builderForValue) {
         if (credentialsBuilder_ == null) {
           credentials_ = builderForValue.build();
           onChanged();
@@ -4664,13 +4664,13 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Builder mergeCredentials(Chefmate.SSHCredentials value) {
+      public Builder mergeCredentials(Chefmate.SshCredentials value) {
         if (credentialsBuilder_ == null) {
           if (credentials_ != null) {
             credentials_ =
-              Chefmate.SSHCredentials.newBuilder(credentials_).mergeFrom(value).buildPartial();
+              Chefmate.SshCredentials.newBuilder(credentials_).mergeFrom(value).buildPartial();
           } else {
             credentials_ = value;
           }
@@ -4682,7 +4682,7 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       public Builder clearCredentials() {
         if (credentialsBuilder_ == null) {
@@ -4696,33 +4696,33 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Chefmate.SSHCredentials.Builder getCredentialsBuilder() {
+      public Chefmate.SshCredentials.Builder getCredentialsBuilder() {
         
         onChanged();
         return getCredentialsFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder() {
+      public Chefmate.SshCredentialsOrBuilder getCredentialsOrBuilder() {
         if (credentialsBuilder_ != null) {
           return credentialsBuilder_.getMessageOrBuilder();
         } else {
           return credentials_ == null ?
-              Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+              Chefmate.SshCredentials.getDefaultInstance() : credentials_;
         }
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder> 
+          Chefmate.SshCredentials, Chefmate.SshCredentials.Builder, Chefmate.SshCredentialsOrBuilder> 
           getCredentialsFieldBuilder() {
         if (credentialsBuilder_ == null) {
           credentialsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder>(
+              Chefmate.SshCredentials, Chefmate.SshCredentials.Builder, Chefmate.SshCredentialsOrBuilder>(
                   getCredentials(),
                   getParentForChildren(),
                   isClean());
@@ -5402,27 +5402,27 @@ public final class Chefmate {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:DeployWPAppRequest)
+      // @@protoc_insertion_point(builder_scope:DeployWpAppRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:DeployWPAppRequest)
-    private static final Chefmate.DeployWPAppRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:DeployWpAppRequest)
+    private static final Chefmate.DeployWpAppRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Chefmate.DeployWPAppRequest();
+      DEFAULT_INSTANCE = new Chefmate.DeployWpAppRequest();
     }
 
-    public static Chefmate.DeployWPAppRequest getDefaultInstance() {
+    public static Chefmate.DeployWpAppRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<DeployWPAppRequest>
-        PARSER = new com.google.protobuf.AbstractParser<DeployWPAppRequest>() {
-      public DeployWPAppRequest parsePartialFrom(
+    private static final com.google.protobuf.Parser<DeployWpAppRequest>
+        PARSER = new com.google.protobuf.AbstractParser<DeployWpAppRequest>() {
+      public DeployWpAppRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         try {
-          return new DeployWPAppRequest(input, extensionRegistry);
+          return new DeployWpAppRequest(input, extensionRegistry);
         } catch (RuntimeException e) {
           if (e.getCause() instanceof
               com.google.protobuf.InvalidProtocolBufferException) {
@@ -5434,37 +5434,37 @@ public final class Chefmate {
       }
     };
 
-    public static com.google.protobuf.Parser<DeployWPAppRequest> parser() {
+    public static com.google.protobuf.Parser<DeployWpAppRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DeployWPAppRequest> getParserForType() {
+    public com.google.protobuf.Parser<DeployWpAppRequest> getParserForType() {
       return PARSER;
     }
 
-    public Chefmate.DeployWPAppRequest getDefaultInstanceForType() {
+    public Chefmate.DeployWpAppRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface DeployDBRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DeployDBRequest)
+  public interface DeployDbRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:DeployDbRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
     boolean hasCredentials();
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    Chefmate.SSHCredentials getCredentials();
+    Chefmate.SshCredentials getCredentials();
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder();
+    Chefmate.SshCredentialsOrBuilder getCredentialsOrBuilder();
 
     /**
      * <code>optional string serviceName = 2;</code>
@@ -5530,17 +5530,17 @@ public final class Chefmate {
         getRootPasswordBytes();
   }
   /**
-   * Protobuf type {@code DeployDBRequest}
+   * Protobuf type {@code DeployDbRequest}
    */
-  public  static final class DeployDBRequest extends
+  public  static final class DeployDbRequest extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:DeployDBRequest)
-      DeployDBRequestOrBuilder {
-    // Use DeployDBRequest.newBuilder() to construct.
-    private DeployDBRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:DeployDbRequest)
+      DeployDbRequestOrBuilder {
+    // Use DeployDbRequest.newBuilder() to construct.
+    private DeployDbRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private DeployDBRequest() {
+    private DeployDbRequest() {
       serviceName_ = "";
       port_ = 0;
       username_ = "";
@@ -5554,7 +5554,7 @@ public final class Chefmate {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-    private DeployDBRequest(
+    private DeployDbRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
       this();
@@ -5574,11 +5574,11 @@ public final class Chefmate {
               break;
             }
             case 10: {
-              Chefmate.SSHCredentials.Builder subBuilder = null;
+              Chefmate.SshCredentials.Builder subBuilder = null;
               if (credentials_ != null) {
                 subBuilder = credentials_.toBuilder();
               }
-              credentials_ = input.readMessage(Chefmate.SSHCredentials.parser(), extensionRegistry);
+              credentials_ = input.readMessage(Chefmate.SshCredentials.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(credentials_);
                 credentials_ = subBuilder.buildPartial();
@@ -5635,34 +5635,34 @@ public final class Chefmate {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Chefmate.internal_static_DeployDBRequest_descriptor;
+      return Chefmate.internal_static_DeployDbRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Chefmate.internal_static_DeployDBRequest_fieldAccessorTable
+      return Chefmate.internal_static_DeployDbRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Chefmate.DeployDBRequest.class, Chefmate.DeployDBRequest.Builder.class);
+              Chefmate.DeployDbRequest.class, Chefmate.DeployDbRequest.Builder.class);
     }
 
     public static final int CREDENTIALS_FIELD_NUMBER = 1;
-    private Chefmate.SSHCredentials credentials_;
+    private Chefmate.SshCredentials credentials_;
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
     public boolean hasCredentials() {
       return credentials_ != null;
     }
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    public Chefmate.SSHCredentials getCredentials() {
-      return credentials_ == null ? Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+    public Chefmate.SshCredentials getCredentials() {
+      return credentials_ == null ? Chefmate.SshCredentials.getDefaultInstance() : credentials_;
     }
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    public Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder() {
+    public Chefmate.SshCredentialsOrBuilder getCredentialsOrBuilder() {
       return getCredentials();
     }
 
@@ -5921,53 +5921,53 @@ public final class Chefmate {
     }
 
     private static final long serialVersionUID = 0L;
-    public static Chefmate.DeployDBRequest parseFrom(
+    public static Chefmate.DeployDbRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.DeployDBRequest parseFrom(
+    public static Chefmate.DeployDbRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.DeployDBRequest parseFrom(byte[] data)
+    public static Chefmate.DeployDbRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.DeployDBRequest parseFrom(
+    public static Chefmate.DeployDbRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.DeployDBRequest parseFrom(java.io.InputStream input)
+    public static Chefmate.DeployDbRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.DeployDBRequest parseFrom(
+    public static Chefmate.DeployDbRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Chefmate.DeployDBRequest parseDelimitedFrom(java.io.InputStream input)
+    public static Chefmate.DeployDbRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Chefmate.DeployDBRequest parseDelimitedFrom(
+    public static Chefmate.DeployDbRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Chefmate.DeployDBRequest parseFrom(
+    public static Chefmate.DeployDbRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.DeployDBRequest parseFrom(
+    public static Chefmate.DeployDbRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -5978,7 +5978,7 @@ public final class Chefmate {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Chefmate.DeployDBRequest prototype) {
+    public static Builder newBuilder(Chefmate.DeployDbRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -5993,25 +5993,25 @@ public final class Chefmate {
       return builder;
     }
     /**
-     * Protobuf type {@code DeployDBRequest}
+     * Protobuf type {@code DeployDbRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:DeployDBRequest)
-        Chefmate.DeployDBRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:DeployDbRequest)
+        Chefmate.DeployDbRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Chefmate.internal_static_DeployDBRequest_descriptor;
+        return Chefmate.internal_static_DeployDbRequest_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Chefmate.internal_static_DeployDBRequest_fieldAccessorTable
+        return Chefmate.internal_static_DeployDbRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Chefmate.DeployDBRequest.class, Chefmate.DeployDBRequest.Builder.class);
+                Chefmate.DeployDbRequest.class, Chefmate.DeployDbRequest.Builder.class);
       }
 
-      // Construct using Chefmate.DeployDBRequest.newBuilder()
+      // Construct using Chefmate.DeployDbRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6050,23 +6050,23 @@ public final class Chefmate {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Chefmate.internal_static_DeployDBRequest_descriptor;
+        return Chefmate.internal_static_DeployDbRequest_descriptor;
       }
 
-      public Chefmate.DeployDBRequest getDefaultInstanceForType() {
-        return Chefmate.DeployDBRequest.getDefaultInstance();
+      public Chefmate.DeployDbRequest getDefaultInstanceForType() {
+        return Chefmate.DeployDbRequest.getDefaultInstance();
       }
 
-      public Chefmate.DeployDBRequest build() {
-        Chefmate.DeployDBRequest result = buildPartial();
+      public Chefmate.DeployDbRequest build() {
+        Chefmate.DeployDbRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Chefmate.DeployDBRequest buildPartial() {
-        Chefmate.DeployDBRequest result = new Chefmate.DeployDBRequest(this);
+      public Chefmate.DeployDbRequest buildPartial() {
+        Chefmate.DeployDbRequest result = new Chefmate.DeployDbRequest(this);
         if (credentialsBuilder_ == null) {
           result.credentials_ = credentials_;
         } else {
@@ -6083,16 +6083,16 @@ public final class Chefmate {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Chefmate.DeployDBRequest) {
-          return mergeFrom((Chefmate.DeployDBRequest)other);
+        if (other instanceof Chefmate.DeployDbRequest) {
+          return mergeFrom((Chefmate.DeployDbRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Chefmate.DeployDBRequest other) {
-        if (other == Chefmate.DeployDBRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(Chefmate.DeployDbRequest other) {
+        if (other == Chefmate.DeployDbRequest.getDefaultInstance()) return this;
         if (other.hasCredentials()) {
           mergeCredentials(other.getCredentials());
         }
@@ -6131,11 +6131,11 @@ public final class Chefmate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Chefmate.DeployDBRequest parsedMessage = null;
+        Chefmate.DeployDbRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Chefmate.DeployDBRequest) e.getUnfinishedMessage();
+          parsedMessage = (Chefmate.DeployDbRequest) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -6145,29 +6145,29 @@ public final class Chefmate {
         return this;
       }
 
-      private Chefmate.SSHCredentials credentials_ = null;
+      private Chefmate.SshCredentials credentials_ = null;
       private com.google.protobuf.SingleFieldBuilder<
-          Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder> credentialsBuilder_;
+          Chefmate.SshCredentials, Chefmate.SshCredentials.Builder, Chefmate.SshCredentialsOrBuilder> credentialsBuilder_;
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       public boolean hasCredentials() {
         return credentialsBuilder_ != null || credentials_ != null;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Chefmate.SSHCredentials getCredentials() {
+      public Chefmate.SshCredentials getCredentials() {
         if (credentialsBuilder_ == null) {
-          return credentials_ == null ? Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+          return credentials_ == null ? Chefmate.SshCredentials.getDefaultInstance() : credentials_;
         } else {
           return credentialsBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Builder setCredentials(Chefmate.SSHCredentials value) {
+      public Builder setCredentials(Chefmate.SshCredentials value) {
         if (credentialsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -6181,10 +6181,10 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       public Builder setCredentials(
-          Chefmate.SSHCredentials.Builder builderForValue) {
+          Chefmate.SshCredentials.Builder builderForValue) {
         if (credentialsBuilder_ == null) {
           credentials_ = builderForValue.build();
           onChanged();
@@ -6195,13 +6195,13 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Builder mergeCredentials(Chefmate.SSHCredentials value) {
+      public Builder mergeCredentials(Chefmate.SshCredentials value) {
         if (credentialsBuilder_ == null) {
           if (credentials_ != null) {
             credentials_ =
-              Chefmate.SSHCredentials.newBuilder(credentials_).mergeFrom(value).buildPartial();
+              Chefmate.SshCredentials.newBuilder(credentials_).mergeFrom(value).buildPartial();
           } else {
             credentials_ = value;
           }
@@ -6213,7 +6213,7 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       public Builder clearCredentials() {
         if (credentialsBuilder_ == null) {
@@ -6227,33 +6227,33 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Chefmate.SSHCredentials.Builder getCredentialsBuilder() {
+      public Chefmate.SshCredentials.Builder getCredentialsBuilder() {
         
         onChanged();
         return getCredentialsFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder() {
+      public Chefmate.SshCredentialsOrBuilder getCredentialsOrBuilder() {
         if (credentialsBuilder_ != null) {
           return credentialsBuilder_.getMessageOrBuilder();
         } else {
           return credentials_ == null ?
-              Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+              Chefmate.SshCredentials.getDefaultInstance() : credentials_;
         }
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder> 
+          Chefmate.SshCredentials, Chefmate.SshCredentials.Builder, Chefmate.SshCredentialsOrBuilder> 
           getCredentialsFieldBuilder() {
         if (credentialsBuilder_ == null) {
           credentialsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder>(
+              Chefmate.SshCredentials, Chefmate.SshCredentials.Builder, Chefmate.SshCredentialsOrBuilder>(
                   getCredentials(),
                   getParentForChildren(),
                   isClean());
@@ -6663,27 +6663,27 @@ public final class Chefmate {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:DeployDBRequest)
+      // @@protoc_insertion_point(builder_scope:DeployDbRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:DeployDBRequest)
-    private static final Chefmate.DeployDBRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:DeployDbRequest)
+    private static final Chefmate.DeployDbRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Chefmate.DeployDBRequest();
+      DEFAULT_INSTANCE = new Chefmate.DeployDbRequest();
     }
 
-    public static Chefmate.DeployDBRequest getDefaultInstance() {
+    public static Chefmate.DeployDbRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<DeployDBRequest>
-        PARSER = new com.google.protobuf.AbstractParser<DeployDBRequest>() {
-      public DeployDBRequest parsePartialFrom(
+    private static final com.google.protobuf.Parser<DeployDbRequest>
+        PARSER = new com.google.protobuf.AbstractParser<DeployDbRequest>() {
+      public DeployDbRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         try {
-          return new DeployDBRequest(input, extensionRegistry);
+          return new DeployDbRequest(input, extensionRegistry);
         } catch (RuntimeException e) {
           if (e.getCause() instanceof
               com.google.protobuf.InvalidProtocolBufferException) {
@@ -6695,37 +6695,37 @@ public final class Chefmate {
       }
     };
 
-    public static com.google.protobuf.Parser<DeployDBRequest> parser() {
+    public static com.google.protobuf.Parser<DeployDbRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DeployDBRequest> getParserForType() {
+    public com.google.protobuf.Parser<DeployDbRequest> getParserForType() {
       return PARSER;
     }
 
-    public Chefmate.DeployDBRequest getDefaultInstanceForType() {
+    public Chefmate.DeployDbRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface BackupDBRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:BackupDBRequest)
+  public interface BackupDbRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:BackupDbRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
     boolean hasCredentials();
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    Chefmate.SSHCredentials getCredentials();
+    Chefmate.SshCredentials getCredentials();
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder();
+    Chefmate.SshCredentialsOrBuilder getCredentialsOrBuilder();
 
     /**
      * <code>optional string serviceName = 2;</code>
@@ -6778,17 +6778,17 @@ public final class Chefmate {
         getBackupFilenameBytes();
   }
   /**
-   * Protobuf type {@code BackupDBRequest}
+   * Protobuf type {@code BackupDbRequest}
    */
-  public  static final class BackupDBRequest extends
+  public  static final class BackupDbRequest extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:BackupDBRequest)
-      BackupDBRequestOrBuilder {
-    // Use BackupDBRequest.newBuilder() to construct.
-    private BackupDBRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:BackupDbRequest)
+      BackupDbRequestOrBuilder {
+    // Use BackupDbRequest.newBuilder() to construct.
+    private BackupDbRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private BackupDBRequest() {
+    private BackupDbRequest() {
       serviceName_ = "";
       dbUsername_ = "";
       dbUserPassword_ = "";
@@ -6801,7 +6801,7 @@ public final class Chefmate {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-    private BackupDBRequest(
+    private BackupDbRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
       this();
@@ -6821,11 +6821,11 @@ public final class Chefmate {
               break;
             }
             case 10: {
-              Chefmate.SSHCredentials.Builder subBuilder = null;
+              Chefmate.SshCredentials.Builder subBuilder = null;
               if (credentials_ != null) {
                 subBuilder = credentials_.toBuilder();
               }
-              credentials_ = input.readMessage(Chefmate.SSHCredentials.parser(), extensionRegistry);
+              credentials_ = input.readMessage(Chefmate.SshCredentials.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(credentials_);
                 credentials_ = subBuilder.buildPartial();
@@ -6877,34 +6877,34 @@ public final class Chefmate {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Chefmate.internal_static_BackupDBRequest_descriptor;
+      return Chefmate.internal_static_BackupDbRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Chefmate.internal_static_BackupDBRequest_fieldAccessorTable
+      return Chefmate.internal_static_BackupDbRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Chefmate.BackupDBRequest.class, Chefmate.BackupDBRequest.Builder.class);
+              Chefmate.BackupDbRequest.class, Chefmate.BackupDbRequest.Builder.class);
     }
 
     public static final int CREDENTIALS_FIELD_NUMBER = 1;
-    private Chefmate.SSHCredentials credentials_;
+    private Chefmate.SshCredentials credentials_;
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
     public boolean hasCredentials() {
       return credentials_ != null;
     }
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    public Chefmate.SSHCredentials getCredentials() {
-      return credentials_ == null ? Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+    public Chefmate.SshCredentials getCredentials() {
+      return credentials_ == null ? Chefmate.SshCredentials.getDefaultInstance() : credentials_;
     }
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    public Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder() {
+    public Chefmate.SshCredentialsOrBuilder getCredentialsOrBuilder() {
       return getCredentials();
     }
 
@@ -7139,53 +7139,53 @@ public final class Chefmate {
     }
 
     private static final long serialVersionUID = 0L;
-    public static Chefmate.BackupDBRequest parseFrom(
+    public static Chefmate.BackupDbRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.BackupDBRequest parseFrom(
+    public static Chefmate.BackupDbRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.BackupDBRequest parseFrom(byte[] data)
+    public static Chefmate.BackupDbRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.BackupDBRequest parseFrom(
+    public static Chefmate.BackupDbRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.BackupDBRequest parseFrom(java.io.InputStream input)
+    public static Chefmate.BackupDbRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.BackupDBRequest parseFrom(
+    public static Chefmate.BackupDbRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Chefmate.BackupDBRequest parseDelimitedFrom(java.io.InputStream input)
+    public static Chefmate.BackupDbRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Chefmate.BackupDBRequest parseDelimitedFrom(
+    public static Chefmate.BackupDbRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Chefmate.BackupDBRequest parseFrom(
+    public static Chefmate.BackupDbRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.BackupDBRequest parseFrom(
+    public static Chefmate.BackupDbRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -7196,7 +7196,7 @@ public final class Chefmate {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Chefmate.BackupDBRequest prototype) {
+    public static Builder newBuilder(Chefmate.BackupDbRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -7211,25 +7211,25 @@ public final class Chefmate {
       return builder;
     }
     /**
-     * Protobuf type {@code BackupDBRequest}
+     * Protobuf type {@code BackupDbRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:BackupDBRequest)
-        Chefmate.BackupDBRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:BackupDbRequest)
+        Chefmate.BackupDbRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Chefmate.internal_static_BackupDBRequest_descriptor;
+        return Chefmate.internal_static_BackupDbRequest_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Chefmate.internal_static_BackupDBRequest_fieldAccessorTable
+        return Chefmate.internal_static_BackupDbRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Chefmate.BackupDBRequest.class, Chefmate.BackupDBRequest.Builder.class);
+                Chefmate.BackupDbRequest.class, Chefmate.BackupDbRequest.Builder.class);
       }
 
-      // Construct using Chefmate.BackupDBRequest.newBuilder()
+      // Construct using Chefmate.BackupDbRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7266,23 +7266,23 @@ public final class Chefmate {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Chefmate.internal_static_BackupDBRequest_descriptor;
+        return Chefmate.internal_static_BackupDbRequest_descriptor;
       }
 
-      public Chefmate.BackupDBRequest getDefaultInstanceForType() {
-        return Chefmate.BackupDBRequest.getDefaultInstance();
+      public Chefmate.BackupDbRequest getDefaultInstanceForType() {
+        return Chefmate.BackupDbRequest.getDefaultInstance();
       }
 
-      public Chefmate.BackupDBRequest build() {
-        Chefmate.BackupDBRequest result = buildPartial();
+      public Chefmate.BackupDbRequest build() {
+        Chefmate.BackupDbRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Chefmate.BackupDBRequest buildPartial() {
-        Chefmate.BackupDBRequest result = new Chefmate.BackupDBRequest(this);
+      public Chefmate.BackupDbRequest buildPartial() {
+        Chefmate.BackupDbRequest result = new Chefmate.BackupDbRequest(this);
         if (credentialsBuilder_ == null) {
           result.credentials_ = credentials_;
         } else {
@@ -7298,16 +7298,16 @@ public final class Chefmate {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Chefmate.BackupDBRequest) {
-          return mergeFrom((Chefmate.BackupDBRequest)other);
+        if (other instanceof Chefmate.BackupDbRequest) {
+          return mergeFrom((Chefmate.BackupDbRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Chefmate.BackupDBRequest other) {
-        if (other == Chefmate.BackupDBRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(Chefmate.BackupDbRequest other) {
+        if (other == Chefmate.BackupDbRequest.getDefaultInstance()) return this;
         if (other.hasCredentials()) {
           mergeCredentials(other.getCredentials());
         }
@@ -7343,11 +7343,11 @@ public final class Chefmate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Chefmate.BackupDBRequest parsedMessage = null;
+        Chefmate.BackupDbRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Chefmate.BackupDBRequest) e.getUnfinishedMessage();
+          parsedMessage = (Chefmate.BackupDbRequest) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -7357,29 +7357,29 @@ public final class Chefmate {
         return this;
       }
 
-      private Chefmate.SSHCredentials credentials_ = null;
+      private Chefmate.SshCredentials credentials_ = null;
       private com.google.protobuf.SingleFieldBuilder<
-          Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder> credentialsBuilder_;
+          Chefmate.SshCredentials, Chefmate.SshCredentials.Builder, Chefmate.SshCredentialsOrBuilder> credentialsBuilder_;
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       public boolean hasCredentials() {
         return credentialsBuilder_ != null || credentials_ != null;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Chefmate.SSHCredentials getCredentials() {
+      public Chefmate.SshCredentials getCredentials() {
         if (credentialsBuilder_ == null) {
-          return credentials_ == null ? Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+          return credentials_ == null ? Chefmate.SshCredentials.getDefaultInstance() : credentials_;
         } else {
           return credentialsBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Builder setCredentials(Chefmate.SSHCredentials value) {
+      public Builder setCredentials(Chefmate.SshCredentials value) {
         if (credentialsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -7393,10 +7393,10 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       public Builder setCredentials(
-          Chefmate.SSHCredentials.Builder builderForValue) {
+          Chefmate.SshCredentials.Builder builderForValue) {
         if (credentialsBuilder_ == null) {
           credentials_ = builderForValue.build();
           onChanged();
@@ -7407,13 +7407,13 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Builder mergeCredentials(Chefmate.SSHCredentials value) {
+      public Builder mergeCredentials(Chefmate.SshCredentials value) {
         if (credentialsBuilder_ == null) {
           if (credentials_ != null) {
             credentials_ =
-              Chefmate.SSHCredentials.newBuilder(credentials_).mergeFrom(value).buildPartial();
+              Chefmate.SshCredentials.newBuilder(credentials_).mergeFrom(value).buildPartial();
           } else {
             credentials_ = value;
           }
@@ -7425,7 +7425,7 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       public Builder clearCredentials() {
         if (credentialsBuilder_ == null) {
@@ -7439,33 +7439,33 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Chefmate.SSHCredentials.Builder getCredentialsBuilder() {
+      public Chefmate.SshCredentials.Builder getCredentialsBuilder() {
         
         onChanged();
         return getCredentialsFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder() {
+      public Chefmate.SshCredentialsOrBuilder getCredentialsOrBuilder() {
         if (credentialsBuilder_ != null) {
           return credentialsBuilder_.getMessageOrBuilder();
         } else {
           return credentials_ == null ?
-              Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+              Chefmate.SshCredentials.getDefaultInstance() : credentials_;
         }
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder> 
+          Chefmate.SshCredentials, Chefmate.SshCredentials.Builder, Chefmate.SshCredentialsOrBuilder> 
           getCredentialsFieldBuilder() {
         if (credentialsBuilder_ == null) {
           credentialsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder>(
+              Chefmate.SshCredentials, Chefmate.SshCredentials.Builder, Chefmate.SshCredentialsOrBuilder>(
                   getCredentials(),
                   getParentForChildren(),
                   isClean());
@@ -7829,27 +7829,27 @@ public final class Chefmate {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:BackupDBRequest)
+      // @@protoc_insertion_point(builder_scope:BackupDbRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:BackupDBRequest)
-    private static final Chefmate.BackupDBRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:BackupDbRequest)
+    private static final Chefmate.BackupDbRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Chefmate.BackupDBRequest();
+      DEFAULT_INSTANCE = new Chefmate.BackupDbRequest();
     }
 
-    public static Chefmate.BackupDBRequest getDefaultInstance() {
+    public static Chefmate.BackupDbRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<BackupDBRequest>
-        PARSER = new com.google.protobuf.AbstractParser<BackupDBRequest>() {
-      public BackupDBRequest parsePartialFrom(
+    private static final com.google.protobuf.Parser<BackupDbRequest>
+        PARSER = new com.google.protobuf.AbstractParser<BackupDbRequest>() {
+      public BackupDbRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         try {
-          return new BackupDBRequest(input, extensionRegistry);
+          return new BackupDbRequest(input, extensionRegistry);
         } catch (RuntimeException e) {
           if (e.getCause() instanceof
               com.google.protobuf.InvalidProtocolBufferException) {
@@ -7861,37 +7861,37 @@ public final class Chefmate {
       }
     };
 
-    public static com.google.protobuf.Parser<BackupDBRequest> parser() {
+    public static com.google.protobuf.Parser<BackupDbRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<BackupDBRequest> getParserForType() {
+    public com.google.protobuf.Parser<BackupDbRequest> getParserForType() {
       return PARSER;
     }
 
-    public Chefmate.BackupDBRequest getDefaultInstanceForType() {
+    public Chefmate.BackupDbRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface RestoreDBRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:RestoreDBRequest)
+  public interface RestoreDbRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:RestoreDbRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
     boolean hasCredentials();
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    Chefmate.SSHCredentials getCredentials();
+    Chefmate.SshCredentials getCredentials();
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder();
+    Chefmate.SshCredentialsOrBuilder getCredentialsOrBuilder();
 
     /**
      * <code>optional string serviceName = 2;</code>
@@ -7944,17 +7944,17 @@ public final class Chefmate {
         getBackupFilenameBytes();
   }
   /**
-   * Protobuf type {@code RestoreDBRequest}
+   * Protobuf type {@code RestoreDbRequest}
    */
-  public  static final class RestoreDBRequest extends
+  public  static final class RestoreDbRequest extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:RestoreDBRequest)
-      RestoreDBRequestOrBuilder {
-    // Use RestoreDBRequest.newBuilder() to construct.
-    private RestoreDBRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:RestoreDbRequest)
+      RestoreDbRequestOrBuilder {
+    // Use RestoreDbRequest.newBuilder() to construct.
+    private RestoreDbRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private RestoreDBRequest() {
+    private RestoreDbRequest() {
       serviceName_ = "";
       dbUsername_ = "";
       dbUserPassword_ = "";
@@ -7967,7 +7967,7 @@ public final class Chefmate {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-    private RestoreDBRequest(
+    private RestoreDbRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
       this();
@@ -7987,11 +7987,11 @@ public final class Chefmate {
               break;
             }
             case 10: {
-              Chefmate.SSHCredentials.Builder subBuilder = null;
+              Chefmate.SshCredentials.Builder subBuilder = null;
               if (credentials_ != null) {
                 subBuilder = credentials_.toBuilder();
               }
-              credentials_ = input.readMessage(Chefmate.SSHCredentials.parser(), extensionRegistry);
+              credentials_ = input.readMessage(Chefmate.SshCredentials.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(credentials_);
                 credentials_ = subBuilder.buildPartial();
@@ -8043,34 +8043,34 @@ public final class Chefmate {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Chefmate.internal_static_RestoreDBRequest_descriptor;
+      return Chefmate.internal_static_RestoreDbRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Chefmate.internal_static_RestoreDBRequest_fieldAccessorTable
+      return Chefmate.internal_static_RestoreDbRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Chefmate.RestoreDBRequest.class, Chefmate.RestoreDBRequest.Builder.class);
+              Chefmate.RestoreDbRequest.class, Chefmate.RestoreDbRequest.Builder.class);
     }
 
     public static final int CREDENTIALS_FIELD_NUMBER = 1;
-    private Chefmate.SSHCredentials credentials_;
+    private Chefmate.SshCredentials credentials_;
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
     public boolean hasCredentials() {
       return credentials_ != null;
     }
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    public Chefmate.SSHCredentials getCredentials() {
-      return credentials_ == null ? Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+    public Chefmate.SshCredentials getCredentials() {
+      return credentials_ == null ? Chefmate.SshCredentials.getDefaultInstance() : credentials_;
     }
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    public Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder() {
+    public Chefmate.SshCredentialsOrBuilder getCredentialsOrBuilder() {
       return getCredentials();
     }
 
@@ -8305,53 +8305,53 @@ public final class Chefmate {
     }
 
     private static final long serialVersionUID = 0L;
-    public static Chefmate.RestoreDBRequest parseFrom(
+    public static Chefmate.RestoreDbRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.RestoreDBRequest parseFrom(
+    public static Chefmate.RestoreDbRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.RestoreDBRequest parseFrom(byte[] data)
+    public static Chefmate.RestoreDbRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.RestoreDBRequest parseFrom(
+    public static Chefmate.RestoreDbRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.RestoreDBRequest parseFrom(java.io.InputStream input)
+    public static Chefmate.RestoreDbRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.RestoreDBRequest parseFrom(
+    public static Chefmate.RestoreDbRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Chefmate.RestoreDBRequest parseDelimitedFrom(java.io.InputStream input)
+    public static Chefmate.RestoreDbRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Chefmate.RestoreDBRequest parseDelimitedFrom(
+    public static Chefmate.RestoreDbRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Chefmate.RestoreDBRequest parseFrom(
+    public static Chefmate.RestoreDbRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.RestoreDBRequest parseFrom(
+    public static Chefmate.RestoreDbRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -8362,7 +8362,7 @@ public final class Chefmate {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Chefmate.RestoreDBRequest prototype) {
+    public static Builder newBuilder(Chefmate.RestoreDbRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -8377,25 +8377,25 @@ public final class Chefmate {
       return builder;
     }
     /**
-     * Protobuf type {@code RestoreDBRequest}
+     * Protobuf type {@code RestoreDbRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:RestoreDBRequest)
-        Chefmate.RestoreDBRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:RestoreDbRequest)
+        Chefmate.RestoreDbRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Chefmate.internal_static_RestoreDBRequest_descriptor;
+        return Chefmate.internal_static_RestoreDbRequest_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Chefmate.internal_static_RestoreDBRequest_fieldAccessorTable
+        return Chefmate.internal_static_RestoreDbRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Chefmate.RestoreDBRequest.class, Chefmate.RestoreDBRequest.Builder.class);
+                Chefmate.RestoreDbRequest.class, Chefmate.RestoreDbRequest.Builder.class);
       }
 
-      // Construct using Chefmate.RestoreDBRequest.newBuilder()
+      // Construct using Chefmate.RestoreDbRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8432,23 +8432,23 @@ public final class Chefmate {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Chefmate.internal_static_RestoreDBRequest_descriptor;
+        return Chefmate.internal_static_RestoreDbRequest_descriptor;
       }
 
-      public Chefmate.RestoreDBRequest getDefaultInstanceForType() {
-        return Chefmate.RestoreDBRequest.getDefaultInstance();
+      public Chefmate.RestoreDbRequest getDefaultInstanceForType() {
+        return Chefmate.RestoreDbRequest.getDefaultInstance();
       }
 
-      public Chefmate.RestoreDBRequest build() {
-        Chefmate.RestoreDBRequest result = buildPartial();
+      public Chefmate.RestoreDbRequest build() {
+        Chefmate.RestoreDbRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Chefmate.RestoreDBRequest buildPartial() {
-        Chefmate.RestoreDBRequest result = new Chefmate.RestoreDBRequest(this);
+      public Chefmate.RestoreDbRequest buildPartial() {
+        Chefmate.RestoreDbRequest result = new Chefmate.RestoreDbRequest(this);
         if (credentialsBuilder_ == null) {
           result.credentials_ = credentials_;
         } else {
@@ -8464,16 +8464,16 @@ public final class Chefmate {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Chefmate.RestoreDBRequest) {
-          return mergeFrom((Chefmate.RestoreDBRequest)other);
+        if (other instanceof Chefmate.RestoreDbRequest) {
+          return mergeFrom((Chefmate.RestoreDbRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Chefmate.RestoreDBRequest other) {
-        if (other == Chefmate.RestoreDBRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(Chefmate.RestoreDbRequest other) {
+        if (other == Chefmate.RestoreDbRequest.getDefaultInstance()) return this;
         if (other.hasCredentials()) {
           mergeCredentials(other.getCredentials());
         }
@@ -8509,11 +8509,11 @@ public final class Chefmate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Chefmate.RestoreDBRequest parsedMessage = null;
+        Chefmate.RestoreDbRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Chefmate.RestoreDBRequest) e.getUnfinishedMessage();
+          parsedMessage = (Chefmate.RestoreDbRequest) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -8523,29 +8523,29 @@ public final class Chefmate {
         return this;
       }
 
-      private Chefmate.SSHCredentials credentials_ = null;
+      private Chefmate.SshCredentials credentials_ = null;
       private com.google.protobuf.SingleFieldBuilder<
-          Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder> credentialsBuilder_;
+          Chefmate.SshCredentials, Chefmate.SshCredentials.Builder, Chefmate.SshCredentialsOrBuilder> credentialsBuilder_;
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       public boolean hasCredentials() {
         return credentialsBuilder_ != null || credentials_ != null;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Chefmate.SSHCredentials getCredentials() {
+      public Chefmate.SshCredentials getCredentials() {
         if (credentialsBuilder_ == null) {
-          return credentials_ == null ? Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+          return credentials_ == null ? Chefmate.SshCredentials.getDefaultInstance() : credentials_;
         } else {
           return credentialsBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Builder setCredentials(Chefmate.SSHCredentials value) {
+      public Builder setCredentials(Chefmate.SshCredentials value) {
         if (credentialsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -8559,10 +8559,10 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       public Builder setCredentials(
-          Chefmate.SSHCredentials.Builder builderForValue) {
+          Chefmate.SshCredentials.Builder builderForValue) {
         if (credentialsBuilder_ == null) {
           credentials_ = builderForValue.build();
           onChanged();
@@ -8573,13 +8573,13 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Builder mergeCredentials(Chefmate.SSHCredentials value) {
+      public Builder mergeCredentials(Chefmate.SshCredentials value) {
         if (credentialsBuilder_ == null) {
           if (credentials_ != null) {
             credentials_ =
-              Chefmate.SSHCredentials.newBuilder(credentials_).mergeFrom(value).buildPartial();
+              Chefmate.SshCredentials.newBuilder(credentials_).mergeFrom(value).buildPartial();
           } else {
             credentials_ = value;
           }
@@ -8591,7 +8591,7 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       public Builder clearCredentials() {
         if (credentialsBuilder_ == null) {
@@ -8605,33 +8605,33 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Chefmate.SSHCredentials.Builder getCredentialsBuilder() {
+      public Chefmate.SshCredentials.Builder getCredentialsBuilder() {
         
         onChanged();
         return getCredentialsFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder() {
+      public Chefmate.SshCredentialsOrBuilder getCredentialsOrBuilder() {
         if (credentialsBuilder_ != null) {
           return credentialsBuilder_.getMessageOrBuilder();
         } else {
           return credentials_ == null ?
-              Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+              Chefmate.SshCredentials.getDefaultInstance() : credentials_;
         }
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder> 
+          Chefmate.SshCredentials, Chefmate.SshCredentials.Builder, Chefmate.SshCredentialsOrBuilder> 
           getCredentialsFieldBuilder() {
         if (credentialsBuilder_ == null) {
           credentialsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder>(
+              Chefmate.SshCredentials, Chefmate.SshCredentials.Builder, Chefmate.SshCredentialsOrBuilder>(
                   getCredentials(),
                   getParentForChildren(),
                   isClean());
@@ -8995,27 +8995,27 @@ public final class Chefmate {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:RestoreDBRequest)
+      // @@protoc_insertion_point(builder_scope:RestoreDbRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:RestoreDBRequest)
-    private static final Chefmate.RestoreDBRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:RestoreDbRequest)
+    private static final Chefmate.RestoreDbRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Chefmate.RestoreDBRequest();
+      DEFAULT_INSTANCE = new Chefmate.RestoreDbRequest();
     }
 
-    public static Chefmate.RestoreDBRequest getDefaultInstance() {
+    public static Chefmate.RestoreDbRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<RestoreDBRequest>
-        PARSER = new com.google.protobuf.AbstractParser<RestoreDBRequest>() {
-      public RestoreDBRequest parsePartialFrom(
+    private static final com.google.protobuf.Parser<RestoreDbRequest>
+        PARSER = new com.google.protobuf.AbstractParser<RestoreDbRequest>() {
+      public RestoreDbRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         try {
-          return new RestoreDBRequest(input, extensionRegistry);
+          return new RestoreDbRequest(input, extensionRegistry);
         } catch (RuntimeException e) {
           if (e.getCause() instanceof
               com.google.protobuf.InvalidProtocolBufferException) {
@@ -9027,16 +9027,16 @@ public final class Chefmate {
       }
     };
 
-    public static com.google.protobuf.Parser<RestoreDBRequest> parser() {
+    public static com.google.protobuf.Parser<RestoreDbRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<RestoreDBRequest> getParserForType() {
+    public com.google.protobuf.Parser<RestoreDbRequest> getParserForType() {
       return PARSER;
     }
 
-    public Chefmate.RestoreDBRequest getDefaultInstanceForType() {
+    public Chefmate.RestoreDbRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -9047,17 +9047,17 @@ public final class Chefmate {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
     boolean hasCredentials();
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    Chefmate.SSHCredentials getCredentials();
+    Chefmate.SshCredentials getCredentials();
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder();
+    Chefmate.SshCredentialsOrBuilder getCredentialsOrBuilder();
 
     /**
      * <code>optional string cookbookName = 2;</code>
@@ -9182,11 +9182,11 @@ public final class Chefmate {
               break;
             }
             case 10: {
-              Chefmate.SSHCredentials.Builder subBuilder = null;
+              Chefmate.SshCredentials.Builder subBuilder = null;
               if (credentials_ != null) {
                 subBuilder = credentials_.toBuilder();
               }
-              credentials_ = input.readMessage(Chefmate.SSHCredentials.parser(), extensionRegistry);
+              credentials_ = input.readMessage(Chefmate.SshCredentials.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(credentials_);
                 credentials_ = subBuilder.buildPartial();
@@ -9256,23 +9256,23 @@ public final class Chefmate {
 
     private int bitField0_;
     public static final int CREDENTIALS_FIELD_NUMBER = 1;
-    private Chefmate.SSHCredentials credentials_;
+    private Chefmate.SshCredentials credentials_;
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
     public boolean hasCredentials() {
       return credentials_ != null;
     }
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    public Chefmate.SSHCredentials getCredentials() {
-      return credentials_ == null ? Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+    public Chefmate.SshCredentials getCredentials() {
+      return credentials_ == null ? Chefmate.SshCredentials.getDefaultInstance() : credentials_;
     }
     /**
-     * <code>optional .SSHCredentials credentials = 1;</code>
+     * <code>optional .SshCredentials credentials = 1;</code>
      */
-    public Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder() {
+    public Chefmate.SshCredentialsOrBuilder getCredentialsOrBuilder() {
       return getCredentials();
     }
 
@@ -9724,29 +9724,29 @@ public final class Chefmate {
       }
       private int bitField0_;
 
-      private Chefmate.SSHCredentials credentials_ = null;
+      private Chefmate.SshCredentials credentials_ = null;
       private com.google.protobuf.SingleFieldBuilder<
-          Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder> credentialsBuilder_;
+          Chefmate.SshCredentials, Chefmate.SshCredentials.Builder, Chefmate.SshCredentialsOrBuilder> credentialsBuilder_;
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       public boolean hasCredentials() {
         return credentialsBuilder_ != null || credentials_ != null;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Chefmate.SSHCredentials getCredentials() {
+      public Chefmate.SshCredentials getCredentials() {
         if (credentialsBuilder_ == null) {
-          return credentials_ == null ? Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+          return credentials_ == null ? Chefmate.SshCredentials.getDefaultInstance() : credentials_;
         } else {
           return credentialsBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Builder setCredentials(Chefmate.SSHCredentials value) {
+      public Builder setCredentials(Chefmate.SshCredentials value) {
         if (credentialsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -9760,10 +9760,10 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       public Builder setCredentials(
-          Chefmate.SSHCredentials.Builder builderForValue) {
+          Chefmate.SshCredentials.Builder builderForValue) {
         if (credentialsBuilder_ == null) {
           credentials_ = builderForValue.build();
           onChanged();
@@ -9774,13 +9774,13 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Builder mergeCredentials(Chefmate.SSHCredentials value) {
+      public Builder mergeCredentials(Chefmate.SshCredentials value) {
         if (credentialsBuilder_ == null) {
           if (credentials_ != null) {
             credentials_ =
-              Chefmate.SSHCredentials.newBuilder(credentials_).mergeFrom(value).buildPartial();
+              Chefmate.SshCredentials.newBuilder(credentials_).mergeFrom(value).buildPartial();
           } else {
             credentials_ = value;
           }
@@ -9792,7 +9792,7 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       public Builder clearCredentials() {
         if (credentialsBuilder_ == null) {
@@ -9806,33 +9806,33 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Chefmate.SSHCredentials.Builder getCredentialsBuilder() {
+      public Chefmate.SshCredentials.Builder getCredentialsBuilder() {
         
         onChanged();
         return getCredentialsFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
-      public Chefmate.SSHCredentialsOrBuilder getCredentialsOrBuilder() {
+      public Chefmate.SshCredentialsOrBuilder getCredentialsOrBuilder() {
         if (credentialsBuilder_ != null) {
           return credentialsBuilder_.getMessageOrBuilder();
         } else {
           return credentials_ == null ?
-              Chefmate.SSHCredentials.getDefaultInstance() : credentials_;
+              Chefmate.SshCredentials.getDefaultInstance() : credentials_;
         }
       }
       /**
-       * <code>optional .SSHCredentials credentials = 1;</code>
+       * <code>optional .SshCredentials credentials = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder> 
+          Chefmate.SshCredentials, Chefmate.SshCredentials.Builder, Chefmate.SshCredentialsOrBuilder> 
           getCredentialsFieldBuilder() {
         if (credentialsBuilder_ == null) {
           credentialsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Chefmate.SSHCredentials, Chefmate.SSHCredentials.Builder, Chefmate.SSHCredentialsOrBuilder>(
+              Chefmate.SshCredentials, Chefmate.SshCredentials.Builder, Chefmate.SshCredentialsOrBuilder>(
                   getCredentials(),
                   getParentForChildren(),
                   isClean());
@@ -10260,32 +10260,32 @@ public final class Chefmate {
 
   }
 
-  public interface CreateVMResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:CreateVMResponse)
+  public interface CreateVmResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:CreateVmResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .AWSInstanceId instanceId = 1;</code>
+     * <code>optional .AwsInstanceId instanceId = 1;</code>
      */
     boolean hasInstanceId();
     /**
-     * <code>optional .AWSInstanceId instanceId = 1;</code>
+     * <code>optional .AwsInstanceId instanceId = 1;</code>
      */
-    Chefmate.AWSInstanceId getInstanceId();
+    Chefmate.AwsInstanceId getInstanceId();
     /**
-     * <code>optional .AWSInstanceId instanceId = 1;</code>
+     * <code>optional .AwsInstanceId instanceId = 1;</code>
      */
-    Chefmate.AWSInstanceIdOrBuilder getInstanceIdOrBuilder();
+    Chefmate.AwsInstanceIdOrBuilder getInstanceIdOrBuilder();
 
     /**
-     * <code>optional string publicDNS = 2;</code>
+     * <code>optional string publicDns = 2;</code>
      */
-    java.lang.String getPublicDNS();
+    java.lang.String getPublicDns();
     /**
-     * <code>optional string publicDNS = 2;</code>
+     * <code>optional string publicDns = 2;</code>
      */
     com.google.protobuf.ByteString
-        getPublicDNSBytes();
+        getPublicDnsBytes();
 
     /**
      * <code>repeated string outputLog = 3;</code>
@@ -10307,7 +10307,7 @@ public final class Chefmate {
         getOutputLogBytes(int index);
   }
   /**
-   * Protobuf type {@code CreateVMResponse}
+   * Protobuf type {@code CreateVmResponse}
    *
    * <pre>
    * ###################
@@ -10315,16 +10315,16 @@ public final class Chefmate {
    * ###################
    * </pre>
    */
-  public  static final class CreateVMResponse extends
+  public  static final class CreateVmResponse extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:CreateVMResponse)
-      CreateVMResponseOrBuilder {
-    // Use CreateVMResponse.newBuilder() to construct.
-    private CreateVMResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:CreateVmResponse)
+      CreateVmResponseOrBuilder {
+    // Use CreateVmResponse.newBuilder() to construct.
+    private CreateVmResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private CreateVMResponse() {
-      publicDNS_ = "";
+    private CreateVmResponse() {
+      publicDns_ = "";
       outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
@@ -10333,7 +10333,7 @@ public final class Chefmate {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-    private CreateVMResponse(
+    private CreateVmResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
       this();
@@ -10353,11 +10353,11 @@ public final class Chefmate {
               break;
             }
             case 10: {
-              Chefmate.AWSInstanceId.Builder subBuilder = null;
+              Chefmate.AwsInstanceId.Builder subBuilder = null;
               if (instanceId_ != null) {
                 subBuilder = instanceId_.toBuilder();
               }
-              instanceId_ = input.readMessage(Chefmate.AWSInstanceId.parser(), extensionRegistry);
+              instanceId_ = input.readMessage(Chefmate.AwsInstanceId.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(instanceId_);
                 instanceId_ = subBuilder.buildPartial();
@@ -10368,7 +10368,7 @@ public final class Chefmate {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              publicDNS_ = s;
+              publicDns_ = s;
               break;
             }
             case 26: {
@@ -10397,66 +10397,66 @@ public final class Chefmate {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Chefmate.internal_static_CreateVMResponse_descriptor;
+      return Chefmate.internal_static_CreateVmResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Chefmate.internal_static_CreateVMResponse_fieldAccessorTable
+      return Chefmate.internal_static_CreateVmResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Chefmate.CreateVMResponse.class, Chefmate.CreateVMResponse.Builder.class);
+              Chefmate.CreateVmResponse.class, Chefmate.CreateVmResponse.Builder.class);
     }
 
     private int bitField0_;
     public static final int INSTANCEID_FIELD_NUMBER = 1;
-    private Chefmate.AWSInstanceId instanceId_;
+    private Chefmate.AwsInstanceId instanceId_;
     /**
-     * <code>optional .AWSInstanceId instanceId = 1;</code>
+     * <code>optional .AwsInstanceId instanceId = 1;</code>
      */
     public boolean hasInstanceId() {
       return instanceId_ != null;
     }
     /**
-     * <code>optional .AWSInstanceId instanceId = 1;</code>
+     * <code>optional .AwsInstanceId instanceId = 1;</code>
      */
-    public Chefmate.AWSInstanceId getInstanceId() {
-      return instanceId_ == null ? Chefmate.AWSInstanceId.getDefaultInstance() : instanceId_;
+    public Chefmate.AwsInstanceId getInstanceId() {
+      return instanceId_ == null ? Chefmate.AwsInstanceId.getDefaultInstance() : instanceId_;
     }
     /**
-     * <code>optional .AWSInstanceId instanceId = 1;</code>
+     * <code>optional .AwsInstanceId instanceId = 1;</code>
      */
-    public Chefmate.AWSInstanceIdOrBuilder getInstanceIdOrBuilder() {
+    public Chefmate.AwsInstanceIdOrBuilder getInstanceIdOrBuilder() {
       return getInstanceId();
     }
 
     public static final int PUBLICDNS_FIELD_NUMBER = 2;
-    private volatile java.lang.Object publicDNS_;
+    private volatile java.lang.Object publicDns_;
     /**
-     * <code>optional string publicDNS = 2;</code>
+     * <code>optional string publicDns = 2;</code>
      */
-    public java.lang.String getPublicDNS() {
-      java.lang.Object ref = publicDNS_;
+    public java.lang.String getPublicDns() {
+      java.lang.Object ref = publicDns_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        publicDNS_ = s;
+        publicDns_ = s;
         return s;
       }
     }
     /**
-     * <code>optional string publicDNS = 2;</code>
+     * <code>optional string publicDns = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getPublicDNSBytes() {
-      java.lang.Object ref = publicDNS_;
+        getPublicDnsBytes() {
+      java.lang.Object ref = publicDns_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        publicDNS_ = b;
+        publicDns_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -10507,8 +10507,8 @@ public final class Chefmate {
       if (instanceId_ != null) {
         output.writeMessage(1, getInstanceId());
       }
-      if (!getPublicDNSBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 2, publicDNS_);
+      if (!getPublicDnsBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 2, publicDns_);
       }
       for (int i = 0; i < outputLog_.size(); i++) {
         com.google.protobuf.GeneratedMessage.writeString(output, 3, outputLog_.getRaw(i));
@@ -10524,8 +10524,8 @@ public final class Chefmate {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getInstanceId());
       }
-      if (!getPublicDNSBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, publicDNS_);
+      if (!getPublicDnsBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, publicDns_);
       }
       {
         int dataSize = 0;
@@ -10540,53 +10540,53 @@ public final class Chefmate {
     }
 
     private static final long serialVersionUID = 0L;
-    public static Chefmate.CreateVMResponse parseFrom(
+    public static Chefmate.CreateVmResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.CreateVMResponse parseFrom(
+    public static Chefmate.CreateVmResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.CreateVMResponse parseFrom(byte[] data)
+    public static Chefmate.CreateVmResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.CreateVMResponse parseFrom(
+    public static Chefmate.CreateVmResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.CreateVMResponse parseFrom(java.io.InputStream input)
+    public static Chefmate.CreateVmResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.CreateVMResponse parseFrom(
+    public static Chefmate.CreateVmResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Chefmate.CreateVMResponse parseDelimitedFrom(java.io.InputStream input)
+    public static Chefmate.CreateVmResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Chefmate.CreateVMResponse parseDelimitedFrom(
+    public static Chefmate.CreateVmResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Chefmate.CreateVMResponse parseFrom(
+    public static Chefmate.CreateVmResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.CreateVMResponse parseFrom(
+    public static Chefmate.CreateVmResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -10597,7 +10597,7 @@ public final class Chefmate {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Chefmate.CreateVMResponse prototype) {
+    public static Builder newBuilder(Chefmate.CreateVmResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -10612,7 +10612,7 @@ public final class Chefmate {
       return builder;
     }
     /**
-     * Protobuf type {@code CreateVMResponse}
+     * Protobuf type {@code CreateVmResponse}
      *
      * <pre>
      * ###################
@@ -10622,21 +10622,21 @@ public final class Chefmate {
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:CreateVMResponse)
-        Chefmate.CreateVMResponseOrBuilder {
+        // @@protoc_insertion_point(builder_implements:CreateVmResponse)
+        Chefmate.CreateVmResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Chefmate.internal_static_CreateVMResponse_descriptor;
+        return Chefmate.internal_static_CreateVmResponse_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Chefmate.internal_static_CreateVMResponse_fieldAccessorTable
+        return Chefmate.internal_static_CreateVmResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Chefmate.CreateVMResponse.class, Chefmate.CreateVMResponse.Builder.class);
+                Chefmate.CreateVmResponse.class, Chefmate.CreateVmResponse.Builder.class);
       }
 
-      // Construct using Chefmate.CreateVMResponse.newBuilder()
+      // Construct using Chefmate.CreateVmResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -10658,7 +10658,7 @@ public final class Chefmate {
           instanceId_ = null;
           instanceIdBuilder_ = null;
         }
-        publicDNS_ = "";
+        publicDns_ = "";
 
         outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -10667,23 +10667,23 @@ public final class Chefmate {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Chefmate.internal_static_CreateVMResponse_descriptor;
+        return Chefmate.internal_static_CreateVmResponse_descriptor;
       }
 
-      public Chefmate.CreateVMResponse getDefaultInstanceForType() {
-        return Chefmate.CreateVMResponse.getDefaultInstance();
+      public Chefmate.CreateVmResponse getDefaultInstanceForType() {
+        return Chefmate.CreateVmResponse.getDefaultInstance();
       }
 
-      public Chefmate.CreateVMResponse build() {
-        Chefmate.CreateVMResponse result = buildPartial();
+      public Chefmate.CreateVmResponse build() {
+        Chefmate.CreateVmResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Chefmate.CreateVMResponse buildPartial() {
-        Chefmate.CreateVMResponse result = new Chefmate.CreateVMResponse(this);
+      public Chefmate.CreateVmResponse buildPartial() {
+        Chefmate.CreateVmResponse result = new Chefmate.CreateVmResponse(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (instanceIdBuilder_ == null) {
@@ -10691,7 +10691,7 @@ public final class Chefmate {
         } else {
           result.instanceId_ = instanceIdBuilder_.build();
         }
-        result.publicDNS_ = publicDNS_;
+        result.publicDns_ = publicDns_;
         if (((bitField0_ & 0x00000004) == 0x00000004)) {
           outputLog_ = outputLog_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000004);
@@ -10703,21 +10703,21 @@ public final class Chefmate {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Chefmate.CreateVMResponse) {
-          return mergeFrom((Chefmate.CreateVMResponse)other);
+        if (other instanceof Chefmate.CreateVmResponse) {
+          return mergeFrom((Chefmate.CreateVmResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Chefmate.CreateVMResponse other) {
-        if (other == Chefmate.CreateVMResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(Chefmate.CreateVmResponse other) {
+        if (other == Chefmate.CreateVmResponse.getDefaultInstance()) return this;
         if (other.hasInstanceId()) {
           mergeInstanceId(other.getInstanceId());
         }
-        if (!other.getPublicDNS().isEmpty()) {
-          publicDNS_ = other.publicDNS_;
+        if (!other.getPublicDns().isEmpty()) {
+          publicDns_ = other.publicDns_;
           onChanged();
         }
         if (!other.outputLog_.isEmpty()) {
@@ -10742,11 +10742,11 @@ public final class Chefmate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Chefmate.CreateVMResponse parsedMessage = null;
+        Chefmate.CreateVmResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Chefmate.CreateVMResponse) e.getUnfinishedMessage();
+          parsedMessage = (Chefmate.CreateVmResponse) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -10757,29 +10757,29 @@ public final class Chefmate {
       }
       private int bitField0_;
 
-      private Chefmate.AWSInstanceId instanceId_ = null;
+      private Chefmate.AwsInstanceId instanceId_ = null;
       private com.google.protobuf.SingleFieldBuilder<
-          Chefmate.AWSInstanceId, Chefmate.AWSInstanceId.Builder, Chefmate.AWSInstanceIdOrBuilder> instanceIdBuilder_;
+          Chefmate.AwsInstanceId, Chefmate.AwsInstanceId.Builder, Chefmate.AwsInstanceIdOrBuilder> instanceIdBuilder_;
       /**
-       * <code>optional .AWSInstanceId instanceId = 1;</code>
+       * <code>optional .AwsInstanceId instanceId = 1;</code>
        */
       public boolean hasInstanceId() {
         return instanceIdBuilder_ != null || instanceId_ != null;
       }
       /**
-       * <code>optional .AWSInstanceId instanceId = 1;</code>
+       * <code>optional .AwsInstanceId instanceId = 1;</code>
        */
-      public Chefmate.AWSInstanceId getInstanceId() {
+      public Chefmate.AwsInstanceId getInstanceId() {
         if (instanceIdBuilder_ == null) {
-          return instanceId_ == null ? Chefmate.AWSInstanceId.getDefaultInstance() : instanceId_;
+          return instanceId_ == null ? Chefmate.AwsInstanceId.getDefaultInstance() : instanceId_;
         } else {
           return instanceIdBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .AWSInstanceId instanceId = 1;</code>
+       * <code>optional .AwsInstanceId instanceId = 1;</code>
        */
-      public Builder setInstanceId(Chefmate.AWSInstanceId value) {
+      public Builder setInstanceId(Chefmate.AwsInstanceId value) {
         if (instanceIdBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -10793,10 +10793,10 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .AWSInstanceId instanceId = 1;</code>
+       * <code>optional .AwsInstanceId instanceId = 1;</code>
        */
       public Builder setInstanceId(
-          Chefmate.AWSInstanceId.Builder builderForValue) {
+          Chefmate.AwsInstanceId.Builder builderForValue) {
         if (instanceIdBuilder_ == null) {
           instanceId_ = builderForValue.build();
           onChanged();
@@ -10807,13 +10807,13 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .AWSInstanceId instanceId = 1;</code>
+       * <code>optional .AwsInstanceId instanceId = 1;</code>
        */
-      public Builder mergeInstanceId(Chefmate.AWSInstanceId value) {
+      public Builder mergeInstanceId(Chefmate.AwsInstanceId value) {
         if (instanceIdBuilder_ == null) {
           if (instanceId_ != null) {
             instanceId_ =
-              Chefmate.AWSInstanceId.newBuilder(instanceId_).mergeFrom(value).buildPartial();
+              Chefmate.AwsInstanceId.newBuilder(instanceId_).mergeFrom(value).buildPartial();
           } else {
             instanceId_ = value;
           }
@@ -10825,7 +10825,7 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .AWSInstanceId instanceId = 1;</code>
+       * <code>optional .AwsInstanceId instanceId = 1;</code>
        */
       public Builder clearInstanceId() {
         if (instanceIdBuilder_ == null) {
@@ -10839,33 +10839,33 @@ public final class Chefmate {
         return this;
       }
       /**
-       * <code>optional .AWSInstanceId instanceId = 1;</code>
+       * <code>optional .AwsInstanceId instanceId = 1;</code>
        */
-      public Chefmate.AWSInstanceId.Builder getInstanceIdBuilder() {
+      public Chefmate.AwsInstanceId.Builder getInstanceIdBuilder() {
         
         onChanged();
         return getInstanceIdFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .AWSInstanceId instanceId = 1;</code>
+       * <code>optional .AwsInstanceId instanceId = 1;</code>
        */
-      public Chefmate.AWSInstanceIdOrBuilder getInstanceIdOrBuilder() {
+      public Chefmate.AwsInstanceIdOrBuilder getInstanceIdOrBuilder() {
         if (instanceIdBuilder_ != null) {
           return instanceIdBuilder_.getMessageOrBuilder();
         } else {
           return instanceId_ == null ?
-              Chefmate.AWSInstanceId.getDefaultInstance() : instanceId_;
+              Chefmate.AwsInstanceId.getDefaultInstance() : instanceId_;
         }
       }
       /**
-       * <code>optional .AWSInstanceId instanceId = 1;</code>
+       * <code>optional .AwsInstanceId instanceId = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          Chefmate.AWSInstanceId, Chefmate.AWSInstanceId.Builder, Chefmate.AWSInstanceIdOrBuilder> 
+          Chefmate.AwsInstanceId, Chefmate.AwsInstanceId.Builder, Chefmate.AwsInstanceIdOrBuilder> 
           getInstanceIdFieldBuilder() {
         if (instanceIdBuilder_ == null) {
           instanceIdBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              Chefmate.AWSInstanceId, Chefmate.AWSInstanceId.Builder, Chefmate.AWSInstanceIdOrBuilder>(
+              Chefmate.AwsInstanceId, Chefmate.AwsInstanceId.Builder, Chefmate.AwsInstanceIdOrBuilder>(
                   getInstanceId(),
                   getParentForChildren(),
                   isClean());
@@ -10874,71 +10874,71 @@ public final class Chefmate {
         return instanceIdBuilder_;
       }
 
-      private java.lang.Object publicDNS_ = "";
+      private java.lang.Object publicDns_ = "";
       /**
-       * <code>optional string publicDNS = 2;</code>
+       * <code>optional string publicDns = 2;</code>
        */
-      public java.lang.String getPublicDNS() {
-        java.lang.Object ref = publicDNS_;
+      public java.lang.String getPublicDns() {
+        java.lang.Object ref = publicDns_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          publicDNS_ = s;
+          publicDns_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>optional string publicDNS = 2;</code>
+       * <code>optional string publicDns = 2;</code>
        */
       public com.google.protobuf.ByteString
-          getPublicDNSBytes() {
-        java.lang.Object ref = publicDNS_;
+          getPublicDnsBytes() {
+        java.lang.Object ref = publicDns_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          publicDNS_ = b;
+          publicDns_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>optional string publicDNS = 2;</code>
+       * <code>optional string publicDns = 2;</code>
        */
-      public Builder setPublicDNS(
+      public Builder setPublicDns(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        publicDNS_ = value;
+        publicDns_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string publicDNS = 2;</code>
+       * <code>optional string publicDns = 2;</code>
        */
-      public Builder clearPublicDNS() {
+      public Builder clearPublicDns() {
         
-        publicDNS_ = getDefaultInstance().getPublicDNS();
+        publicDns_ = getDefaultInstance().getPublicDns();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string publicDNS = 2;</code>
+       * <code>optional string publicDns = 2;</code>
        */
-      public Builder setPublicDNSBytes(
+      public Builder setPublicDnsBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        publicDNS_ = value;
+        publicDns_ = value;
         onChanged();
         return this;
       }
@@ -11047,27 +11047,27 @@ public final class Chefmate {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:CreateVMResponse)
+      // @@protoc_insertion_point(builder_scope:CreateVmResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:CreateVMResponse)
-    private static final Chefmate.CreateVMResponse DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:CreateVmResponse)
+    private static final Chefmate.CreateVmResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Chefmate.CreateVMResponse();
+      DEFAULT_INSTANCE = new Chefmate.CreateVmResponse();
     }
 
-    public static Chefmate.CreateVMResponse getDefaultInstance() {
+    public static Chefmate.CreateVmResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<CreateVMResponse>
-        PARSER = new com.google.protobuf.AbstractParser<CreateVMResponse>() {
-      public CreateVMResponse parsePartialFrom(
+    private static final com.google.protobuf.Parser<CreateVmResponse>
+        PARSER = new com.google.protobuf.AbstractParser<CreateVmResponse>() {
+      public CreateVmResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         try {
-          return new CreateVMResponse(input, extensionRegistry);
+          return new CreateVmResponse(input, extensionRegistry);
         } catch (RuntimeException e) {
           if (e.getCause() instanceof
               com.google.protobuf.InvalidProtocolBufferException) {
@@ -11079,23 +11079,23 @@ public final class Chefmate {
       }
     };
 
-    public static com.google.protobuf.Parser<CreateVMResponse> parser() {
+    public static com.google.protobuf.Parser<CreateVmResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<CreateVMResponse> getParserForType() {
+    public com.google.protobuf.Parser<CreateVmResponse> getParserForType() {
       return PARSER;
     }
 
-    public Chefmate.CreateVMResponse getDefaultInstanceForType() {
+    public Chefmate.CreateVmResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface DestroyVMResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DestroyVMResponse)
+  public interface DestroyVmResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:DestroyVmResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -11118,17 +11118,17 @@ public final class Chefmate {
         getOutputLogBytes(int index);
   }
   /**
-   * Protobuf type {@code DestroyVMResponse}
+   * Protobuf type {@code DestroyVmResponse}
    */
-  public  static final class DestroyVMResponse extends
+  public  static final class DestroyVmResponse extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:DestroyVMResponse)
-      DestroyVMResponseOrBuilder {
-    // Use DestroyVMResponse.newBuilder() to construct.
-    private DestroyVMResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:DestroyVmResponse)
+      DestroyVmResponseOrBuilder {
+    // Use DestroyVmResponse.newBuilder() to construct.
+    private DestroyVmResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private DestroyVMResponse() {
+    private DestroyVmResponse() {
       outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
@@ -11137,7 +11137,7 @@ public final class Chefmate {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-    private DestroyVMResponse(
+    private DestroyVmResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
       this();
@@ -11182,14 +11182,14 @@ public final class Chefmate {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Chefmate.internal_static_DestroyVMResponse_descriptor;
+      return Chefmate.internal_static_DestroyVmResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Chefmate.internal_static_DestroyVMResponse_fieldAccessorTable
+      return Chefmate.internal_static_DestroyVmResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Chefmate.DestroyVMResponse.class, Chefmate.DestroyVMResponse.Builder.class);
+              Chefmate.DestroyVmResponse.class, Chefmate.DestroyVmResponse.Builder.class);
     }
 
     public static final int OUTPUTLOG_FIELD_NUMBER = 1;
@@ -11256,53 +11256,53 @@ public final class Chefmate {
     }
 
     private static final long serialVersionUID = 0L;
-    public static Chefmate.DestroyVMResponse parseFrom(
+    public static Chefmate.DestroyVmResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.DestroyVMResponse parseFrom(
+    public static Chefmate.DestroyVmResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.DestroyVMResponse parseFrom(byte[] data)
+    public static Chefmate.DestroyVmResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.DestroyVMResponse parseFrom(
+    public static Chefmate.DestroyVmResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.DestroyVMResponse parseFrom(java.io.InputStream input)
+    public static Chefmate.DestroyVmResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.DestroyVMResponse parseFrom(
+    public static Chefmate.DestroyVmResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Chefmate.DestroyVMResponse parseDelimitedFrom(java.io.InputStream input)
+    public static Chefmate.DestroyVmResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Chefmate.DestroyVMResponse parseDelimitedFrom(
+    public static Chefmate.DestroyVmResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Chefmate.DestroyVMResponse parseFrom(
+    public static Chefmate.DestroyVmResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.DestroyVMResponse parseFrom(
+    public static Chefmate.DestroyVmResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -11313,7 +11313,7 @@ public final class Chefmate {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Chefmate.DestroyVMResponse prototype) {
+    public static Builder newBuilder(Chefmate.DestroyVmResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -11328,25 +11328,25 @@ public final class Chefmate {
       return builder;
     }
     /**
-     * Protobuf type {@code DestroyVMResponse}
+     * Protobuf type {@code DestroyVmResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:DestroyVMResponse)
-        Chefmate.DestroyVMResponseOrBuilder {
+        // @@protoc_insertion_point(builder_implements:DestroyVmResponse)
+        Chefmate.DestroyVmResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Chefmate.internal_static_DestroyVMResponse_descriptor;
+        return Chefmate.internal_static_DestroyVmResponse_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Chefmate.internal_static_DestroyVMResponse_fieldAccessorTable
+        return Chefmate.internal_static_DestroyVmResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Chefmate.DestroyVMResponse.class, Chefmate.DestroyVMResponse.Builder.class);
+                Chefmate.DestroyVmResponse.class, Chefmate.DestroyVmResponse.Builder.class);
       }
 
-      // Construct using Chefmate.DestroyVMResponse.newBuilder()
+      // Construct using Chefmate.DestroyVmResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -11369,23 +11369,23 @@ public final class Chefmate {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Chefmate.internal_static_DestroyVMResponse_descriptor;
+        return Chefmate.internal_static_DestroyVmResponse_descriptor;
       }
 
-      public Chefmate.DestroyVMResponse getDefaultInstanceForType() {
-        return Chefmate.DestroyVMResponse.getDefaultInstance();
+      public Chefmate.DestroyVmResponse getDefaultInstanceForType() {
+        return Chefmate.DestroyVmResponse.getDefaultInstance();
       }
 
-      public Chefmate.DestroyVMResponse build() {
-        Chefmate.DestroyVMResponse result = buildPartial();
+      public Chefmate.DestroyVmResponse build() {
+        Chefmate.DestroyVmResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Chefmate.DestroyVMResponse buildPartial() {
-        Chefmate.DestroyVMResponse result = new Chefmate.DestroyVMResponse(this);
+      public Chefmate.DestroyVmResponse buildPartial() {
+        Chefmate.DestroyVmResponse result = new Chefmate.DestroyVmResponse(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           outputLog_ = outputLog_.getUnmodifiableView();
@@ -11397,16 +11397,16 @@ public final class Chefmate {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Chefmate.DestroyVMResponse) {
-          return mergeFrom((Chefmate.DestroyVMResponse)other);
+        if (other instanceof Chefmate.DestroyVmResponse) {
+          return mergeFrom((Chefmate.DestroyVmResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Chefmate.DestroyVMResponse other) {
-        if (other == Chefmate.DestroyVMResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(Chefmate.DestroyVmResponse other) {
+        if (other == Chefmate.DestroyVmResponse.getDefaultInstance()) return this;
         if (!other.outputLog_.isEmpty()) {
           if (outputLog_.isEmpty()) {
             outputLog_ = other.outputLog_;
@@ -11429,11 +11429,11 @@ public final class Chefmate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Chefmate.DestroyVMResponse parsedMessage = null;
+        Chefmate.DestroyVmResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Chefmate.DestroyVMResponse) e.getUnfinishedMessage();
+          parsedMessage = (Chefmate.DestroyVmResponse) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -11548,27 +11548,27 @@ public final class Chefmate {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:DestroyVMResponse)
+      // @@protoc_insertion_point(builder_scope:DestroyVmResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:DestroyVMResponse)
-    private static final Chefmate.DestroyVMResponse DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:DestroyVmResponse)
+    private static final Chefmate.DestroyVmResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Chefmate.DestroyVMResponse();
+      DEFAULT_INSTANCE = new Chefmate.DestroyVmResponse();
     }
 
-    public static Chefmate.DestroyVMResponse getDefaultInstance() {
+    public static Chefmate.DestroyVmResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<DestroyVMResponse>
-        PARSER = new com.google.protobuf.AbstractParser<DestroyVMResponse>() {
-      public DestroyVMResponse parsePartialFrom(
+    private static final com.google.protobuf.Parser<DestroyVmResponse>
+        PARSER = new com.google.protobuf.AbstractParser<DestroyVmResponse>() {
+      public DestroyVmResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         try {
-          return new DestroyVMResponse(input, extensionRegistry);
+          return new DestroyVmResponse(input, extensionRegistry);
         } catch (RuntimeException e) {
           if (e.getCause() instanceof
               com.google.protobuf.InvalidProtocolBufferException) {
@@ -11580,23 +11580,23 @@ public final class Chefmate {
       }
     };
 
-    public static com.google.protobuf.Parser<DestroyVMResponse> parser() {
+    public static com.google.protobuf.Parser<DestroyVmResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DestroyVMResponse> getParserForType() {
+    public com.google.protobuf.Parser<DestroyVmResponse> getParserForType() {
       return PARSER;
     }
 
-    public Chefmate.DestroyVMResponse getDefaultInstanceForType() {
+    public Chefmate.DestroyVmResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface InitCHEFRepoResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:InitCHEFRepoResponse)
+  public interface InitChefRepoResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:InitChefRepoResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -11619,17 +11619,17 @@ public final class Chefmate {
         getOutputLogBytes(int index);
   }
   /**
-   * Protobuf type {@code InitCHEFRepoResponse}
+   * Protobuf type {@code InitChefRepoResponse}
    */
-  public  static final class InitCHEFRepoResponse extends
+  public  static final class InitChefRepoResponse extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:InitCHEFRepoResponse)
-      InitCHEFRepoResponseOrBuilder {
-    // Use InitCHEFRepoResponse.newBuilder() to construct.
-    private InitCHEFRepoResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:InitChefRepoResponse)
+      InitChefRepoResponseOrBuilder {
+    // Use InitChefRepoResponse.newBuilder() to construct.
+    private InitChefRepoResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private InitCHEFRepoResponse() {
+    private InitChefRepoResponse() {
       outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
@@ -11638,7 +11638,7 @@ public final class Chefmate {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-    private InitCHEFRepoResponse(
+    private InitChefRepoResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
       this();
@@ -11683,14 +11683,14 @@ public final class Chefmate {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Chefmate.internal_static_InitCHEFRepoResponse_descriptor;
+      return Chefmate.internal_static_InitChefRepoResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Chefmate.internal_static_InitCHEFRepoResponse_fieldAccessorTable
+      return Chefmate.internal_static_InitChefRepoResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Chefmate.InitCHEFRepoResponse.class, Chefmate.InitCHEFRepoResponse.Builder.class);
+              Chefmate.InitChefRepoResponse.class, Chefmate.InitChefRepoResponse.Builder.class);
     }
 
     public static final int OUTPUTLOG_FIELD_NUMBER = 1;
@@ -11757,53 +11757,53 @@ public final class Chefmate {
     }
 
     private static final long serialVersionUID = 0L;
-    public static Chefmate.InitCHEFRepoResponse parseFrom(
+    public static Chefmate.InitChefRepoResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.InitCHEFRepoResponse parseFrom(
+    public static Chefmate.InitChefRepoResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.InitCHEFRepoResponse parseFrom(byte[] data)
+    public static Chefmate.InitChefRepoResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.InitCHEFRepoResponse parseFrom(
+    public static Chefmate.InitChefRepoResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.InitCHEFRepoResponse parseFrom(java.io.InputStream input)
+    public static Chefmate.InitChefRepoResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.InitCHEFRepoResponse parseFrom(
+    public static Chefmate.InitChefRepoResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Chefmate.InitCHEFRepoResponse parseDelimitedFrom(java.io.InputStream input)
+    public static Chefmate.InitChefRepoResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Chefmate.InitCHEFRepoResponse parseDelimitedFrom(
+    public static Chefmate.InitChefRepoResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Chefmate.InitCHEFRepoResponse parseFrom(
+    public static Chefmate.InitChefRepoResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.InitCHEFRepoResponse parseFrom(
+    public static Chefmate.InitChefRepoResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -11814,7 +11814,7 @@ public final class Chefmate {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Chefmate.InitCHEFRepoResponse prototype) {
+    public static Builder newBuilder(Chefmate.InitChefRepoResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -11829,25 +11829,25 @@ public final class Chefmate {
       return builder;
     }
     /**
-     * Protobuf type {@code InitCHEFRepoResponse}
+     * Protobuf type {@code InitChefRepoResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:InitCHEFRepoResponse)
-        Chefmate.InitCHEFRepoResponseOrBuilder {
+        // @@protoc_insertion_point(builder_implements:InitChefRepoResponse)
+        Chefmate.InitChefRepoResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Chefmate.internal_static_InitCHEFRepoResponse_descriptor;
+        return Chefmate.internal_static_InitChefRepoResponse_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Chefmate.internal_static_InitCHEFRepoResponse_fieldAccessorTable
+        return Chefmate.internal_static_InitChefRepoResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Chefmate.InitCHEFRepoResponse.class, Chefmate.InitCHEFRepoResponse.Builder.class);
+                Chefmate.InitChefRepoResponse.class, Chefmate.InitChefRepoResponse.Builder.class);
       }
 
-      // Construct using Chefmate.InitCHEFRepoResponse.newBuilder()
+      // Construct using Chefmate.InitChefRepoResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -11870,23 +11870,23 @@ public final class Chefmate {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Chefmate.internal_static_InitCHEFRepoResponse_descriptor;
+        return Chefmate.internal_static_InitChefRepoResponse_descriptor;
       }
 
-      public Chefmate.InitCHEFRepoResponse getDefaultInstanceForType() {
-        return Chefmate.InitCHEFRepoResponse.getDefaultInstance();
+      public Chefmate.InitChefRepoResponse getDefaultInstanceForType() {
+        return Chefmate.InitChefRepoResponse.getDefaultInstance();
       }
 
-      public Chefmate.InitCHEFRepoResponse build() {
-        Chefmate.InitCHEFRepoResponse result = buildPartial();
+      public Chefmate.InitChefRepoResponse build() {
+        Chefmate.InitChefRepoResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Chefmate.InitCHEFRepoResponse buildPartial() {
-        Chefmate.InitCHEFRepoResponse result = new Chefmate.InitCHEFRepoResponse(this);
+      public Chefmate.InitChefRepoResponse buildPartial() {
+        Chefmate.InitChefRepoResponse result = new Chefmate.InitChefRepoResponse(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           outputLog_ = outputLog_.getUnmodifiableView();
@@ -11898,16 +11898,16 @@ public final class Chefmate {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Chefmate.InitCHEFRepoResponse) {
-          return mergeFrom((Chefmate.InitCHEFRepoResponse)other);
+        if (other instanceof Chefmate.InitChefRepoResponse) {
+          return mergeFrom((Chefmate.InitChefRepoResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Chefmate.InitCHEFRepoResponse other) {
-        if (other == Chefmate.InitCHEFRepoResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(Chefmate.InitChefRepoResponse other) {
+        if (other == Chefmate.InitChefRepoResponse.getDefaultInstance()) return this;
         if (!other.outputLog_.isEmpty()) {
           if (outputLog_.isEmpty()) {
             outputLog_ = other.outputLog_;
@@ -11930,11 +11930,11 @@ public final class Chefmate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Chefmate.InitCHEFRepoResponse parsedMessage = null;
+        Chefmate.InitChefRepoResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Chefmate.InitCHEFRepoResponse) e.getUnfinishedMessage();
+          parsedMessage = (Chefmate.InitChefRepoResponse) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -12049,27 +12049,27 @@ public final class Chefmate {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:InitCHEFRepoResponse)
+      // @@protoc_insertion_point(builder_scope:InitChefRepoResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:InitCHEFRepoResponse)
-    private static final Chefmate.InitCHEFRepoResponse DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:InitChefRepoResponse)
+    private static final Chefmate.InitChefRepoResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Chefmate.InitCHEFRepoResponse();
+      DEFAULT_INSTANCE = new Chefmate.InitChefRepoResponse();
     }
 
-    public static Chefmate.InitCHEFRepoResponse getDefaultInstance() {
+    public static Chefmate.InitChefRepoResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<InitCHEFRepoResponse>
-        PARSER = new com.google.protobuf.AbstractParser<InitCHEFRepoResponse>() {
-      public InitCHEFRepoResponse parsePartialFrom(
+    private static final com.google.protobuf.Parser<InitChefRepoResponse>
+        PARSER = new com.google.protobuf.AbstractParser<InitChefRepoResponse>() {
+      public InitChefRepoResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         try {
-          return new InitCHEFRepoResponse(input, extensionRegistry);
+          return new InitChefRepoResponse(input, extensionRegistry);
         } catch (RuntimeException e) {
           if (e.getCause() instanceof
               com.google.protobuf.InvalidProtocolBufferException) {
@@ -12081,23 +12081,23 @@ public final class Chefmate {
       }
     };
 
-    public static com.google.protobuf.Parser<InitCHEFRepoResponse> parser() {
+    public static com.google.protobuf.Parser<InitChefRepoResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<InitCHEFRepoResponse> getParserForType() {
+    public com.google.protobuf.Parser<InitChefRepoResponse> getParserForType() {
       return PARSER;
     }
 
-    public Chefmate.InitCHEFRepoResponse getDefaultInstanceForType() {
+    public Chefmate.InitChefRepoResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface DeployWPAppResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DeployWPAppResponse)
+  public interface DeployWpAppResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:DeployWpAppResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -12120,17 +12120,17 @@ public final class Chefmate {
         getOutputLogBytes(int index);
   }
   /**
-   * Protobuf type {@code DeployWPAppResponse}
+   * Protobuf type {@code DeployWpAppResponse}
    */
-  public  static final class DeployWPAppResponse extends
+  public  static final class DeployWpAppResponse extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:DeployWPAppResponse)
-      DeployWPAppResponseOrBuilder {
-    // Use DeployWPAppResponse.newBuilder() to construct.
-    private DeployWPAppResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:DeployWpAppResponse)
+      DeployWpAppResponseOrBuilder {
+    // Use DeployWpAppResponse.newBuilder() to construct.
+    private DeployWpAppResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private DeployWPAppResponse() {
+    private DeployWpAppResponse() {
       outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
@@ -12139,7 +12139,7 @@ public final class Chefmate {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-    private DeployWPAppResponse(
+    private DeployWpAppResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
       this();
@@ -12184,14 +12184,14 @@ public final class Chefmate {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Chefmate.internal_static_DeployWPAppResponse_descriptor;
+      return Chefmate.internal_static_DeployWpAppResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Chefmate.internal_static_DeployWPAppResponse_fieldAccessorTable
+      return Chefmate.internal_static_DeployWpAppResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Chefmate.DeployWPAppResponse.class, Chefmate.DeployWPAppResponse.Builder.class);
+              Chefmate.DeployWpAppResponse.class, Chefmate.DeployWpAppResponse.Builder.class);
     }
 
     public static final int OUTPUTLOG_FIELD_NUMBER = 1;
@@ -12258,53 +12258,53 @@ public final class Chefmate {
     }
 
     private static final long serialVersionUID = 0L;
-    public static Chefmate.DeployWPAppResponse parseFrom(
+    public static Chefmate.DeployWpAppResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.DeployWPAppResponse parseFrom(
+    public static Chefmate.DeployWpAppResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.DeployWPAppResponse parseFrom(byte[] data)
+    public static Chefmate.DeployWpAppResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.DeployWPAppResponse parseFrom(
+    public static Chefmate.DeployWpAppResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.DeployWPAppResponse parseFrom(java.io.InputStream input)
+    public static Chefmate.DeployWpAppResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.DeployWPAppResponse parseFrom(
+    public static Chefmate.DeployWpAppResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Chefmate.DeployWPAppResponse parseDelimitedFrom(java.io.InputStream input)
+    public static Chefmate.DeployWpAppResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Chefmate.DeployWPAppResponse parseDelimitedFrom(
+    public static Chefmate.DeployWpAppResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Chefmate.DeployWPAppResponse parseFrom(
+    public static Chefmate.DeployWpAppResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.DeployWPAppResponse parseFrom(
+    public static Chefmate.DeployWpAppResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -12315,7 +12315,7 @@ public final class Chefmate {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Chefmate.DeployWPAppResponse prototype) {
+    public static Builder newBuilder(Chefmate.DeployWpAppResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -12330,25 +12330,25 @@ public final class Chefmate {
       return builder;
     }
     /**
-     * Protobuf type {@code DeployWPAppResponse}
+     * Protobuf type {@code DeployWpAppResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:DeployWPAppResponse)
-        Chefmate.DeployWPAppResponseOrBuilder {
+        // @@protoc_insertion_point(builder_implements:DeployWpAppResponse)
+        Chefmate.DeployWpAppResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Chefmate.internal_static_DeployWPAppResponse_descriptor;
+        return Chefmate.internal_static_DeployWpAppResponse_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Chefmate.internal_static_DeployWPAppResponse_fieldAccessorTable
+        return Chefmate.internal_static_DeployWpAppResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Chefmate.DeployWPAppResponse.class, Chefmate.DeployWPAppResponse.Builder.class);
+                Chefmate.DeployWpAppResponse.class, Chefmate.DeployWpAppResponse.Builder.class);
       }
 
-      // Construct using Chefmate.DeployWPAppResponse.newBuilder()
+      // Construct using Chefmate.DeployWpAppResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -12371,23 +12371,23 @@ public final class Chefmate {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Chefmate.internal_static_DeployWPAppResponse_descriptor;
+        return Chefmate.internal_static_DeployWpAppResponse_descriptor;
       }
 
-      public Chefmate.DeployWPAppResponse getDefaultInstanceForType() {
-        return Chefmate.DeployWPAppResponse.getDefaultInstance();
+      public Chefmate.DeployWpAppResponse getDefaultInstanceForType() {
+        return Chefmate.DeployWpAppResponse.getDefaultInstance();
       }
 
-      public Chefmate.DeployWPAppResponse build() {
-        Chefmate.DeployWPAppResponse result = buildPartial();
+      public Chefmate.DeployWpAppResponse build() {
+        Chefmate.DeployWpAppResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Chefmate.DeployWPAppResponse buildPartial() {
-        Chefmate.DeployWPAppResponse result = new Chefmate.DeployWPAppResponse(this);
+      public Chefmate.DeployWpAppResponse buildPartial() {
+        Chefmate.DeployWpAppResponse result = new Chefmate.DeployWpAppResponse(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           outputLog_ = outputLog_.getUnmodifiableView();
@@ -12399,16 +12399,16 @@ public final class Chefmate {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Chefmate.DeployWPAppResponse) {
-          return mergeFrom((Chefmate.DeployWPAppResponse)other);
+        if (other instanceof Chefmate.DeployWpAppResponse) {
+          return mergeFrom((Chefmate.DeployWpAppResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Chefmate.DeployWPAppResponse other) {
-        if (other == Chefmate.DeployWPAppResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(Chefmate.DeployWpAppResponse other) {
+        if (other == Chefmate.DeployWpAppResponse.getDefaultInstance()) return this;
         if (!other.outputLog_.isEmpty()) {
           if (outputLog_.isEmpty()) {
             outputLog_ = other.outputLog_;
@@ -12431,11 +12431,11 @@ public final class Chefmate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Chefmate.DeployWPAppResponse parsedMessage = null;
+        Chefmate.DeployWpAppResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Chefmate.DeployWPAppResponse) e.getUnfinishedMessage();
+          parsedMessage = (Chefmate.DeployWpAppResponse) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -12550,27 +12550,27 @@ public final class Chefmate {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:DeployWPAppResponse)
+      // @@protoc_insertion_point(builder_scope:DeployWpAppResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:DeployWPAppResponse)
-    private static final Chefmate.DeployWPAppResponse DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:DeployWpAppResponse)
+    private static final Chefmate.DeployWpAppResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Chefmate.DeployWPAppResponse();
+      DEFAULT_INSTANCE = new Chefmate.DeployWpAppResponse();
     }
 
-    public static Chefmate.DeployWPAppResponse getDefaultInstance() {
+    public static Chefmate.DeployWpAppResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<DeployWPAppResponse>
-        PARSER = new com.google.protobuf.AbstractParser<DeployWPAppResponse>() {
-      public DeployWPAppResponse parsePartialFrom(
+    private static final com.google.protobuf.Parser<DeployWpAppResponse>
+        PARSER = new com.google.protobuf.AbstractParser<DeployWpAppResponse>() {
+      public DeployWpAppResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         try {
-          return new DeployWPAppResponse(input, extensionRegistry);
+          return new DeployWpAppResponse(input, extensionRegistry);
         } catch (RuntimeException e) {
           if (e.getCause() instanceof
               com.google.protobuf.InvalidProtocolBufferException) {
@@ -12582,23 +12582,23 @@ public final class Chefmate {
       }
     };
 
-    public static com.google.protobuf.Parser<DeployWPAppResponse> parser() {
+    public static com.google.protobuf.Parser<DeployWpAppResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DeployWPAppResponse> getParserForType() {
+    public com.google.protobuf.Parser<DeployWpAppResponse> getParserForType() {
       return PARSER;
     }
 
-    public Chefmate.DeployWPAppResponse getDefaultInstanceForType() {
+    public Chefmate.DeployWpAppResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface DeployDBResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DeployDBResponse)
+  public interface DeployDbResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:DeployDbResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -12621,17 +12621,17 @@ public final class Chefmate {
         getOutputLogBytes(int index);
   }
   /**
-   * Protobuf type {@code DeployDBResponse}
+   * Protobuf type {@code DeployDbResponse}
    */
-  public  static final class DeployDBResponse extends
+  public  static final class DeployDbResponse extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:DeployDBResponse)
-      DeployDBResponseOrBuilder {
-    // Use DeployDBResponse.newBuilder() to construct.
-    private DeployDBResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:DeployDbResponse)
+      DeployDbResponseOrBuilder {
+    // Use DeployDbResponse.newBuilder() to construct.
+    private DeployDbResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private DeployDBResponse() {
+    private DeployDbResponse() {
       outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
@@ -12640,7 +12640,7 @@ public final class Chefmate {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-    private DeployDBResponse(
+    private DeployDbResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
       this();
@@ -12685,14 +12685,14 @@ public final class Chefmate {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Chefmate.internal_static_DeployDBResponse_descriptor;
+      return Chefmate.internal_static_DeployDbResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Chefmate.internal_static_DeployDBResponse_fieldAccessorTable
+      return Chefmate.internal_static_DeployDbResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Chefmate.DeployDBResponse.class, Chefmate.DeployDBResponse.Builder.class);
+              Chefmate.DeployDbResponse.class, Chefmate.DeployDbResponse.Builder.class);
     }
 
     public static final int OUTPUTLOG_FIELD_NUMBER = 1;
@@ -12759,53 +12759,53 @@ public final class Chefmate {
     }
 
     private static final long serialVersionUID = 0L;
-    public static Chefmate.DeployDBResponse parseFrom(
+    public static Chefmate.DeployDbResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.DeployDBResponse parseFrom(
+    public static Chefmate.DeployDbResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.DeployDBResponse parseFrom(byte[] data)
+    public static Chefmate.DeployDbResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.DeployDBResponse parseFrom(
+    public static Chefmate.DeployDbResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.DeployDBResponse parseFrom(java.io.InputStream input)
+    public static Chefmate.DeployDbResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.DeployDBResponse parseFrom(
+    public static Chefmate.DeployDbResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Chefmate.DeployDBResponse parseDelimitedFrom(java.io.InputStream input)
+    public static Chefmate.DeployDbResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Chefmate.DeployDBResponse parseDelimitedFrom(
+    public static Chefmate.DeployDbResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Chefmate.DeployDBResponse parseFrom(
+    public static Chefmate.DeployDbResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.DeployDBResponse parseFrom(
+    public static Chefmate.DeployDbResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -12816,7 +12816,7 @@ public final class Chefmate {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Chefmate.DeployDBResponse prototype) {
+    public static Builder newBuilder(Chefmate.DeployDbResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -12831,25 +12831,25 @@ public final class Chefmate {
       return builder;
     }
     /**
-     * Protobuf type {@code DeployDBResponse}
+     * Protobuf type {@code DeployDbResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:DeployDBResponse)
-        Chefmate.DeployDBResponseOrBuilder {
+        // @@protoc_insertion_point(builder_implements:DeployDbResponse)
+        Chefmate.DeployDbResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Chefmate.internal_static_DeployDBResponse_descriptor;
+        return Chefmate.internal_static_DeployDbResponse_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Chefmate.internal_static_DeployDBResponse_fieldAccessorTable
+        return Chefmate.internal_static_DeployDbResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Chefmate.DeployDBResponse.class, Chefmate.DeployDBResponse.Builder.class);
+                Chefmate.DeployDbResponse.class, Chefmate.DeployDbResponse.Builder.class);
       }
 
-      // Construct using Chefmate.DeployDBResponse.newBuilder()
+      // Construct using Chefmate.DeployDbResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -12872,23 +12872,23 @@ public final class Chefmate {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Chefmate.internal_static_DeployDBResponse_descriptor;
+        return Chefmate.internal_static_DeployDbResponse_descriptor;
       }
 
-      public Chefmate.DeployDBResponse getDefaultInstanceForType() {
-        return Chefmate.DeployDBResponse.getDefaultInstance();
+      public Chefmate.DeployDbResponse getDefaultInstanceForType() {
+        return Chefmate.DeployDbResponse.getDefaultInstance();
       }
 
-      public Chefmate.DeployDBResponse build() {
-        Chefmate.DeployDBResponse result = buildPartial();
+      public Chefmate.DeployDbResponse build() {
+        Chefmate.DeployDbResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Chefmate.DeployDBResponse buildPartial() {
-        Chefmate.DeployDBResponse result = new Chefmate.DeployDBResponse(this);
+      public Chefmate.DeployDbResponse buildPartial() {
+        Chefmate.DeployDbResponse result = new Chefmate.DeployDbResponse(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           outputLog_ = outputLog_.getUnmodifiableView();
@@ -12900,16 +12900,16 @@ public final class Chefmate {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Chefmate.DeployDBResponse) {
-          return mergeFrom((Chefmate.DeployDBResponse)other);
+        if (other instanceof Chefmate.DeployDbResponse) {
+          return mergeFrom((Chefmate.DeployDbResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Chefmate.DeployDBResponse other) {
-        if (other == Chefmate.DeployDBResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(Chefmate.DeployDbResponse other) {
+        if (other == Chefmate.DeployDbResponse.getDefaultInstance()) return this;
         if (!other.outputLog_.isEmpty()) {
           if (outputLog_.isEmpty()) {
             outputLog_ = other.outputLog_;
@@ -12932,11 +12932,11 @@ public final class Chefmate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Chefmate.DeployDBResponse parsedMessage = null;
+        Chefmate.DeployDbResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Chefmate.DeployDBResponse) e.getUnfinishedMessage();
+          parsedMessage = (Chefmate.DeployDbResponse) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -13051,27 +13051,27 @@ public final class Chefmate {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:DeployDBResponse)
+      // @@protoc_insertion_point(builder_scope:DeployDbResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:DeployDBResponse)
-    private static final Chefmate.DeployDBResponse DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:DeployDbResponse)
+    private static final Chefmate.DeployDbResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Chefmate.DeployDBResponse();
+      DEFAULT_INSTANCE = new Chefmate.DeployDbResponse();
     }
 
-    public static Chefmate.DeployDBResponse getDefaultInstance() {
+    public static Chefmate.DeployDbResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<DeployDBResponse>
-        PARSER = new com.google.protobuf.AbstractParser<DeployDBResponse>() {
-      public DeployDBResponse parsePartialFrom(
+    private static final com.google.protobuf.Parser<DeployDbResponse>
+        PARSER = new com.google.protobuf.AbstractParser<DeployDbResponse>() {
+      public DeployDbResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         try {
-          return new DeployDBResponse(input, extensionRegistry);
+          return new DeployDbResponse(input, extensionRegistry);
         } catch (RuntimeException e) {
           if (e.getCause() instanceof
               com.google.protobuf.InvalidProtocolBufferException) {
@@ -13083,23 +13083,23 @@ public final class Chefmate {
       }
     };
 
-    public static com.google.protobuf.Parser<DeployDBResponse> parser() {
+    public static com.google.protobuf.Parser<DeployDbResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DeployDBResponse> getParserForType() {
+    public com.google.protobuf.Parser<DeployDbResponse> getParserForType() {
       return PARSER;
     }
 
-    public Chefmate.DeployDBResponse getDefaultInstanceForType() {
+    public Chefmate.DeployDbResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface BackupDBResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:BackupDBResponse)
+  public interface BackupDbResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:BackupDbResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -13122,17 +13122,17 @@ public final class Chefmate {
         getOutputLogBytes(int index);
   }
   /**
-   * Protobuf type {@code BackupDBResponse}
+   * Protobuf type {@code BackupDbResponse}
    */
-  public  static final class BackupDBResponse extends
+  public  static final class BackupDbResponse extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:BackupDBResponse)
-      BackupDBResponseOrBuilder {
-    // Use BackupDBResponse.newBuilder() to construct.
-    private BackupDBResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:BackupDbResponse)
+      BackupDbResponseOrBuilder {
+    // Use BackupDbResponse.newBuilder() to construct.
+    private BackupDbResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private BackupDBResponse() {
+    private BackupDbResponse() {
       outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
@@ -13141,7 +13141,7 @@ public final class Chefmate {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-    private BackupDBResponse(
+    private BackupDbResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
       this();
@@ -13186,14 +13186,14 @@ public final class Chefmate {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Chefmate.internal_static_BackupDBResponse_descriptor;
+      return Chefmate.internal_static_BackupDbResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Chefmate.internal_static_BackupDBResponse_fieldAccessorTable
+      return Chefmate.internal_static_BackupDbResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Chefmate.BackupDBResponse.class, Chefmate.BackupDBResponse.Builder.class);
+              Chefmate.BackupDbResponse.class, Chefmate.BackupDbResponse.Builder.class);
     }
 
     public static final int OUTPUTLOG_FIELD_NUMBER = 1;
@@ -13260,53 +13260,53 @@ public final class Chefmate {
     }
 
     private static final long serialVersionUID = 0L;
-    public static Chefmate.BackupDBResponse parseFrom(
+    public static Chefmate.BackupDbResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.BackupDBResponse parseFrom(
+    public static Chefmate.BackupDbResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.BackupDBResponse parseFrom(byte[] data)
+    public static Chefmate.BackupDbResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.BackupDBResponse parseFrom(
+    public static Chefmate.BackupDbResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.BackupDBResponse parseFrom(java.io.InputStream input)
+    public static Chefmate.BackupDbResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.BackupDBResponse parseFrom(
+    public static Chefmate.BackupDbResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Chefmate.BackupDBResponse parseDelimitedFrom(java.io.InputStream input)
+    public static Chefmate.BackupDbResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Chefmate.BackupDBResponse parseDelimitedFrom(
+    public static Chefmate.BackupDbResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Chefmate.BackupDBResponse parseFrom(
+    public static Chefmate.BackupDbResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.BackupDBResponse parseFrom(
+    public static Chefmate.BackupDbResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -13317,7 +13317,7 @@ public final class Chefmate {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Chefmate.BackupDBResponse prototype) {
+    public static Builder newBuilder(Chefmate.BackupDbResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -13332,25 +13332,25 @@ public final class Chefmate {
       return builder;
     }
     /**
-     * Protobuf type {@code BackupDBResponse}
+     * Protobuf type {@code BackupDbResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:BackupDBResponse)
-        Chefmate.BackupDBResponseOrBuilder {
+        // @@protoc_insertion_point(builder_implements:BackupDbResponse)
+        Chefmate.BackupDbResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Chefmate.internal_static_BackupDBResponse_descriptor;
+        return Chefmate.internal_static_BackupDbResponse_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Chefmate.internal_static_BackupDBResponse_fieldAccessorTable
+        return Chefmate.internal_static_BackupDbResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Chefmate.BackupDBResponse.class, Chefmate.BackupDBResponse.Builder.class);
+                Chefmate.BackupDbResponse.class, Chefmate.BackupDbResponse.Builder.class);
       }
 
-      // Construct using Chefmate.BackupDBResponse.newBuilder()
+      // Construct using Chefmate.BackupDbResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -13373,23 +13373,23 @@ public final class Chefmate {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Chefmate.internal_static_BackupDBResponse_descriptor;
+        return Chefmate.internal_static_BackupDbResponse_descriptor;
       }
 
-      public Chefmate.BackupDBResponse getDefaultInstanceForType() {
-        return Chefmate.BackupDBResponse.getDefaultInstance();
+      public Chefmate.BackupDbResponse getDefaultInstanceForType() {
+        return Chefmate.BackupDbResponse.getDefaultInstance();
       }
 
-      public Chefmate.BackupDBResponse build() {
-        Chefmate.BackupDBResponse result = buildPartial();
+      public Chefmate.BackupDbResponse build() {
+        Chefmate.BackupDbResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Chefmate.BackupDBResponse buildPartial() {
-        Chefmate.BackupDBResponse result = new Chefmate.BackupDBResponse(this);
+      public Chefmate.BackupDbResponse buildPartial() {
+        Chefmate.BackupDbResponse result = new Chefmate.BackupDbResponse(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           outputLog_ = outputLog_.getUnmodifiableView();
@@ -13401,16 +13401,16 @@ public final class Chefmate {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Chefmate.BackupDBResponse) {
-          return mergeFrom((Chefmate.BackupDBResponse)other);
+        if (other instanceof Chefmate.BackupDbResponse) {
+          return mergeFrom((Chefmate.BackupDbResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Chefmate.BackupDBResponse other) {
-        if (other == Chefmate.BackupDBResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(Chefmate.BackupDbResponse other) {
+        if (other == Chefmate.BackupDbResponse.getDefaultInstance()) return this;
         if (!other.outputLog_.isEmpty()) {
           if (outputLog_.isEmpty()) {
             outputLog_ = other.outputLog_;
@@ -13433,11 +13433,11 @@ public final class Chefmate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Chefmate.BackupDBResponse parsedMessage = null;
+        Chefmate.BackupDbResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Chefmate.BackupDBResponse) e.getUnfinishedMessage();
+          parsedMessage = (Chefmate.BackupDbResponse) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -13552,27 +13552,27 @@ public final class Chefmate {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:BackupDBResponse)
+      // @@protoc_insertion_point(builder_scope:BackupDbResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:BackupDBResponse)
-    private static final Chefmate.BackupDBResponse DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:BackupDbResponse)
+    private static final Chefmate.BackupDbResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Chefmate.BackupDBResponse();
+      DEFAULT_INSTANCE = new Chefmate.BackupDbResponse();
     }
 
-    public static Chefmate.BackupDBResponse getDefaultInstance() {
+    public static Chefmate.BackupDbResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<BackupDBResponse>
-        PARSER = new com.google.protobuf.AbstractParser<BackupDBResponse>() {
-      public BackupDBResponse parsePartialFrom(
+    private static final com.google.protobuf.Parser<BackupDbResponse>
+        PARSER = new com.google.protobuf.AbstractParser<BackupDbResponse>() {
+      public BackupDbResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         try {
-          return new BackupDBResponse(input, extensionRegistry);
+          return new BackupDbResponse(input, extensionRegistry);
         } catch (RuntimeException e) {
           if (e.getCause() instanceof
               com.google.protobuf.InvalidProtocolBufferException) {
@@ -13584,23 +13584,23 @@ public final class Chefmate {
       }
     };
 
-    public static com.google.protobuf.Parser<BackupDBResponse> parser() {
+    public static com.google.protobuf.Parser<BackupDbResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<BackupDBResponse> getParserForType() {
+    public com.google.protobuf.Parser<BackupDbResponse> getParserForType() {
       return PARSER;
     }
 
-    public Chefmate.BackupDBResponse getDefaultInstanceForType() {
+    public Chefmate.BackupDbResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface RestoreDBResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:RestoreDBResponse)
+  public interface RestoreDbResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:RestoreDbResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -13623,17 +13623,17 @@ public final class Chefmate {
         getOutputLogBytes(int index);
   }
   /**
-   * Protobuf type {@code RestoreDBResponse}
+   * Protobuf type {@code RestoreDbResponse}
    */
-  public  static final class RestoreDBResponse extends
+  public  static final class RestoreDbResponse extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:RestoreDBResponse)
-      RestoreDBResponseOrBuilder {
-    // Use RestoreDBResponse.newBuilder() to construct.
-    private RestoreDBResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:RestoreDbResponse)
+      RestoreDbResponseOrBuilder {
+    // Use RestoreDbResponse.newBuilder() to construct.
+    private RestoreDbResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private RestoreDBResponse() {
+    private RestoreDbResponse() {
       outputLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
@@ -13642,7 +13642,7 @@ public final class Chefmate {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-    private RestoreDBResponse(
+    private RestoreDbResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
       this();
@@ -13687,14 +13687,14 @@ public final class Chefmate {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Chefmate.internal_static_RestoreDBResponse_descriptor;
+      return Chefmate.internal_static_RestoreDbResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Chefmate.internal_static_RestoreDBResponse_fieldAccessorTable
+      return Chefmate.internal_static_RestoreDbResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Chefmate.RestoreDBResponse.class, Chefmate.RestoreDBResponse.Builder.class);
+              Chefmate.RestoreDbResponse.class, Chefmate.RestoreDbResponse.Builder.class);
     }
 
     public static final int OUTPUTLOG_FIELD_NUMBER = 1;
@@ -13761,53 +13761,53 @@ public final class Chefmate {
     }
 
     private static final long serialVersionUID = 0L;
-    public static Chefmate.RestoreDBResponse parseFrom(
+    public static Chefmate.RestoreDbResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.RestoreDBResponse parseFrom(
+    public static Chefmate.RestoreDbResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.RestoreDBResponse parseFrom(byte[] data)
+    public static Chefmate.RestoreDbResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Chefmate.RestoreDBResponse parseFrom(
+    public static Chefmate.RestoreDbResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Chefmate.RestoreDBResponse parseFrom(java.io.InputStream input)
+    public static Chefmate.RestoreDbResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.RestoreDBResponse parseFrom(
+    public static Chefmate.RestoreDbResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Chefmate.RestoreDBResponse parseDelimitedFrom(java.io.InputStream input)
+    public static Chefmate.RestoreDbResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Chefmate.RestoreDBResponse parseDelimitedFrom(
+    public static Chefmate.RestoreDbResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Chefmate.RestoreDBResponse parseFrom(
+    public static Chefmate.RestoreDbResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Chefmate.RestoreDBResponse parseFrom(
+    public static Chefmate.RestoreDbResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -13818,7 +13818,7 @@ public final class Chefmate {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Chefmate.RestoreDBResponse prototype) {
+    public static Builder newBuilder(Chefmate.RestoreDbResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -13833,25 +13833,25 @@ public final class Chefmate {
       return builder;
     }
     /**
-     * Protobuf type {@code RestoreDBResponse}
+     * Protobuf type {@code RestoreDbResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:RestoreDBResponse)
-        Chefmate.RestoreDBResponseOrBuilder {
+        // @@protoc_insertion_point(builder_implements:RestoreDbResponse)
+        Chefmate.RestoreDbResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Chefmate.internal_static_RestoreDBResponse_descriptor;
+        return Chefmate.internal_static_RestoreDbResponse_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Chefmate.internal_static_RestoreDBResponse_fieldAccessorTable
+        return Chefmate.internal_static_RestoreDbResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Chefmate.RestoreDBResponse.class, Chefmate.RestoreDBResponse.Builder.class);
+                Chefmate.RestoreDbResponse.class, Chefmate.RestoreDbResponse.Builder.class);
       }
 
-      // Construct using Chefmate.RestoreDBResponse.newBuilder()
+      // Construct using Chefmate.RestoreDbResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -13874,23 +13874,23 @@ public final class Chefmate {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Chefmate.internal_static_RestoreDBResponse_descriptor;
+        return Chefmate.internal_static_RestoreDbResponse_descriptor;
       }
 
-      public Chefmate.RestoreDBResponse getDefaultInstanceForType() {
-        return Chefmate.RestoreDBResponse.getDefaultInstance();
+      public Chefmate.RestoreDbResponse getDefaultInstanceForType() {
+        return Chefmate.RestoreDbResponse.getDefaultInstance();
       }
 
-      public Chefmate.RestoreDBResponse build() {
-        Chefmate.RestoreDBResponse result = buildPartial();
+      public Chefmate.RestoreDbResponse build() {
+        Chefmate.RestoreDbResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Chefmate.RestoreDBResponse buildPartial() {
-        Chefmate.RestoreDBResponse result = new Chefmate.RestoreDBResponse(this);
+      public Chefmate.RestoreDbResponse buildPartial() {
+        Chefmate.RestoreDbResponse result = new Chefmate.RestoreDbResponse(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           outputLog_ = outputLog_.getUnmodifiableView();
@@ -13902,16 +13902,16 @@ public final class Chefmate {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Chefmate.RestoreDBResponse) {
-          return mergeFrom((Chefmate.RestoreDBResponse)other);
+        if (other instanceof Chefmate.RestoreDbResponse) {
+          return mergeFrom((Chefmate.RestoreDbResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Chefmate.RestoreDBResponse other) {
-        if (other == Chefmate.RestoreDBResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(Chefmate.RestoreDbResponse other) {
+        if (other == Chefmate.RestoreDbResponse.getDefaultInstance()) return this;
         if (!other.outputLog_.isEmpty()) {
           if (outputLog_.isEmpty()) {
             outputLog_ = other.outputLog_;
@@ -13934,11 +13934,11 @@ public final class Chefmate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Chefmate.RestoreDBResponse parsedMessage = null;
+        Chefmate.RestoreDbResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Chefmate.RestoreDBResponse) e.getUnfinishedMessage();
+          parsedMessage = (Chefmate.RestoreDbResponse) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -14053,27 +14053,27 @@ public final class Chefmate {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:RestoreDBResponse)
+      // @@protoc_insertion_point(builder_scope:RestoreDbResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:RestoreDBResponse)
-    private static final Chefmate.RestoreDBResponse DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:RestoreDbResponse)
+    private static final Chefmate.RestoreDbResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Chefmate.RestoreDBResponse();
+      DEFAULT_INSTANCE = new Chefmate.RestoreDbResponse();
     }
 
-    public static Chefmate.RestoreDBResponse getDefaultInstance() {
+    public static Chefmate.RestoreDbResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<RestoreDBResponse>
-        PARSER = new com.google.protobuf.AbstractParser<RestoreDBResponse>() {
-      public RestoreDBResponse parsePartialFrom(
+    private static final com.google.protobuf.Parser<RestoreDbResponse>
+        PARSER = new com.google.protobuf.AbstractParser<RestoreDbResponse>() {
+      public RestoreDbResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         try {
-          return new RestoreDBResponse(input, extensionRegistry);
+          return new RestoreDbResponse(input, extensionRegistry);
         } catch (RuntimeException e) {
           if (e.getCause() instanceof
               com.google.protobuf.InvalidProtocolBufferException) {
@@ -14085,16 +14085,16 @@ public final class Chefmate {
       }
     };
 
-    public static com.google.protobuf.Parser<RestoreDBResponse> parser() {
+    public static com.google.protobuf.Parser<RestoreDbResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<RestoreDBResponse> getParserForType() {
+    public com.google.protobuf.Parser<RestoreDbResponse> getParserForType() {
       return PARSER;
     }
 
-    public Chefmate.RestoreDBResponse getDefaultInstanceForType() {
+    public Chefmate.RestoreDbResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -14614,90 +14614,90 @@ public final class Chefmate {
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_AWSInstanceId_descriptor;
+    internal_static_AwsInstanceId_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_AWSInstanceId_fieldAccessorTable;
+      internal_static_AwsInstanceId_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_CreateVMRequest_descriptor;
+    internal_static_CreateVmRequest_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_CreateVMRequest_fieldAccessorTable;
+      internal_static_CreateVmRequest_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_InitCHEFRepoRequest_descriptor;
+    internal_static_InitChefRepoRequest_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_InitCHEFRepoRequest_fieldAccessorTable;
+      internal_static_InitChefRepoRequest_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_DestroyVMRequest_descriptor;
+    internal_static_DestroyVmRequest_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_DestroyVMRequest_fieldAccessorTable;
+      internal_static_DestroyVmRequest_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_SSHCredentials_descriptor;
+    internal_static_SshCredentials_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_SSHCredentials_fieldAccessorTable;
+      internal_static_SshCredentials_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_DeployWPAppRequest_descriptor;
+    internal_static_DeployWpAppRequest_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_DeployWPAppRequest_fieldAccessorTable;
+      internal_static_DeployWpAppRequest_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_DeployDBRequest_descriptor;
+    internal_static_DeployDbRequest_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_DeployDBRequest_fieldAccessorTable;
+      internal_static_DeployDbRequest_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_BackupDBRequest_descriptor;
+    internal_static_BackupDbRequest_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_BackupDBRequest_fieldAccessorTable;
+      internal_static_BackupDbRequest_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_RestoreDBRequest_descriptor;
+    internal_static_RestoreDbRequest_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_RestoreDBRequest_fieldAccessorTable;
+      internal_static_RestoreDbRequest_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_ExecuteCookbookRequest_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_ExecuteCookbookRequest_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_CreateVMResponse_descriptor;
+    internal_static_CreateVmResponse_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_CreateVMResponse_fieldAccessorTable;
+      internal_static_CreateVmResponse_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_DestroyVMResponse_descriptor;
+    internal_static_DestroyVmResponse_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_DestroyVMResponse_fieldAccessorTable;
+      internal_static_DestroyVmResponse_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_InitCHEFRepoResponse_descriptor;
+    internal_static_InitChefRepoResponse_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_InitCHEFRepoResponse_fieldAccessorTable;
+      internal_static_InitChefRepoResponse_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_DeployWPAppResponse_descriptor;
+    internal_static_DeployWpAppResponse_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_DeployWPAppResponse_fieldAccessorTable;
+      internal_static_DeployWpAppResponse_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_DeployDBResponse_descriptor;
+    internal_static_DeployDbResponse_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_DeployDBResponse_fieldAccessorTable;
+      internal_static_DeployDbResponse_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_BackupDBResponse_descriptor;
+    internal_static_BackupDbResponse_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_BackupDBResponse_fieldAccessorTable;
+      internal_static_BackupDbResponse_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_RestoreDBResponse_descriptor;
+    internal_static_RestoreDbResponse_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_RestoreDBResponse_fieldAccessorTable;
+      internal_static_RestoreDbResponse_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_ExecuteCookbookResponse_descriptor;
   private static
@@ -14712,58 +14712,58 @@ public final class Chefmate {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016chefmate.proto\"\033\n\rAWSInstanceId\022\n\n\002id\030" +
-      "\001 \001(\t\"\217\001\n\017CreateVMRequest\022\014\n\004name\030\001 \001(\t\022" +
+      "\n\016chefmate.proto\"\033\n\rAwsInstanceId\022\n\n\002id\030" +
+      "\001 \001(\t\"\217\001\n\017CreateVmRequest\022\014\n\004name\030\001 \001(\t\022" +
       "\013\n\003tag\030\002 \001(\t\022\016\n\006region\030\003 \001(\t\022\017\n\007imageId\030" +
       "\004 \001(\t\022\020\n\010username\030\005 \001(\t\022\024\n\014instanceType\030" +
       "\006 \001(\t\022\030\n\020securityGroupIds\030\007 \003(\t\";\n\023InitC" +
-      "HEFRepoRequest\022$\n\013credentials\030\001 \001(\0132\017.SS" +
-      "HCredentials\"F\n\020DestroyVMRequest\022\"\n\ninst" +
-      "anceId\030\001 \001(\0132\016.AWSInstanceId\022\016\n\006region\030\002" +
-      " \001(\t\"V\n\016SSHCredentials\022\020\n\010username\030\001 \001(\t" +
+      "hefRepoRequest\022$\n\013credentials\030\001 \001(\0132\017.Ss" +
+      "hCredentials\"F\n\020DestroyVmRequest\022\"\n\ninst" +
+      "anceId\030\001 \001(\0132\016.AwsInstanceId\022\016\n\006region\030\002" +
+      " \001(\t\"V\n\016SshCredentials\022\020\n\010username\030\001 \001(\t" +
       "\022\014\n\004host\030\002 \001(\t\022\023\n\013keyfilename\030\003 \001(\t\022\017\n\007t",
-      "imeout\030\004 \001(\005\"\351\001\n\022DeployWPAppRequest\022$\n\013c" +
-      "redentials\030\001 \001(\0132\017.SSHCredentials\022\022\n\nser" +
+      "imeout\030\004 \001(\005\"\351\001\n\022DeployWpAppRequest\022$\n\013c" +
+      "redentials\030\001 \001(\0132\017.SshCredentials\022\022\n\nser" +
       "verName\030\002 \001(\t\022\014\n\004port\030\003 \001(\t\022\016\n\006dbName\030\004 " +
       "\001(\t\022\016\n\006dbHost\030\005 \001(\t\022\016\n\006dbPort\030\006 \001(\t\022\022\n\nd" +
       "bUserName\030\007 \001(\t\022\026\n\016dbUserPassword\030\010 \001(\t\022" +
       "\026\n\016dbRootPassword\030\t \001(\t\022\027\n\017wpConfigOptio" +
-      "ns\030\n \001(\t\"\250\001\n\017DeployDBRequest\022$\n\013credenti" +
-      "als\030\001 \001(\0132\017.SSHCredentials\022\023\n\013serviceNam" +
+      "ns\030\n \001(\t\"\250\001\n\017DeployDbRequest\022$\n\013credenti" +
+      "als\030\001 \001(\0132\017.SshCredentials\022\023\n\013serviceNam" +
       "e\030\002 \001(\t\022\014\n\004port\030\003 \001(\005\022\020\n\010username\030\004 \001(\t\022" +
       "\024\n\014userPassword\030\005 \001(\t\022\016\n\006dbName\030\006 \001(\t\022\024\n",
-      "\014rootPassword\030\007 \001(\t\"\240\001\n\017BackupDBRequest\022" +
-      "$\n\013credentials\030\001 \001(\0132\017.SSHCredentials\022\023\n" +
+      "\014rootPassword\030\007 \001(\t\"\240\001\n\017BackupDbRequest\022" +
+      "$\n\013credentials\030\001 \001(\0132\017.SshCredentials\022\023\n" +
       "\013serviceName\030\002 \001(\t\022\022\n\ndbUsername\030\003 \001(\t\022\026" +
       "\n\016dbUserPassword\030\004 \001(\t\022\016\n\006dbName\030\005 \001(\t\022\026" +
-      "\n\016backupFilename\030\006 \001(\t\"\241\001\n\020RestoreDBRequ" +
-      "est\022$\n\013credentials\030\001 \001(\0132\017.SSHCredential" +
+      "\n\016backupFilename\030\006 \001(\t\"\241\001\n\020RestoreDbRequ" +
+      "est\022$\n\013credentials\030\001 \001(\0132\017.SshCredential" +
       "s\022\023\n\013serviceName\030\002 \001(\t\022\022\n\ndbUsername\030\003 \001" +
       "(\t\022\026\n\016dbUserPassword\030\004 \001(\t\022\016\n\006dbName\030\005 \001" +
       "(\t\022\026\n\016backupFilename\030\006 \001(\t\"\232\001\n\026ExecuteCo" +
-      "okbookRequest\022$\n\013credentials\030\001 \001(\0132\017.SSH",
+      "okbookRequest\022$\n\013credentials\030\001 \001(\0132\017.Ssh",
       "Credentials\022\024\n\014cookbookName\030\002 \001(\t\022\022\n\nrec" +
       "ipeName\030\003 \001(\t\022\026\n\016attributesKeys\030\004 \003(\t\022\030\n" +
-      "\020attributesValues\030\005 \003(\t\"\\\n\020CreateVMRespo" +
-      "nse\022\"\n\ninstanceId\030\001 \001(\0132\016.AWSInstanceId\022" +
-      "\021\n\tpublicDNS\030\002 \001(\t\022\021\n\toutputLog\030\003 \003(\t\"&\n" +
-      "\021DestroyVMResponse\022\021\n\toutputLog\030\001 \003(\t\")\n" +
-      "\024InitCHEFRepoResponse\022\021\n\toutputLog\030\001 \003(\t" +
-      "\"(\n\023DeployWPAppResponse\022\021\n\toutputLog\030\001 \003" +
-      "(\t\"%\n\020DeployDBResponse\022\021\n\toutputLog\030\001 \003(" +
-      "\t\"%\n\020BackupDBResponse\022\021\n\toutputLog\030\001 \003(\t",
-      "\"&\n\021RestoreDBResponse\022\021\n\toutputLog\030\001 \003(\t" +
+      "\020attributesValues\030\005 \003(\t\"\\\n\020CreateVmRespo" +
+      "nse\022\"\n\ninstanceId\030\001 \001(\0132\016.AwsInstanceId\022" +
+      "\021\n\tpublicDns\030\002 \001(\t\022\021\n\toutputLog\030\003 \003(\t\"&\n" +
+      "\021DestroyVmResponse\022\021\n\toutputLog\030\001 \003(\t\")\n" +
+      "\024InitChefRepoResponse\022\021\n\toutputLog\030\001 \003(\t" +
+      "\"(\n\023DeployWpAppResponse\022\021\n\toutputLog\030\001 \003" +
+      "(\t\"%\n\020DeployDbResponse\022\021\n\toutputLog\030\001 \003(" +
+      "\t\"%\n\020BackupDbResponse\022\021\n\toutputLog\030\001 \003(\t",
+      "\"&\n\021RestoreDbResponse\022\021\n\toutputLog\030\001 \003(\t" +
       "\",\n\027ExecuteCookbookResponse\022\021\n\toutputLog" +
-      "\030\001 \003(\t2\252\001\n\006EC2Ops\022/\n\010createVM\022\020.CreateVM" +
-      "Request\032\021.CreateVMResponse\0222\n\tdestroyVM\022" +
-      "\021.DestroyVMRequest\032\022.DestroyVMResponse\022;" +
-      "\n\014initChefRepo\022\024.InitCHEFRepoRequest\032\025.I" +
-      "nitCHEFRepoResponse2\336\001\n\014WordPressOps\0228\n\013" +
-      "deployWPApp\022\023.DeployWPAppRequest\032\024.Deplo" +
-      "yWPAppResponse\022/\n\010deployDB\022\020.DeployDBReq" +
-      "uest\032\021.DeployDBResponse\022/\n\010backupDB\022\020.Ba",
-      "ckupDBRequest\032\021.BackupDBResponse\0222\n\trest" +
-      "oreDB\022\021.RestoreDBRequest\032\022.RestoreDBResp" +
+      "\030\001 \003(\t2\252\001\n\006Ec2Ops\022/\n\010createVm\022\020.CreateVm" +
+      "Request\032\021.CreateVmResponse\0222\n\tdestroyVm\022" +
+      "\021.DestroyVmRequest\032\022.DestroyVmResponse\022;" +
+      "\n\014initChefRepo\022\024.InitChefRepoRequest\032\025.I" +
+      "nitChefRepoResponse2\336\001\n\014WordPressOps\0228\n\013" +
+      "deployWpApp\022\023.DeployWpAppRequest\032\024.Deplo" +
+      "yWpAppResponse\022/\n\010deployDb\022\020.DeployDbReq" +
+      "uest\032\021.DeployDbResponse\022/\n\010backupDb\022\020.Ba",
+      "ckupDbRequest\032\021.BackupDbResponse\0222\n\trest" +
+      "oreDb\022\021.RestoreDbRequest\032\022.RestoreDbResp" +
       "onse2R\n\nGenericOps\022D\n\017executeCookbook\022\027." +
       "ExecuteCookbookRequest\032\030.ExecuteCookbook" +
       "Responseb\006proto3"
@@ -14780,59 +14780,59 @@ public final class Chefmate {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_AWSInstanceId_descriptor =
+    internal_static_AwsInstanceId_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_AWSInstanceId_fieldAccessorTable = new
+    internal_static_AwsInstanceId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_AWSInstanceId_descriptor,
+        internal_static_AwsInstanceId_descriptor,
         new java.lang.String[] { "Id", });
-    internal_static_CreateVMRequest_descriptor =
+    internal_static_CreateVmRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_CreateVMRequest_fieldAccessorTable = new
+    internal_static_CreateVmRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_CreateVMRequest_descriptor,
+        internal_static_CreateVmRequest_descriptor,
         new java.lang.String[] { "Name", "Tag", "Region", "ImageId", "Username", "InstanceType", "SecurityGroupIds", });
-    internal_static_InitCHEFRepoRequest_descriptor =
+    internal_static_InitChefRepoRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_InitCHEFRepoRequest_fieldAccessorTable = new
+    internal_static_InitChefRepoRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_InitCHEFRepoRequest_descriptor,
+        internal_static_InitChefRepoRequest_descriptor,
         new java.lang.String[] { "Credentials", });
-    internal_static_DestroyVMRequest_descriptor =
+    internal_static_DestroyVmRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_DestroyVMRequest_fieldAccessorTable = new
+    internal_static_DestroyVmRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_DestroyVMRequest_descriptor,
+        internal_static_DestroyVmRequest_descriptor,
         new java.lang.String[] { "InstanceId", "Region", });
-    internal_static_SSHCredentials_descriptor =
+    internal_static_SshCredentials_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_SSHCredentials_fieldAccessorTable = new
+    internal_static_SshCredentials_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_SSHCredentials_descriptor,
+        internal_static_SshCredentials_descriptor,
         new java.lang.String[] { "Username", "Host", "Keyfilename", "Timeout", });
-    internal_static_DeployWPAppRequest_descriptor =
+    internal_static_DeployWpAppRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
-    internal_static_DeployWPAppRequest_fieldAccessorTable = new
+    internal_static_DeployWpAppRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_DeployWPAppRequest_descriptor,
+        internal_static_DeployWpAppRequest_descriptor,
         new java.lang.String[] { "Credentials", "ServerName", "Port", "DbName", "DbHost", "DbPort", "DbUserName", "DbUserPassword", "DbRootPassword", "WpConfigOptions", });
-    internal_static_DeployDBRequest_descriptor =
+    internal_static_DeployDbRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
-    internal_static_DeployDBRequest_fieldAccessorTable = new
+    internal_static_DeployDbRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_DeployDBRequest_descriptor,
+        internal_static_DeployDbRequest_descriptor,
         new java.lang.String[] { "Credentials", "ServiceName", "Port", "Username", "UserPassword", "DbName", "RootPassword", });
-    internal_static_BackupDBRequest_descriptor =
+    internal_static_BackupDbRequest_descriptor =
       getDescriptor().getMessageTypes().get(7);
-    internal_static_BackupDBRequest_fieldAccessorTable = new
+    internal_static_BackupDbRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_BackupDBRequest_descriptor,
+        internal_static_BackupDbRequest_descriptor,
         new java.lang.String[] { "Credentials", "ServiceName", "DbUsername", "DbUserPassword", "DbName", "BackupFilename", });
-    internal_static_RestoreDBRequest_descriptor =
+    internal_static_RestoreDbRequest_descriptor =
       getDescriptor().getMessageTypes().get(8);
-    internal_static_RestoreDBRequest_fieldAccessorTable = new
+    internal_static_RestoreDbRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_RestoreDBRequest_descriptor,
+        internal_static_RestoreDbRequest_descriptor,
         new java.lang.String[] { "Credentials", "ServiceName", "DbUsername", "DbUserPassword", "DbName", "BackupFilename", });
     internal_static_ExecuteCookbookRequest_descriptor =
       getDescriptor().getMessageTypes().get(9);
@@ -14840,47 +14840,47 @@ public final class Chefmate {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_ExecuteCookbookRequest_descriptor,
         new java.lang.String[] { "Credentials", "CookbookName", "RecipeName", "AttributesKeys", "AttributesValues", });
-    internal_static_CreateVMResponse_descriptor =
+    internal_static_CreateVmResponse_descriptor =
       getDescriptor().getMessageTypes().get(10);
-    internal_static_CreateVMResponse_fieldAccessorTable = new
+    internal_static_CreateVmResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_CreateVMResponse_descriptor,
-        new java.lang.String[] { "InstanceId", "PublicDNS", "OutputLog", });
-    internal_static_DestroyVMResponse_descriptor =
+        internal_static_CreateVmResponse_descriptor,
+        new java.lang.String[] { "InstanceId", "PublicDns", "OutputLog", });
+    internal_static_DestroyVmResponse_descriptor =
       getDescriptor().getMessageTypes().get(11);
-    internal_static_DestroyVMResponse_fieldAccessorTable = new
+    internal_static_DestroyVmResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_DestroyVMResponse_descriptor,
+        internal_static_DestroyVmResponse_descriptor,
         new java.lang.String[] { "OutputLog", });
-    internal_static_InitCHEFRepoResponse_descriptor =
+    internal_static_InitChefRepoResponse_descriptor =
       getDescriptor().getMessageTypes().get(12);
-    internal_static_InitCHEFRepoResponse_fieldAccessorTable = new
+    internal_static_InitChefRepoResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_InitCHEFRepoResponse_descriptor,
+        internal_static_InitChefRepoResponse_descriptor,
         new java.lang.String[] { "OutputLog", });
-    internal_static_DeployWPAppResponse_descriptor =
+    internal_static_DeployWpAppResponse_descriptor =
       getDescriptor().getMessageTypes().get(13);
-    internal_static_DeployWPAppResponse_fieldAccessorTable = new
+    internal_static_DeployWpAppResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_DeployWPAppResponse_descriptor,
+        internal_static_DeployWpAppResponse_descriptor,
         new java.lang.String[] { "OutputLog", });
-    internal_static_DeployDBResponse_descriptor =
+    internal_static_DeployDbResponse_descriptor =
       getDescriptor().getMessageTypes().get(14);
-    internal_static_DeployDBResponse_fieldAccessorTable = new
+    internal_static_DeployDbResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_DeployDBResponse_descriptor,
+        internal_static_DeployDbResponse_descriptor,
         new java.lang.String[] { "OutputLog", });
-    internal_static_BackupDBResponse_descriptor =
+    internal_static_BackupDbResponse_descriptor =
       getDescriptor().getMessageTypes().get(15);
-    internal_static_BackupDBResponse_fieldAccessorTable = new
+    internal_static_BackupDbResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_BackupDBResponse_descriptor,
+        internal_static_BackupDbResponse_descriptor,
         new java.lang.String[] { "OutputLog", });
-    internal_static_RestoreDBResponse_descriptor =
+    internal_static_RestoreDbResponse_descriptor =
       getDescriptor().getMessageTypes().get(16);
-    internal_static_RestoreDBResponse_fieldAccessorTable = new
+    internal_static_RestoreDbResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_RestoreDBResponse_descriptor,
+        internal_static_RestoreDbResponse_descriptor,
         new java.lang.String[] { "OutputLog", });
     internal_static_ExecuteCookbookResponse_descriptor =
       getDescriptor().getMessageTypes().get(17);
