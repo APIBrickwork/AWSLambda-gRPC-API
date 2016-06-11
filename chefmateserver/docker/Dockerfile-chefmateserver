@@ -34,10 +34,6 @@ RUN dpkg -i chefdk_0.13.21-1_amd64.deb
 RUN rm -f chef_12.10.24-1_amd64.deb
 RUN rm -f chefdk_0.13.21-1_amd64.deb
 
-# Add main.proto to api folder
-RUN mkdir /api
-COPY ./main.proto /api
-
 # Add user
 RUN useradd -ms /bin/bash chefmate
 
@@ -51,7 +47,7 @@ WORKDIR /home/chefmate
 
 # Copy chefmateserver to container
 RUN mkdir /home/chefmate/chefmateserver
-COPY ./chefmateserver-1.1.jar /home/chefmate/chefmateserver
+COPY ./chefmateserver-1.2.jar /home/chefmate/chefmateserver
 
 # Create folder for ssh keys
 RUN mkdir /home/chefmate/.ssh
@@ -67,11 +63,11 @@ EXPOSE 8080
 WORKDIR /home/chefmate/chefmateserver
 
 # Create default chefmateserver config file
-RUN java -jar chefmateserver-1.1.jar -dc
+RUN java -jar chefmateserver-1.2.jar -dc
 
 # Modify config and insert AWS credentials
 RUN sed -i "s/^aws_access_key=.*$/aws_access_key=${awsAccessKey}/" chefmate.conf
 RUN sed -i "s/^aws_secret_access_key=.*$/aws_secret_access_key=${awsSecretAccessKey}/" chefmate.conf
 
 # Initialize
-RUN java -jar chefmateserver-1.1.jar -i
+RUN java -jar chefmateserver-1.2.jar -i
