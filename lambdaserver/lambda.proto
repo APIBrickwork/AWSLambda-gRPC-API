@@ -1,0 +1,150 @@
+syntax = "proto3";
+
+// ########################
+// Lambda Request Messages
+// ########################
+
+
+message AddPersmissionRequest {
+	string Action = 1;
+	string FunctionName = 2;
+	string Principal = 3;
+	string StatementId = 4;
+	string EventSourceToken = 5;
+	string Qualifier = 6;
+	string SourceAccount = 7;
+	string SourceArn = 8;
+}
+
+
+message CreateAliasRequest {
+	string FunctionName = 1;
+	string FunctionVersion = 2;
+	string Name = 3;
+	string Description = 4;
+}
+
+message CreateEventSourceMappingRequest {
+	string EventSourceArn = 1;
+	string FunctionName = 2;
+	string StartingPosition = 3;
+	int32 BatchSize = 4;
+	bool Enabled =5;//*true or false*//
+}
+
+message CreateFunctionRequest {
+	Codes Code = 1;
+	string FunctionName = 2;
+	string Handler = 3;
+	string Role = 4;
+	string Runtime = 5;
+	string Description = 6;
+	int32 MemorySize = 7;
+	bool Publish = 8;
+	int32 Timeout = 10;
+	VpcConfigs VpcConfig =11;
+}
+
+message Codes{
+	string S3Bucket = 1;
+	string S3Key = 2;
+	string S3ObjectVersion = 3;
+	string ZipFile = 4;
+}
+
+message VpcConfigs{
+	repeated string SecurityGroupIds = 1;
+	repeated string SubnetIds = 2;
+}
+
+message DeleteAliasRequest {
+	string FunctionName = 1;
+	string Name = 2;
+}
+
+message DeleteEventSourceMappingRequest {
+	string UUID = 1;
+}
+
+message DeleteFunctionRequest {
+	string FunctionName = 1;
+	string Qualifier = 2;
+}
+
+
+// ################
+// Generic Requests
+// ################
+//message ExecuteCookbookRequest{
+//	SSHCredentials credentials = 1;
+//	string cookbookName = 2;
+//	string recipeName = 3;
+	// Will be written in attributes of the cookbook
+//	repeated string attributesKeys = 4;
+//	repeated string attributesValues = 5;
+//}
+
+// ###################
+// Lambda Responses
+// ###################
+
+message AddPersmissionResponse{
+	repeated string outputLog = 1;
+}
+
+message CreateAliasResponse{
+	repeated string outputLog = 1;
+}
+
+message CreateEventSourceMappingResponse{
+	repeated string outputLog = 1;
+}
+
+message CreateFunctionResponse{
+	repeated string outputLog = 1;
+}
+
+message DeleteAliasResponse{
+	repeated string outputLog = 1;
+}
+
+message DeleteEventSourceMappingResponse{
+	repeated string outputLog = 1;
+}
+
+message DeleteFunctionResponse{
+	repeated string outputLog = 1;
+}
+
+//message CreateVMResponse{
+//	AWSInstanceId instanceId = 1;
+//	string publicDNS = 2;
+//	repeated string outputLog = 3;
+//}
+
+
+// #################
+// Generic Responses
+// #################
+//message ExecuteCookbookResponse{
+//	repeated string outputLog = 1;
+//}
+
+
+// #######################
+// lambda operations services
+// #######################
+
+service LambdaOps {
+	rpc addPersmission(AddPersmissionRequest) returns (AddPersmissionResponse);
+	rpc createAlias(CreateAliasRequest) returns (CreateAliasResponse);
+	rpc createEventSourceMapping(CreateEventSourceMappingRequest) returns (CreateEventSourceMappingResponse);
+	rpc createFunction(CreateFunctionRequest) returns (CreateFunctionResponse);
+	rpc deleteAlias(DeleteAliasRequest) returns (DeleteAliasResponse);
+	rpc deleteEventSourceMapping(DeleteEventSourceMappingRequest) returns (DeleteEventSourceMappingResponse);
+	rpc deleteFunction(DeleteFunctionRequest) returns (DeleteFunctionResponse);
+}
+
+//service GenericOps{
+//	rpc executeCookbook(ExecuteCookbookRequest) returns (ExecuteCookbookResponse);
+//}
