@@ -70,8 +70,14 @@ message DeleteFunctionRequest {
 	string FunctionName = 1;
 	string Qualifier = 2;
 }
-
-
+message GetFunctionRequest {
+	string FunctionName = 1;
+	string Qualifier = 2;
+}
+message ListFunctionsRequest {
+	string Marker = 1;
+	int32 MaxItems = 2;
+}
 // ################
 // Generic Requests
 // ################
@@ -116,6 +122,13 @@ message DeleteFunctionResponse{
 	repeated string outputLog = 1;
 }
 
+message GetFunctionResponse{
+	repeated string outputLog = 1;
+}
+
+message ListFunctionsResponse{
+	repeated string outputLog = 1;
+}
 //message CreateVMResponse{
 //	AWSInstanceId instanceId = 1;
 //	string publicDNS = 2;
@@ -143,6 +156,8 @@ service LambdaOps {
 	rpc deleteAlias(DeleteAliasRequest) returns (DeleteAliasResponse);
 	rpc deleteEventSourceMapping(DeleteEventSourceMappingRequest) returns (DeleteEventSourceMappingResponse);
 	rpc deleteFunction(DeleteFunctionRequest) returns (DeleteFunctionResponse);
+	rpc getFunction(GetFunctionRequest) returns (GetFunctionResponse);
+	rpc listFunctions(ListFunctionsRequest) returns (ListFunctionsResponse);
 }
 
 //service GenericOps{
