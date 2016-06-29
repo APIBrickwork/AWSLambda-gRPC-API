@@ -6,10 +6,10 @@ syntax = "proto3";
 
 
 message AddPersmissionRequest {
-	string Action = 1;
-	string FunctionName = 2;
-	string Principal = 3;
-	string StatementId = 4;
+	string Action = 1;// required
+	string FunctionName = 2;//required
+	string Principal = 3;//required
+	string StatementId = 4;//required
 	string EventSourceToken = 5;
 	string Qualifier = 6;
 	string SourceAccount = 7;
@@ -18,26 +18,26 @@ message AddPersmissionRequest {
 
 
 message CreateAliasRequest {
-	string FunctionName = 1;
-	string FunctionVersion = 2;
-	string Name = 3;
+	string FunctionName = 1;//required
+	string FunctionVersion = 2;//required
+	string Name = 3;//required
 	string Description = 4;
 }
 
 message CreateEventSourceMappingRequest {
-	string EventSourceArn = 1;
-	string FunctionName = 2;
-	string StartingPosition = 3;
+	string EventSourceArn = 1;//required
+	string FunctionName = 2;//required
+	string StartingPosition = 3;//required
 	int32 BatchSize = 4;
-	bool Enabled =5;//*true or false*//
+	bool Enabled =5;//true or false
 }
 
 message CreateFunctionRequest {
-	Codes Code = 1;
+	Codes Code = 1;//required
 	string FunctionName = 2;
 	string Handler = 3;
 	string Role = 4;
-	string Runtime = 5;
+	string Runtime = 5;//'nodejs | nodejs4.3 | java8 | python2.7'
 	string Description = 6;
 	int32 MemorySize = 7;
 	bool Publish = 8;
@@ -46,10 +46,10 @@ message CreateFunctionRequest {
 }
 
 message Codes{
-	string S3Bucket = 1;
-	string S3Key = 2;
-	string S3ObjectVersion = 3;
-	string ZipFile = 4;
+	string S3Bucket = 1;//required
+	string S3Key = 2;//required
+	string S3ObjectVersion = 3;//required   //Either S3 bucket or Zipfile for uploading code
+	string ZipFile = 4;//required
 }
 
 message VpcConfigs{
@@ -58,37 +58,26 @@ message VpcConfigs{
 }
 
 message DeleteAliasRequest {
-	string FunctionName = 1;
-	string Name = 2;
+	string FunctionName = 1;//required
+	string Name = 2;//required
 }
 
 message DeleteEventSourceMappingRequest {
-	string UUID = 1;
+	string UUID = 1;//required
 }
 
 message DeleteFunctionRequest {
-	string FunctionName = 1;
+	string FunctionName = 1;//required
 	string Qualifier = 2;
 }
 message GetFunctionRequest {
-	string FunctionName = 1;
+	string FunctionName = 1;//required
 	string Qualifier = 2;
 }
 message ListFunctionsRequest {
 	string Marker = 1;
 	int32 MaxItems = 2;
 }
-// ################
-// Generic Requests
-// ################
-//message ExecuteCookbookRequest{
-//	SSHCredentials credentials = 1;
-//	string cookbookName = 2;
-//	string recipeName = 3;
-	// Will be written in attributes of the cookbook
-//	repeated string attributesKeys = 4;
-//	repeated string attributesValues = 5;
-//}
 
 // ###################
 // Lambda Responses
@@ -129,20 +118,6 @@ message GetFunctionResponse{
 message ListFunctionsResponse{
 	repeated string outputLog = 1;
 }
-//message CreateVMResponse{
-//	AWSInstanceId instanceId = 1;
-//	string publicDNS = 2;
-//	repeated string outputLog = 3;
-//}
-
-
-// #################
-// Generic Responses
-// #################
-//message ExecuteCookbookResponse{
-//	repeated string outputLog = 1;
-//}
-
 
 // #######################
 // lambda operations services
@@ -159,7 +134,3 @@ service LambdaOps {
 	rpc getFunction(GetFunctionRequest) returns (GetFunctionResponse);
 	rpc listFunctions(ListFunctionsRequest) returns (ListFunctionsResponse);
 }
-
-//service GenericOps{
-//	rpc executeCookbook(ExecuteCookbookRequest) returns (ExecuteCookbookResponse);
-//}

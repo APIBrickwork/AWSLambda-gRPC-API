@@ -7,8 +7,8 @@ AWS.config.update({
     region: 'eu-central-1'
 });
 var host = "0.0.0.0";
-//var port = process.env.LISTEN_PORT;
-var port = 8080;
+var port = process.env.LISTEN_PORT;
+//var port = 8080;
 
 var users = [];
 
@@ -36,6 +36,10 @@ function getServer() {
     return server;
 }
 
+/**
+*Adds a permission to the resource policy associated with the specified AWS Lambda function.
+*@param{json object} call
+*/
 function addPersmission(call, callback) {
     console.log("Received request for addPermission with values:\n" +
         JSON.stringify(call.request));
@@ -58,6 +62,10 @@ function addPersmission(call, callback) {
     });
 }
 
+/**
+*Creates an alias that points to the specified Lambda function version.
+*@param{json object} call
+*/
 function createAlias(call, callback) {
     console.log("Received request for createAlias with values:\n" +
         JSON.stringify(call.request));
@@ -81,7 +89,10 @@ function createAlias(call, callback) {
 
 }
 
-
+/**
+*Identifies a stream as an event source for a Lambda function.
+*@param{json object} call
+*/
 function createEventSourceMapping(call, callback) {
     console.log("Received request for createEventSourceMapping with values:\n" +
         JSON.stringify(call.request));
@@ -104,6 +115,11 @@ function createEventSourceMapping(call, callback) {
     });
 }
 
+/**
+*Creates a new Lambda function. The function metadata is created from the request parameters,
+*and the code for the function is provided by a .zip file/ S3 bucket in the request body.
+*@param{json object} call
+*/
 function createFunction(call, callback) {
     console.log("Received request for createFunction with values:\n" +
         JSON.stringify(call.request));
@@ -126,6 +142,10 @@ function createFunction(call, callback) {
     });
 }
 
+/**
+*Deletes the specified Lambda function alias.
+*@param{json object} call
+*/
 function deleteAlias(call, callback) {
     console.log("Received request for deleteAlias with values:\n" +
         JSON.stringify(call.request));
@@ -148,6 +168,11 @@ function deleteAlias(call, callback) {
     });
 }
 
+/**
+*Removes an event source mapping.
+*This means AWS Lambda will no longer invoke the function for events in the associated source.
+*@param{json object} call
+*/
 function deleteEventSourceMapping(call, callback) {
     console.log("Received request for deleteEventSourceMapping with values:\n" +
         JSON.stringify(call.request));
@@ -170,6 +195,10 @@ function deleteEventSourceMapping(call, callback) {
     });
 }
 
+/**
+*Deletes the specified Lambda function code and configuration.
+*@param{json object} call
+*/
 function deleteFunction(call, callback) {
     console.log("Received request for deleteFunction with values:\n" +
         JSON.stringify(call.request));
@@ -191,6 +220,10 @@ function deleteFunction(call, callback) {
         callback(null, response);
     });
 }
+/****
+*Returns a specific Lambda functions.
+*@param{json object} call
+*/
 function getFunction(call, callback) {
     console.log("Received request for getFunction with values:\n" +
         JSON.stringify(call.request));
@@ -213,6 +246,11 @@ function getFunction(call, callback) {
     });
 }
 
+/****
+*Returns a list of your Lambda functions. For each function,
+*the response includes the function configuration information
+*@param{json object} call
+*/
 function listFunctions(call, callback) {
     console.log("Received request for listFunctions with values:\n" +
         JSON.stringify(call.request));
@@ -234,11 +272,15 @@ function listFunctions(call, callback) {
         callback(null, response);
     });
 }
+
+/****
+*Check empty field in the json parameter.
+*@param{json object} call
+*/
 function checkEmptyField(request) {
     var paramname = [];
     for (var param in request) {
-        //console.log(param);
-        //console.log(request[param]);
+
         console.log('type of ' + param + ' = ' + typeof request[param]);
         if (request[param] === ''||request[param] === 0) {
             paramname.push(param);
@@ -249,10 +291,10 @@ function checkEmptyField(request) {
         }
 
     }
-    //console.log(paramname);
+
     for (var i = 0; i < paramname.length; i++) {
         delete request[paramname[i]];
     }
-    //console.log(request);
+
     return request;
 }
