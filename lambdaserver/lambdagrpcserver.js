@@ -3,12 +3,13 @@ var AWS = require('aws-sdk');
 var grpc = require("grpc");
 var protoDescriptor = grpc.load("./lambda.proto");
 //AWS.config.credentials= new AWS.SharedIniFileCredentials({profile: 'adminuser'});
-AWS.config.update({
-    region: 'eu-central-1'
-});
+// AWS.config.update({
+//     region: 'eu-central-1'
+// });
+AWS.config.loadFromPath('./config.json');
 var host = "0.0.0.0";
-var port = process.env.LISTEN_PORT;
-//var port = 8080;
+//var port = process.env.LISTEN_PORT;
+var port = 8080;
 
 var users = [];
 
