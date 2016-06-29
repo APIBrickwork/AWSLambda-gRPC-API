@@ -1,0 +1,136 @@
+syntax = "proto3";
+
+// ########################
+// Lambda Request Messages
+// ########################
+
+
+message AddPersmissionRequest {
+	string Action = 1;// required
+	string FunctionName = 2;//required
+	string Principal = 3;//required
+	string StatementId = 4;//required
+	string EventSourceToken = 5;
+	string Qualifier = 6;
+	string SourceAccount = 7;
+	string SourceArn = 8;
+}
+
+
+message CreateAliasRequest {
+	string FunctionName = 1;//required
+	string FunctionVersion = 2;//required
+	string Name = 3;//required
+	string Description = 4;
+}
+
+message CreateEventSourceMappingRequest {
+	string EventSourceArn = 1;//required
+	string FunctionName = 2;//required
+	string StartingPosition = 3;//required
+	int32 BatchSize = 4;
+	bool Enabled =5;//true or false
+}
+
+message CreateFunctionRequest {
+	Codes Code = 1;//required
+	string FunctionName = 2;
+	string Handler = 3;
+	string Role = 4;
+	string Runtime = 5;//'nodejs | nodejs4.3 | java8 | python2.7'
+	string Description = 6;
+	int32 MemorySize = 7;
+	bool Publish = 8;
+	int32 Timeout = 10;
+	VpcConfigs VpcConfig =11;
+}
+
+message Codes{
+	string S3Bucket = 1;//required
+	string S3Key = 2;//required
+	string S3ObjectVersion = 3;//required   //Either S3 bucket or Zipfile for uploading code
+	string ZipFile = 4;//required
+}
+
+message VpcConfigs{
+	repeated string SecurityGroupIds = 1;
+	repeated string SubnetIds = 2;
+}
+
+message DeleteAliasRequest {
+	string FunctionName = 1;//required
+	string Name = 2;//required
+}
+
+message DeleteEventSourceMappingRequest {
+	string UUID = 1;//required
+}
+
+message DeleteFunctionRequest {
+	string FunctionName = 1;//required
+	string Qualifier = 2;
+}
+message GetFunctionRequest {
+	string FunctionName = 1;//required
+	string Qualifier = 2;
+}
+message ListFunctionsRequest {
+	string Marker = 1;
+	int32 MaxItems = 2;
+}
+
+// ###################
+// Lambda Responses
+// ###################
+
+message AddPersmissionResponse{
+	repeated string outputLog = 1;
+}
+
+message CreateAliasResponse{
+	repeated string outputLog = 1;
+}
+
+message CreateEventSourceMappingResponse{
+	repeated string outputLog = 1;
+}
+
+message CreateFunctionResponse{
+	repeated string outputLog = 1;
+}
+
+message DeleteAliasResponse{
+	repeated string outputLog = 1;
+}
+
+message DeleteEventSourceMappingResponse{
+	repeated string outputLog = 1;
+}
+
+message DeleteFunctionResponse{
+	repeated string outputLog = 1;
+}
+
+message GetFunctionResponse{
+	repeated string outputLog = 1;
+}
+
+message ListFunctionsResponse{
+	repeated string outputLog = 1;
+}
+
+// #######################
+// lambda operations services
+// #######################
+
+service LambdaOps {
+	rpc addPersmission(AddPersmissionRequest) returns (AddPersmissionResponse);
+	rpc createAlias(CreateAliasRequest) returns (CreateAliasResponse);
+	rpc createEventSourceMapping(CreateEventSourceMappingRequest) returns (CreateEventSourceMappingResponse);
+	rpc createFunction(CreateFunctionRequest) returns (CreateFunctionResponse);
+	rpc deleteAlias(DeleteAliasRequest) returns (DeleteAliasResponse);
+	rpc deleteEventSourceMapping(DeleteEventSourceMappingRequest) returns (DeleteEventSourceMappingResponse);
+	rpc deleteFunction(DeleteFunctionRequest) returns (DeleteFunctionResponse);
+	rpc getFunction(GetFunctionRequest) returns (GetFunctionResponse);
+	rpc listFunctions(ListFunctionsRequest) returns (ListFunctionsResponse);
+}
