@@ -6,7 +6,8 @@ var protoDescriptor = grpc.load("./lambda.proto");
 // AWS.config.update({
 //     region: 'eu-central-1'
 // });
-AWS.config.loadFromPath('./config.json');
+//AWS.config.loadFromPath('./config.json');
+AWS.config.loadFromPath('/api/config.json');
 var host = "0.0.0.0";
 //var port = process.env.LISTEN_PORT;
 var port = 8080;

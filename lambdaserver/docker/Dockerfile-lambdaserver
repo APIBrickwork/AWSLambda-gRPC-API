@@ -12,6 +12,9 @@ EXPOSE 8181
 # Add .proto to api folder
 COPY ./lambda.proto /api/main.proto
 
+# Add .proto to api folder
+COPY ./config.json /api/config.json
+
 # Add user
 RUN useradd -ms /bin/bash lambda
 
