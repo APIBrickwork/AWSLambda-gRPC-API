@@ -9,8 +9,8 @@ var protoDescriptor = grpc.load("./lambda.proto");
 //AWS.config.loadFromPath('./config.json');
 AWS.config.loadFromPath('/api/config.json');
 var host = "0.0.0.0";
-//var port = process.env.LISTEN_PORT;
-var port = 8080;
+var port = process.env.LISTEN_PORT;
+//var port = 8080;
 
 var users = [];
 
