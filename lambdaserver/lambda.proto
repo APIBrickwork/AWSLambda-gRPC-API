@@ -45,6 +45,19 @@ message CreateFunctionRequest {
 	VpcConfigs VpcConfig =11;
 }
 
+message CreateFunctionWithZipRequest {
+	CodesZip Code = 1;//required
+	string FunctionName = 2;
+	string Handler = 3;
+	string Role = 4;
+	string Runtime = 5;//'nodejs | nodejs4.3 | java8 | python2.7'
+	string Description = 6;
+	int32 MemorySize = 7;
+	bool Publish = 8;
+	int32 Timeout = 10;
+	VpcConfigs VpcConfig =11;
+}
+
 message Codes{
 	string S3Bucket = 1;//required
 	string S3Key = 2;//required
@@ -52,6 +65,10 @@ message Codes{
 	string ZipFile = 4;//required
 }
 
+message CodesZip{
+  //Either S3 bucket or Zipfile for uploading code
+	string ZipFile = 4;//required
+}
 message VpcConfigs{
 	repeated string SecurityGroupIds = 1;
 	repeated string SubnetIds = 2;
@@ -79,6 +96,15 @@ message ListFunctionsRequest {
 	int32 MaxItems = 2;
 }
 
+message InvokeFunctionRequest {
+	string FunctionName = 1;//required
+	string ClientContext = 2;
+	string InvocationType = 3;
+	string LogType = 4;
+	string Payload = 5;
+	string Qualifier = 6;
+}
+
 // ###################
 // Lambda Responses
 // ###################
@@ -96,6 +122,10 @@ message CreateEventSourceMappingResponse{
 }
 
 message CreateFunctionResponse{
+	repeated string outputLog = 1;
+}
+
+message CreateFunctionWithZipResponse{
 	repeated string outputLog = 1;
 }
 
@@ -119,6 +149,10 @@ message ListFunctionsResponse{
 	repeated string outputLog = 1;
 }
 
+message InvokeFunctionResponse{
+	repeated string outputLog = 1;
+}
+
 // #######################
 // lambda operations services
 // #######################
@@ -128,9 +162,11 @@ service LambdaOps {
 	rpc createAlias(CreateAliasRequest) returns (CreateAliasResponse);
 	rpc createEventSourceMapping(CreateEventSourceMappingRequest) returns (CreateEventSourceMappingResponse);
 	rpc createFunction(CreateFunctionRequest) returns (CreateFunctionResponse);
+	rpc createFunctionWithZip(CreateFunctionWithZipRequest) returns (CreateFunctionWithZipResponse);
 	rpc deleteAlias(DeleteAliasRequest) returns (DeleteAliasResponse);
 	rpc deleteEventSourceMapping(DeleteEventSourceMappingRequest) returns (DeleteEventSourceMappingResponse);
 	rpc deleteFunction(DeleteFunctionRequest) returns (DeleteFunctionResponse);
 	rpc getFunction(GetFunctionRequest) returns (GetFunctionResponse);
 	rpc listFunctions(ListFunctionsRequest) returns (ListFunctionsResponse);
+	rpc invokeFunction(InvokeFunctionRequest) returns (InvokeFunctionResponse);
 }

@@ -113,6 +113,34 @@ function sendCreateFunctionRequest() {
         });
 }
 
+function sendCreateFunctionWithZipRequest() {
+    var request = {
+        Code: { /* required */
+
+            ZipFile: base64_encode('//home/somesh/LambdaFunctionOverHttps.zip')
+        },
+        FunctionName: 'LambdaFunctionOverHttps',/* required */
+        Handler: 'LambdaFunctionOverHttps.handler',/* required */
+        Role: 'arn:aws:iam::927707579246:role/lambda_basic_execution',/* required */
+        Runtime: 'nodejs4.3',//'nodejs | nodejs4.3 | java8 | python2.7',/* required */
+        Description: 'Nodejs testing ',
+        MemorySize: 128,
+        Publish: true
+
+    };
+    console.log("Using request:\n" + JSON.stringify(request));
+
+    servicestub.createFunctionWithZip(request,
+        function(err, response) {
+            if (err) {
+                console.log("Error when calling noStream: " + err);
+            } else {
+                console.log("Received response:\n" + JSON.stringify(response));
+            }
+        });
+}
+
+
 function sendDeleteAliasRequest() {
     var request = {
         FunctionName: 'hello-world-nodejs1',/* required */
@@ -195,9 +223,33 @@ function sendListFunctionsRequest() {
         });
 }
 
+function sendInvokeFunctionRequest() {
+    var request = {
+        FunctionName: 'hello-world-nodejs', //'STRING_VALUE'/* required */
+        //  Qualifier: ''//'STRING_VALUE'
+    };
+    console.log("Using request:\n" + JSON.stringify(request));
+
+    servicestub.listFunctions(request,
+        function(err, response) {
+            if (err) {
+                console.log("Error when calling deleteFunction: " + err);
+            } else {
+                console.log("Received response:\n" + JSON.stringify(response));
+            }
+        });
+}
+// function to encode file data to base64 encoded string
+function base64_encode(file) {
+    // read binary data
+    var zipFile = fs.readFileSync(file);
+    // convert binary data to base64 encoded string
+    return new Buffer(zipFile).toString('base64');
+}
+
 function main() {
     async.series([
-        sendListFunctionsRequest
+        sendCreateFunctionWithZipRequest
     ]);
 }
 
@@ -214,3 +266,5 @@ exports.sendDeleteEventSourceMappingRequest = sendDeleteEventSourceMappingReques
 exports.sendDeleteFunctionRequest = sendDeleteFunctionRequest;
 exports.sendGetFunctionRequest = sendGetFunctionRequest;
 exports.sendListFunctionsRequest = sendListFunctionsRequest;
+exports.sendInvokeFunctionRequest = sendInvokeFunctionRequest;
+exports.sendCreateFunctionWithZipRequest = sendCreateFunctionWithZipRequest;
