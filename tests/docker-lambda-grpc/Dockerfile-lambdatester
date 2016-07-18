@@ -1,0 +1,27 @@
+FROM node
+MAINTAINER Tobias Freundorfer, https://github.com/tfreundo
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y git && \
+    apt-get install -y netcat
+
+# Install nodeunit project globally
+RUN npm --quiet install -g nodeunit
+
+# Add user
+RUN useradd -ms /bin/bash tester
+
+USER tester
+WORKDIR /home/tester
+
+# Clone APIAdapter repo
+RUN git clone https://github.com/APIBrickwork/AWSLambda-gRPC-API.git
+
+# Install all necessary modules using npm
+RUN export NODE_PATH=$NODEPATH:/home/tester/AWSLambda-gRPC-API/tests/testscripts-lambda-grpc
+WORKDIR /home/tester/AWSLambda-gRPC-API/tests/testscripts-lambda-grpc
+RUN npm --quiet install
+
+# Start Unit-Tests
+CMD ["sh", "startUnitTests.sh"]

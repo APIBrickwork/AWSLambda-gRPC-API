@@ -1,0 +1,17 @@
+{
+  "name": "testscripts-lambda-grpc",
+  "version": "1.0.0",
+  "description": "Test script for the usage of LambdaServer with gRPC.",
+  "main": "lambdatests.js",
+  "dependencies": {
+    "protobufjs": "^5.0.1",
+    "grpc": "^0.14.1",
+    "nodeunit": "^0.9.1",
+    "async": "^1.5.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rezzakulhaider (https://github.com/RezzakulHaider), someshdas (https://github.com/someshdas)",
+  "license": "MIT"
+}

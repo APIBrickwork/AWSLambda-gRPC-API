@@ -1,0 +1,19 @@
+version: '2'
+services:
+
+  lambdaserver:
+    build:
+      context: .
+      dockerfile: Dockerfile-lambdaserver
+    environment:
+      LISTEN_PORT: 8181
+
+  tester:
+    build:
+      context: .
+      dockerfile: Dockerfile-lambdatester
+    links:
+      - lambdaserver
+    environment:
+      API_HOST: lambdaserver
+      API_PORT: 8181
