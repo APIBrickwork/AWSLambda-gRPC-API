@@ -1,23 +1,25 @@
-# LabCourse-group4-SS2016
-This is the public repository for the LabCourse 'Cloud Architectures and Management' taken in SS2016 with Johannes Wettinger.
+# lambdagrpcserver
 
-## chefmateclient (deprecated)
-The java (+maven) client implementation for Assignment 2 - Task 2.3 & 2.5
+This is lambdagrpcserver offering AWS Lambda Functionality through a gRPC API.
 
-## chefmateserver
-The java (+maven) server implementation for Assignment 2 - Task 2.3 & 2.5.
+## credentials setup for aws sdk
+```
+[default]
+aws_access_key_id = your_access_key
+aws_secret_access_key = your_secret_key
 
-See the architectural documentation [here](https://github.com/tfreundo/LabCourse-group4-SS2016/wiki/ChefMateServer-Architecture)
+[adminuser]
+aws_access_key_id = your_access_key
+aws_secret_access_key = your_secret_key
+```
 
-## lambdaserver
-A gRPC Server for AWS lambda.
+## config setup for aws sdk
 
-## webshopclient
-The java (+maven) client implementation for Assignment 2 - Task 2.1 & 2.2.
-
-## webshopserver
-The java (+maven) server implementation for Assignment 2 - Task 2.1 & 2.2.
-
-
-
-
+```
+[default]
+output = json
+region = eu-central-1
+[profile adminuser]
+output = json
+region = eu-central-1
+```
