@@ -2,6 +2,7 @@
 var grpc = require("grpc");
 var async = require("async");
 var protoDescriptor = grpc.load("./lambda.proto");
+var fs = require('fs');
 
 var grpcHost = "0.0.0.0";
 var grpcPort = 8080;
@@ -117,7 +118,7 @@ function sendCreateFunctionWithZipRequest() {
     var request = {
         Code: { /* required */
 
-            ZipFile: base64_encode('//home/somesh/LambdaFunctionOverHttps.zip')
+            ZipFile: base64_encode('./LambdaFunctionOverHttps.zip')
         },
         FunctionName: 'LambdaFunctionOverHttps',/* required */
         Handler: 'LambdaFunctionOverHttps.handler',/* required */
@@ -244,7 +245,8 @@ function base64_encode(file) {
     // read binary data
     var zipFile = fs.readFileSync(file);
     // convert binary data to base64 encoded string
-    return new Buffer(zipFile).toString('base64');
+     return new Buffer(zipFile).toString('base64');
+      //return new Buffer(zipFile).toString();
 }
 
 function main() {

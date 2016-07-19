@@ -6,11 +6,11 @@ var protoDescriptor = grpc.load("./lambda.proto");
 // AWS.config.update({
 //     region: 'eu-central-1'
 // });
-//AWS.config.loadFromPath('./config.json');
-AWS.config.loadFromPath('/api/config.json');
+AWS.config.loadFromPath('./config.json');
+//AWS.config.loadFromPath('/api/config.json');
 var host = "0.0.0.0";
-var port = process.env.LISTEN_PORT;
-//var port = 8080;
+//var port = process.env.LISTEN_PORT;
+var port = 8080;
 
 var users = [];
 
@@ -154,10 +154,12 @@ function createFunction(call, callback) {
 function createFunctionWithZip(call, callback) {
     console.log("Received request for createFunction with zip file, values:\n" +
         JSON.stringify(call.request));
-    var param = checkEmptyField(call.request);
+    var parambase = checkEmptyField(call.request);
+    var param = base64_decode(parambase);
+    console.log(param);
     var lambda = new AWS.Lambda();
     var response;
-    lambda.createFunctionWithZip(param, function(err, data) {
+    lambda.createFunction(param, function(err, data) {
         if (err) {
             console.log("Error Error Message\n");
             console.log(err, err.stack); // an error occurred
@@ -355,4 +357,13 @@ function checkEmptyField(request) {
     }
 
     return request;
+}
+
+function base64_decode(parambase) {
+    // create buffer object from base64 encoded string, it is important to tell the constructor that the string is base64 encoded
+    console.log("base64");
+    console.log(parambase['Code']['ZipFile']);
+    var zipfile = new Buffer(parambase['Code']['ZipFile'], 'base64');
+    parambase['Code']['ZipFile'] = zipfile;
+    return parambase;
 }
